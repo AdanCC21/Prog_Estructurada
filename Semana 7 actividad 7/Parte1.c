@@ -1,5 +1,9 @@
+/*Gonzalez Ceseña Adan 372799
+Leer una cadena e imprimirla de diferentes formas (ENSENADA, ADANESNE etc)
+25/09/2023
+Actv_7_1_932*/
+
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 //Prototipos
