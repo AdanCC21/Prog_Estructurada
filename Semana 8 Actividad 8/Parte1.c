@@ -45,6 +45,8 @@ int menu ()
 
 int opciones ()
 {
+    //Creo que hay que declarar el vector aqui mero int vect1[n] y enviarsela en la funcion osea (vector)
+    int vect1[9],vect2[9],vect3[19];
     int op;
     do
     {
@@ -140,8 +142,7 @@ void vector1yvector2 ()
 void imprimir ()
 {
     int n;
-    vect1[9]=manualmente();
-    printf("%s",vect1);
+    
 
 }
 void llenar4x4 ()
