@@ -45,7 +45,7 @@ int menu ()
 
 int opciones ()
 {
-    //Creo que hay que declarar el vector aqui mero int vect1[n] y enviarsela en la funcion osea (vector)
+    //Creo que hay que declarar el vector aqui mero int vect1[ n ] y enviarsela en la funcion osea (vector)
     int vect1[9],vect2[9],vect3[19];
     int op;
     do
@@ -123,7 +123,7 @@ void aleatoriamente ()
     int i,n;
     for(i=0;i<10;i++)
     {
-        n=rand()%(70-30+1)+30;
+        n=rand()%(20-1+1)+1; //Falta poner que no se reptian
         vect2[i] = n;
     }
     printf("Posiciones llenas\n");
