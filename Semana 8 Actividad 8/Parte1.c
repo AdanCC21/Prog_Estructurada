@@ -10,9 +10,9 @@ Actv_8_1_932*/
 int menu ();
 int opciones ();
 int valid (char msj[],int ri, int rf);
-void manualmente ();
-void aleatoriamente ();
-void vector1yvector2 ();
+void manualmente (int vect1[], int n);
+void aleatoriamente (int vect2[], int m);
+void vector1yvector2 (int vect1[], int vect2[], int vect3[], int p);
 void imprimir ();
 void llenar4x4 ();
 void imprimirmatriz ();
@@ -31,6 +31,7 @@ int main ()
 int menu ()
 {
     int op;
+    system("CLS");
     printf("\t Menu\n");
     printf("1.-Llenar vector manualmente\n");
     printf("2.-Llenar vector Aleatorio\n");
@@ -45,7 +46,7 @@ int menu ()
 
 int opciones ()
 {
-    //Creo que hay que declarar el vector aqui mero int vect1[ n ] y enviarsela en la funcion osea (vector)
+    //Definir vectores
     int vect1[9],vect2[9],vect3[19];
     int op;
     do
@@ -54,16 +55,16 @@ int opciones ()
         switch (op)
         {
             case 1:
-                manualmente();
+                manualmente(vect1, 9);
                 break;
             case 2:
-                aleatoriamente();
+                aleatoriamente(vect2, 9);
                 break;
             case 3:
-                vector1yvector2();
+                vector1yvector2(vect1, vect2, vect3, 19);
                 break;
             case 4:
-                imprimir();
+                imprimir(vect1, 9, vect2, 9, vect3, 19);;
                 break;
             case 5:
                 llenar4x4();
@@ -101,27 +102,23 @@ int valid (char msj[],int ri, int rf)
     return n;
 }
 
-void manualmente ()
+void manualmente (int vect1[], int n)
 {
-    system("cls");
-    int vect1 [9];
-    int i,n;
-    for(i=0;i<10;i++)
+    int i,ny;
+    for(i=0;i<=n;i++)
     {
         printf("Posicion numero %d\n",i);
-        n=valid("Llenado de vector manualmente\nIngrese numero por numero del 30 al 70",30,70);
-        vect1[i] = n;
+        ny=valid("Ingrese numero por numero del 30 al 70",30,70);
+        vect1[i] = ny;
     }
     printf("Posiciones llenas\n");
     system("pause");
 }
 
-void aleatoriamente ()
+void aleatoriamente (int vect2[], int m)
 {
-    system("cls");
-    int vect2 [9];
     int i,n;
-    for(i=0;i<10;i++)
+    for(i=0;i<=m;i++)
     {
         n=rand()%(20-1+1)+1; //Falta poner que no se reptian
         vect2[i] = n;
@@ -129,25 +126,70 @@ void aleatoriamente ()
     printf("Posiciones llenas\n");
     system("pause");
 }
-void vector1yvector2 ()
+
+void vector1yvector2 (int vect1[], int vect2[], int vect3[], int p)
 {
-    int vect3[19];
-    manualmente();
-    aleatoriamente();
-    for(int i=0;i<20;i++)
+    int i;
+    p++; //Normalmente 20 posiciones serian 19 contando el 0, asi que para que p/2 de un numero entero sin decimales lo incrementamos a 20
+
+    //llenamos la 1ra mitad con el vector 1
+    for(i=0;i<p/2;i++)
     {
-        
+        vect3[i]=vect1[i]; 
     }
+
+    //llenamos la 2da mitad con el vector 2
+    for(i=p/2;i<p;i++)
+    {
+        //Al vector 2 le restamos la mitad de p para que inicialize en 0
+        vect3[i]=vect2[i-p/2];
+    }
+    p--; //Lo regresamos a 19
+
+    printf("El vector se a llenado\n");
+    system("PAUSE");
 }
-void imprimir ()
+void imprimir (int vect1[], int n, int vect2[], int m, int vect3[], int p)
 {
-    int n;
-    
+    int i,op,sal;
+    do
+    {
+        printf("Que vector desea imprimir?\n");
+        op=valid("1.-Vector 1, 2.-Vector 2, 3.-Vector 3", 1, 3);
+        if(op==1)
+        {
+            printf("Vector 1\n");
+            for(i=0;i<=n;i++)
+            {
+                printf(" %d ",vect1[i]);
+            }
+        }
+        if(op==2)
+        {
+            printf("Vector 2\n");
+            for(i=0;i<=m;i++)
+            {
+                printf(" %d ",vect2[i]);
+            }
+        }
+        if(op==3)
+        {
+            printf("Vector 3\n");
+            for(i=0;i<=p;i++)
+            {
+                printf(" %d ",vect3[i]);
+            }
+        }
+        printf("Desea repeitr?\n");
+        sal=valid("1.-Salir 2.-Repetir",1,2);
+    }
+    while(sal==2);
 
 }
 void llenar4x4 ()
 {
-
+    int i;
+    //restarle 2 a cada vector 1 y 2, y para llenarlo hace de que, matriz[i][j], los primeros 8 osea 7 posiciones llenarlos con vect1 matriz[3][2] y las ultimas 8 llenarlas con vect2
 }
 void imprimirmatriz ()
 {
