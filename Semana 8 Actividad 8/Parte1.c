@@ -1,8 +1,22 @@
 /*Gonzalez Ceseña Adan 372799
+
 Parte 1
+    1.- LLENAR VECTOR 1 (MANUALMENTE)
+    2.- LLENAR VECTOR 2 ALEATORIAMENTE
+    3.- LLENAR VECTOR 3 (CON VECTOR1 Y VECTOR2)
+    4.- IMPRIMIR VECTORES
+    5.- LLENA MATRIZ 4 X 4
+    6.- IMPRIMIR MATRIZ
+NOTA: EL PROGRAMA DEBERÁ REPETIRSE CUANTAS VECES LO DESEE EL USUARIO
+NOTA 2: EL VECTOR 1 DE 10 POSICIONES, NÚMEROS DEL 30 AL 70 
+NOTA 3: EL VECTOR 2 DE 10 POSICIONES CON NÚMEROS GENERADOS ALEATORIAMENTE DEL 1 AL 20 ( SIN REPETIR)
+NOTA 4: EL VECTOR 3 DE 20 POSICIONES, CON LOS DATOS DEL ARREGLO1 Y ARREGLO2 
+NOTA 5: MATRIZ 4 X 4 LLENARLA CON LOS DATOS DEL VECTOR1 Y VECTOR2, 
+
 09/26/2023
 Actv_8_1_932*/
 #include <stdio.h>
+#include <string.h>
 #include <time.h>
 #include <stdlib.h>
 
@@ -13,12 +27,10 @@ int valid (char msj[],int ri, int rf);
 void manualmente (int vect1[], int n);
 void aleatoriamente (int vect2[], int m);
 void vector1yvector2 (int vect1[], int vect2[], int vect3[], int p);
-void imprimir ();
-void llenar4x4 ();
+void imprimir (int vect1[], int n, int vect2[], int m, int vect3[], int p);
+void llenar4x4(int vect1[], int n, int vect2[], int m, int mat[][4]);
 void imprimirmatriz ();
 
-
-    /*int aleatorio = rand() %(10-0+1)+0;*/
 
 //Main
 int main ()
@@ -48,6 +60,7 @@ int opciones ()
 {
     //Definir vectores
     int vect1[9],vect2[9],vect3[19];
+    int mat[4][4];
     int op;
     do
     {
@@ -67,16 +80,17 @@ int opciones ()
                 imprimir(vect1, 9, vect2, 9, vect3, 19);;
                 break;
             case 5:
-                llenar4x4();
+                llenar4x4(vect1, 9, vect2, 9, mat);
                 break;
             case 6:
-                imprimirmatriz();
+                imprimirmatriz(mat);
                 break;
         }
     }
     while(op!=0);
     system("cls");
     printf("Buen dia\n");
+    return 0;
 }
 
 int valid (char msj[],int ri, int rf)
@@ -117,10 +131,23 @@ void manualmente (int vect1[], int n)
 
 void aleatoriamente (int vect2[], int m)
 {
-    int i,n;
+    int i,n,j,band;
     for(i=0;i<=m;i++)
     {
-        n=rand()%(20-1+1)+1; //Falta poner que no se reptian
+        do
+        {
+            band = 0; // Reinicia bandera
+            n=rand()%(20-1+1)+1;
+
+            // Validar en cada espacio el numero
+            for (j = 0; j <= i; j++)
+            {
+                if (vect2[j] == n)
+                {
+                    band = 1;
+                }
+            }
+        } while (band != 0);
         vect2[i] = n;
     }
     printf("Posiciones llenas\n");
@@ -149,6 +176,7 @@ void vector1yvector2 (int vect1[], int vect2[], int vect3[], int p)
     printf("El vector se a llenado\n");
     system("PAUSE");
 }
+
 void imprimir (int vect1[], int n, int vect2[], int m, int vect3[], int p)
 {
     int i,op,sal;
@@ -180,18 +208,51 @@ void imprimir (int vect1[], int n, int vect2[], int m, int vect3[], int p)
                 printf(" %d ",vect3[i]);
             }
         }
-        printf("Desea repeitr?\n");
+        printf("\nDesea repeitr?\n");
         sal=valid("1.-Salir 2.-Repetir",1,2);
     }
     while(sal==2);
 
 }
-void llenar4x4 ()
-{
-    int i;
-    //restarle 2 a cada vector 1 y 2, y para llenarlo hace de que, matriz[i][j], los primeros 8 osea 7 posiciones llenarlos con vect1 matriz[3][2] y las ultimas 8 llenarlas con vect2
-}
-void imprimirmatriz ()
-{
 
+void llenar4x4(int vect1[], int n, int vect2[], int m, int mat[][4])
+{
+    int i,j, k;
+    //restarle 2 a cada vector 1 y 2, y para llenarlo hace de que, matriz[i][j], los primeros 8 osea 7 posiciones llenarlos con vect1 matriz[3][2] y las ultimas 8 llenarlas con vect2
+    for(i=0,k=0;i<4;i++)
+    {
+        for(j=0;j<4;j++,k++)
+        {
+            if(k<=n)
+            {
+                mat[i][j]=vect1[k];
+            }
+            else
+            {
+                if(k<(n+m))
+                {
+                    mat[i][j]=vect2[k-m];
+                }
+                else
+                {
+                    mat[i][j]=0;
+                }
+            }
+        }
+    }
+    printf("Matriz Completa\n");
+    system("PAUSE");
+}
+
+void imprimirmatriz (int mat[][4])
+{
+    int i,j;
+    for(i=0;i<4;i++)
+    {
+        for(j=0;j<4;j++)
+        {
+            printf("%d ",mat[i][j]);
+        }
+    }
+    system("PAUSE");
 }
