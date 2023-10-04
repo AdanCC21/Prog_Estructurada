@@ -74,18 +74,27 @@ int opci()
 
 void llenadov (int vect1[],int n)
 {
-    int c,band;
-    c=rand () % (200-100+1)+100;
-    do
+    int i,num,j,band;
+    for(i=0;i<=n;i++)
     {
-        
+        do
+        {
+            band = 0; // Reinicia bandera
+            num=rand()%(20-1+1)+1;
+
+            // Validar en cada espacio el numero
+            for (j = 0; j <= i; j++)
+            {
+                if (vect1[j] == num)
+                {
+                    band = 1;
+                }
+            }
+        } while (band != 0);
+        vect1[i] = num;
     }
-    while (band!=0);
-}
-
-void llenadov (int vect1[], int n)
-{
-
+    printf("Posiciones llenas\n");
+    system("pause");
 }
 
 void llenadom (int mat[][4], int n, int m);
