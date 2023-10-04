@@ -97,7 +97,10 @@ void llenadov (int vect1[],int n)
     system("pause");
 }
 
-void llenadom (int mat[][4], int n, int m);
+void llenadom (int mat[][4], int n, int m)
+{
+    
+}
 
 
 void imprv (int vect1[], int n);
