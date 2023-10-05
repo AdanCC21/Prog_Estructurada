@@ -39,6 +39,7 @@ int main()
 
 int menu ()
 {
+    system("CLS");
     int op;
     printf("\tMENU\n");
     printf("1.-Llenar vector\n");
@@ -47,7 +48,7 @@ int menu ()
     printf("4.-Imprimir matriz\n");
     printf("5.-Ordenar vector\n");
     printf("6.-Buscar valor en vector\n");
-    printf("0.-Salir");
+    printf("0 o Enter.-Salir");
     op = valid("Escoja una opcion",0,6);
     return op;
 }
@@ -81,11 +82,11 @@ int opci()
                 orden(vect1, n1);
                 break;
             case 6:
-                search(vect1,n);
+                search(vect1,n1);
                 break;
         }
     }
-    while(op!=0);
+    while(op>0);
     printf("Buen dia\n");
     return 0;
 }
@@ -190,7 +191,6 @@ void search (int vect[], int n)
     num=atoi(cad);
 
     pos=bus_sec(vect,n,num);
-    printf("\n");
 
     if(pos!=-1)
     {
