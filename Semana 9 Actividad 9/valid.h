@@ -1,7 +1,7 @@
 #include <stdio.h>
 int valid (char msj[],int ri, int rf)
 {
-    int n;
+    int n,band=0;
     do
     {
         printf("%s\n",msj);
@@ -9,15 +9,17 @@ int valid (char msj[],int ri, int rf)
         if(n>rf)
         {
             printf("Opcion invalida, intente de nuevo\n");
+            band=1;
         }
         else
         {
             if(n<ri)
             {
                 printf("Opcion invalida, intente de nuevo\n");
+                band=1;
             }
         }
     }
-    while(n>rf || n<ri);
+    while(band!=0);
     return n;
 }
