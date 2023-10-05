@@ -99,7 +99,16 @@ void llenadov (int vect1[],int n)
 
 void llenadom (int mat[][4], int n, int m)
 {
-    
+    int i,j;
+    m=4;
+    for(i=0;i<=n;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+            
+
+        }
+    }
 }
 
 
