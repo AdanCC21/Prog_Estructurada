@@ -86,3 +86,4 @@ int opci ()
     }
     while(salid!=1);
 }
+
