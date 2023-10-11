@@ -31,6 +31,14 @@ Actv_10_932*/
 //      Prototipos      //
 int opci ();
 int menu ();
+
+void agregar ();
+void agregm ();
+void elimr ();
+void busc ();
+void ordenar ();
+void imprim ();
+
 //No pongas el curp en la libreria jaja ya despues agregala
 
 //          Main            //
@@ -66,16 +74,16 @@ int opci ()
         switch(op)
         {
             case 1:
-
+                agregar();
                 break;
             case 2:
-
+                agregm();
                 break;
             case 3:
-
+                elimr();
                 break;
             case 4:
-
+                busc();
                 break;
             case 5:
 
@@ -86,4 +94,21 @@ int opci ()
     }
     while(salid!=1);
 }
+
+void agregar ();
+
+
+void agregm ();
+
+
+void elimr ();
+
+
+void busc ();
+
+
+void ordenar ();
+
+
+void imprim ();
 
