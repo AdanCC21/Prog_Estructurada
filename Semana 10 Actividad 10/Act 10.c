@@ -29,6 +29,7 @@ Actv_10_932*/
 #include "libad.h"
 
 //      Prototipos      //
+
 int opci ();
 int menu ();
 
@@ -39,9 +40,14 @@ void busc ();
 void ordenar ();
 void imprim ();
 
+void gen_h (); //Nombres de hombres
+void gen_m (); //Nombres de mujeres
+
 //No pongas el curp en la libreria jaja ya despues agregala
+//Podemos usar las funciones str etc
 
 //          Main            //
+
 int main()
 {
     opci();
@@ -49,6 +55,8 @@ int main()
 }
 
 //      Funciones       //
+
+//  Menu
 
 int menu ()
 {
@@ -64,6 +72,8 @@ int menu ()
     op=valid("Seleccione una opcion",0,6);
     return op;
 }
+
+// Opciones
 
 int opci ()
 {
@@ -86,29 +96,45 @@ int opci ()
                 busc();
                 break;
             case 5:
-
+                ordenar();
                 break;
             case 6:
+                imprim();
         }
         salid=valid("Seleccione 1 para salir, 2 para repetir",1,2);
     }
     while(salid!=1);
+    printf("Que tenga buen dia\n");
 }
 
-void agregar ();
+//  Funciones
 
+void agregar ()
+{
 
-void agregm ();
+}
 
+void agregm ()
+{
 
-void elimr ();
+}
 
+void elimr ()
+{
 
-void busc ();
+}
 
+void busc ()
+{
 
-void ordenar ();
+}
 
+void ordenar ()
+{
 
-void imprim ();
+}
 
+void imprim ()
+{
+
+}
