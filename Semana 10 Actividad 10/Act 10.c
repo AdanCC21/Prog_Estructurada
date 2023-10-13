@@ -26,9 +26,21 @@ Actv_10_932*/
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "libad.h"
 
 //      Prototipos      //
+
+typedef struct alumn
+{
+    char nombre[30];
+    char app[30];
+    char apm[30];
+    int mat;
+    int age;
+    char sex[10];
+    int status;
+} Talum;
 
 int opci ();
 int menu ();
@@ -50,6 +62,7 @@ void gen_m (); //Nombres de mujeres
 
 int main()
 {
+    srand(time(NULL));
     opci();
     return 0;
 }
@@ -111,6 +124,9 @@ int opci ()
 
 void agregar ()
 {
+    int i, c;
+    
+
 
 }
 
