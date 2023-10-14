@@ -1,18 +1,21 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
+#include <time.h>
 
 //Prototipos
 int valid (char msg[],int ri, int rf);
 int bus_sec (int vect [],int n,int num);
 int num_alea_sr (int vect[], int n, int ri, int rf);
 void impr_vect (int vect[],int n);
+int longitudDeCh (char msj[]);
+int longitudDeIn (int msj[]);
 
 //Funciones
 int valid (char msg[],int ri, int rf)
 {
     char cad[50];
     int n;
-    printf("\n");
     do
     {
         printf("%s\n",msg);
@@ -27,6 +30,7 @@ int valid (char msg[],int ri, int rf)
 
         n=atoi(cad);
         //convierte la cadena a int o numero entero pue, ejemplo a en codigo asci vale 65 pero en asci, convierte ese 65 a int valor entero
+
     }
     while(n>rf || n<ri);
     //Mientras n este fuera de rango, repetira
@@ -67,7 +71,6 @@ int num_alea_sr (int vect[], int n, int ri, int rf)
     return 0;
 }
 
-
 void impr_vect (int vect[],int n)
 {
     int i;
@@ -78,3 +81,18 @@ void impr_vect (int vect[],int n)
     printf("\n");
 }
 
+int longitudDeCh (char msj[])
+{
+    //Lanzara los espacios ocupados o mas bn la longitud de un arreglo tipo char
+    int i;
+    for(i=0;msj[i]!='\0';i++);
+    return i-1;
+}
+
+int longitudDeIn (int msj[])
+{
+    //Lanzara los espacios ocupados o mas bn la longitud de un arreglo tipo char
+    int i;
+    for(i=0;msj[i]!='\0';i++);//Curioso tamb funciona el caracter nullo para arreglos de tipo int ya definidos .  _.
+    return i-1;
+}
