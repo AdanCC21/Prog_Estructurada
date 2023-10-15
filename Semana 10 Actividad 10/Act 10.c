@@ -50,7 +50,7 @@ talum AgrAL (talum alumno[], int i);
 talum AgrMn (talum alumno [],int i);
 
 void elimr ();
-int busc (talum alumno[],int n,int mat);
+int buscbin(talum alumno[],int lef,int rig,int mat);
 void ordenar (talum alumno[],int n);
 void imprim (talum alumno[],int n);
 
@@ -92,11 +92,12 @@ int menu ()
 int opci ()
 {
     talum alumno[500];
-    int op,i,j,mat,bus;
+    int op,i,j,bus;
+    int lef, rig, num, n;
     i=0;
     do
     {
-        system("CLS");
+        
         op=menu();
         switch(op)
         {
@@ -140,18 +141,28 @@ int opci ()
 
             //Buscar por matricula
             case 4:
-                printf("Que matricula desea buscar?\n");
-                gets(mat);
+                printf("Busqueda\n");
+                scanf("%d",num);
+                printf("Hola");
+                
+                n=sizeof(alumno) / sizeof(alumno[0]);
+                lef=0;
+                rig=n-1;
 
-                bus=busc(alumno,i,mat);
+                printf("\n %d \n", n);
+                
+                bus=buscbin(alumno,lef, rig, num);
                 if(bus==-1)
                 {
                     printf("No se encontro la matricula\n");
                 }
                 else
                 {
-                    printf("La matricula se encuentra en la posicion");
+                    printf("La matricula se encuentra en la posicion %d ", bus);
+                    printf("%-10s %-10s %-10s %-10s %-5s %-5s %-3s","Matricula","Nombre","Apeido Paterno","Apeido materno","Edad","Genero","Estatus");
+                    printf("%-10d %-10s %-10s %-10s %-5d %-5s %-3d",alumno[bus].mat, alumno[bus].nombre, alumno[bus].app, alumno[bus].apm, alumno[bus].edad, alumno[bus].gen, alumno[bus].status);
                 }
+                system("PAUSE");
                 break;
 
             //Ordenar por matricula
@@ -333,12 +344,36 @@ void elimr ()
 
 }
 
-int busc (talum alumno[],int i,int mat)
+int buscbin(talum alumno[],int lef,int rig,int num) 
 {
-    int i,n;
-    int rig,lef,med;
-    rig = n-1;
-    n=longitudDeIn(alumno);
+    int med;
+
+    while (lef<=rig)
+    {
+        med=lef + (rig - lef) / 2;
+        
+        if(alumno[med].mat==num) //si la matricula coincide con la posicion de med
+        {
+            return med;//retorna la posicion en donde esta el numero que se busca
+        }
+        else
+        {
+            if(alumno[med].mat< num)
+            {
+                lef= med+1;
+            }
+            else
+            {
+                if(alumno[med].mat > num)
+                {
+                    lef=med-1;
+                }
+            }
+        }
+
+    }
+    //Si no encontro el valor esperado retorna -1
+    return -1;
 
 }
 
