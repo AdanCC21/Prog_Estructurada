@@ -43,16 +43,16 @@ typedef struct alumn
     int status;
 } talum;
 
-int opci ();
 int menu ();
+int opci ();
 
 talum AgrAL (talum alumno[], int i);
 talum AgrMn (talum alumno [],int i);
 
 void elimr ();
 void busc ();
-void ordenar ();
-void imprim (talum alumno[]);
+void ordenar (talum alumno[],int n);
+void imprim (talum alumno[],int n);
 
 void namesAL (char nombre[], int gen);
 void apeAL(char apeido[]);
@@ -82,8 +82,8 @@ int menu ()
     printf("4.-Buscar\n");
     printf("5.-Ordenar\n");
     printf("6.-Imprimir\n");
-    printf("0.-Salir\n");
-    op=valid("Seleccione una opcion",0,6);
+    printf("7.-Salir\n");
+    op=valid("Seleccione una opcion",1,7);
     return op;
 }
 
@@ -92,24 +92,42 @@ int menu ()
 int opci ()
 {
     talum alumno[500];
-    int op,i;
-    i=1;
+    int op,i,j;
+    i=0;
     do
     {
+        system("CLS");
         op=menu();
         switch(op)
         {
             case 1:
-                for(i=0;i<=10;i++)
+                if(i<500)
                 {
-                    alumno[i] = AgrAL(alumno,i);
+                    for(j=0;j<10;j++)
+                    {
+                        alumno[i] = AgrAL(alumno,i);
+                        i++;
+                        //Usamos j para generar unicamente 10 nombres e i para cambiar de posiciones de la cadena
+                        //osea que no se esten remplazando siempre las mismas 10 primeras posiciones
+                    }
+                    printf("Cadena llenada\n");
+                    system("PAUSE");
                 }
-                printf("Cadena llena\n");
-                system("PAUSE");
+                else
+                {
+                    printf("Base de datos llena\n");
+                }
                 break;
             case 2:
-                AgrMn(alumno,i); //falta remplazarlo en la lista a la hora de generar los nombres aleatorios:c
-                i++;
+                if(i<500)
+                {
+                    alumno[i] = AgrMn(alumno,i);
+                    i++;
+                }
+                else
+                {
+                    printf("Base de datos llena\n");
+                }
                 break;
             case 3:
                 elimr();
@@ -118,14 +136,21 @@ int opci ()
                 busc();
                 break;
             case 5:
-                ordenar();
+                ordenar(alumno,i);
                 break;
             case 6:
-                imprim(alumno);
+            if(i==0)
+            {
+                printf("Lista vaica\n");
+                system("PAUSE");
+            }
+            else
+            {
+                imprim(alumno,i);
+            }
         }
-        
     }
-    while(op!=0);
+    while(op!=7);
     printf("Que tenga buen dia\n");
     return 0;
 }
@@ -162,7 +187,7 @@ void apeAL(char apeidos[])
 
 talum AgrAL (talum alumno[], int i)
 {
-    int gen,mat;
+    int gen,mat,lon,j;
     char tempName [20], tempApeido[20];
     gen=rand()%(2-1+1)+1;
 
@@ -178,12 +203,22 @@ talum AgrAL (talum alumno[], int i)
     apeAL(tempApeido);
     strcpy(alumno[i].apm,tempApeido);
 
-    //Matricula
+    //Matricula sin repetir matriculas
+    lon=longitudDeIn(alumno[i].mat);
     mat = rand()%(399999-300000+1)+300000;
+
+    for(j=0; j<=lon;j++)
+    {
+        if(mat==alumno[j].mat)
+        {
+            mat = rand()%(399999-300000+1)+300000;
+        }
+    }
     alumno[i].mat = mat;
+    
 
     //edad
-    alumno[i].edad=rand()%(30-17+1)+17;
+    alumno[i].edad=rand()%(50-17+1)+17;
 
     //genero
     if(gen==1)
@@ -204,39 +239,53 @@ talum AgrAL (talum alumno[], int i)
 talum AgrMn (talum alumno[],int i)
 {
     int v;
-    char nombre[20], apeidopt[20], apeidomt[20]; 
+    int tempmat;
     printf("A continuacion ingrese todo lo que se le solicite en mayusculas y sin acentos porfavor\n");
 
     printf("Ingrese el nombre del alumno\n");
     do
     {
-        fgets(nombre,sizeof(nombre),stdin);
-        v=validCh(nombre);
+        gets(alumno[i].nombre);
+        v=validCh(alumno[i].nombre);
     }
     while(v==1);
-    strcpy(alumno[i].nombre,nombre);
 
     printf("Ingrese el apeido paterno\n");
     do
     {
-        fgets(apeidopt,sizeof(apeidopt),stdin);
-        v=validCh(apeidopt);
+        gets(alumno[i].app);
+        v=validCh(alumno[i].app);
     }
     while(v==1);
-    strcpy(alumno[i].app,apeidopt);
-    
 
     printf("Ingrese el apeido materno\n");
     do
     {
-        fgets(apeidomt,sizeof(apeidomt),stdin);
-        v=validCh(apeidomt);
+        gets(alumno[i].apm);
+        v=validCh(alumno[i].apm);
     }
     while(v==1);
-    strcpy(alumno[i].apm,apeidomt);
+
+    //matricula
+
+        tempmat=valid("Ingrese la matricula",300000,399999);
+        for(int j=0;j<=1;j++)
+        {
+            for(int k=0;k<=500;k++) //Buscara en todos los registros
+            {
+                if(tempmat==alumno[k].mat)
+                {
+                    tempmat=valid("Matricula ya ocupada o invalida, intente de nuevo",300000,399999);
+                    j=0;//Regresa el valor de j  a 0 para que se reinicie el for del inicio y vuelva a analizar los 500 campos desde el campo 0
+                }
+            }
+        }
+            
+        
+    alumno[i].mat=tempmat;
     
     //edad
-    alumno[i].edad=valid("Ingrese su edad",17,30);
+    alumno[i].edad=valid("Ingrese su edad",17,100);
     
     //genero
     v=valid("Ingrese su genero\n1.-Hombre 2.-Mujer",1,2);
@@ -249,17 +298,15 @@ talum AgrMn (talum alumno[],int i)
         strcpy(alumno[i].gen,"M");
     }
 
-    //matricula
-    alumno[i].mat=valid("Ingrese la matricula",300000,399999);
-
     //estatus
-    alumno[i].status=valid("Ingrese su estatus (1 o 0)",0,1);
+    alumno[i].status=valid("Ingrese su estatus (1.- Aun en lista, 2.- dado de baja)",1,2);
     
     return alumno[i];
 }
 
 void elimr ()
 {
+    int i;
 
 }
 
@@ -268,21 +315,40 @@ void busc ()
 
 }
 
-void ordenar ()
+void ordenar (talum alumno[], int n)
 {
+    int i,j;
+    talum temp;
+    for(j=0;j<=n;j++)
+    {
+        for(i=j+1;i<=n;i++)
+        {
+            if(alumno[j].mat>alumno[i].mat)
+            {
+                temp=alumno[i];
+                alumno[i]=alumno[j];
+                alumno[j]=temp;
+            }
+        }
+
+    }
+    printf("Ordenada\n");
+    system("PAUSE");
 
 }
 
-void imprim (talum alumno[])
+void imprim (talum alumno[],int n)
 {
-    int i;
-    printf("%-10s %-10s %-10s %-10s %-4s %-5s %-8s\n","Matricula", "Nombre", "ApP", "ApM", "Edad", "Sexo", "Estatus");
-    for(i=0;i<=10;i++)
+    int i,j;
+    j=1;
+    printf("%-3s %-10s %-10s %-10s %-10s %-4s %-5s %-8s\n","Num","Matricula", "Nombre", "ApP", "ApM", "Edad", "Sexo", "Estatus");
+    for(i=0;i<=n;i++)
     {
         //verifique que esta aprobado
         if(alumno[i].status==1)
         {
-            printf("%-10d %-10s %-10s %-10s %-4d %-5s %-8d\n", alumno[i].mat, alumno[i].nombre, alumno[i].app, alumno[i].apm, alumno[i].edad, alumno[i].gen,alumno[i].status);
+            printf("%-3d %-10d %-10s %-10s %-10s %-4d %-5s %-8d\n",j, alumno[i].mat, alumno[i].nombre, alumno[i].app, alumno[i].apm, alumno[i].edad, alumno[i].gen,alumno[i].status);
+            j++;
         }
     }
     system("PAUSE");

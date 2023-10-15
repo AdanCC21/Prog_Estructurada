@@ -30,6 +30,7 @@ int valid (char msg[],int ri, int rf)
 
         n=atoi(cad);
         //convierte la cadena a int o numero entero pue, ejemplo a en codigo asci vale 65 pero en asci, convierte ese 65 a int valor entero
+        
 
     }
     while(n>rf || n<ri);
@@ -91,8 +92,8 @@ int longitudDeCh (char msj[])
 
 int longitudDeIn (int msj[])
 {
-    //Lanzara los espacios ocupados o mas bn la longitud de un arreglo tipo char
-    int i;
-    for(i=0;msj[i]!='\0';i++);//Curioso tamb funciona el caracter nullo para arreglos de tipo int ya definidos .  _.
-    return i-1;
+    //Lanzara los espacios ocupados o mas bn la longitud de un arreglo tipo int 
+    int lon;
+    lon=sizeof(msj)/sizeof(msj[0]);
+    return lon;
 }
