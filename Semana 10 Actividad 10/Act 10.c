@@ -50,7 +50,8 @@ talum AgrAL (talum alumno[], int i);
 talum AgrMn (talum alumno [],int i);
 
 void elimr ();
-int buscbin(talum alumno[],int lef,int rig,int mat);
+int buscsec(talum alumno[], int n,int num);
+int buscbin(talum alumno[],int lef,int rig,int num);
 void ordenar (talum alumno[],int n);
 void imprim (talum alumno[],int n);
 
@@ -94,6 +95,7 @@ int opci ()
     talum alumno[500];
     int op,i,j,bus;
     int lef, rig, num, n;
+    int banO;
     i=0;
     do
     {
@@ -109,6 +111,7 @@ int opci ()
                     {
                         alumno[i] = AgrAL(alumno,i);
                         i++;
+                        banO=0;
                         //Usamos j para generar unicamente 10 nombres e i para cambiar de posiciones de la cadena
                         //osea que no se esten remplazando siempre las mismas 10 primeras posiciones
                     }
@@ -127,6 +130,7 @@ int opci ()
                 {
                     alumno[i] = AgrMn(alumno,i);
                     i++;
+                    banO=0;
                 }
                 else
                 {
@@ -137,30 +141,47 @@ int opci ()
             //Eliminar
             case 3:
                 elimr();
+                banO=0;
                 break;
 
             //Buscar por matricula
             case 4:
                 printf("Busqueda\n");
-                scanf("%d",num);
-                printf("Hola");
-                
-                n=sizeof(alumno) / sizeof(alumno[0]);
-                lef=0;
-                rig=n-1;
-
-                printf("\n %d \n", n);
-                
-                bus=buscbin(alumno,lef, rig, num);
-                if(bus==-1)
+                n=i;
+                if(banO==0)
                 {
-                    printf("No se encontro la matricula\n");
+                    printf("Metodo de secuencial\n");
+                    num=valid("Ingrese la matricula",300000,399999);
+                    bus=buscsec(alumno,n,num);
+                    if(bus==-1)
+                    {
+                        printf("No se encontro la matricula\n");
+                    }
+                    else
+                    {
+                        printf("La matricula se encuentra en la posicion %d \n", bus);
+                        printf("%-10s %-10s %-10s %-10s %-5s %-5s %-3s","Matricula","Nombre","ApPt","ApMt","Edad","Genero","Estatus\n");
+                        printf("%-10d %-10s %-10s %-10s %-5d %-5s %-6d\n",alumno[bus].mat, alumno[bus].nombre, alumno[bus].app, alumno[bus].apm, alumno[bus].edad, alumno[bus].gen, alumno[bus].status);
+                    }
                 }
                 else
                 {
-                    printf("La matricula se encuentra en la posicion %d ", bus);
-                    printf("%-10s %-10s %-10s %-10s %-5s %-5s %-3s","Matricula","Nombre","Apeido Paterno","Apeido materno","Edad","Genero","Estatus");
-                    printf("%-10d %-10s %-10s %-10s %-5d %-5s %-3d",alumno[bus].mat, alumno[bus].nombre, alumno[bus].app, alumno[bus].apm, alumno[bus].edad, alumno[bus].gen, alumno[bus].status);
+                    printf("Busqueda binaria\n");
+                    num=valid("Ingrese la matricula",300000,399999);
+                    lef=0;
+                    rig=n;
+                    
+                    bus=buscbin(alumno,lef, rig, num);
+                    if(bus==-1)
+                    {
+                        printf("No se encontro la matricula\n");
+                    }
+                    else
+                    {
+                        printf("La matricula se encuentra en la posicion %d \n", bus);
+                        printf("%-10s %-10s %-10s %-10s %-5s %-5s %-3s","Matricula","Nombre","ApPt","ApMt","Edad","Genero","Estatus\n");
+                        printf("%-10d %-10s %-10s %-10s %-5d %-5s %-6d\n",alumno[bus].mat, alumno[bus].nombre, alumno[bus].app, alumno[bus].apm, alumno[bus].edad, alumno[bus].gen, alumno[bus].status);
+                    }
                 }
                 system("PAUSE");
                 break;
@@ -168,6 +189,7 @@ int opci ()
             //Ordenar por matricula
             case 5:
                 ordenar(alumno,i);
+                banO=1;
                 break;
 
             //Imprimir listas
@@ -344,10 +366,22 @@ void elimr ()
 
 }
 
+int buscsec(talum alumno[], int n,int num)
+{
+    int i;
+    for(i=0;i<=n;i++)
+    {
+        if(alumno[i].mat==num)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
 int buscbin(talum alumno[],int lef,int rig,int num) 
 {
     int med;
-
     while (lef<=rig)
     {
         med=lef + (rig - lef) / 2;
@@ -355,20 +389,15 @@ int buscbin(talum alumno[],int lef,int rig,int num)
         if(alumno[med].mat==num) //si la matricula coincide con la posicion de med
         {
             return med;//retorna la posicion en donde esta el numero que se busca
+            lef=rig+1;
         }
-        else
+        if(alumno[med].mat< num)
         {
-            if(alumno[med].mat< num)
-            {
-                lef= med+1;
-            }
-            else
-            {
-                if(alumno[med].mat > num)
-                {
-                    lef=med-1;
-                }
-            }
+            lef= med+1;
+        }
+        if(alumno[med].mat > num)
+        {
+            rig=med-1;
         }
 
     }
