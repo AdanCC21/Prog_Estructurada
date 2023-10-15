@@ -50,7 +50,7 @@ talum AgrAL (talum alumno[], int i);
 talum AgrMn (talum alumno [],int i);
 
 void elimr ();
-void busc ();
+int busc (talum alumno[],int n,int mat);
 void ordenar (talum alumno[],int n);
 void imprim (talum alumno[],int n);
 
@@ -87,12 +87,12 @@ int menu ()
     return op;
 }
 
-// Opciones
+//      Opciones    //
 
 int opci ()
 {
     talum alumno[500];
-    int op,i,j;
+    int op,i,j,mat,bus;
     i=0;
     do
     {
@@ -100,6 +100,7 @@ int opci ()
         op=menu();
         switch(op)
         {
+            //Agregar Aleatoriamente
             case 1:
                 if(i<500)
                 {
@@ -118,6 +119,8 @@ int opci ()
                     printf("Base de datos llena\n");
                 }
                 break;
+
+            //Agregar Manualmente
             case 2:
                 if(i<500)
                 {
@@ -129,25 +132,44 @@ int opci ()
                     printf("Base de datos llena\n");
                 }
                 break;
+
+            //Eliminar
             case 3:
                 elimr();
                 break;
+
+            //Buscar por matricula
             case 4:
-                busc();
+                printf("Que matricula desea buscar?\n");
+                gets(mat);
+
+                bus=busc(alumno,i,mat);
+                if(bus==-1)
+                {
+                    printf("No se encontro la matricula\n");
+                }
+                else
+                {
+                    printf("La matricula se encuentra en la posicion");
+                }
                 break;
+
+            //Ordenar por matricula
             case 5:
                 ordenar(alumno,i);
                 break;
+
+            //Imprimir listas
             case 6:
-            if(i==0)
-            {
-                printf("Lista vaica\n");
-                system("PAUSE");
-            }
-            else
-            {
-                imprim(alumno,i);
-            }
+                if(i==0)
+                {
+                    printf("Lista vaica\n");
+                    system("PAUSE");
+                }
+                else
+                {
+                    imprim(alumno,i);
+                }
         }
     }
     while(op!=7);
@@ -155,7 +177,7 @@ int opci ()
     return 0;
 }
 
-//  Funciones
+//      Acciones        //
 
 void namesAL (char nombre[], int gen)
 {
@@ -306,12 +328,17 @@ talum AgrMn (talum alumno[],int i)
 
 void elimr ()
 {
-    int i;
+
+
 
 }
 
-void busc ()
+int busc (talum alumno[],int i,int mat)
 {
+    int i,n;
+    int rig,lef,med;
+    rig = n-1;
+    n=longitudDeIn(alumno);
 
 }
 
