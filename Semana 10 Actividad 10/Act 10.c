@@ -49,7 +49,7 @@ int opci ();
 talum AgrAL (talum alumno[], int i);
 talum AgrMn (talum alumno [],int i);
 
-void elimr ();
+void elimr (talum alumno[],int i, int p);
 int buscsec(talum alumno[], int n,int num);
 int buscbin(talum alumno[],int lef,int rig,int num);
 void ordenar (talum alumno[],int n);
@@ -95,7 +95,7 @@ int opci ()
     talum alumno[500];
     int op,i,j,bus;
     int lef, rig, num, n;
-    int banO;
+    int banO,p;
     i=0;
     do
     {
@@ -140,8 +140,20 @@ int opci ()
 
             //Eliminar
             case 3:
-                elimr();
+            if(i>0)
+            {
+                printf("Que posicion desea eliminar\n");
+                p=valid("Ingrese la posicion",0,i+1);
+                elimr(alumno,i,p-1);
+                i--;
+                printf("Listo\n");
                 banO=0;
+            }
+            else
+            {
+                printf("Lista vacia\n");
+            }
+                system("PAUSE");
                 break;
 
             //Buscar por matricula
@@ -359,10 +371,12 @@ talum AgrMn (talum alumno[],int i)
     return alumno[i];
 }
 
-void elimr ()
+void elimr (talum alumno[],int i,int p)
 {
-
-
+    for(p;p<=i;p++)
+    {
+        alumno[p]=alumno[p+1];
+    }
 
 }
 
