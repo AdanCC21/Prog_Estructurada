@@ -108,13 +108,14 @@ int opci ()
                 if(i<500)
                 {
                     lim=10;
-                    for(j=0;j<lim;j++)
-                    {
-                        if(i>490)
+                    if(i>490)
                         {
                             lim=500-i;
                         }
-                        if(i>500)
+                    for(j=0;j<lim;j++)
+                    {
+                        
+                        if(i>=500)
                         {
                             j=lim;
                         }
@@ -166,46 +167,61 @@ int opci ()
             case 4:
                 printf("Busqueda\n");
                 n=i;
-                if(banO==0)
+                if(i==0)
                 {
-                    printf("Metodo de secuencial\n");
-                    num=valid("Ingrese la matricula",300000,399999);
-                    bus=buscsec(alumno,n,num);
-                    if(bus==-1)
-                    {
-                        printf("No se encontro la matricula\n");
-                    }
-                    else
-                    {
-                        printf("La matricula se encuentra en la posicion %d \n", bus);
-                        printf("%-10s %-10s %-10s %-10s %-5s %-5s %-3s","Matricula","Nombre","ApPt","ApMt","Edad","Genero","Estatus\n");
-                        printf("%-10d %-10s %-10s %-10s %-5d %-5s %-6d\n",alumno[bus].mat, alumno[bus].nombre, alumno[bus].app, alumno[bus].apm, alumno[bus].edad, alumno[bus].gen, alumno[bus].status);
-                    }
+                    printf("lista vacia\n");
                 }
                 else
                 {
-                    printf("Busqueda binaria\n");
-                    num=valid("Ingrese la matricula",300000,399999);
-                    lef=0;
-                    rig=n;
-                    
-                    bus=buscbin(alumno,lef, rig, num);
-                    if(bus==-1)
+                    if(banO==0)
                     {
-                        printf("No se encontro la matricula\n");
+                        printf("Metodo de secuencial\n");
+                        num=valid("Ingrese la matricula",300000,399999);
+                        bus=buscsec(alumno,n,num);
+                        if(bus==-1)
+                        {
+                            printf("No se encontro la matricula\n");
+                        }
+                        else
+                        {
+                            printf("La matricula se encuentra en la posicion %d \n", bus);
+                            printf("%-10s %-10s %-10s %-10s %-5s %-5s %-3s","Matricula","Nombre","ApPt","ApMt","Edad","Genero","Estatus\n");
+                            printf("%-10d %-10s %-10s %-10s %-5d %-5s %-6d\n",alumno[bus].mat, alumno[bus].nombre, alumno[bus].app, alumno[bus].apm, alumno[bus].edad, alumno[bus].gen, alumno[bus].status);
+                        }
                     }
                     else
                     {
-                        printf("La matricula se encuentra en la posicion %d \n", bus);
-                        printf("%-10s %-10s %-10s %-10s %-5s %-5s %-3s","Matricula","Nombre","ApPt","ApMt","Edad","Genero","Estatus\n");
-                        printf("%-10d %-10s %-10s %-10s %-5d %-5s %-6d\n",alumno[bus].mat, alumno[bus].nombre, alumno[bus].app, alumno[bus].apm, alumno[bus].edad, alumno[bus].gen, alumno[bus].status);
+                        printf("Busqueda binaria\n");
+                        num=valid("Ingrese la matricula",300000,399999);
+                        lef=0;
+                        rig=n;
+                        
+                        bus=buscbin(alumno,lef, rig, num);
+                        if(bus==-1)
+                        {
+                            printf("No se encontro la matricula\n");
+                        }
+                        else
+                        {
+                            printf("La matricula se encuentra en la posicion %d \n", bus);
+                            printf("%-10s %-10s %-10s %-10s %-5s %-5s %-3s","Matricula","Nombre","ApPt","ApMt","Edad","Genero","Estatus\n");
+                            printf("%-10d %-10s %-10s %-10s %-5d %-5s %-6d\n",alumno[bus].mat, alumno[bus].nombre, alumno[bus].app, alumno[bus].apm, alumno[bus].edad, alumno[bus].gen, alumno[bus].status);
+                        }
                     }
                 }
                 system("PAUSE");
                 break;
             case 5:
+            if(i==0)
+            {
+                printf("Lista vaica\n");
+                system("PAUSE");
+            }
+            else
+            {
                 ordenar(alumno,i);
                 banO=1;
+            }
                 break;
             case 6:
                 if(i==0)
