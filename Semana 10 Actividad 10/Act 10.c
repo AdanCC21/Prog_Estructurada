@@ -109,9 +109,9 @@ int opci ()
                 {
                     lim=10;
                     if(i>490)
-                        {
-                            lim=500-i;
-                        }
+                    {
+                        lim=500-i;
+                    }
                     for(j=0;j<lim;j++)
                     {
                         
