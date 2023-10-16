@@ -103,7 +103,6 @@ int opci ()
         op=menu();
         switch(op)
         {
-            //Agregar Aleatoriamente
             case 1:
                 if(i<500)
                 {
@@ -112,8 +111,7 @@ int opci ()
                         alumno[i] = AgrAL(alumno,i);
                         i++;
                         banO=0;
-                        //Usamos j para generar unicamente 10 nombres e i para cambiar de posiciones de la cadena
-                        //osea que no se esten remplazando siempre las mismas 10 primeras posiciones
+                       
                     }
                     printf("Cadena llenada\n");
                 }
@@ -123,8 +121,6 @@ int opci ()
                 }
                 system("PAUSE");
                 break;
-
-            //Agregar Manualmente
             case 2:
                 if(i<500)
                 {
@@ -138,8 +134,6 @@ int opci ()
                 }
                 system("PAUSE");
                 break;
-
-            //Eliminar
             case 3:
                 if(i>0)
                 {
@@ -163,8 +157,6 @@ int opci ()
                 }
                 system("PAUSE");
                 break;
-
-            //Buscar por matricula
             case 4:
                 printf("Busqueda\n");
                 n=i;
@@ -205,14 +197,10 @@ int opci ()
                 }
                 system("PAUSE");
                 break;
-
-            //Ordenar por matricula
             case 5:
                 ordenar(alumno,i);
                 banO=1;
                 break;
-
-            //Imprimir listas
             case 6:
                 if(i==0)
                 {
@@ -266,19 +254,16 @@ talum AgrAL (talum alumno[], int i)
     char tempName [20], tempApeido[20];
     gen=rand()%(2-1+1)+1;
 
-    //Nombre
-    namesAL(tempName,gen);//Generar el nombre y almacenarlo en una variable local temporal
-    strcpy(alumno[i].nombre,tempName);//Pasar lo almacenado a nuestro registro atravez de la variable alumno de tipo talum(Tipo de nuestro registro), en el arreglo i
+    
+    namesAL(tempName,gen);
+    strcpy(alumno[i].nombre,tempName);
 
-    //Apeido Paterno
     apeAL(tempApeido);
     strcpy(alumno[i].app,tempApeido);
 
-    //Apeido materno
     apeAL(tempApeido);
     strcpy(alumno[i].apm,tempApeido);
 
-    //Matricula sin repetir matriculas
     lon=longitudDeIn(alumno[i].mat);
     mat = rand()%(399999-300000+1)+300000;
 
@@ -291,11 +276,8 @@ talum AgrAL (talum alumno[], int i)
     }
     alumno[i].mat = mat;
     
-
-    //edad
     alumno[i].edad=rand()%(50-17+1)+17;
 
-    //genero
     if(gen==1)
     {
         strcpy(alumno[i].gen,"H");
@@ -305,8 +287,7 @@ talum AgrAL (talum alumno[], int i)
         strcpy(alumno[i].gen,"M");
     }
 
-    //Estatus
-    alumno[i].status=1; //1 = dado de alta, no creo que el profesor necesite un alumno dado de baja
+    alumno[i].status=1;
     
     return alumno[i];
 }
@@ -341,28 +322,24 @@ talum AgrMn (talum alumno[],int i)
     }
     while(v==1);
 
-    //matricula
-
         tempmat=valid("Ingrese la matricula",300000,399999);
         for(int j=0;j<=1;j++)
         {
-            for(int k=0;k<=500;k++) //Buscara en todos los registros
+            for(int k=0;k<=500;k++) 
             {
                 if(tempmat==alumno[k].mat)
                 {
                     tempmat=valid("Matricula ya ocupada o invalida, intente de nuevo",300000,399999);
-                    j=0;//Regresa el valor de j  a 0 para que se reinicie el for del inicio y vuelva a analizar los 500 campos desde el campo 0
+                    j=0;
                 }
             }
         }
             
         
     alumno[i].mat=tempmat;
-    
-    //edad
+ 
     alumno[i].edad=valid("Ingrese su edad",17,100);
-    
-    //genero
+  
     v=valid("Ingrese su genero\n1.-Hombre 2.-Mujer",1,2);
     if(v==1)
     {
@@ -373,7 +350,6 @@ talum AgrMn (talum alumno[],int i)
         strcpy(alumno[i].gen,"M");
     }
 
-    //estatus
     alumno[i].status=valid("Ingrese su estatus (1.- Aun en lista, 2.- dado de baja)",1,2);
     
     return alumno[i];
@@ -408,9 +384,9 @@ int buscbin(talum alumno[],int lef,int rig,int num)
     {
         med=lef + (rig - lef) / 2;
         
-        if(alumno[med].mat==num) //si la matricula coincide con la posicion de med
+        if(alumno[med].mat==num)
         {
-            return med;//retorna la posicion en donde esta el numero que se busca
+            return med;
             lef=rig+1;
         }
         if(alumno[med].mat< num)
@@ -423,7 +399,6 @@ int buscbin(talum alumno[],int lef,int rig,int num)
         }
 
     }
-    //Si no encontro el valor esperado retorna -1
     return -1;
 
 }
@@ -457,7 +432,6 @@ void imprim (talum alumno[],int n)
     printf("%-3s %-10s %-10s %-10s %-10s %-4s %-5s %-8s\n","Num","Matricula", "Nombre", "ApP", "ApM", "Edad", "Sexo", "Estatus");
     for(i=0;i<=n;i++)
     {
-        //verifique que esta aprobado
         if(alumno[i].status==1)
         {
             printf("%-3d %-10d %-10s %-10s %-10s %-4d %-5s %-8d\n",j, alumno[i].mat, alumno[i].nombre, alumno[i].app, alumno[i].apm, alumno[i].edad, alumno[i].gen,alumno[i].status);
@@ -467,8 +441,6 @@ void imprim (talum alumno[],int n)
     system("PAUSE");
 }
 
-//Validar caracteres
-//Corregir con codigo de bryan
 int validCh(char cadena[])
 {
     int i=0;
@@ -487,7 +459,7 @@ int validCh(char cadena[])
     {
         if ((cadena[i] >= 'A' && cadena[i] <= 'Z'))
         {
-            //Mayusculas permitidas
+            
         }
         else
         {
@@ -522,5 +494,5 @@ int validCh(char cadena[])
         return 1;
     }
 
-    return 0; //Texto aceptado
+    return 0; 
 }
