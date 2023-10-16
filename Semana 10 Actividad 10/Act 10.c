@@ -58,7 +58,7 @@ void imprim (talum alumno[],int n);
 void namesAL (char nombre[], int gen);
 void apeAL(char apeido[]);
 
-int validCh(char arreglo[]);
+int validCh(char cadena[]);
 
 //          Main            //
 
@@ -92,14 +92,14 @@ int menu ()
 
 int opci ()
 {
-    talum alumno[500];
+    talum alumno[499];
     int op,i,j,bus;
     int lef, rig, num, n;
     int banO,p;
     i=0;
     do
     {
-        
+        system("CLS");   
         op=menu();
         switch(op)
         {
@@ -116,12 +116,12 @@ int opci ()
                         //osea que no se esten remplazando siempre las mismas 10 primeras posiciones
                     }
                     printf("Cadena llenada\n");
-                    system("PAUSE");
                 }
                 else
                 {
                     printf("Base de datos llena\n");
                 }
+                system("PAUSE");
                 break;
 
             //Agregar Manualmente
@@ -136,23 +136,24 @@ int opci ()
                 {
                     printf("Base de datos llena\n");
                 }
+                system("PAUSE");
                 break;
 
             //Eliminar
             case 3:
-            if(i>0)
-            {
-                printf("Que posicion desea eliminar\n");
-                p=valid("Ingrese la posicion",0,i+1);
-                elimr(alumno,i,p-1);
-                i--;
-                printf("Listo\n");
-                banO=0;
-            }
-            else
-            {
-                printf("Lista vacia\n");
-            }
+                if(i>0)
+                {
+                    printf("Que posicion desea eliminar\n");
+                    p=valid("Ingrese la posicion",1,i+1);
+                    elimr(alumno,i,p-1);
+                    i--;
+                    printf("Listo\n");
+                    banO=0;
+                }
+                else
+                {
+                    printf("Lista vacia\n");
+                }
                 system("PAUSE");
                 break;
 
@@ -461,110 +462,58 @@ void imprim (talum alumno[],int n)
 
 //Validar caracteres
 //Corregir con codigo de bryan
-int validCh(char arreglo[])
+int validCh(char cadena[])
 {
-    int lon,i;
-    lon=longitudDeCh(arreglo);
-    
-    //Espacio al inicio
-    if(arreglo[0]==32)
+    int i=0;
+    if (cadena[0] == ' ')
     {
         printf("Tu texto no puede iniciar con un espacio\n");
         return 1;
     }
-    //espacio al final
-    if(arreglo[lon-1]==32)
+    if (cadena[0] == '\0')
     {
-        printf("Tu texto no puede terminar con un espacio\n");
+        printf("Texto vacio\n");
         return 1;
     }
-    //Sin ningun caracter
-    if(arreglo[0]=='\0')
+
+    while (cadena[i] != '\0')
     {
-        printf("No se encontraron caracteres\n");
-        return 1;
-    }
-    //Buscara por toda la cadena y si encuentra x error en alguna parte lo imprimira
-    for(i=0;i<=lon;i++)
-    {
-        //simbolos
-        if(arreglo[i]>=33)
+        if ((cadena[i] >= 'A' && cadena[i] <= 'Z'))
         {
-            if(arreglo[i]<=47)
-            {
-                printf("No se aceptan simbolos\n");
-                return 1;
-            }
-        }
-        //simbolos 2
-        if(arreglo[i]>=58)
-        {
-            if(arreglo[i]<=64)
-            {
-                printf("No se aceptan simbolos\n");
-                return 1;
-            }
-        }
-        //simbolos 3
-        if(arreglo[i]>=91)
-        {
-            if(arreglo[i]<=96)
-            {
-                printf("No se aceptan simbolos\n");
-                return 1;
-            }
-        }
-        //simbolos 4
-        if(arreglo[i]>=123)
-        {
-            printf("No se aceptan simbolos\n");
-            return 1;
-        }
-        //dobles espacios
-        if(arreglo[i]==32)
-        {
-            if(arreglo[i+1]==32)
-            {
-                printf("No se permite doble espacio\n");
-                return 1;
-            }
-        }
-        //Numeros
-        if(arreglo[i]>=48)
-        {
-            if(arreglo[i]<=57)
-            {
-                printf("No se permiten numeros\n");
-                return 1;
-            }
-        }
-        //Minusculas
-        if(arreglo[i]>='a')
-        {
-            if(arreglo[i]<='z')
-            {
-                printf("Ingrese solo mayusculas\n");
-                return 1;
-            }
-        }
-        //Condicion que hara que solo acepte caracteres entre a y z mayusculas
-        if(arreglo[i]>='A')
-        {
-            if(arreglo[i]<='Z')
-            {
-                return 0;
-            }
-            else
-            {
-                printf("Algun caracter no esta permitido\n");
-                return 1;
-            }
+            //Mayusculas permitidas
         }
         else
         {
-            printf("Algun caracter no esta permitido\n");
-            return 1;
+            if ((cadena[i] >= 'a' && cadena[i] <= 'z'))
+            {
+                printf("Porfavor ingresa solamente letras mayusculas\n");
+                return 1;
+            }
+            else
+            {
+                if (cadena[i] == ' ')
+                {
+                    if (cadena[i + 1] == ' ')
+                    {
+                        printf("Espacios dobles no estan permitidos\n");
+                        return 1;
+                    }
+                }
+                else
+                {
+                    printf("Simbolos no permitidos\n");
+                    return 1;
+                }
+            }
         }
+        i++;
     }
-    return 1;
+
+    if (cadena[i - 1] == ' ')
+    {
+        printf("Tu texto no puede terminar con espacio\n");
+        return 1;
+    }
+
+    return 0; //Texto aceptado
 }
