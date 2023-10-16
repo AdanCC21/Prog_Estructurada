@@ -145,10 +145,17 @@ int opci ()
                 {
                     printf("Que posicion desea eliminar\n");
                     p=valid("Ingrese la posicion",1,i+1);
-                    elimr(alumno,i,p-1);
-                    i--;
-                    printf("Listo\n");
-                    banO=0;
+                    if(p>i)
+                    {
+                        printf("Fuera de rango\n");
+                    }
+                    else
+                    {
+                        elimr(alumno,i,p-1);
+                        i--;
+                        printf("Listo\n");
+                        banO=0;
+                    }
                 }
                 else
                 {
