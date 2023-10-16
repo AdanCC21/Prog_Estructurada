@@ -97,6 +97,7 @@ int opci ()
     int lef, rig, num, n;
     int banO,p;
     i=0;
+    int lim;
     do
     {
         system("CLS");   
@@ -106,11 +107,23 @@ int opci ()
             case 1:
                 if(i<500)
                 {
-                    for(j=0;j<10;j++)
+                    lim=10;
+                    for(j=0;j<lim;j++)
                     {
+                        if(i>490)
+                        {
+                            lim=500-i;
+                        }
+                        if(i>500)
+                        {
+                            j=lim;
+                        }
+                        else
+                        {
                         alumno[i] = AgrAL(alumno,i);
                         i++;
                         banO=0;
+                        }
                        
                     }
                     printf("Cadena llenada\n");
@@ -122,7 +135,7 @@ int opci ()
                 system("PAUSE");
                 break;
             case 2:
-                if(i<500)
+                if(i<=499)
                 {
                     alumno[i] = AgrMn(alumno,i);
                     i++;
@@ -139,17 +152,10 @@ int opci ()
                 {
                     printf("Que posicion desea eliminar\n");
                     p=valid("Ingrese la posicion",1,i+1);
-                    if(p>i)
-                    {
-                        printf("Fuera de rango\n");
-                    }
-                    else
-                    {
-                        elimr(alumno,i,p-1);
-                        i--;
-                        printf("Listo\n");
-                        banO=0;
-                    }
+                    elimr(alumno,i,p-1);
+                    printf("Listo\n");
+                    i--;
+                    banO=0;
                 }
                 else
                 {
@@ -244,7 +250,7 @@ void apeAL(char apeidos[])
     int c;
     c=rand()%(10-1+1)+1;
     char apeidosL[20][20] = {"RODRIGUEZ", "GONZALEZ", "MARTINEZ", "LOPEZ", "PEREZ", "GOMEZ", "FERNANDEZ", "LOPEZ", "TORRES", "DIAZ",
-    "RUIZ", "SANCHEZ", "GIL", "ROMERO", "VAZQUEZ", "MORALES", "JIMENEZ", "ORTEGA", "CASTRO","SUAREZ"};
+    "GALLEGOS", "SANCHEZ", "GIL", "ROMERO", "VAZQUEZ", "MORALES", "JIMENEZ", "ORTEGA", "CASTRO","SUAREZ"};
     strcpy(apeidos,apeidosL[c]);
 }
 
@@ -357,10 +363,7 @@ talum AgrMn (talum alumno[],int i)
 
 void elimr (talum alumno[],int i,int p)
 {
-    for(p;p<=i;p++)
-    {
-        alumno[p]=alumno[p+1];
-    }
+    alumno[p].status=0;
 
 }
 
@@ -430,11 +433,11 @@ void imprim (talum alumno[],int n)
     int i,j;
     j=1;
     printf("%-3s %-10s %-10s %-10s %-10s %-4s %-5s %-8s\n","Num","Matricula", "Nombre", "ApP", "ApM", "Edad", "Sexo", "Estatus");
-    for(i=0;i<=n;i++)
+    for(i=0;i<n;i++)
     {
         if(alumno[i].status==1)
         {
-            printf("%-3d %-10d %-10s %-10s %-10s %-4d %-5s %-8d\n",j, alumno[i].mat, alumno[i].nombre, alumno[i].app, alumno[i].apm, alumno[i].edad, alumno[i].gen,alumno[i].status);
+            printf("%-3d %-10d %-10s %-10s %-10s %-4d %-5s %-8d\n",i+1, alumno[i].mat, alumno[i].nombre, alumno[i].app, alumno[i].apm, alumno[i].edad, alumno[i].gen,alumno[i].status);
             j++;
         }
     }
