@@ -49,7 +49,7 @@ int opci ();
 talum AgrAL (talum alumno[], int i);
 talum AgrMn (talum alumno [],int i);
 
-void elimr (talum alumno[],int i, int p);
+void elimr (talum alumno[],int p);
 int buscsec(talum alumno[], int n,int num);
 int buscbin(talum alumno[],int lef,int rig,int num);
 void ordenar (talum alumno[],int n);
@@ -152,7 +152,7 @@ int opci ()
                 {
                     printf("Que posicion desea eliminar\n");
                     p=valid("Ingrese la posicion",1,i+1);
-                    elimr(alumno,i,p-1);
+                    elimr(alumno,p-1);
                     printf("Listo\n");
                     i--;
                     banO=0;
@@ -361,7 +361,7 @@ talum AgrMn (talum alumno[],int i)
     return alumno[i];
 }
 
-void elimr (talum alumno[],int i,int p)
+void elimr (talum alumno[],int p)
 {
     alumno[p].status=0;
 
