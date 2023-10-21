@@ -32,7 +32,6 @@ int main()
     char name[30],app[20],apm[20];
     char curp[18];
     int year;
-    //Mandar name app y apm a cada funcion y remplazarlas por las ya definidas
     names(name, app, apm, curp);
     year = birth(curp);
     gen(curp);
