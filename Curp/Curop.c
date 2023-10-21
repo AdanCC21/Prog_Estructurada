@@ -24,14 +24,16 @@ void cons_int (char name[], char app[], char apm[]);
 void siglo (char year[]);
 
 void prohb (char cad[]);
-void estados (char cad[]);
+void estados ();
 
 int main()
 {
+    //Me faltarian las nacionalidades creo (Preguntar si son de a wbo)
     char curp[18];
     names(curp);
     birth(curp);
     gen(curp);
+    zona(curp);
     
     printf("%s",curp);
 }
@@ -39,24 +41,41 @@ int main()
 
 //      Funciones       //
 
-void estados (char cad[])
+void estados ()
 {
-    //No creo que jale este pedo
-    //revisa que pedo como podria comparar la cadena resivida con la lista de estados y en base a la posicion donde encuentre la similitud enviar el bc o cs
-    int i,num=0;
-    char list[100][50]={"AGUAS CALIENTES","BAJA CALIFORNIA","BAJA CALIFORNIA SUR","CAMPECHE","COAHUILA","COLIMA","CHIAPAS","CHIHUAHUA","DISTRITO FEDERAL","DURANGO","GUANAJUATO",
-    "GUERRERO","HIDALGO","JALISCO","MEXICO","MICHOACAN"};
-    char list2[100][50]={"AS ","BC","BS","CC","CL","CM","CS","CH","DF","DG","GT",
-    "GR","HG","JG","MC","MN"};
-    char temp[10];
-    for(i=0;i<=100;i++)
-    {
-        if(cad[i]==list[i])
-        {
-            num=i;
-        }
-    }
-    strcpy(cad,list2[num]);
+    printf("1. Aguascalientes\n");
+    printf("2. Baja California\n");
+    printf("3. Baja California Sur\n");
+    printf("4. Campeche\n");
+    printf("5. Chiapas\n");
+    printf("6. Chihuaha\n");
+    printf("7. Coahuila\n");
+    printf("8. Colima\n");
+    printf("9. Durango\n");
+    printf("10. Guanajuato\n");
+    printf("11. Guerrero\n");
+    printf("12. Hidalgo\n");
+    printf("13. Jalisco\n");
+    printf("14. Estado de Mexico\n");
+    printf("15. Michoacan\n");
+    printf("16. Morelos\n");
+    printf("17. Nayarit\n");
+    printf("18. Nuevo Leon\n");
+    printf("19. Oaxaca\n");
+    printf("20. Puebla\n");
+    printf("21. Queretaro\n");
+    printf("22. Quintana Roo\n");
+    printf("23. San Luis Potosi\n");
+    printf("24. Sinaloa\n");
+    printf("25. Sonora\n");
+    printf("26. Tabasco \n");
+    printf("27. Tamaulipas\n");
+    printf("28. Tlaxcala\n");
+    printf("29. Veracruz\n");
+    printf("30. Yucatan\n");
+    printf("31. Zacatecas\n");
+    printf("32. Ciudad de Mexico\n");
+    printf("33. Extranjero\n");
 }
 
 void names(char curp[])
@@ -273,5 +292,20 @@ void gen (char curp[])
 
 void zona (char curp[])
 {
+    int estado;
+    char cadEstado[33][2] = {"AS", "BC", "BS", "CC", "CS", "CH", "CL", "CM", "DG", "GT", "GR", "HG", "JC", "MC", "MN", "MS", "NT", "NL", "OC", "PL", "QT", "QR", "SP", "SL", "SR", "TC", "TS", "TL", "VZ", "YN", "ZS", "DF", "NE"};
+    printf("Escoja su estado\n");
+    estados();
+    estado=valid("ingrese el indicide del estado",1,33);
+
+    curp[11] = cadEstado[estado - 1][0];
+    curp[12] = cadEstado[estado - 1][1];
 
 }
+
+void cons_int (char name[], char app[], char apm[])
+{
+
+}
+
+
