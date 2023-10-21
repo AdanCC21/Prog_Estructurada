@@ -427,12 +427,20 @@ void siglo (int year,char curp[])
         curp[16]=cad[0];
     }
     else
-    {
-        c=rand()% (10-1+1)+1;
-        let(cad,c);
+    {   
+        if(year<=2010)
+        {
+            let(cad,1);
+        }
+        else
+        {
+            if(year<=2020)
+            {
+                let(cad,2);
+            }
+        }
         curp[16]=cad[0]; 
     }
-
     c=rand()% (9-0+1)-0;
     itoa(c,cad,10);
     curp[17]=cad[0];
