@@ -11,3 +11,38 @@ int main()
     strcpy(cad,month);
     printf("%s",cad);
 }
+
+{
+        if(app[i]=='B')
+        {
+            curp[13]=app[i];
+        }
+        else
+        {
+            if(app[i]=='C')
+            {
+                curp[13]=app[i];
+            }
+            else
+            {
+                if(app[i]=='D')
+                {
+                    curp[13]=app[i];
+                }
+                else
+                {
+                    if(app[i]=='F')
+                    {
+                        curp[13]=app[i];
+                    }
+                    else
+                    {
+                        if(app[i]=='G')
+                        {
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }

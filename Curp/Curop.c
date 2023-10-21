@@ -16,12 +16,12 @@
 int menu ();
 int opci();
 
-void names(char curp[]);
-void birth (char curp[]);
+void names(char name[],char app[], char apm[],char curp[]);
+int birth (char curp[]);
 void gen (char gen[]);
 void zona (char curp[]);
-void cons_int (char name[], char app[], char apm[]);
-void siglo (char year[]);
+void cons_int (char name[], char app[], char apm[], char curp[]);
+void siglo (int year,char curp[]);
 
 void prohb (char cad[]);
 void estados ();
@@ -29,11 +29,16 @@ void estados ();
 int main()
 {
     //Me faltarian las nacionalidades creo (Preguntar si son de a wbo)
+    char name[30],app[20],apm[20];
     char curp[18];
-    names(curp);
-    birth(curp);
+    int year;
+    //Mandar name app y apm a cada funcion y remplazarlas por las ya definidas
+    names(name, app, apm, curp);
+    year = birth(curp);
     gen(curp);
     zona(curp);
+    cons_int(name,app,apm,curp);
+    siglo(year, curp);
     
     printf("%s",curp);
 }
@@ -78,10 +83,9 @@ void estados ()
     printf("33. Extranjero\n");
 }
 
-void names(char curp[])
+void names(char name[],char app[], char apm[],char curp[])
 {
     int i,np,band=0,v=0;
-    char name[30],app[20],apm[20];
 
     printf("Ingrese su nombre\n");
     do
@@ -174,7 +178,7 @@ void names(char curp[])
     curp[3]=name[0];
 }
 
-void birth (char curp[])
+int birth (char curp[])
 {
     int day,month, year;
     char cad[4];
@@ -272,7 +276,7 @@ void birth (char curp[])
         curp[8]=cad[0];
         curp[9]=cad[1];
     }
-
+    return year;
 }
 
 void gen (char curp[])
@@ -303,9 +307,134 @@ void zona (char curp[])
 
 }
 
-void cons_int (char name[], char app[], char apm[])
+void cons_int (char name[], char app[], char apm[], char curp[])
 {
+    int i,j,k,n,usada=0,BandVoc=0;;
+    char vocal[5]={'A','E','I','O','U'};
+    n=strlen(app);
 
+    //Primera consonante
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<5;j++)
+        {
+            if(app[i]==vocal[j])
+            {
+                BandVoc=1;
+            }
+        }
+        if(BandVoc==0)
+        {
+            for(k=0;k<5;k++)
+            {
+                if(app[i]==curp[k])
+                {
+                    
+                    usada=1;
+                }
+            }
+            if(usada==0)
+            {            
+                curp[13]=app[i];
+                i=n+1;
+            }
+            usada=0;
+        }
+        BandVoc=0;    
+    }
+    
+    
+    //Segunda consonante
+    n=strlen(apm);
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<5;j++)
+        {
+            if(apm[i]==vocal[j])
+            {
+                BandVoc=1;
+            }
+        }
+        if(BandVoc==0)
+        {
+            for(k=0;k<5;k++)
+            {
+                if(apm[i]==curp[k])
+                {
+                    
+                    usada=1;
+                }
+            }
+            if(usada==0)
+            {            
+                curp[14]=apm[i];
+                i=n+1;
+            }
+            usada=0;
+        }
+        BandVoc=0;    
+    }
+
+    //Tercera Consonante
+    n=strlen(name);
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<5;j++)
+        {
+            if(name[i]==vocal[j])
+            {
+                BandVoc=1;
+            }
+        }
+        if(BandVoc==0)
+        {
+            for(k=0;k<5;k++)
+            {
+                if(name[i]==curp[k])
+                {
+                    
+                    usada=1;
+                }
+            }
+            if(usada==0)
+            {            
+                curp[15]=name[i];
+                i=n+1;
+            }
+            usada=0;
+        }
+        BandVoc=0;    
+    }
 }
 
+//Lista de la A hasta la J dependiendo el indicie
+void let (char cad[],int n)
+{
+    n--;
+    char list[10]={'A','B','C','D','E','F','G','H','I','J'};
+    cad[0]=list[n];
+}
 
+//16
+void siglo (int year,char curp[])
+{
+    int c;
+    char cad[1];
+    srand(time(NULL));
+    if(year<2000)
+    {
+        c=rand()% (9-0+1)-0;
+        itoa(c,cad,10);
+        curp[16]=cad[0];
+    }
+    else
+    {
+        c=rand()% (10-1+1)+1;
+        let(cad,c);
+        curp[16]=cad[0]; 
+    }
+
+    c=rand()% (9-0+1)-0;
+    itoa(c,cad,10);
+    curp[17]=cad[0];
+}
