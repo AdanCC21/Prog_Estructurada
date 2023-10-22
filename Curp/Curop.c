@@ -144,7 +144,9 @@ void names(char name[],char name2[], char app[], char apm[],char curp[],int n2,i
         while(v!=0);
         validAc(app);
         v=0;
+        des(app);
     }
+    
     
 
     if(apm2==1)
@@ -719,25 +721,36 @@ void des (char name[])
 {
     char conj[][3]={"DA","DAS","DE", "DEL", "DER", "DI", "DIE", "DD", "EL", "LA", "LOS", "LAS", "LE", "LES", "MAC", "MC", "VAN", "VON", "Y"};
     int lon,i,j,k;
+    lon=strlen(name);
     
-    for(i=0;name[i]!=' ';i++)
+    for(i=0;name[i]!=' ' && i<lon;i++)
     {
         j=i;
     }
     j++;
-    lon=strlen(name);
-    i=0;
 
+    for(i=j;name[j+1]!=' '&& i<lon ;i++)
+    {
+        j=i;
+    }
+    j++;
+
+    for(i=j;name[j+1]!=' '&& i<lon ;i++)
+    {
+        j=i;
+    }
+    j++;
+    
+    i=0;
     for(k=0;k<=lon;k++)
     {
         if(strstr(name,conj[k])==0)
         {
-            printf("ENTRO\n");
             do
             {
-            name[i]=name[j+1];
-            i++;
-            j++;
+                name[i]=name[j+1];
+                i++;
+                j++;
             }
             while(j<lon);
         }
