@@ -255,7 +255,6 @@ void names(char name[],char name2[], char app[], char apm[],char curp[],int n2,i
         curp[3]=name[0];
     }
     
-
 }
 
 int birth (char curp[])
@@ -709,3 +708,7 @@ void antisonantes (char curp[])
     }
 }
 
+void des (char name[])
+{
+    
+}
