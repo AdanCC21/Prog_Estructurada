@@ -46,6 +46,8 @@ int menu()
     return n;
 }
 
+//Por ultimo agregar si no detecta una consonante en la parte de las consonantes posicion 15-16 agrege una X
+
 void opci()
 {
     int op;
@@ -788,3 +790,5 @@ void des (char name[])
         }
     }
 }
+
+
