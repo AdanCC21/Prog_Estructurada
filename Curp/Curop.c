@@ -39,6 +39,7 @@ int main()
 int menu()
 {
     int n;
+    system("CLS");
     printf("\tMENU\n");
     printf("1.-Registrar Curp\n");
     printf("2.-Salir\n");
@@ -435,12 +436,14 @@ void zona (char curp[])
 void cons_int (char name[],char name2[], char app[], char apm[], char curp[],int n2,int ap1,int apm2)
 {
     int i,j,k,n,usada=0,BandVoc=0;;
+    int bandU;
     char vocal[5]={'A','E','I','O','U'};
-    n=strlen(app);
 
     //Primera consonante
+    bandU=0;
     if(ap1==1)
     {
+        n=strlen(app);
         for(i=0;i<n;i++)
         {
             for(j=0;j<5;j++)
@@ -464,10 +467,16 @@ void cons_int (char name[],char name2[], char app[], char apm[], char curp[],int
                 {            
                     curp[13]=app[i];
                     i=n+1;
+                    bandU=1;
                 }
                 usada=0;
             }
             BandVoc=0;    
+        }
+
+        if(bandU==0)
+        {
+            curp[13]='X';
         }
     }
     else
@@ -476,6 +485,7 @@ void cons_int (char name[],char name2[], char app[], char apm[], char curp[],int
     }
     
     //Segunda consonante
+    bandU=0;
     if(apm2==1)
     {
         n=strlen(apm);
@@ -502,11 +512,19 @@ void cons_int (char name[],char name2[], char app[], char apm[], char curp[],int
                 {            
                     curp[14]=apm[i];
                     i=n+1;
+                    bandU=1;
+
                 }
                 usada=0;
             }
             BandVoc=0;    
         }
+
+        if(bandU==0)
+        {
+            curp[14]='X';
+        }
+
     }
     else
     {
@@ -514,7 +532,8 @@ void cons_int (char name[],char name2[], char app[], char apm[], char curp[],int
     }
 
     //Tercera Consonante
-    //Si tiene 2 nombres
+    //Si tiene 1 nombre
+    bandU=0;
     if(n2==2)
     {
         n=strlen(name);
@@ -541,13 +560,19 @@ void cons_int (char name[],char name2[], char app[], char apm[], char curp[],int
                 {            
                     curp[15]=name[i];
                     i=n+1;
+                    bandU=1;
                 }
                 usada=0;
             }
             BandVoc=0;    
         }
+
+        if(bandU==0)
+        {
+            curp[15]='X';
+        }
     }
-    else //Si tiene 1 nombre
+    else //Si tiene 2 nombre
     {
         //Maria Jose
         if(strcmp(name,"MARIA") == 0 || strcmp(name,"MA.") == 0 || strcmp(name,"MA") == 0 || strcmp(name,"M.") == 0 || strcmp(name,"M") == 0 || strcmp(name,"JOSE") == 0 || strcmp(name,"J") == 0 || strcmp(name,"J.") == 0)
@@ -564,13 +589,15 @@ void cons_int (char name[],char name2[], char app[], char apm[], char curp[],int
                 }
                 if(BandVoc==0)
                 {
-                    
-                        curp[15]=name2[i];
-                        i=n+1;
-                    
-                    
+                    curp[15]=name2[i];
+                    i=n+1;
+                    bandU=1;    
                 }
                 BandVoc=0;    
+            }
+            if(bandU==0)
+            {
+            curp[15]='X';
             }
         }
         else
@@ -599,10 +626,16 @@ void cons_int (char name[],char name2[], char app[], char apm[], char curp[],int
                     {            
                         curp[15]=name[i];
                         i=n+1;
+                        bandU=1;
                     }
                     usada=0;
                 }
                 BandVoc=0;
+            }
+
+            if(bandU==0)
+            {
+                curp[15]='X';
             }
         }
     }
