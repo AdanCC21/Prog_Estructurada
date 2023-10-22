@@ -15,7 +15,8 @@
 //      Prototipos      //
 
 int menu ();
-int opci();
+void opci();
+void inicio();
 
 void names(char name[],char name2[], char app[], char apm[],char curp[],int n2,int ap1,int apm2);
 int birth (char curp[]);
@@ -31,12 +32,46 @@ void des (char name[]);
 
 int main()
 {
+    opci();
+    return 0;
+}
+
+int menu()
+{
+    int n;
+    printf("\tMENU\n");
+    printf("1.-Registrar Curp\n");
+    printf("2.-Salir\n");
+    n=valid("Seleccione una opcion valida",1,2);
+    return n;
+}
+
+void opci()
+{
+    int op;
+    do
+    {
+        op=menu();
+        switch(op)
+        {
+            case 1:
+            inicio();
+        }
+    }
+    while(op!=2);
+    printf("Buen dia\n");
+}
+
+void inicio ()
+{
     char name[30],name2[30],app[20],apm[20];
     char curp[18];
     int year,n2,ap1,apm2;
 
+    system("CLS");
+
     printf("Antes de iniciar quisiera aclarar unos datos\n");
-    system("PAUSE");
+    getch();
 
     printf("Usted tiene mas de 1 nombre?\n");
     n2=valid("1-Si,2-No",1,2);
@@ -45,6 +80,7 @@ int main()
     printf("Usted tiene segundo apellido?\n");
     apm2=valid("1.-Si.2.-No",1,2);
 
+    system("CLS");
     printf("Vamos a iniciar a registrar su datos\n");
     getch();
 
@@ -56,10 +92,13 @@ int main()
     siglo(year, curp);
     
     antisonantes(curp);
+    printf("Tu curp es\n");
     for (int i=0;i<18;i++)
     {
         printf("%c",curp[i]);
     }
+    printf("\n");
+    system("PAUSE");
 }
 
 
@@ -749,4 +788,3 @@ void des (char name[])
         }
     }
 }
-
