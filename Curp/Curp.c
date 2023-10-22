@@ -151,7 +151,8 @@ void estados ()
 
 void names(char name[],char name2[], char app[], char apm[],char curp[],int n2,int ap1,int apm2)
 {
-    int i,np,band=0,v=0;
+    int i,np,band=0,k,v=0;
+    int usada=0;
 
     printf("Ingrese su primer nombre\n");
     do
@@ -212,50 +213,61 @@ void names(char name[],char name2[], char app[], char apm[],char curp[],int n2,i
         des(apm);
     }    
 
-    np=longitudDeCh(app);
+    np=strlen(app);
     
     if(ap1==1)
     {
         //Inicial del primer apellido
         curp[0]=app[0];
-
+    
         //Vocal del primer apellido
         for(i=0;i<np;i++)
         {
             if(band<=0)
             {
-                if(app[i]== 'A')
+                for(k=0;k<1;k++)
                 {
-                    curp[1]=app[i];
-                    band++;
+                    if(app[k]==curp[0])
+                    {
+                        usada=1;
+                    }
                 }
-                else
+    
+                if(usada==0)
                 {
-                    if(app[i]=='E')
+                    if(app[i]== 'A')
                     {
                         curp[1]=app[i];
                         band++;
                     }
                     else
                     {
-                        if(app[i]=='I')
+                        if(app[i]=='E')
                         {
                             curp[1]=app[i];
                             band++;
                         }
                         else
                         {
-                            if(app[i]=='O')
+                            if(app[i]=='I')
                             {
                                 curp[1]=app[i];
                                 band++;
                             }
                             else
                             {
-                                if(app[i]=='U')
+                                if(app[i]=='O')
                                 {
                                     curp[1]=app[i];
                                     band++;
+                                }
+                                else
+                                {
+                                    if(app[i]=='U')
+                                    {
+                                        curp[1]=app[i];
+                                        band++;
+                                    }
                                 }
                             }
                         }
