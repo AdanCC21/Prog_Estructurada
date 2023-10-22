@@ -33,6 +33,8 @@ int main()
     char name[30],app[20],apm[20];
     char curp[18];
     int year;
+    printf("Usted tiene mas de 1 nombre?\n");
+
     names(name, app, apm, curp);
     year = birth(curp);
     gen(curp);
@@ -86,7 +88,7 @@ void estados ()
 void names(char name[],char app[], char apm[],char curp[])
 {
     int i,np,band=0,v=0;
-    
+
     printf("Ingrese su nombre\n");
     do
     {
