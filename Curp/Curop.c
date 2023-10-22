@@ -78,16 +78,16 @@ void inicio ()
 
     printf("Usted tiene mas de 1 nombre?\n");
     n2=valid("1-Si,2-No",1,2);
-    printf("Usted tiene mas de 1 apellidos?\n");
+    printf("Usted cuenta con sus 2 apellidos?\n");
     apm2=valid("1.-Si.2.-No",1,2);
     if(apm2==2)
     {
-        printf("Usted cuenta con 1 apellido?\n");
+        printf("Usted cuenta con solo 1 apellido?\n");
         ap1=valid("1.-Si.2.-No",1,2);
     }
 
     system("CLS");
-    printf("Vamos a iniciar a registrar su datos\n");
+    printf("Vamos a iniciar a registrar sus datos\n");
     getch();
 
     names(name,name2 ,app, apm, curp,n2,ap1,apm2);
@@ -180,7 +180,7 @@ void names(char name[],char name2[], char app[], char apm[],char curp[],int n2,i
 
     if(ap1==1)
     {
-        printf("Ingrese su apeido paterno\n");
+        printf("Ingrese su apellido paterno\n");
         do
         {
             fflush(stdin);
@@ -197,7 +197,7 @@ void names(char name[],char name2[], char app[], char apm[],char curp[],int n2,i
 
     if(apm2==1)
     {
-        printf("Ingrese su apeido materno\n");
+        printf("Ingrese su apellido materno\n");
         do
         {
             fflush(stdin);
@@ -313,14 +313,13 @@ int birth (char curp[])
     int day,month, year;
     char cad[4];
 
-    printf("Que dia anio naciste\n");
-    year=valid("Ingrese el anio",1893,2023);
+    year=valid("Que anio nacio \n(4 - digitos)",1893,2023);
     itoa(year,cad,10);
     curp[4]=cad[2];
     curp[5]=cad[3];
     
     printf("Que mes naciste?\n");
-    month=valid("Ingrese el mes",1,12);
+    month=valid("Numero del mes",1,12);
     itoa(month,cad,10);
     
     if(month<10)
@@ -334,63 +333,63 @@ int birth (char curp[])
         curp[7]=cad[1];
     }
 
-    printf("Que dia naciste\n");
+    
     if(month==2)
     {
         if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
         {
-            day=valid("Ingrese su dia",1,29);
+            day=valid("Ingrese el dia",1,29);
         }
         else
         {
-            day=valid("Ingrese su dia",1,28);
+            day=valid("Ingrese el dia",1,28);
         }
     }
     else
     {
         if(month==1)
         {
-            day=valid("Ingrese su dia",1,31);
+            day=valid("Ingrese el dia",1,31);
         }
         if(month==3)
         {
-            day=valid("Ingrese su dia",1,31);
+            day=valid("Ingrese el dia",1,31);
         }
         if(month==4)
         {
-            day=valid("Ingrese su dia",1,30);
+            day=valid("Ingrese el dia",1,30);
         }
         if(month==5)
         {
-            day=valid("Ingrese su dia",1,31);
+            day=valid("Ingrese el dia",1,31);
         }
         if(month==6)
         {
-            day=valid("Ingrese su dia",1,30);
+            day=valid("Ingrese el dia",1,30);
         }
         if(month==7)
         {
-            day=valid("Ingrese su dia",1,31);
+            day=valid("Ingrese el dia",1,31);
         }
         if(month==8)
         {
-            day=valid("Ingrese su dia",1,31);
+            day=valid("Ingrese el dia",1,31);
         }
         if(month==9)
         {
-            day=valid("Ingrese su dia",1,30);
+            day=valid("Ingrese el dia",1,30);
         }
         if(month==10)
         {
-            day=valid("Ingrese su dia",1,31);
+            day=valid("Ingrese el dia",1,31);
         }
         if(month==11)
         {
-            day=valid("Ingrese su dia",1,30);
+            day=valid("Ingrese el dia",1,30);
         }
         if(month==12)
         {
-            day=valid("Ingrese su dia",1,31);
+            day=valid("Ingrese el dia",1,31);
         }
     }
 
@@ -430,7 +429,8 @@ void zona (char curp[])
     char cadEstado[33][2] = {"AS", "BC", "BS", "CC", "CS", "CH", "CL", "CM", "DG", "GT", "GR", "HG", "JC", "MC", "MN", "MS", "NT", "NL", "OC", "PL", "QT", "QR", "SP", "SL", "SR", "TC", "TS", "TL", "VZ", "YN", "ZS", "DF", "NE"};
     printf("Escoja su estado\n");
     estados();
-    estado=valid("ingrese el indice del estado",1,33);
+    printf("\n");
+    estado=valid("Ingrese el indice del estado",1,33);
 
     curp[11] = cadEstado[estado - 1][0];
     curp[12] = cadEstado[estado - 1][1];
