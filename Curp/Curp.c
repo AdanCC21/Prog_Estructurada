@@ -152,7 +152,7 @@ void estados ()
 void names(char name[],char name2[], char app[], char apm[],char curp[],int n2,int ap1,int apm2)
 {
     int i,np,band=0,k,v=0;
-    int usada=0;
+    int usada=0,c;
 
     printf("Ingrese su primer nombre\n");
     do
@@ -214,7 +214,8 @@ void names(char name[],char name2[], char app[], char apm[],char curp[],int n2,i
     }    
 
     np=strlen(app);
-    
+    c=0;
+    int h=0;
     if(ap1==1)
     {
         //Inicial del primer apellido
@@ -225,14 +226,14 @@ void names(char name[],char name2[], char app[], char apm[],char curp[],int n2,i
         {
             if(band<=0)
             {
-                for(k=0;k<1;k++)
+                usada=0;
+                for(k=c;h<np;h++)
                 {
                     if(app[k]==curp[0])
                     {
                         usada=1;
                     }
                 }
-    
                 if(usada==0)
                 {
                     if(app[i]== 'A')
@@ -273,6 +274,7 @@ void names(char name[],char name2[], char app[], char apm[],char curp[],int n2,i
                         }
                     }
                 }
+                c++;
             }
         }
         if(band==0)
