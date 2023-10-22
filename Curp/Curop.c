@@ -720,39 +720,34 @@ void antisonantes (char curp[])
 void des (char name[])
 {
     char conj[][3]={"DA","DAS","DE", "DEL", "DER", "DI", "DIE", "DD", "EL", "LA", "LOS", "LAS", "LE", "LES", "MAC", "MC", "VAN", "VON", "Y"};
-    int lon,i,j,k;
+    int lon,i,k,esp=0;
     lon=strlen(name);
     
-    for(i=0;name[i]!=' ' && i<lon;i++)
-    {
-        j=i;
-    }
-    j++;
-
-    for(i=j;name[j+1]!=' '&& i<lon ;i++)
-    {
-        j=i;
-    }
-    j++;
-
-    for(i=j;name[j+1]!=' '&& i<lon ;i++)
-    {
-        j=i;
-    }
-    j++;
-    
-    i=0;
     for(k=0;k<=lon;k++)
     {
-        if(strstr(name,conj[k])==0)
+        if(name[k]==' ')
         {
-            do
-            {
-                name[i]=name[j+1];
-                i++;
-                j++;
-            }
-            while(j<lon);
+            esp=k;
         }
     }
+
+    i=0;
+    if(esp>0)
+    {
+        for(k=0;k<=lon;k++)
+        {
+            if(strstr(name,conj[k])==0)
+            {
+                do
+                {
+                    name[i]=name[esp+1];
+                    i++;
+                    esp++;
+                }
+                while(esp<lon);
+            }
+        }
+    }
+    printf("%s \n",name);
+    system("pause");
 }
