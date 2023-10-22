@@ -27,6 +27,7 @@ void siglo (int year,char curp[]);
 void antisonantes (char curp[]);
 void estados ();
 void validAc (char cad[]);
+void des (char name[]);
 
 int main()
 {
@@ -115,7 +116,6 @@ void names(char name[],char name2[], char app[], char apm[],char curp[],int n2,i
     while(v==1);
     validAc(name);
     v=0;
-
    
     if(n2==1)
     {
@@ -129,6 +129,7 @@ void names(char name[],char name2[], char app[], char apm[],char curp[],int n2,i
         while(v==1);
         validAc(name2);
         v=0;
+        des(name2);
     }
 
     if(ap1==1)
@@ -144,6 +145,7 @@ void names(char name[],char name2[], char app[], char apm[],char curp[],int n2,i
         validAc(app);
         v=0;
     }
+    
 
     if(apm2==1)
     {
@@ -157,8 +159,9 @@ void names(char name[],char name2[], char app[], char apm[],char curp[],int n2,i
         while(v!=0);
         validAc(apm);
         v=0;
-    }
-    
+        des(apm);
+    }    
+
     np=longitudDeCh(app);
     
     if(ap1==1)
@@ -592,6 +595,10 @@ void siglo (int year,char curp[])
             {
                 let(cad,2);
             }
+            if(year<=2030)
+            {
+                let(cad,3);
+            }
         }
         curp[16]=cad[0]; 
     }
@@ -710,5 +717,29 @@ void antisonantes (char curp[])
 
 void des (char name[])
 {
+    char conj[][3]={"DA","DAS","DE", "DEL", "DER", "DI", "DIE", "DD", "EL", "LA", "LOS", "LAS", "LE", "LES", "MAC", "MC", "VAN", "VON", "Y"};
+    int lon,i,j,k;
     
+    for(i=0;name[i]!=' ';i++)
+    {
+        j=i;
+    }
+    j++;
+    lon=strlen(name);
+    i=0;
+
+    for(k=0;k<=lon;k++)
+    {
+        if(strstr(name,conj[k])==0)
+        {
+            printf("ENTRO\n");
+            do
+            {
+            name[i]=name[j+1];
+            i++;
+            j++;
+            }
+            while(j<lon);
+        }
+    }
 }
