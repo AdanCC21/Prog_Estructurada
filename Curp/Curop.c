@@ -30,11 +30,15 @@ void estados ();
 void validAc (char cad[]);
 void des (char name[]);
 
+//      Main        //
+
 int main()
 {
     opci();
     return 0;
 }
+
+//      Menu        //
 
 int menu()
 {
@@ -46,8 +50,6 @@ int menu()
     n=valid("Seleccione una opcion valida",1,2);
     return n;
 }
-
-//Por ultimo agregar si no detecta una consonante en la parte de las consonantes posicion 15-16 agrege una X
 
 void opci()
 {
@@ -686,6 +688,8 @@ void siglo (int year,char curp[])
     itoa(c,cad,10);
     curp[17]=cad[0];
 }
+
+//      Validaciones        //
 
 void validAc (char cad[])
 {
