@@ -1,8 +1,8 @@
 /*  
     Gonzalez Cesena Adan 372799
-    Curp
-    20/10/2023
-    Actv_9.5_932
+    Generacion de Curp
+    20/10/2023 - 22/10/2023
+    Actv_9 3/4_932
 */
 
 #include <stdio.h>
@@ -78,10 +78,13 @@ void inicio ()
 
     printf("Usted tiene mas de 1 nombre?\n");
     n2=valid("1-Si,2-No",1,2);
-    printf("Usted tiene primer apellido?\n");
-    ap1=valid("1.-Si.2.-No",1,2);
-    printf("Usted tiene segundo apellido?\n");
+    printf("Usted tiene mas de 1 apellidos?\n");
     apm2=valid("1.-Si.2.-No",1,2);
+    if(apm2==2)
+    {
+        printf("Usted cuenta con 1 apellido?\n");
+        ap1=valid("1.-Si.2.-No",1,2);
+    }
 
     system("CLS");
     printf("Vamos a iniciar a registrar su datos\n");
@@ -158,6 +161,7 @@ void names(char name[],char name2[], char app[], char apm[],char curp[],int n2,i
     while(v==1);
     validAc(name);
     v=0;
+    des(name);
    
     if(n2==1)
     {
@@ -736,7 +740,6 @@ void validAc (char cad[])
         {
             cad[i]='U';
         }
-// ----------------------------------------- //
         if(caract==164)
         {
             cad[i]='X';

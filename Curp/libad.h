@@ -1,6 +1,6 @@
 /*  
     Gonzalez Cesena Adan
-    Version 20/10/2023
+    Version 22/10/2023
 */
 
 #include <stdio.h>
@@ -154,41 +154,6 @@ int validCh(char cadena[])
     }
 
     return 0; 
-}
-
-//  Busqueda secuencial en un arreglo   //
-int bus_sec (int vect [],int n,int num)
-{
-    int i;
-    for(i=0;i<n;i++)
-    {
-        if(vect[i]==num) //Si llega a encontrar que en posicion i esta el numero buscado retornara la posicion
-        {
-            return i;
-        }
-    }
-    return -1; 
-    //de lo contrario lanzara un -1, que este esta fuera del rango de cualquier arreglo/cadena evitando lanzar una posicion erronea
-}
-
-//  Generaicon de numeros aleatorios sin repetir
-int num_alea_sr (int vect[], int n, int ri, int rf)
-{
-    int c, i;
-    for(i=0;i<n;i++)
-    {
-        do
-        {
-            c=rand() % (rf-ri+1)+ri;
-            //Generara un numero aleatorio entre los rangos recibidos
-        }
-        while(bus_sec(vect,n,c)!=-1);
-        //hara una busqueda entre el arreglo para ver si el numero aleatorio generado ya esta puesto en alguna otra posicion
-        
-        vect[i]=c; 
-        //de no ser el caso la busqueda lanzara un -1 y por lo tanto saldra del ciclo do while
-    }
-    return 0;
 }
 
 //Longitud de cadena
