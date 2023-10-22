@@ -70,8 +70,7 @@ int validCh(char cadena[])
             {
                 if (cadena[i] == ' ')
                 {
-                    printf("No puedes poner mas de 1 dato o utilizar espacios\n");
-                    return 1;
+                    
                 }
                 else
                 {
