@@ -748,6 +748,5 @@ void des (char name[])
             }
         }
     }
-    printf("%s \n",name);
-    system("pause");
 }
+
