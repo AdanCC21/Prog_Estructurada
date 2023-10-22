@@ -15,7 +15,7 @@ int bus_sec (int vect [],int n,int num);
 int num_alea_sr (int vect[], int n, int ri, int rf);
 void impr_vect (int vect[],int n);
 int longitudDeCh (char msj[]);
-int longitudDeIn (int msj[]);
+
 
 //       Funciones   //
 
@@ -39,6 +39,7 @@ int valid (char msg[],int ri, int rf)
 int validCh(char cadena[])
 {
     int i=0;
+    unsigned char cad;
     if (cadena[0] == ' ')
     {
         printf("Tu texto no puede iniciar con un espacio\n");
@@ -52,6 +53,8 @@ int validCh(char cadena[])
 
     while (cadena[i] != '\0')
     {
+        cad=(unsigned char)cadena[i];
+
         if ((cadena[i] >= 'A' && cadena[i] <= 'Z'))
         {
             
@@ -67,16 +70,78 @@ int validCh(char cadena[])
             {
                 if (cadena[i] == ' ')
                 {
-                    if (cadena[i + 1] == ' ')
-                    {
-                        printf("Espacios dobles no estan permitidos\n");
-                        return 1;
-                    }
+                    printf("No puedes poner mas de 1 dato o utilizar espacios\n");
+                    return 1;
                 }
                 else
                 {
-                    printf("Simbolos no permitidos\n");
-                    return 1;
+                    if(cad== 164)
+                    {   
+                    }
+                    else
+                    {
+                        if(cad==165)
+                        {
+                        }
+                        else
+                        {
+                            if(cad>=44 && cad<=47)
+                            {
+                            }
+                            else
+                            {
+                                if(cad==39)
+                                {
+                                }
+                                else
+                                {
+                                    if(cad==239)
+                                    {
+                                    }
+                                    else
+                                    {
+                                        if(cad==233 || cad == 154)
+                                        {
+
+                                        }
+                                        else
+                                        {
+                                            if(cad==153 || cad==224)
+                                            {
+
+                                            }
+                                            else
+                                            {
+                                                if(cad==216 || cad== 214)
+                                                {
+
+                                                }
+                                                else
+                                                {
+                                                    if(cad==211 || cad== 144)
+                                                    {
+
+                                                    }
+                                                    else
+                                                    {
+                                                        if(cad==181 || cad==143)
+                                                        {
+
+                                                        }
+                                                        else
+                                                        {
+                                                            printf("Simbolos no permitidos\n");
+                                                            return 1;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -134,13 +199,4 @@ int longitudDeCh (char msj[])
     int i;
     for(i=0;msj[i]!='\0';i++);
     return i-1;
-}
-
-//Longitud de arreglo
-int longitudDeIn (int msj[])
-{
-    //Lanzara los espacios ocupados o mas bn la longitud de un arreglo tipo int 
-    int lon;
-    lon=sizeof(msj)/sizeof(msj[0]);
-    return lon;
 }

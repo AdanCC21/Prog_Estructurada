@@ -25,6 +25,7 @@ void siglo (int year,char curp[]);
 
 void prohb (char cad[]);
 void estados ();
+void validAc (char cad[]);
 
 int main()
 {
@@ -85,7 +86,7 @@ void estados ()
 void names(char name[],char app[], char apm[],char curp[])
 {
     int i,np,band=0,v=0;
-
+    
     printf("Ingrese su nombre\n");
     do
     {
@@ -94,8 +95,11 @@ void names(char name[],char app[], char apm[],char curp[])
         v=validCh(name);
     }
     while(v==1);
+    validAc(name);
     v=0;
     
+    printf("\n%s\n",name);
+
     printf("Ingrese su apeido paterno\n");
     do
     {
@@ -104,6 +108,7 @@ void names(char name[],char app[], char apm[],char curp[])
         v=validCh(app);
     }
     while(v!=0);
+    validAc(app);
     v=0;
     
     printf("Ingrese su apeido materno\n");
@@ -114,6 +119,7 @@ void names(char name[],char app[], char apm[],char curp[])
         v=validCh(apm);
     }
     while(v!=0);
+    validAc(apm);
     v=0;
 
     np=longitudDeCh(app);
@@ -406,7 +412,6 @@ void cons_int (char name[], char app[], char apm[], char curp[])
     }
 }
 
-//Lista de la A hasta la J dependiendo el indicie
 void let (char cad[],int n)
 {
     n--;
@@ -414,7 +419,6 @@ void let (char cad[],int n)
     cad[0]=list[n];
 }
 
-//16
 void siglo (int year,char curp[])
 {
     int c;
@@ -445,3 +449,94 @@ void siglo (int year,char curp[])
     itoa(c,cad,10);
     curp[17]=cad[0];
 }
+
+void validAc (char cad[])
+{
+    int i,n;
+    unsigned char caract;
+    n=strlen(cad);
+    for(i=0;i<n;i++)
+    {
+        caract=(unsigned char)cad[i];
+
+        if(caract==181)
+        {
+            cad[i]='A';
+        }
+        if(caract==142)
+        {
+            cad[i]='A';
+        }
+
+        if(caract==144)
+        {
+            cad[i]='E';
+        }
+        if(caract==211)
+        {
+            cad[i]='E';
+        }
+
+        if(caract==214)
+        {
+            cad[i]='I';
+        }
+        if(caract==216)
+        {
+            cad[i]='I';
+        }
+
+        if(caract==224)
+        {
+            cad[i]='O';
+        }
+        if(caract==153)
+        {
+            cad[i]='O';
+        }
+
+        if(caract==233)
+        {
+            cad[i]='U';
+        }
+        if(caract==154)
+        {
+            cad[i]='U';
+        }
+// ----------------------------------------- //
+        if(caract==164)
+        {
+            cad[i]='X';
+        }
+        if(caract==165)
+        {
+            cad[i]='X';
+        }
+        if(caract==44)
+        {
+            cad[i]='X';
+        }
+        if(caract==45)
+        {
+            cad[i]='X';
+        }
+        if(caract==46)
+        {
+            cad[i]='X';
+        }
+        if(caract==47)
+        {
+            cad[i]='X';
+        }
+        if(caract==39)
+        {
+            cad[i]='X';
+        }
+        if(caract==239)
+        {
+            cad[i]='X';
+        }
+    }
+}
+
+
