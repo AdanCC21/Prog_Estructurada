@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-//      Prototipos      //
+//      ------Prototipos------      //
 
 //Validacion de numeros
 int valid (char msg[],int ri, int rf);
@@ -28,7 +28,7 @@ void impr_vect (int vect[],int n);
 //Longitud ed un arreglo
 int longitudDeIn (int msj[]);
 
-//      Funciones       //
+//      ------Funciones------       //
 
 //  Validacion de numeros
 int valid (char msg[],int ri, int rf)
@@ -37,10 +37,14 @@ int valid (char msg[],int ri, int rf)
     int n;
     do
     {
-        printf("%s\n",msg);
+        
         fflush(stdin);
         fgets(cad, sizeof(cad),stdin);
         n=atoi(cad);
+        if(n>rf || n<ri)
+        {
+            printf("%s\n",msg);
+        }
     }
     while(n>rf || n<ri);
     return n;
@@ -65,33 +69,58 @@ int validCh(char cadena[])
     {
         if ((cadena[i] >= 'A' && cadena[i] <= 'Z'))
         {
-            
+            //No hace nada
         }
         else
         {
-            if ((cadena[i] >= 'a' && cadena[i] <= 'z'))
+            
+            if(cadena[i]>='a')
             {
-                printf("Porfavor ingresa solamente letras mayusculas\n");
-                return 1;
-            }
-            else
-            {
-                if (cadena[i] == ' ')
+                if(cadena[i]<='z')
                 {
-                    if (cadena[i + 1] == ' ')
-                    {
-                        printf("Espacios dobles no estan permitidos\n");
-                        return 1;
-                    }
+                    cadena[i]-=32;
                 }
-                else
+            }
+
+            if(cadena[i] == -92) //ñ
+            {
+                cadena[i] = -91; //Ñ
+            }
+
+            if (cadena[i] == ' ')
+            {
+                if (cadena[i + 1] == ' ')
                 {
-                    printf("Simbolos no permitidos\n");
+                    printf("Espacios dobles no estan permitidos\n");
                     return 1;
                 }
             }
+            else
+            {
+                printf("Simbolos no permitidos\n");
+                return 1;
+            }
         }
         i++;
+    }
+}
+
+//Minusculas a mayusculas
+void minus (char cad[])
+{
+    for(int i=0; cad[i]!='\0';i++)
+    {
+        if(cad[i]>='a')
+        {
+            if(cad[i]<='z')
+            {
+                cad[i]-=32;
+            }
+        }
+        if(cad[i] == -92) //ñ
+        {
+            cad[i] = -91; //Ñ
+        }
     }
 }
 
@@ -119,6 +148,7 @@ int num_alea_sr (int vect[], int n, int ri, int rf)
         do
         {
             c=rand() % (rf-ri+1)+ri;
+            //Generara un numero aleatorio entre los rangos recibidos
         }
         while(bus_sec(vect,n,c)!=-1);
         //hara una busqueda entre el arreglo para ver si el numero aleatorio generado ya esta puesto en alguna otra posicion
@@ -134,7 +164,7 @@ int longitudDeIn (int arreglo[])
 {
     //Lanzara los espacios ocupados o mas bn la longitud de un arreglo tipo int 
     int lon;
-    lon=sizeof(arreglo)/sizeof(arreglo[0]);
+    lon = sizeof(arreglo)/sizeof(arreglo[0]);
     return lon;
 }
 
