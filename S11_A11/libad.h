@@ -8,22 +8,28 @@
 #include <stdlib.h>
 #include <time.h>
 
-//Prototipos
+//      Prototipos      //
 
 //Validacion de numeros
 int valid (char msg[],int ri, int rf);
+
 //Validacion de caracteres
 int validCh(char cadena[]);
+
 //Busqueda secuencial de la posicion de un numero dentro de un arreglo
 int bus_sec (int vect [],int n,int num);
+
 //Generacion de numero aleatorio sin repetir
 int num_alea_sr (int vect[], int n, int ri, int rf);
+
 //Imprimir vect/arreglo
 void impr_vect (int vect[],int n);
+
 //Longitud ed un arreglo
 int longitudDeIn (int msj[]);
 
-//Funciones
+//      Funciones       //
+
 //  Validacion de numeros
 int valid (char msg[],int ri, int rf)
 {
@@ -59,33 +65,58 @@ int validCh(char cadena[])
     {
         if ((cadena[i] >= 'A' && cadena[i] <= 'Z'))
         {
-            
+            //No hace nada
         }
         else
         {
-            if ((cadena[i] >= 'a' && cadena[i] <= 'z'))
+            
+            if(cadena[i]>='a')
             {
-                printf("Porfavor ingresa solamente letras mayusculas\n");
-                return 1;
-            }
-            else
-            {
-                if (cadena[i] == ' ')
+                if(cadena[i]<='z')
                 {
-                    if (cadena[i + 1] == ' ')
-                    {
-                        printf("Espacios dobles no estan permitidos\n");
-                        return 1;
-                    }
+                    cadena[i]-=32;
                 }
-                else
+            }
+
+            if(cadena[i] == -92) //ñ
+            {
+                cadena[i] = -91; //Ñ
+            }
+
+            if (cadena[i] == ' ')
+            {
+                if (cadena[i + 1] == ' ')
                 {
-                    printf("Simbolos no permitidos\n");
+                    printf("Espacios dobles no estan permitidos\n");
                     return 1;
                 }
             }
+            else
+            {
+                printf("Simbolos no permitidos\n");
+                return 1;
+            }
         }
         i++;
+    }
+}
+
+//Minusculas a mayusculas
+void minus (char cad[])
+{
+    for(int i=0; cad[i]!='\0';i++)
+    {
+        if(cad[i]>='a')
+        {
+            if(cad[i]<='z')
+            {
+                cad[i]-=32;
+            }
+        }
+        if(cad[i] == -92) //ñ
+        {
+            cad[i] = -91; //Ñ
+        }
     }
 }
 

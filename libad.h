@@ -1,6 +1,6 @@
 /*  
     Gonzalez Cesena Adan
-    Version 20/10/2023
+    Version 28/10/2023
 */
 
 #include <stdio.h>
@@ -9,15 +9,26 @@
 #include <time.h>
 
 //      Prototipos      //
+
+//Validacion de numeros
 int valid (char msg[],int ri, int rf);
+
+//Validacion de caracteres
 int validCh(char cadena[]);
+
+//Busqueda secuencial de la posicion de un numero dentro de un arreglo
 int bus_sec (int vect [],int n,int num);
+
+//Generacion de numero aleatorio sin repetir
 int num_alea_sr (int vect[], int n, int ri, int rf);
+
+//Imprimir vect/arreglo
 void impr_vect (int vect[],int n);
-int longitudDeCh (char msj[]);
+
+//Longitud ed un arreglo
 int longitudDeIn (int msj[]);
 
-//       Funciones   //
+//      Funciones       //
 
 //  Validacion de numeros
 int valid (char msg[],int ri, int rf)
@@ -82,14 +93,6 @@ int validCh(char cadena[])
         }
         i++;
     }
-
-    if (cadena[i - 1] == ' ')
-    {
-        printf("Tu texto no puede terminar con espacio\n");
-        return 1;
-    }
-
-    return 0; 
 }
 
 //  Busqueda secuencial en un arreglo   //
@@ -116,7 +119,6 @@ int num_alea_sr (int vect[], int n, int ri, int rf)
         do
         {
             c=rand() % (rf-ri+1)+ri;
-            //Generara un numero aleatorio entre los rangos recibidos
         }
         while(bus_sec(vect,n,c)!=-1);
         //hara una busqueda entre el arreglo para ver si el numero aleatorio generado ya esta puesto en alguna otra posicion
@@ -127,20 +129,22 @@ int num_alea_sr (int vect[], int n, int ri, int rf)
     return 0;
 }
 
-//Longitud de cadena
-int longitudDeCh (char msj[])
-{
-    //Lanzara los espacios ocupados o mas bn la longitud de un arreglo tipo char
-    int i;
-    for(i=0;msj[i]!='\0';i++);
-    return i-1;
-}
-
 //Longitud de arreglo
-int longitudDeIn (int msj[])
+int longitudDeIn (int arreglo[])
 {
     //Lanzara los espacios ocupados o mas bn la longitud de un arreglo tipo int 
     int lon;
-    lon=sizeof(msj)/sizeof(msj[0]);
+    lon=sizeof(arreglo)/sizeof(arreglo[0]);
     return lon;
+}
+
+//Imprimir un vector o arreglo
+void impr_vect (int vect[],int n)
+{
+    int i;
+    for(i=0;i<n;i++)
+    {
+        printf(" %d ", vect[i]);
+    }
+    printf("\n");
 }
