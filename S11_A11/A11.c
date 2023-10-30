@@ -46,6 +46,9 @@ void opci();
 
 void basic (data alu[],int p);
 
+
+void print(data dat[], int p);
+
 void li_estados();
 void gencurp (data registro[], int p, int n2, int ap1, int ap2, char nombre[], char nombre2[],char app[], char apm[], int day, int month, int year, int gen, int estado);
 
@@ -72,7 +75,7 @@ void menu ()
 
 void opci()
 {
-    int op,op2,pu,ppu;
+    int op,op2,pu,po;
     pu=0;
     data registro[P];
     do
@@ -124,9 +127,8 @@ void opci()
 
                 break;
             case 5:
-                scanf("%d",&ppu);
-                printf("%d",registro[ppu].dalum.n2);
-                system("PAUSE");
+                scanf("%d",&po);
+                print(registro,po-1);
                 break;
             case 6:
 
@@ -295,10 +297,10 @@ void basic (data alu[],int p)
     printf("Ingrese su matricula\n");
     alu[p].dalum.mat=valid2("Fuera de rango",300000,399999);
 
-    gencurp(alu[p].dalum.curp,p,alu[p].dalum.n2,alu[p].dalum.ap1,alu[p].dalum.ap2,alu[p].dalum.name,alu[p].dalum.name2,alu[p].dalum.app,alu[p].dalum.apm,alu[p].dbirth.day,alu[p].dbirth.month,alu[p].dbirth.year,alu[p].dalum.gen,alu[p].dalum.zone);
-    printf("\n %s \n ",alu[p].dalum.curp);
+    gencurp(alu,p,alu[p].dalum.n2,alu[p].dalum.ap1,alu[p].dalum.ap2,alu[p].dalum.name,alu[p].dalum.name2,alu[p].dalum.app,alu[p].dalum.apm,alu[p].dbirth.day,alu[p].dbirth.month,alu[p].dbirth.year,alu[p].dalum.gen,alu[p].dalum.zone);
 
     printf("Posicion numero %d llena\n",p+1);
+    printf("APELLIDO MATERNO : %s\n",alu[p].dalum.apm);
     system("PAUSE");
 }
 
@@ -340,9 +342,55 @@ void li_estados()
 }
 
 
-void print(data registro[], int p)
+void print(data dat[], int p)
 {
+    int i;
+    char cad[33][100]={"Aguascalientes","Baja California","Baja California Sur","Campeche", "Chiapas", "Chihuahua","Coahuila", "Colima","Durango","Guanajuato","Guerrero","Hidalgo",
+    "Jalisco","Estado de Mexico","Michoacan","Morelos","Nayarit","Nuevo Leon","Oaxaca","Puebla","Queretaro","Quintana Roo","San Luis Potosi","Sinaloa","Sonora","Tabasco","Tamaulipas",
+    "Tlaxcala","Veracruz","Yucatan,","Zacatecas","Ciudad de Mexico","Extranjero"};
 
+    printf("Alumno posicion %d\n",p+1);
+
+    printf("NOMBRE : %s\n",dat[p].dalum.name);
+    
+    if(dat[p].dalum.n2==1)
+    {
+        printf("NOMBRE 2 : %s\n",dat[p].dalum.name2);
+    }
+
+    if(dat[p].dalum.ap1==1)
+    {
+        printf("APELLIDO PATERNO : %s\n",dat[p].dalum.app);
+    }
+
+    if(dat[p].dalum.ap2==1)
+    {
+        printf("APELLIDO MATERNO : %s\n",dat[p].dalum.apm);
+    }
+
+    printf("EDAD : %d\n",dat[p].dbirth.age);
+
+    printf("GENERO : ");
+    if(dat[p].dalum.gen==1)
+    {
+        printf("HOMBRE\n");
+    }
+    else
+    {
+        printf("MUJER\n");
+    }
+
+    printf("LUGAR DE NACIMIENTO :");
+    printf("%s\n",cad[dat[p].dalum.zone-1]);
+
+    printf("CURP :");
+    for(i=0;i<18;i++)
+    {
+        printf("%c",dat[p].dalum.curp[i]);
+    }
+    printf("\n");
+    
+    system("PAUSE");
 
 }
 
@@ -351,8 +399,6 @@ void gencurp (data curp[], int p, int n2, int ap1, int ap2, char nombre[], char 
     char TempCurp[18];
     CU_Auto_Gen(TempCurp,n2,ap2,ap1,nombre,nombre2,app,apm,day,month,year,gen,estado);
     strcpy(curp[p].dalum.curp,TempCurp);
-    printf("Curp generada %s\n",curp[p].dalum.curp);
-    system("PAUSE");
 }
 
 
