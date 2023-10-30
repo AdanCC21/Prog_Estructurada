@@ -121,9 +121,9 @@ int opci ()
                         }
                         else
                         {
-                        alumno[i] = AgrAL(alumno,i);
-                        i++;
-                        banO=0;
+                            alumno[i] = AgrAL(alumno,i);
+                            i++;
+                            banO=0;
                         }
                        
                     }

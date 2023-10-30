@@ -414,58 +414,7 @@ void basic (data alu[],int p)
     system("PAUSE");
 }
 
-void AutoAlumn (data alu[],int p)
-{
-    char name[30],ap[30],apm[30];
-    char tempN[30],tempN2[30],tempAp[30],tempApm[30];
-    int c;
-    c=rand()%(2-1+1)+1;
 
-        alu[p].dalum.n2=2;
-        alu[p].dalum.ap2=1;
-        alu[p].dalum.ap1=1;
-
-        li_nombres(name,c);
-        printf(" %s ",name);
-        strcpy(alu[p].dalum.name,name);
-
-        li_apellidos(ap);
-        strcpy(alu[p].dalum.app,ap);
-
-        li_apellidos(apm);
-        strcpy(alu[p].dalum.apm,apm);
-
-        alu[p].dalum.gen=c;
-
-        c=rand()%(300-250+1)+250;
-        c=c-230;
-        alu[p].dbirth.age=c;
-
-        c=rand()%(2023-1893+1)+1893;
-        alu[p].dbirth.year=c;
-
-        c=rand()%(12-1+1)+1;
-        alu[p].dbirth.month=c;
-
-        c=rand()%(28-1+1)+1;
-        alu[p].dbirth.day=c;
-
-        c=rand()%(33-1+1)+1;
-        alu[p].dalum.zone=c;
-
-        c=rand()%(399999-300000+1)+300000;
-        alu[p].dalum.mat=c;
-
-        strcpy(tempN,alu[p].dalum.name);
-        strcpy(tempN2,alu[p].dalum.name2);
-        strcpy(tempAp,alu[p].dalum.app);
-        strcpy(tempApm,alu[p].dalum.apm);
-
-        gencurp(alu,p,alu[p].dalum.n2,alu[p].dalum.ap1,alu[p].dalum.ap2,tempN,tempN2,tempAp,tempApm,alu[p].dbirth.day,alu[p].dbirth.month,alu[p].dbirth.year,alu[p].dalum.gen,alu[p].dalum.zone);
-
-    
-    
-}
 
 void li_estados()
 {
@@ -508,8 +457,8 @@ void li_nombres(char cad[],int gen)
 {
     
     int c;
-    c=rand()%(20-1+1)+1;
-
+    c=rand()%(2-1+1)+1;
+    printf("%d",c);
     char namesM[20][30]={"MARIA", "SOFIA", "CARMEN", "ISABEL", "LAURA", "ANA", "JULIA", "PAULA", "ANAHI", "ROSA", "ELISA", "ELENA", "VANESA", 
     "ALICIA", "MONICA", "CLAUDIA", "DIANA", "SARA", "CAROLINA", "ANDREA"};
 
@@ -533,12 +482,61 @@ void li_nombres(char cad[],int gen)
 void li_apellidos (char cad[])
 {
     int c;
+    c=rand() % (50-1+1)+1;
     char ap [50][30]= {"RODRIGUEZ", "GONZALEZ", "HERNANDEZ", "LOPEZ", "MARTINEZ", "PEREZ", "GARCIA", "SANCHEZ", "RAMIREZ", "TORRES", "FLORES", 
     "VAZQUEZ", "GOMEZ", "DIAZ", "REYES", "MORALES", "JIMENEZ", "ORTIZ", "CASTRO", "RUIZ", "ALVAREZ", "FERNANDEZ", "VARGAS", "RAMOS", "SUAREZ", "MENDOZA", 
     "CRUZ", "ALVAREZ", "RIVERA", "DOMINGUEZ", "MORENO", "BLANCO", "IGLESIAS", "ROMERO", "RUBIO", "NUNEZ", "SOSA", "GUTIERREZ", "MOLINA", "DELGADO", "AGUILAR", 
     "MEDINA", "GUERRERO", "SOTO", "SALAZAR", "ARIAS", "PAZ", "SOSA", "HERRERA"};
-    c=rand() % (50-1+1)+1;
     strcpy(cad,ap[c-1]);
+}
+
+void AutoAlumn (data alu[],int p)
+{
+    char name[30],ap[30],apm[30];
+    char tempN[30],tempN2[30],tempAp[30],tempApm[30];
+    int c,ag,y,m,d,z,mat;
+    c=rand()%(2-1+1)+1;
+
+        alu[p].dalum.n2=2;
+        alu[p].dalum.ap2=1;
+        alu[p].dalum.ap1=1;
+
+        li_nombres(name,c);
+        printf(" %s ",name);
+        strcpy(alu[p].dalum.name,name);
+
+        li_apellidos(ap);
+        strcpy(alu[p].dalum.app,ap);
+
+        li_apellidos(apm);
+        strcpy(alu[p].dalum.apm,apm);
+
+        alu[p].dalum.gen=c;
+
+        ag=rand()%(300-250+1)+250;
+        alu[p].dbirth.age=ag;
+
+        y=rand()%(2023-1893+1)+1893;
+        alu[p].dbirth.year=y;
+
+        m=rand()%(12-1+1)+1;
+        alu[p].dbirth.month=m;
+
+        d=rand()%(28-1+1)+1;
+        alu[p].dbirth.day=d;
+
+        z=rand()%(33-1+1)+1;
+        alu[p].dalum.zone=z;
+
+        mat=rand()%(399999-300000+1)+300000;
+        alu[p].dalum.mat=mat;
+
+        strcpy(tempN,alu[p].dalum.name);
+        strcpy(tempN2,alu[p].dalum.name2);
+        strcpy(tempAp,alu[p].dalum.app);
+        strcpy(tempApm,alu[p].dalum.apm);
+
+        gencurp(alu,p,alu[p].dalum.n2,alu[p].dalum.ap1,alu[p].dalum.ap2,tempN,tempN2,tempAp,tempApm,alu[p].dbirth.day,alu[p].dbirth.month,alu[p].dbirth.year,alu[p].dalum.gen,alu[p].dalum.zone);
 }
 
 int eliminacion (data dat[],int pu)
