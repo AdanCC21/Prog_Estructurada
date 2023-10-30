@@ -3,17 +3,23 @@
 #include <stdlib.h>
 #include <time.h>
 #include "libad.h"
+#define P 2000
 
 //       Structs        //
 
 typedef struct alumno
 {
+    int n2;
+    int ap2;
+    int ap1;
+
     char name [30];
     char name2 [30];
     char app [30];
     char apm[30];
 
     int zone;
+    int gen;
     
     char curp[18];
     int mat;
@@ -24,6 +30,7 @@ typedef struct fecha
     int day;
     int month;
     int year;
+    int age;
 }birth;
 
 typedef struct datos
@@ -37,8 +44,10 @@ typedef struct datos
 void menu ();
 void opci();
 
-void gencurp (data ine,int n2, int ap1, int ap2, char nombre[], char nombre2[],char app[], char apm[], int day, int month, int year, int gen, int estado);
+void basic (data alu[],int p);
 
+void li_estados();
+void gencurp (data ine,int n2, int ap1, int ap2, char nombre[], char nombre2[],char app[], char apm[], int day, int month, int year, int gen, int estado);
 
 //        Main          //
 int main()
@@ -63,8 +72,9 @@ void menu ()
 
 void opci()
 {
-    data estudiante;
-    int op,op2;
+    int op,op2,pu,ppu;
+    pu=0;
+    data registro[P];
     do
     {
         system("CLS");
@@ -74,26 +84,34 @@ void opci()
         {
             case 1:
                 system("CLS");
-                printf("1.-Agregar Manual\t2.-Agregar Automaticamente\n3.-Salir\n");
-                op2=valid2("Ingrese una opcion valida",1,2);
-                
-                if(op2==1)
+                if(pu<P)
                 {
+                    printf("1.-Agregar Manual\t2.-Agregar Automaticamente\t3.-Regresar\n");
+                    op2=valid2("Ingrese una opcion valida",1,3);
                     
-                }
-                else
-                {
-                    if(op2==2)
+                    if(op2==1)
                     {
-
+                        basic(registro,pu);
+                        pu++;
                     }
                     else
                     {
-                        //No Hace Nada
+                        if(op2==2)
+                        {
+                            pu++;
+                        }
+                        else
+                        {
+                            //Regresa
+                        }
+
                     }
-
                 }
-
+                else
+                {
+                    printf("Registro lleno\n");
+                    system("PAUSE");
+                }
                 break;
             case 2:
                 
@@ -106,7 +124,9 @@ void opci()
 
                 break;
             case 5:
-
+                scanf("%d",&ppu);
+                printf("%d",registro[ppu].dalum.n2);
+                system("PAUSE");
                 break;
             case 6:
 
@@ -127,13 +147,205 @@ void opci()
 
 //      Funciones       //
 
+void basic (data alu[],int p)
+{
+    int v;
+    char cad[30];
+
+    system("CLS");
+    printf("Antes de iniciar a registrar datos, le pedire que aclare unos puntos\n");
+    printf("Tiene 2 nombres?\n1.-Si\t2.-No\n");
+    alu[p].dalum.n2=valid2("Fuera de rango",1,2);
+
+    printf("Tiene 2 Apellidos?\n1.-Si\t2.-No\n");
+    alu[p].dalum.ap2=valid2("Fuera de rango",1,2);
+    alu[p].dalum.ap1=1;
+
+    if(alu[p].dalum.ap2==2)
+    {
+        printf("Tiene 1 Apellido?\n1.-Si\t2.-No\n");
+        alu[p].dalum.ap1=valid2("Fuera de rango",1,2);
+    }
+
+    system("CLS");
+    printf("De acuerdo, ahora comenzaremos a llenar los datos basicos del alumno\n");
+    printf("Ingrese su nombre\n");
+    do
+    {
+        fflush(stdin);
+        gets(cad);
+        v=validCh(cad);
+    }
+    while (v==1);
+    strcpy(alu[p].dalum.name,cad);
+
+    if(alu[p].dalum.n2==1)
+    {
+        printf("Ingrese su segundo nombre\n");
+        
+        do
+        {
+            gets(cad);
+            v=validCh(cad);
+        }
+        while (v==1);
+        strcpy(alu[p].dalum.name2,cad);
+    }
+
+    if(alu[p].dalum.ap1==1)
+    {
+        printf("Ingrese su apellido paterno\n");
+        do
+        {
+            gets(cad);
+            v=validCh(cad);
+        }
+        while (v==1);
+        strcpy(alu[p].dalum.app,cad);
+    }
+
+    if(alu[p].dalum.ap2==1)
+    {
+        printf("Ingrese su apellido materno\n");
+        do
+        {
+            gets(cad);
+            v=validCh(cad);
+        }
+        while (v==1);
+        strcpy(alu[p].dalum.apm,cad);
+    }
+    
+    printf("Ingrese su edad actual\n");
+    alu[p].dbirth.age=valid2("Intente de nuevo",0,130);
+
+    printf("Ingrese su anio de nacimiento\n");
+    alu[p].dbirth.year=valid2("Caducado",1893,2023);
+
+    printf("Ingrese el numero de mes\n");
+    alu[p].dbirth.month=valid2("Fuera de rango",1,12);
+
+    printf("Ingrese el dia\n");
+    if(alu[p].dbirth.month==2)
+    {
+        if ((alu[p].dbirth.year % 4 == 0 && alu[p].dbirth.year % 100 != 0) || (alu[p].dbirth.year % 400 == 0))
+        {
+            alu[p].dbirth.day=valid2("Fuera de rango",1,29);
+        }
+        else
+        {
+            alu[p].dbirth.day=valid2("Fuera de rango",1,28);
+        }
+    }
+    else
+    {
+        if(alu[p].dbirth.month==1)
+        {
+            alu[p].dbirth.day=valid2("Fuera de rango",1,31);
+        }
+        if(alu[p].dbirth.month==3)
+        {
+            alu[p].dbirth.day=valid2("Fuera de rango",1,31);
+        }
+        if(alu[p].dbirth.month==4)
+        {
+            alu[p].dbirth.day=valid2("Fuera de rango",1,30);
+        }
+        if(alu[p].dbirth.month==5)
+        {
+            alu[p].dbirth.day=valid2("Fuera de rango",1,31);
+        }
+        if(alu[p].dbirth.month==6)
+        {
+            alu[p].dbirth.day=valid2("Fuera de rango",1,30);
+        }
+        if(alu[p].dbirth.month==7)
+        {
+            alu[p].dbirth.day=valid2("Fuera de rango",1,31);
+        }
+        if(alu[p].dbirth.month==8)
+        {
+            alu[p].dbirth.day=valid2("Fuera de rango",1,31);
+        }
+        if(alu[p].dbirth.month==9)
+        {
+            alu[p].dbirth.day=valid2("Fuera de rango",1,30);
+        }
+        if(alu[p].dbirth.month==10)
+        {
+            alu[p].dbirth.day=valid2("Fuera de rango",1,31);
+        }
+        if(alu[p].dbirth.month==11)
+        {
+            alu[p].dbirth.day=valid2("Fuera de rango",1,30);
+        }
+        if(alu[p].dbirth.month==12)
+        {
+            alu[p].dbirth.day=valid2("Fuera de rango",1,31);
+        }
+    }
+
+    printf("Ingrese su genero\n1.-Hombre\t2.-Mujer\n");
+    alu[p].dalum.gen=valid2("Fuera de rango",1,2);
+
+    li_estados();
+    printf("Ingrese el indice del estado donde nacio\n");
+    alu[p].dalum.zone=valid2("Fuera de rango",1,33);
+
+    printf("Ingrese su matricula\n");
+    alu[p].dalum.mat=valid2("Fuera de rango",300000,399999);
+
+    printf("Posicion numero %d llena\n",p+1);
+    system("PAUSE");
+}
+
+void li_estados()
+{
+    printf("1. Aguascalientes\t");
+    printf("2. Baja California\t");
+    printf("3. Baja California Sur\n");
+    printf("4. Campeche\t\t");
+    printf("5. Chiapas\t\t");
+    printf("6. Chihuaha\n");
+    printf("7. Coahuila\t\t");
+    printf("8. Colima\t\t");
+    printf("9. Durango\n");
+    printf("10. Guanajuato\t\t");
+    printf("11. Guerrero\t\t");
+    printf("12. Hidalgo\n");
+    printf("13. Jalisco\t\t");
+    printf("14. Estado de Mexico\t");
+    printf("15. Michoacan\n");
+    printf("16. Morelos\t\t");
+    printf("17. Nayarit\t\t");
+    printf("18. Nuevo Leon\n");
+    printf("19. Oaxaca\t\t");
+    printf("20. Puebla\t\t");
+    printf("21. Queretaro\n");
+    printf("22. Quintana Roo\t");
+    printf("23. San Luis Potosi\t");
+    printf("24. Sinaloa\n");
+    printf("25. Sonora\t\t");
+    printf("26. Tabasco \t\t");
+    printf("27. Tamaulipas\n");
+    printf("28. Tlaxcala\t\t");
+    printf("29. Veracruz\t\t");
+    printf("30. Yucatan\n");
+    printf("31. Zacatecas\t\t");
+    printf("32. Ciudad de Mexico\t");
+    printf("33. Extranjero\n");
+}
+
+
+void print(data registro[], int p);
+/*
 void gencurp (data ine,int n2, int ap1, int ap2, char nombre[], char nombre2[],char app[], char apm[], int day, int month, int year, int gen, int estado)
 {
     char TempCurp[18];
-    //CU_Auto_Gen(TempCurp,n2,ap2,ap1,nombre,nombre2,app,apm,day,month,year,gen,estado);
     CU_Auto_Gen(TempCurp,n2,ap2,ap1,nombre,nombre2,app,apm,day,month,year,gen,estado);
     strcpy(ine.dalum.curp,TempCurp);
     printf("Curp generada");
     system("PAUSE");
 }
+*/
 
