@@ -65,7 +65,19 @@ int main()
 {
     srand(time(NULL));
     opci();
-    return 0;
+    return 0
+    ;
+}
+
+int random ()
+{
+    srand(time(NULL));
+    int c;
+    for (int i=0; i<20;i++)
+    {
+        c=rand()%(20-1+1)+1;
+    }
+    return c;
 }
 
 //        Menu          //
@@ -233,7 +245,14 @@ void opci()
                 system("PAUSE");
                 break;
             case 6:
-
+                int r;
+                for (i=0; i<20;i++)
+                {
+                    r=random();
+                    printf("\n%d",r);
+                }
+                
+                system("PAUSE");
                 break;
             case 0:
                 system("CLS");
