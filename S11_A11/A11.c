@@ -84,7 +84,9 @@ void menu ()
 
 void opci()
 {
+    
     int i,j,op,op2,pu,po,ord,el;
+    int num,bus,lef,rig;
     ord=0;
     pu=0;
     data registro[P];
@@ -160,7 +162,7 @@ void opci()
                 }
                 break;
             case 3:
-                int num,bus,lef,rig;
+                
                 if(pu==0)
                 {
                     printf("lista vacia\n");
