@@ -45,11 +45,19 @@ void menu ();
 void opci();
 
 void basic (data alu[],int p);
+int eliminacion (data dat[],int pu);
 
+int buscsec(data alumno[], int p, int num);
+int buscbin(data alumno[], int lef, int rig, int num);
+
+void ordenarB (data alumno[], int n);
 
 void print(data dat[], int p);
 
 void li_estados();
+void li_nombresH(char cad[]);
+void li_nombresM(char cad[]);
+void li_apellidos(char cad[]);
 void gencurp (data registro[], int p, int n2, int ap1, int ap2, char nombre[], char nombre2[],char app[], char apm[], int day, int month, int year, int gen, int estado);
 
 //        Main          //
@@ -75,7 +83,8 @@ void menu ()
 
 void opci()
 {
-    int op,op2,pu,po;
+    int op,op2,pu,po,ord,el;
+    ord=0;
     pu=0;
     data registro[P];
     do
@@ -96,12 +105,14 @@ void opci()
                     {
                         basic(registro,pu);
                         pu++;
+                        ord=0;
                     }
                     else
                     {
                         if(op2==2)
                         {
                             pu++;
+                            ord=0;
                         }
                         else
                         {
@@ -115,20 +126,96 @@ void opci()
                     printf("Registro lleno\n");
                     system("PAUSE");
                 }
-                break;
-            case 2:
                 
                 break;
-
+            case 2:
+                if(pu>0)
+                {
+                    printf("Seguro que quiere eliminar un registro?\n1.-Si, Eliminar\t2.-No, Salir\n");
+                    el=valid2("Fuera de rango",1,2);
+                    if(el==1)
+                    {
+                        pu=eliminacion(registro,pu);
+                        printf("Hecho\n");
+                        system("PAUSE");
+                    }
+                }
+                else
+                {
+                    printf("Lista vacia\n");
+                    system("PAUSE");
+                }
+                break;
             case 3:
+                int num,bus,lef,rig;
+                if(pu==0)
+                {
+                    printf("lista vacia\n");
+                }
+                else
+                {
+                    if(ord==0)
+                    {
+                        printf("Metodo de secuencial\n");
+                        num=valid("Ingrese la matricula",300000,399999);
+                        bus=buscsec(registro,pu,num);
 
+                        if(bus==-1)
+                        {
+                            printf("No se encontro la matricula\n");
+                        }
+                        else
+                        {
+                            printf("La matricula se encuentra en la posicion %d \n", bus+1);
+                            print(registro,bus);
+                        }
+                    }
+                    else
+                    {
+                        printf("Busqueda binaria\n");
+                        num=valid("Ingrese la matricula",300000,399999);
+                        lef=0;
+                        rig=pu;
+                        
+                        bus=buscbin(registro,lef, rig, num);
+                        if(bus==-1)
+                        {
+                            printf("No se encontro la matricula\n");
+                        }
+                        else
+                        {
+                            printf("La matricula se encuentra en la posicion %d \n", bus+1);
+                            print(registro,bus);
+                        }
+                    }
+                }
+                system("PAUSE");
                 break;
             case 4:
+                if(ord==0)
+                {
+                    printf("Ya esta ordenado\n");
+                    
+                }
+                else
+                {
 
+                }
+                system("PAUSE");
+                ord=1;
                 break;
             case 5:
-                scanf("%d",&po);
-                print(registro,po-1);
+                if(pu>0)
+                {
+                    printf("Que posicion desea imprimir\n");
+                    po=valid2("Posicion fuera de rango o vacia",1,pu);
+                    print(registro,po-1);
+                }
+                else
+                {
+                    printf("Lista vacia\n");
+                }
+                system("PAUSE");
                 break;
             case 6:
 
@@ -313,6 +400,11 @@ void basic (data alu[],int p)
     system("PAUSE");
 }
 
+void AutoAlumn (data alu[],int p)
+{
+    
+}
+
 void li_estados()
 {
     printf("1. Aguascalientes\t");
@@ -350,6 +442,109 @@ void li_estados()
     printf("33. Extranjero\n");
 }
 
+void li_nombresH(char cad[])
+{
+    srand(time(NULL));
+    int c;
+    char namesH[20][30]={"ADAN", "JAVIER", "MIGUEL", "CARLOS", "LUIS", "ALEJANDRO", "DIEGO", "ANDRES", "JUAN", "PEDRO", "FERNANDO", "RAUL", 
+    "JOSE", "RICARDO", "HUGO", "OSCAR", "PABLO", "EMILIO", "SERGIO", "FRANCISCO"};
+    c=rand()%(20-1+1)-1;
+    cad=namesH[c-1];
+}
+
+void li_nombresM(char cad[])
+{
+    srand(time(NULL));
+    int c;
+    char namesM[20][30]={"MARIA", "SOFIA", "CARMEN", "ISABEL", "LAURA", "ANA", "JULIA", "PAULA", "ANAHI", "ROSA", "ELISA", "ELENA", "VANESA", 
+    "ALICIA", "MONICA", "CLAUDIA", "DIANA", "SARA", "CAROLINA", "ANDREA"};
+    c=rand() % (20-1+1)-1;
+    cad=namesM[c-1];
+}
+
+void li_apellidos (char cad[])
+{
+    srand(time(NULL));
+    int c;
+    char ap [50][30]= {"RODRIGUEZ", "GONZALEZ", "HERNANDEZ", "LOPEZ", "MARTINEZ", "PEREZ", "GARCIA", "SANCHEZ", "RAMIREZ", "TORRES", "FLORES", 
+    "VAZQUEZ", "GOMEZ", "DIAZ", "REYES", "MORALES", "JIMENEZ", "ORTIZ", "CASTRO", "RUIZ", "ALVAREZ", "FERNANDEZ", "VARGAS", "RAMOS", "SUAREZ", "MENDOZA", 
+    "CRUZ", "ALVAREZ", "RIVERA", "DOMINGUEZ", "MORENO", "BLANCO", "IGLESIAS", "ROMERO", "RUBIO", "NUNEZ", "SOSA", "GUTIERREZ", "MOLINA", "DELGADO", "AGUILAR", 
+    "MEDINA", "GUERRERO", "SOTO", "SALAZAR", "ARIAS", "PAZ", "SOSA", "HERRERA"};
+    c=rand() % (50-1+1)-1;
+    cad=ap[c-1];
+}
+
+int eliminacion (data dat[],int pu)
+{
+    int i,pe;
+    printf("Que posicion desea eliminar\nPosciones registradas del 1 al %d\n",pu);
+    pe=valid2("Posicion vacia",1,pu);
+    pe--;
+    for(i=pe;i<pu;i++)
+    {
+        dat[i]=dat[i+1];
+    }
+    pu--;
+    return pu;
+}
+
+int buscsec(data alumno[], int p, int num)
+{
+    int i;
+    for(i=0;i<=p;i++)
+    {
+        if(alumno[i].dalum.mat==num)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+int buscbin(data alumno[], int lef, int rig, int num) 
+{
+    int med;
+    while (lef<=rig)
+    {
+        med=lef + (rig - lef) / 2;
+        
+        if(alumno[med].dalum.mat==num)
+        {
+            return med;
+            lef=rig+1;
+        }
+        if(alumno[med].dalum.mat< num)
+        {
+            lef= med+1;
+        }
+        if(alumno[med].dalum.mat > num)
+        {
+            rig=med-1;
+        }
+    }
+    return -1;
+}
+
+void ordenarB (data alumno[], int n)
+{
+    int i,j;
+    data temp;
+    for(j=0;j<=n;j++)
+    {
+        for(i=j+1;i<=n;i++)
+        {
+            if(alumno[j].dalum.mat>alumno[i].dalum.mat)
+            {
+                temp=alumno[i];
+                alumno[i]=alumno[j];
+                alumno[j]=temp;
+            }
+        }
+    }
+    printf("Ordenada\n");
+    system("PAUSE");
+
+}
 
 void print(data dat[], int p)
 {
@@ -386,7 +581,10 @@ void print(data dat[], int p)
     }
     else
     {
-        printf("MUJER\n");
+        if(dat[p].dalum.gen==2)
+        {
+            printf("MUJER\n");
+        }
     }
 
     printf("LUGAR DE NACIMIENTO :");
@@ -398,9 +596,6 @@ void print(data dat[], int p)
         printf("%c",dat[p].dalum.curp[i]);
     }
     printf("\n");
-    
-    system("PAUSE");
-
 }
 
 void gencurp (data curp[], int p, int n2, int ap1, int ap2, char nombre[], char nombre2[],char app[], char apm[], int day, int month, int year, int gen, int estado)

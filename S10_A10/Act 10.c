@@ -380,7 +380,6 @@ talum AgrMn (talum alumno[],int i)
 void elimr (talum alumno[],int p)
 {
     alumno[p].status=0;
-
 }
 
 int buscsec(talum alumno[], int n,int num)
