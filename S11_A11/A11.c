@@ -4,11 +4,40 @@
 #include <time.h>
 #include "libad.h"
 
+//       Structs        //
+
+typedef struct alumno
+{
+    char name [30];
+    char name2 [30];
+    char app [30];
+    char apm[30];
+
+    int zone;
+    
+    char curp[18];
+    int mat;
+}alum;
+
+typedef struct fecha
+{
+    int day;
+    int month;
+    int year;
+}birth;
+
+typedef struct datos
+{
+    alum dalum;
+    birth dbirth;
+}data;
 
 //      Prototipos      //
 
 void menu ();
 void opci();
+
+void gencurp (data ine,int n2, int ap1, int ap2, char nombre[], char nombre2[],char app[], char apm[], int day, int month, int year, int gen, int estado);
 
 
 //        Main          //
@@ -34,6 +63,7 @@ void menu ()
 
 void opci()
 {
+    data estudiante;
     int op,op2;
     do
     {
@@ -44,20 +74,29 @@ void opci()
         {
             case 1:
                 system("CLS");
-                printf("1.-Agregar Manual\t2.-Agregar Automaticamente\n");
+                printf("1.-Agregar Manual\t2.-Agregar Automaticamente\n3.-Salir\n");
                 op2=valid2("Ingrese una opcion valida",1,2);
                 
                 if(op2==1)
                 {
-                    CUopci();
+                    
                 }
                 else
                 {
+                    if(op2==2)
+                    {
+
+                    }
+                    else
+                    {
+                        //No Hace Nada
+                    }
 
                 }
 
                 break;
             case 2:
+                
                 break;
 
             case 3:
@@ -88,4 +127,13 @@ void opci()
 
 //      Funciones       //
 
+void gencurp (data ine,int n2, int ap1, int ap2, char nombre[], char nombre2[],char app[], char apm[], int day, int month, int year, int gen, int estado)
+{
+    char TempCurp[18];
+    //CU_Auto_Gen(TempCurp,n2,ap2,ap1,nombre,nombre2,app,apm,day,month,year,gen,estado);
+    CU_Auto_Gen(TempCurp,n2,ap2,ap1,nombre,nombre2,app,apm,day,month,year,gen,estado);
+    strcpy(ine.dalum.curp,TempCurp);
+    printf("Curp generada");
+    system("PAUSE");
+}
 
