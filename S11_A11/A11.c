@@ -47,7 +47,7 @@ void opci();
 void basic (data alu[],int p);
 
 void li_estados();
-void gencurp (data ine,int n2, int ap1, int ap2, char nombre[], char nombre2[],char app[], char apm[], int day, int month, int year, int gen, int estado);
+void gencurp (data registro[], int p, int n2, int ap1, int ap2, char nombre[], char nombre2[],char app[], char apm[], int day, int month, int year, int gen, int estado);
 
 //        Main          //
 int main()
@@ -295,6 +295,9 @@ void basic (data alu[],int p)
     printf("Ingrese su matricula\n");
     alu[p].dalum.mat=valid2("Fuera de rango",300000,399999);
 
+    gencurp(alu[p].dalum.curp,p,alu[p].dalum.n2,alu[p].dalum.ap1,alu[p].dalum.ap2,alu[p].dalum.name,alu[p].dalum.name2,alu[p].dalum.app,alu[p].dalum.apm,alu[p].dbirth.day,alu[p].dbirth.month,alu[p].dbirth.year,alu[p].dalum.gen,alu[p].dalum.zone);
+    printf("\n %s \n ",alu[p].dalum.curp);
+
     printf("Posicion numero %d llena\n",p+1);
     system("PAUSE");
 }
@@ -337,15 +340,19 @@ void li_estados()
 }
 
 
-void print(data registro[], int p);
-/*
-void gencurp (data ine,int n2, int ap1, int ap2, char nombre[], char nombre2[],char app[], char apm[], int day, int month, int year, int gen, int estado)
+void print(data registro[], int p)
+{
+
+
+}
+
+void gencurp (data curp[], int p, int n2, int ap1, int ap2, char nombre[], char nombre2[],char app[], char apm[], int day, int month, int year, int gen, int estado)
 {
     char TempCurp[18];
     CU_Auto_Gen(TempCurp,n2,ap2,ap1,nombre,nombre2,app,apm,day,month,year,gen,estado);
-    strcpy(ine.dalum.curp,TempCurp);
-    printf("Curp generada");
+    strcpy(curp[p].dalum.curp,TempCurp);
+    printf("Curp generada %s\n",curp[p].dalum.curp);
     system("PAUSE");
 }
-*/
+
 
