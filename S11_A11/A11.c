@@ -45,6 +45,7 @@ void menu ();
 void opci();
 
 void basic (data alu[],int p);
+void AutoAlumn (data alu[],int p);
 int eliminacion (data dat[],int pu);
 
 int buscsec(data alumno[], int p, int num);
@@ -55,14 +56,14 @@ void ordenarB (data alumno[], int n);
 void print(data dat[], int p);
 
 void li_estados();
-void li_nombresH(char cad[]);
-void li_nombresM(char cad[]);
+void li_nombres(char cad[],int gen);
 void li_apellidos(char cad[]);
 void gencurp (data registro[], int p, int n2, int ap1, int ap2, char nombre[], char nombre2[],char app[], char apm[], int day, int month, int year, int gen, int estado);
 
 //        Main          //
 int main()
 {
+    srand(time(NULL));
     opci();
     return 0;
 }
@@ -83,7 +84,7 @@ void menu ()
 
 void opci()
 {
-    int op,op2,pu,po,ord,el;
+    int i,j,op,op2,pu,po,ord,el;
     ord=0;
     pu=0;
     data registro[P];
@@ -111,14 +112,28 @@ void opci()
                     {
                         if(op2==2)
                         {
-                            pu++;
-                            ord=0;
+                            j=P-pu;
+                            if(j>100)
+                            {
+                                for(i=0;i<100;i++)
+                                {
+                                    AutoAlumn(registro,pu);
+                                    pu++;
+                                    ord=0;
+                                }
+                            }
+                            else
+                            {
+                                for(i=0;i<j;i++)
+                                {
+                                    AutoAlumn(registro,pu);
+                                    pu++;
+                                    ord=0;
+                                }
+                            }
+                            printf("Registros llenado\n");
+                            system("PAUSE");
                         }
-                        else
-                        {
-                            //Regresa
-                        }
-
                     }
                 }
                 else
@@ -126,7 +141,6 @@ void opci()
                     printf("Registro lleno\n");
                     system("PAUSE");
                 }
-                
                 break;
             case 2:
                 if(pu>0)
@@ -402,6 +416,54 @@ void basic (data alu[],int p)
 
 void AutoAlumn (data alu[],int p)
 {
+    char name[30],ap[30],apm[30];
+    char tempN[30],tempN2[30],tempAp[30],tempApm[30];
+    int c;
+    c=rand()%(2-1+1)+1;
+
+        alu[p].dalum.n2=2;
+        alu[p].dalum.ap2=1;
+        alu[p].dalum.ap1=1;
+
+        li_nombres(name,c);
+        printf(" %s ",name);
+        strcpy(alu[p].dalum.name,name);
+
+        li_apellidos(ap);
+        strcpy(alu[p].dalum.app,ap);
+
+        li_apellidos(apm);
+        strcpy(alu[p].dalum.apm,apm);
+
+        alu[p].dalum.gen=c;
+
+        c=rand()%(300-250+1)+250;
+        c=c-230;
+        alu[p].dbirth.age=c;
+
+        c=rand()%(2023-1893+1)+1893;
+        alu[p].dbirth.year=c;
+
+        c=rand()%(12-1+1)+1;
+        alu[p].dbirth.month=c;
+
+        c=rand()%(28-1+1)+1;
+        alu[p].dbirth.day=c;
+
+        c=rand()%(33-1+1)+1;
+        alu[p].dalum.zone=c;
+
+        c=rand()%(399999-300000+1)+300000;
+        alu[p].dalum.mat=c;
+
+        strcpy(tempN,alu[p].dalum.name);
+        strcpy(tempN2,alu[p].dalum.name2);
+        strcpy(tempAp,alu[p].dalum.app);
+        strcpy(tempApm,alu[p].dalum.apm);
+
+        gencurp(alu,p,alu[p].dalum.n2,alu[p].dalum.ap1,alu[p].dalum.ap2,tempN,tempN2,tempAp,tempApm,alu[p].dbirth.day,alu[p].dbirth.month,alu[p].dbirth.year,alu[p].dalum.gen,alu[p].dalum.zone);
+
+    
     
 }
 
@@ -442,36 +504,41 @@ void li_estados()
     printf("33. Extranjero\n");
 }
 
-void li_nombresH(char cad[])
+void li_nombres(char cad[],int gen)
 {
-    srand(time(NULL));
+    
     int c;
-    char namesH[20][30]={"ADAN", "JAVIER", "MIGUEL", "CARLOS", "LUIS", "ALEJANDRO", "DIEGO", "ANDRES", "JUAN", "PEDRO", "FERNANDO", "RAUL", 
-    "JOSE", "RICARDO", "HUGO", "OSCAR", "PABLO", "EMILIO", "SERGIO", "FRANCISCO"};
-    c=rand()%(20-1+1)-1;
-    cad=namesH[c-1];
-}
+    c=rand()%(20-1+1)+1;
 
-void li_nombresM(char cad[])
-{
-    srand(time(NULL));
-    int c;
     char namesM[20][30]={"MARIA", "SOFIA", "CARMEN", "ISABEL", "LAURA", "ANA", "JULIA", "PAULA", "ANAHI", "ROSA", "ELISA", "ELENA", "VANESA", 
     "ALICIA", "MONICA", "CLAUDIA", "DIANA", "SARA", "CAROLINA", "ANDREA"};
-    c=rand() % (20-1+1)-1;
-    cad=namesM[c-1];
+
+    char namesH[20][30]={"ADAN", "JAVIER", "MIGUEL", "CARLOS", "LUIS", "ALEJANDRO", "DIEGO", "ANDRES", "JUAN", "PEDRO", "FERNANDO", "RAUL", 
+    "JOSE", "RICARDO", "HUGO", "OSCAR", "PABLO", "EMILIO", "SERGIO", "FRANCISCO"};
+
+    if(gen==1)
+    {
+        strcpy(cad,namesH[c-1]);
+    }
+    else
+    {
+        if(gen==2)
+        {
+            strcpy(cad,namesM[c-1]);
+        }
+    }
+    
 }
 
 void li_apellidos (char cad[])
 {
-    srand(time(NULL));
     int c;
     char ap [50][30]= {"RODRIGUEZ", "GONZALEZ", "HERNANDEZ", "LOPEZ", "MARTINEZ", "PEREZ", "GARCIA", "SANCHEZ", "RAMIREZ", "TORRES", "FLORES", 
     "VAZQUEZ", "GOMEZ", "DIAZ", "REYES", "MORALES", "JIMENEZ", "ORTIZ", "CASTRO", "RUIZ", "ALVAREZ", "FERNANDEZ", "VARGAS", "RAMOS", "SUAREZ", "MENDOZA", 
     "CRUZ", "ALVAREZ", "RIVERA", "DOMINGUEZ", "MORENO", "BLANCO", "IGLESIAS", "ROMERO", "RUBIO", "NUNEZ", "SOSA", "GUTIERREZ", "MOLINA", "DELGADO", "AGUILAR", 
     "MEDINA", "GUERRERO", "SOTO", "SALAZAR", "ARIAS", "PAZ", "SOSA", "HERRERA"};
-    c=rand() % (50-1+1)-1;
-    cad=ap[c-1];
+    c=rand() % (50-1+1)+1;
+    strcpy(cad,ap[c-1]);
 }
 
 int eliminacion (data dat[],int pu)
