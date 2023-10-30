@@ -153,6 +153,7 @@ void basic (data alu[],int p)
 {
     int v;
     char cad[30];
+    char tempN[30],tempN2[30],tempAp[30],tempApm[30];
 
     system("CLS");
     printf("Antes de iniciar a registrar datos, le pedire que aclare unos puntos\n");
@@ -297,10 +298,18 @@ void basic (data alu[],int p)
     printf("Ingrese su matricula\n");
     alu[p].dalum.mat=valid2("Fuera de rango",300000,399999);
 
-    gencurp(alu,p,alu[p].dalum.n2,alu[p].dalum.ap1,alu[p].dalum.ap2,alu[p].dalum.name,alu[p].dalum.name2,alu[p].dalum.app,alu[p].dalum.apm,alu[p].dbirth.day,alu[p].dbirth.month,alu[p].dbirth.year,alu[p].dalum.gen,alu[p].dalum.zone);
+    strcpy(tempN,alu[p].dalum.name);
+
+    strcpy(tempN2,alu[p].dalum.name2);
+    
+    strcpy(tempAp,alu[p].dalum.app);
+    
+    strcpy(tempApm,alu[p].dalum.apm);
+    
+    gencurp(alu,p,alu[p].dalum.n2,alu[p].dalum.ap1,alu[p].dalum.ap2,tempN,tempN2,tempAp,tempApm,alu[p].dbirth.day,alu[p].dbirth.month,alu[p].dbirth.year,alu[p].dalum.gen,alu[p].dalum.zone);
 
     printf("Posicion numero %d llena\n",p+1);
-    printf("APELLIDO MATERNO : %s\n",alu[p].dalum.apm);
+    
     system("PAUSE");
 }
 
