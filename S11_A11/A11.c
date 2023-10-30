@@ -101,7 +101,6 @@ void opci()
                 {
                     printf("1.-Agregar Manual\t2.-Agregar Automaticamente\t3.-Regresar\n");
                     op2=valid2("Ingrese una opcion valida",1,3);
-                    
                     if(op2==1)
                     {
                         basic(registro,pu);
@@ -115,7 +114,7 @@ void opci()
                             j=P-pu;
                             if(j>100)
                             {
-                                for(i=0;i<100;i++)
+                                for(i=0;i<10;i++)
                                 {
                                     AutoAlumn(registro,pu);
                                     pu++;
@@ -457,8 +456,8 @@ void li_nombres(char cad[],int gen)
 {
     
     int c;
-    c=rand()%(2-1+1)+1;
-    printf("%d",c);
+    c=rand()%(20-1+1)+1;
+    printf(" %d ",c);
     char namesM[20][30]={"MARIA", "SOFIA", "CARMEN", "ISABEL", "LAURA", "ANA", "JULIA", "PAULA", "ANAHI", "ROSA", "ELISA", "ELENA", "VANESA", 
     "ALICIA", "MONICA", "CLAUDIA", "DIANA", "SARA", "CAROLINA", "ANDREA"};
 
@@ -492,17 +491,17 @@ void li_apellidos (char cad[])
 
 void AutoAlumn (data alu[],int p)
 {
-    char name[30],ap[30],apm[30];
-    char tempN[30],tempN2[30],tempAp[30],tempApm[30];
     int c,ag,y,m,d,z,mat;
     c=rand()%(2-1+1)+1;
+    char name[30],ap[30],apm[30];
+    char tempN[30],tempN2[30],tempAp[30],tempApm[30];
+    
 
         alu[p].dalum.n2=2;
         alu[p].dalum.ap2=1;
         alu[p].dalum.ap1=1;
 
         li_nombres(name,c);
-        printf(" %s ",name);
         strcpy(alu[p].dalum.name,name);
 
         li_apellidos(ap);
