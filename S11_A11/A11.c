@@ -440,22 +440,20 @@ void basic (data alu[],int p)
     printf("Ingrese el indice del estado donde nacio\n");
     alu[p].dalum.zone=valid2("Fuera de rango",1,33);
 
-    printf("Ingrese su matricula\n");
-    alu[p].dalum.mat=valid2("Fuera de rango",300000,399999);
-
-    strcpy(tempN,alu[p].dalum.name);
+     strcpy(tempN,alu[p].dalum.name);
 
     strcpy(tempN2,alu[p].dalum.name2);
     
     strcpy(tempAp,alu[p].dalum.app);
     
     strcpy(tempApm,alu[p].dalum.apm);
-    
+
     gencurp(alu,p,alu[p].dalum.n2,alu[p].dalum.ap1,alu[p].dalum.ap2,tempN,tempN2,tempAp,tempApm,alu[p].dbirth.day,alu[p].dbirth.month,alu[p].dbirth.year,alu[p].dalum.gen,alu[p].dalum.zone);
 
+    printf("Ingrese su matricula\n");
+    alu[p].dalum.mat=valid2("Fuera de rango",300000,399999);
+        
     printf("Posicion numero %d llena\n",p+1);
-    
-    system("PAUSE");
 }
 
 void AutoAlumn (data alu[],int p)
