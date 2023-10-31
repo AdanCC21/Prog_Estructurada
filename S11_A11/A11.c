@@ -57,6 +57,7 @@ void swap(int* a, int* b);
 void selectionSort(data arr[], int n);
 
 void print(data dat[], int p);
+void print_tabla (data dat[], int p);
 
 void li_estados();
 void li_nombres(char cad[],int gen);
@@ -251,19 +252,10 @@ void opci()
             //      -------------------Imprimir--------------------         //
                 if(pu>0)
                 {
-                    n=50;
-                    for(i=0;i<pu;i++)
+                    printf("NUM\tMATRICULA\tNOMBRE\t\t2DO_NOMBRE\t\tAP_PAT\t\tAP_MAT\t\tDIA-MES-ANIO\tEDAD\tGENERO\tLUGAR DE NACIMIENTO\tCURP\n");
+                    for(i=0;i<10;i++)
                     {
-                        if(i<n)
-                        {
-                            print(registro,i);
-                        }
-                        else
-                        {
-                            printf("Ingrese una tecla para continuar\n");
-                            getch();
-                            n+=50;
-                        }
+                        print_tabla(registro,i);
                     }
                     printf("Listo\n");
                 }
@@ -275,6 +267,7 @@ void opci()
                 break;
             case 6:
             //      --------------------Archivo De Texto--------------------         //
+                print_tabla(registro,pu);
                 system("PAUSE");
                 break;
             case 0:
@@ -677,6 +670,46 @@ void print(data dat[], int p)
         printf("%c",dat[p].dalum.curp[i]);
     }
     printf("\n");
+}
+
+void print_tabla (data dat[], int p) //ACOMODAR NADAMAS
+{
+    char cad[33][100]={"Aguascalientes","Baja California","Baja California Sur","Campeche", "Chiapas", "Chihuahua","Coahuila", "Colima","Durango","Guanajuato","Guerrero","Hidalgo",
+    "Jalisco","Estado de Mexico","Michoacan","Morelos","Nayarit","Nuevo Leon","Oaxaca","Puebla","Queretaro","Quintana Roo","San Luis Potosi","Sinaloa","Sonora","Tabasco","Tamaulipas",
+    "Tlaxcala","Veracruz","Yucatan,","Zacatecas","Ciudad de Mexico","Extranjero"};
+
+    printf("%d\t",p+1);
+
+    printf("%d\t\t",dat[p].dalum.mat);
+    printf("%s\t\t",dat[p].dalum.name);
+    if(dat[p].dalum.n2==2)
+    {
+        printf("NE\t\t\t");
+    }
+    else
+    {
+        printf("%s\t\t",dat[p].dalum.name2);
+    }
+    printf("%s\t\t",dat[p].dalum.app);
+    printf("%s\t\t",dat[p].dalum.apm);
+
+    printf("%d-%d-%d\t",dat[p].dbirth.day,dat[p].dbirth.month,dat[p].dbirth.year);
+
+    printf("%d\t",dat[p].dbirth.age);
+
+    if(dat[p].dalum.gen==1)
+    {
+        printf("HOMBRE\t");
+    }
+    else
+    {
+        printf("MUJER\t");
+    }
+
+    printf("%s\t\t",cad[dat[p].dalum.zone-1]);
+
+    printf("%s\n",dat[p].dalum.curp);
+
 }
 
 int edad (int year, int month, int day)
