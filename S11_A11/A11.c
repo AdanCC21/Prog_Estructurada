@@ -58,6 +58,7 @@ void print(data dat[], int p);
 void li_estados();
 void li_nombres(char cad[],int gen);
 void li_apellidos(char cad[]);
+int calculaEdad(data fecha);
 void gencurp (data registro[], int p, int n2, int ap1, int ap2, char nombre[], char nombre2[],char app[], char apm[], int day, int month, int year, int gen, int estado);
 
 //        Main          //
@@ -220,6 +221,10 @@ void opci()
                     if(pu<100)
                     {
                         ordenarB(registro,pu);
+                    }
+                    else
+                    {
+                        
                     }
 
                 }
@@ -524,7 +529,7 @@ void AutoAlumn (data alu[],int p)
         
         //-------------------HAY QUE VALIDAR QUE LA EDAD Y LA FECHA DE NACIMIENTO CONCUERDEN, O SACAR LA EDAD CON UNICAMENTE LA FECHA DE NACIMIENTO---------------//
 
-        ag=rand()%(50-10+1)+10;
+        ag=calculaEdad(alu[p]);
         alu[p].dbirth.age=ag;
 
         y=rand()%(2023-1900+1)+1900;
@@ -621,6 +626,8 @@ void ordenarB (data alumno[], int n)
     system("PAUSE");
 
 }
+
+
 
 void print(data dat[], int p)
 {
