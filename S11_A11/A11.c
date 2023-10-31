@@ -5,7 +5,7 @@
 #include "libad.h"
 #define P 2000
 
-//       Structs        //
+//       ------Structs------        //
 
 typedef struct alumno
 {
@@ -39,7 +39,7 @@ typedef struct datos
     birth dbirth;
 }data;
 
-//      Prototipos      //
+//      ------Prototipos------      //
 
 void menu ();
 void opci();
@@ -65,21 +65,10 @@ int main()
 {
     srand(time(NULL));
     opci();
-    return 0
-    ;
+    return 0;
 }
 
-int random ()
-{
-    int c;
-    for (int i=0; i<20;i++)
-    {
-        c=rand()%(20-1+1)+1;
-    }
-    return c;
-}
-
-//        Menu          //
+//        ------Menu------          //
 
 void menu ()
 {
@@ -109,6 +98,7 @@ void opci()
         switch(op)
         {
             case 1:
+            //      --------------------AGREGAR--------------------         //
                 system("CLS");
                 if(pu<P)
                 {
@@ -127,7 +117,7 @@ void opci()
                             j=P-pu;
                             if(j>100)
                             {
-                                for(i=0;i<10;i++)
+                                for(i=0;i<100;i++)
                                 {
                                     AutoAlumn(registro,pu);
                                     pu++;
@@ -155,6 +145,7 @@ void opci()
                 }
                 break;
             case 2:
+            //      --------------------ELIMINAR--------------------         //
                 if(pu>0)
                 {
                     printf("Seguro que quiere eliminar un registro?\n1.-Si, Eliminar\t2.-No, Salir\n");
@@ -173,7 +164,7 @@ void opci()
                 }
                 break;
             case 3:
-                
+            //      --------------------BUSCAR--------------------         //
                 if(pu==0)
                 {
                     printf("lista vacia\n");
@@ -218,6 +209,7 @@ void opci()
                 system("PAUSE");
                 break;
             case 4:
+            //      --------------------ORDENAR--------------------         //
                 if(ord==0)
                 {
                     printf("Ya esta ordenado\n");
@@ -225,12 +217,17 @@ void opci()
                 }
                 else
                 {
+                    if(pu<100)
+                    {
+                        //Metodo de la burbuja
+                    }
 
                 }
                 system("PAUSE");
                 ord=1;
                 break;
             case 5:
+            //      ---------- ---------Imprimir--------------------         //
                 if(pu>0)
                 {
                     printf("Que posicion desea imprimir\n");
@@ -244,10 +241,11 @@ void opci()
                 system("PAUSE");
                 break;
             case 6:
-                
+            //      --------------------Archivo De Texto--------------------         //
                 system("PAUSE");
                 break;
             case 0:
+            //      --------------------    SALIR   --------------------         //
                 system("CLS");
                 printf("Seguro que quieres salir del programa?\n1.-Si, salir\t2.-No, repetir\n");
                 op=valid2("Ingrese una opcion valida valida",1,2);
@@ -261,7 +259,9 @@ void opci()
     printf("Buen dia\n");
 }
 
-//      Funciones       //
+//      ------Funciones------       //
+
+//-------------------HAY QUE VALIDAR QUE LA EDAD Y LA FECHA DE NACIMIENTO CONCUERDEN, O SACAR LA EDAD CON UNICAMENTE LA FECHA DE NACIMIENTO---------------//
 
 void basic (data alu[],int p)
 {
@@ -427,8 +427,6 @@ void basic (data alu[],int p)
     system("PAUSE");
 }
 
-
-
 void li_estados()
 {
     printf("1. Aguascalientes\t");
@@ -489,7 +487,6 @@ void li_nombres(char cad[],int gen)
             strcpy(cad,namesM[c-1]);
         }
     }
-    
 }
 
 void li_apellidos (char cad[])
@@ -525,11 +522,13 @@ void AutoAlumn (data alu[],int p)
         strcpy(alu[p].dalum.apm,apm);
 
         alu[p].dalum.gen=c;
+        
+        //-------------------HAY QUE VALIDAR QUE LA EDAD Y LA FECHA DE NACIMIENTO CONCUERDEN, O SACAR LA EDAD CON UNICAMENTE LA FECHA DE NACIMIENTO---------------//
 
-        ag=rand()%(300-250+1)+250;
+        ag=rand()%(50-10+1)+10;
         alu[p].dbirth.age=ag;
 
-        y=rand()%(2023-1893+1)+1893;
+        y=rand()%(2023-1900+1)+1900;
         alu[p].dbirth.year=y;
 
         m=rand()%(12-1+1)+1;
@@ -649,6 +648,9 @@ void print(data dat[], int p)
     {
         printf("APELLIDO MATERNO : %s\n",dat[p].dalum.apm);
     }
+
+    printf("FECHA DE NACIMIENTO ");
+    printf("%d - %d - %d\n",dat[p].dbirth.day, dat[p].dbirth.month, dat[p].dbirth.year);
 
     printf("EDAD : %d\n",dat[p].dbirth.age);
 
