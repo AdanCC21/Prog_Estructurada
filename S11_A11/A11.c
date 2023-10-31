@@ -90,7 +90,7 @@ void menu ()
 void opci()
 {
     
-    int i,j,op,op2,pu,po,ord,el,n;
+    int i,j,op,op2,pu,ord,el;
     int num,bus,lef,rig;
     ord=0;
     pu=0;
@@ -267,7 +267,7 @@ void opci()
                 break;
             case 6:
             //      --------------------Archivo De Texto--------------------         //
-                print_tabla(registro,pu);
+                
                 system("PAUSE");
                 break;
             case 0:
@@ -286,8 +286,6 @@ void opci()
 }
 
 //      ------Funciones------       //
-
-//-------------------HAY QUE VALIDAR QUE LA EDAD Y LA FECHA DE NACIMIENTO CONCUERDEN, O SACAR LA EDAD CON UNICAMENTE LA FECHA DE NACIMIENTO---------------//
 
 void basic (data alu[],int p)
 {
@@ -808,5 +806,4 @@ void gencurp (data curp[], int p, int n2, int ap1, int ap2, char nombre[], char 
     CU_Auto_Gen(TempCurp,n2,ap2,ap1,nombre,nombre2,app,apm,day,month,year,gen,estado);
     strcpy(curp[p].dalum.curp,TempCurp);
 }
-
 
