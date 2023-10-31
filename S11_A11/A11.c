@@ -219,7 +219,7 @@ void opci()
                 {
                     if(pu<100)
                     {
-                        //Metodo de la burbuja
+                        ordenarB(registro,pu);
                     }
 
                 }
@@ -469,7 +469,6 @@ void li_nombres(char cad[],int gen)
     
     int c;
     c=rand()%(20-1+1)+1;
-    printf(" %d ",c);
     char namesM[20][30]={"MARIA", "SOFIA", "CARMEN", "ISABEL", "LAURA", "ANA", "JULIA", "PAULA", "ANAHI", "ROSA", "ELISA", "ELENA", "VANESA", 
     "ALICIA", "MONICA", "CLAUDIA", "DIANA", "SARA", "CAROLINA", "ANDREA"};
 
@@ -606,9 +605,9 @@ void ordenarB (data alumno[], int n)
 {
     int i,j;
     data temp;
-    for(j=0;j<=n;j++)
+    for(j=0;j<n;j++)
     {
-        for(i=j+1;i<=n;i++)
+        for(i=j+1;i<n;i++)
         {
             if(alumno[j].dalum.mat>alumno[i].dalum.mat)
             {
@@ -684,5 +683,4 @@ void gencurp (data curp[], int p, int n2, int ap1, int ap2, char nombre[], char 
     CU_Auto_Gen(TempCurp,n2,ap2,ap1,nombre,nombre2,app,apm,day,month,year,gen,estado);
     strcpy(curp[p].dalum.curp,TempCurp);
 }
-
 
