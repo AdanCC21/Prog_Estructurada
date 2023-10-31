@@ -640,7 +640,6 @@ void CU_Auto_Gen (char curp[], int names2, int ap2, int ap1, char name[],char na
     //      --------------------     Penultima letra/Siglo   ----------------------       //
     char Scad[1];
     c=0;
-    srand(time(NULL));
 
     if(year<2000)
     {

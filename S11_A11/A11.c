@@ -71,7 +71,6 @@ int main()
 
 int random ()
 {
-    srand(time(NULL));
     int c;
     for (int i=0; i<20;i++)
     {
@@ -245,12 +244,6 @@ void opci()
                 system("PAUSE");
                 break;
             case 6:
-                int r;
-                for (i=0; i<20;i++)
-                {
-                    r=random();
-                    printf("\n%d",r);
-                }
                 
                 system("PAUSE");
                 break;
