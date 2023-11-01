@@ -728,7 +728,12 @@ void print_tabla (data dat[], int p) //ACOMODAR NADAMAS
         strcpy(tempg,"MUJER");
 
     }
-    printf("%-5d %-15d %-15s %-15s %-15s %-10s %-10d %-5d %-5d %-6d %-20s %-15s %-18s\n",p+1,dat[p].dalum.mat,dat[p].dalum.name,dat[p].dalum.name2,dat[p].dalum.app,dat[p].dalum.apm,dat[p].dbirth.age,dat[p].dbirth.day,dat[p].dbirth.month,dat[p].dbirth.year,temp,tempg,dat[p].dalum.curp);
+    printf("%-5d %-15d %-15s %-15s %-15s %-10s %-10d %-5d %-5d %-8d %-20s %-15s",p+1,dat[p].dalum.mat,dat[p].dalum.name,dat[p].dalum.name2,dat[p].dalum.app,dat[p].dalum.apm,dat[p].dbirth.age,dat[p].dbirth.day,dat[p].dbirth.month,dat[p].dbirth.year,temp,tempg);
+    for(int i=0;i<18;i++)
+    {
+        printf("%c",dat[p].dalum.curp[i]);
+    }
+    printf("\n");
 
 }
 
@@ -743,7 +748,7 @@ void txt (data dat[], int p)
     char tempg[10];
 
     fprintf(text, "%-5s %-15s %-15s %-15s %-15s %-10s %-10s %-20s %-20s %-15s %-18s\n","No.","Matricula","NOMBRE","NOMBRE 2","AP_PAT","AP_MAT","EDAD","DIA MES ANIO","ZONA","GENERO","CURP");
-    for(int i=0;i<p-1;i++)
+    for(int i=0;i<p;i++)
     {
         strcpy(temp,cad[dat[i].dalum.zone - 1]);
         if(dat[i].dalum.gen==1)
@@ -755,25 +760,34 @@ void txt (data dat[], int p)
             strcpy(tempg,"MUJER");
 
         }
-        fprintf(text, "%-5d %-15d %-15s %-15s %-15s %-10s %-10d %-5d %-5d %-6d %-20s %-15s %-18s\n",i+1,dat[i].dalum.mat,dat[i].dalum.name,dat[i].dalum.name2,dat[i].dalum.app,dat[i].dalum.apm,dat[i].dbirth.age,dat[i].dbirth.day,dat[i].dbirth.month,dat[i].dbirth.year,temp,tempg,dat[i].dalum.curp);
+        fprintf(text,"%-5d %-15d %-15s %-15s %-15s %-10s %-10d %-5d %-5d %-8d %-20s %-15s",i+1,dat[i].dalum.mat,dat[i].dalum.name,dat[i].dalum.name2,dat[i].dalum.app,dat[i].dalum.apm,dat[i].dbirth.age,dat[i].dbirth.day,dat[i].dbirth.month,dat[i].dbirth.year,temp,tempg);
+        for(int k=0;k<18;k++)
+        {
+            fprintf(text,"%c",dat[i].dalum.curp[k]);
+        }
+        fprintf(text,"\n");    
     }
-    fclose(text);
+        fclose(text);
 }
 //  ------  Listas ------- //
 int edad (int year, int month, int day)
 {
-    int y1,m1=11,d1=1;
+    int y1,m1=12,d1=13;
     y1 = 2023 - year;
-    if(month<m1)
+    if(month>m1)
     {
         y1--;
     }
     else
     {
-        if(day<d1)
+        if(day>d1)
         {
             y1--;
         }
+    }
+    if(y1==-1)
+    {
+        y1++;
     }
     return y1;
 }
