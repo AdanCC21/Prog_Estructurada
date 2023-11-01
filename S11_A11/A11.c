@@ -92,11 +92,10 @@ void menu ()
 
 void opci()
 {
-    int i,j,op,op2,pu,ord,el,qs;
+    int i,j,op,op2,pu,ord,el;
     int num,bus,lef,rig;
     ord=0;
     pu=0;
-    qs=0;
     data registro[P];
     do
     {
@@ -242,7 +241,6 @@ void opci()
                         printf("Quicksort\n");
                         quicksort(registro,0,pu-1);
                         printf("Ordenada\n");
-                        qs=1;
                     }
 
                 }
