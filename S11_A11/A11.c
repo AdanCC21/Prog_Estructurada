@@ -53,11 +53,14 @@ int buscbin(data alumno[], int lef, int rig, int num);
 
 void ordenarB (data alumno[], int n);
 
-void swap(int* a, int* b);
-void selectionSort(data arr[], int n);
+void swap(data students[], int i, int j);
+int partition(data students[], int low, int high);
+void quicksort(data students[], int low, int high);
+
 
 void print(data dat[], int p);
 void print_tabla (data dat[], int p);
+void txt (data dat[], int p);
 
 void li_estados();
 void li_nombres(char cad[],int gen);
@@ -90,10 +93,11 @@ void menu ()
 void opci()
 {
     
-    int i,j,op,op2,pu,ord,el;
+    int i,j,op,op2,pu,ord,el,qs;
     int num,bus,lef,rig;
     ord=0;
     pu=0;
+    qs=0;
     data registro[P];
     do
     {
@@ -122,12 +126,16 @@ void opci()
                             j=P-pu;
                             if(j>100)
                             {
-                                for(i=0;i<100;i++)
+                                for(int k=0;k<2;k++)
                                 {
-                                    AutoAlumn(registro,pu);
-                                    pu++;
-                                    ord=1;
+                                    for(i=0;i<50;i++)
+                                    {
+                                        AutoAlumn(registro,pu);
+                                        pu++;
+                                        ord=1;
+                                    }
                                 }
+                                
                             }
                             else
                             {
@@ -225,7 +233,7 @@ void opci()
                 }
                 else
                 {
-                    if(pu<50) //Agregar estado por ejemplo 100 registros ya ordenados por selecte y se le agrega 1
+                    if(pu<50)
                     {
                         printf("Metodo de burbuja\n");
                         ordenarB(registro,pu);
@@ -233,9 +241,10 @@ void opci()
                     }
                     else
                     {
-                        printf("Selecion sort\n");
-                        selectionSort(registro,pu);
+                        printf("Quicksort\n");
+                        quicksort(registro,0,pu-1);
                         printf("Ordenada\n");
+                        qs=1;
                     }
 
                 }
@@ -250,13 +259,21 @@ void opci()
                 break;
             case 5:
             //      -------------------Imprimir--------------------         //
-            // Condicion de los 50 en 50
                 if(pu>0)
                 {
+                    int k=40;
                     printf("%-5s %-15s %-15s %-15s %-15s %-10s %-10s %-20s %-20s %-15s %-18s\n","No.","Matricula","NOMBRE","NOMBRE 2","AP_PAT","AP_MAT","EDAD","DIA MES ANIO","ZONA","GENERO","CURP");
                     for(i=0;i<pu;i++)
                     {
-                        print_tabla(registro,i);
+                        if(i<k)
+                        {
+                            print_tabla(registro,i);
+                        }
+                        else
+                        {
+                            k=k+40;
+                            system("PAUSE");
+                        }
                     }
                     printf("Listo\n");
                 }
@@ -268,7 +285,8 @@ void opci()
                 break;
             case 6:
             //      --------------------Archivo De Texto--------------------         //
-                
+                txt(registro,pu);
+                printf("Archivo de texto creado\n");
                 system("PAUSE");
                 break;
             case 0:
@@ -459,18 +477,37 @@ void basic (data alu[],int p)
 
 void AutoAlumn (data alu[],int p)
 {
-    int c,y,m,d,z,mat;
+    int c,y,m,d,z,mat,n;
     c=rand()%(2-1+1)+1;
     char name[30],ap[30],apm[30];
     char tempN[30],tempN2[30],tempAp[30],tempApm[30];
     
 
-        alu[p].dalum.n2=2;
+        alu[p].dalum.n2=1;
         alu[p].dalum.ap2=1;
         alu[p].dalum.ap1=1;
 
         li_nombres(name,c);
         strcpy(alu[p].dalum.name,name);
+
+        li_nombres(name,c);
+        strcpy(alu[p].dalum.name2,name);
+
+        n=0;
+        do
+        {
+            if(alu[p].dalum.name==alu[p].dalum.name2)
+            {
+                li_nombres(name,c);
+                strcpy(alu[p].dalum.name2,name);
+                n=1;
+            }
+            else
+            {
+                n=0;
+            }
+        }
+        while(n!=0);
 
         li_apellidos(ap);
         strcpy(alu[p].dalum.app,ap);
@@ -580,32 +617,42 @@ void ordenarB (data alumno[], int n)
             }
         }
     }
-    printf("Ordenada\n");
-    system("PAUSE");
-
 }
 
-//  ------selection sort------- //
-void swap(int* a, int* b) 
+//  ------Quicksort------- //
+void swap(data students[], int i, int j)
 {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
+    data temp = students[i];
+    students[i] = students[j];
+    students[j] = temp;
 }
 
-void selectionSort(data arr[], int n) 
+int partition(data students[], int low, int high)
 {
-    int i, j, min_idx;
+    data pivot;
+    pivot.dalum.mat = students[high].dalum.mat;
+    int i = low - 1;
 
-    for (i = 0; i < n - 1; i++) {
-        min_idx = i;
-        for (j = i + 1; j < n; j++) {
-            if (arr[j].dalum.mat < arr[min_idx].dalum.mat) 
-            {
-                min_idx = j;
-            }
+    for (int j = low; j <= high - 1; j++)
+    {
+        if (students[j].dalum.mat <= pivot.dalum.mat)
+        {
+            i++;
+            swap(students, i, j);
         }
-        swap(&arr[min_idx].dalum.mat, &arr[i].dalum.mat);
+    }
+    swap(students, i + 1, high);
+    return i + 1;
+}
+
+void quicksort(data students[], int low, int high)
+{
+    if (low < high)
+    {
+        int pi = partition(students, low, high);
+
+        quicksort(students, low, pi - 1);
+        quicksort(students, pi + 1, high);
     }
 }
 
@@ -674,7 +721,7 @@ void print_tabla (data dat[], int p) //ACOMODAR NADAMAS
     "Tlaxcala","Veracruz","Yucatan,","Zacatecas","Ciudad de Mexico","Extranjero"};
     char temp[100];
     char tempg[10];
-    strcpy(temp,cad[dat[p].dalum.zone]);
+    strcpy(temp,cad[dat[p].dalum.zone - 1]);
     if(dat[p].dalum.gen==1)
     {
         strcpy(tempg,"HOMBRE");
@@ -686,6 +733,34 @@ void print_tabla (data dat[], int p) //ACOMODAR NADAMAS
     }
     printf("%-5d %-15d %-15s %-15s %-15s %-10s %-10d %-5d %-5d %-6d %-20s %-15s %-18s\n",p+1,dat[p].dalum.mat,dat[p].dalum.name,dat[p].dalum.name2,dat[p].dalum.app,dat[p].dalum.apm,dat[p].dbirth.age,dat[p].dbirth.day,dat[p].dbirth.month,dat[p].dbirth.year,temp,tempg,dat[p].dalum.curp);
 
+}
+
+void txt (data dat[], int p)
+{
+    FILE *text = fopen ("C:\\Users\\PC\\Documents\\CHAMBA\\Prog_Estructurada\\S11_A11\\registro.txt","w");
+
+    char cad[33][100]={"Aguascalientes","Baja California","Baja California Sur","Campeche", "Chiapas", "Chihuahua","Coahuila", "Colima","Durango","Guanajuato","Guerrero","Hidalgo",
+    "Jalisco","Estado de Mexico","Michoacan","Morelos","Nayarit","Nuevo Leon","Oaxaca","Puebla","Queretaro","Quintana Roo","San Luis Potosi","Sinaloa","Sonora","Tabasco","Tamaulipas",
+    "Tlaxcala","Veracruz","Yucatan,","Zacatecas","Ciudad de Mexico","Extranjero"};
+    char temp[100];
+    char tempg[10];
+
+    fprintf(text, "%-5s %-15s %-15s %-15s %-15s %-10s %-10s %-20s %-20s %-15s %-18s\n","No.","Matricula","NOMBRE","NOMBRE 2","AP_PAT","AP_MAT","EDAD","DIA MES ANIO","ZONA","GENERO","CURP");
+    for(int i=0;i<p-1;i++)
+    {
+        strcpy(temp,cad[dat[i].dalum.zone - 1]);
+        if(dat[i].dalum.gen==1)
+        {
+            strcpy(tempg,"HOMBRE");
+        }
+        else
+        {
+            strcpy(tempg,"MUJER");
+
+        }
+        fprintf(text, "%-5d %-15d %-15s %-15s %-15s %-10s %-10d %-5d %-5d %-6d %-20s %-15s %-18s\n",i+1,dat[i].dalum.mat,dat[i].dalum.name,dat[i].dalum.name2,dat[i].dalum.app,dat[i].dalum.apm,dat[i].dbirth.age,dat[i].dbirth.day,dat[i].dbirth.month,dat[i].dbirth.year,temp,tempg,dat[i].dalum.curp);
+    }
+    fclose(text);
 }
 
 int edad (int year, int month, int day)
@@ -770,7 +845,7 @@ void li_nombres(char cad[],int gen)
 void li_apellidos (char cad[])
 {
     int c;
-    c=rand() % (50-1+1)+1;
+    c=rand() % (49-1+1)+1;
     char ap [50][30]= {"RODRIGUEZ", "GONZALEZ", "HERNANDEZ", "LOPEZ", "MARTINEZ", "PEREZ", "GARCIA", "SANCHEZ", "RAMIREZ", "TORRES", "FLORES", 
     "VAZQUEZ", "GOMEZ", "DIAZ", "REYES", "MORALES", "JIMENEZ", "ORTIZ", "CASTRO", "RUIZ", "ALVAREZ", "FERNANDEZ", "VARGAS", "RAMOS", "SUAREZ", "MENDOZA", 
     "CRUZ", "ALVAREZ", "RIVERA", "DOMINGUEZ", "MORENO", "BLANCO", "IGLESIAS", "ROMERO", "RUBIO", "NUNEZ", "SOSA", "GUTIERREZ", "MOLINA", "DELGADO", "AGUILAR", 
@@ -784,4 +859,3 @@ void gencurp (data curp[], int p, int n2, int ap1, int ap2, char nombre[], char 
     CU_Auto_Gen(TempCurp,n2,ap2,ap1,nombre,nombre2,app,apm,day,month,year,gen,estado);
     strcpy(curp[p].dalum.curp,TempCurp);
 }
-

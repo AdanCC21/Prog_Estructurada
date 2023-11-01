@@ -1,0 +1,800 @@
+No.   Matricula       NOMBRE          NOMBRE 2        AP_PAT          AP_MAT     EDAD       DIA MES ANIO         ZONA                 GENERO          CURP              
+1     0                                                                          0          0     0     0      Ñ                    MUJER                             
+2     300088          RAUL            FERNANDO        MARTINEZ        RAMIREZ    23         12    10    1999   Tabasco              HOMBRE          MARR991012HTCTZL13
+3     300132          EMILIO          ALEJANDRO       NUNEZ           MENDOZA    35         25    4     1987   Extranjero           HOMBRE          NUME870425HNEZDL17
+4     300153          ALEJANDRO       ADAN            GUTIERREZ       SOSA       59         14    6     1963   Tlaxcala             HOMBRE          GUSA630614HTLTXL59
+5     300162          SERGIO          DIEGO           RAMIREZ         GONZALEZ   114        12    11    1909   Jalisco              HOMBRE          RAGS091112HJCMNX81
+6     300205          ELISA           CLAUDIA         MENDOZA         ARIAS      42         10    7     1980   Jalisco              MUJER           MEAE800710MJCNRL08
+7     300243          ANA             SOFIA           SANCHEZ         SUAREZ     82         2     4     1940   Guerrero             MUJER           SASA400402MGRNRN30
+8     300243          PABLO           OSCAR           MOLINA          JIMENEZ    56         28    2     1966   Colima               HOMBRE          MOJP660228HCMLNB91
+9     300271          MARIA           ANAHI           GUTIERREZ       VAZQUEZ    118        16    9     1904   Tabasco              MUJER           GUVA040916MTCTZN40
+10    300304          PEDRO           RICARDO         REYES           VARGAS     59         9     5     1963   Yucatan,             HOMBRE          REVP630509HYNYGD87
+11    300450          ANDRES          OSCAR           GARCIA          ORTIZ      77         11    7     1945   Baja California      HOMBRE          GAOA450711HBCRRN75
+12    300486          ANA             LAURA           LOPEZ           GUTIERREZ  20         26    6     2002   Quintana Roo         MUJER           LOGA020626MQRPTNA2
+13    300494          LUIS            HUGO            TORRES          HERNANDEZ  14         4     5     2008   Tamaulipas           HOMBRE          TOHL080504HTSRRSA1
+14    300688          LAURA           DIANA           ARIAS           RUBIO      9          20    8     2013   Tabasco              MUJER           AIRL130820MTCSBXC0
+15    300714          OSCAR           EMILIO          VAZQUEZ         SUAREZ     54         2     2     1968   Michoacan            HOMBRE          VASO680202HMNZRC11
+16    300731          ALICIA          JULIA           MOLINA          PAZ        88         14    12    1935   Nayarit              MUJER           MOPA351214MNTLZL40
+17    300752          ALEJANDRO       RICARDO         AGUILAR         RIVERA     39         23    3     1983   Coahuila             HOMBRE          AURA830323HCLGVL05
+18    300812          ELISA           JULIA           MENDOZA         SOTO       11         16    11    2012   Yucatan,             MUJER           MESE121116MYNNTLC0
+19    300833          PEDRO           JUAN            LOPEZ           CASTRO     21         26    3     2001   Nuevo Leon           HOMBRE          LOCP010326HNLZSDA1
+20    300860          JAVIER          CARLOS          GUTIERREZ       ORTIZ      30         5     6     1992   Nuevo Leon           HOMBRE          GUOJ920605HNLTRV62
+21    300930          VANESA          JULIA           SALAZAR         PAZ        11         16    8     2011   Sinaloa              MUJER           SAPV110816MSLLZNC3
+22    300943          EMILIO          PEDRO           MEDINA          GUTIERREZ  31         5     9     1991   Tlaxcala             HOMBRE          MEGE910905HTLDTL19
+23    301034          MIGUEL          ADAN            REYES           DOMINGUEZ  79         22    6     1943   Nuevo Leon           HOMBRE          REDM430622HNLYNG12
+24    301035          PEDRO           FRANCISCO       GARCIA          GUTIERREZ  86         24    1     1936   Jalisco              HOMBRE          GAGP360124HJCRTD90
+25    301036          MONICA          ELENA           HERRERA         SOSA       52         5     6     1970   Michoacan            MUJER           HESM700605MMNRXN40
+26    301081          DIANA           PAULA           TORRES          FLORES     83         9     2     1939   Chiapas              MUJER           TOFD390209MCSRLN98
+27    301096          JAVIER          PEDRO           DELGADO         PAZ        122        16    3     1900   Veracruz             HOMBRE          DEPJ000316HVZLZV46
+28    301141          MARIA           CAROLINA        TORRES          SANCHEZ    121        25    9     1901   Queretaro            MUJER           TOSC010925MQTRNC37
+29    301151          JOSE            LUIS            SALAZAR         ROMERO     83         25    1     1939   Michoacan            HOMBRE          SARL390125HMNZML66
+30    301152          SERGIO          RICARDO         RUBIO           ORTIZ      64         13    7     1958   Guerrero             HOMBRE          RUOS580713HGRBTG42
+31    301157          JOSE            DIEGO           SANCHEZ         BLANCO     90         4     9     1932   Aguascalientes       HOMBRE          SABD320904HASNLD14
+32    301223          ANA             CLAUDIA         RUIZ            FERNANDEZ  36         25    6     1986   Campeche             MUJER           RUFA860625MCCZNN08
+33    301294          LUIS            ANDRES          VARGAS          ORTIZ      21         25    11    2002   Aguascalientes       HOMBRE          VAOL021125HASRRSA7
+34    301298          ELISA           LAURA           SOTO            HERNANDEZ  81         16    3     1941   Michoacan            MUJER           SOHE410316MMNTRL72
+35    301363          DIANA           PAULA           RAMOS           PEREZ      40         22    9     1982   Colima               MUJER           RAPD820922MCMMZN38
+36    301365          PEDRO           ADAN            MOLINA          BLANCO     116        12    1     1906   Coahuila             HOMBRE          MOBP060112HCLLLD62
+37    301367          RICARDO         MIGUEL          CRUZ            SOSA       97         17    10    1925   Tamaulipas           HOMBRE          CUSR251017HTSZXD23
+38    301422          RICARDO         JOSE            IGLESIAS        ROMERO     106        17    11    1917   Ciudad de Mexico     HOMBRE          IERR171117HDFGMC06
+39    301466          CAROLINA        DIANA           SUAREZ          DELGADO    50         24    9     1972   Michoacan            MUJER           SUDC720924MMNRLR10
+40    301589          JOSE            OSCAR           ORTIZ           PAZ        97         5     4     1925   Sinaloa              HOMBRE          OIPO250405HSLRZS94
+41    301599          SOFIA           SARA            RUBIO           SUAREZ     29         28    3     1993   Tabasco              MUJER           RUSS930328MTCBZF50
+42    301660          EMILIO          JUAN            RAMOS           DOMINGUEZ  24         16    6     1998   Michoacan            HOMBRE          RADE980616HMNMMM87
+43    301722          ANDREA          ANA             GARCIA          DOMINGUEZ  88         27    11    1935   Quintana Roo         MUJER           GADA351127MQRRMN66
+44    301725          ANDRES          PEDRO           RUBIO           ALVAREZ    56         21    12    1967   Hidalgo              HOMBRE          RUAA671221HHGBLN70
+45    301764          LAURA           MARIA           DOMINGUEZ       HERNANDEZ  46         2     5     1976   Puebla               MUJER           DOHL760502MPLMRR47
+46    301809          MARIA           ELISA           RIVERA          REYES      9          12    12    2014   Nuevo Leon           MUJER           RIRE141212MNLVYLC1
+47    301886          ROSA            DIANA           VARGAS          RODRIGUEZ  88         4     11    1935   Coahuila             MUJER           VARR351104MCLGDS76
+48    301936          PABLO           HUGO            JIMENEZ         REYES      80         11    11    1943   Chihuahua            HOMBRE          JIRP431111HCHMYB27
+49    302020          ANA             SARA            FERNANDEZ       TORRES     35         23    11    1988   Extranjero           MUJER           FETA881123MNERRN94
+50    302036          HUGO            JUAN            SANCHEZ         RUIZ       83         23    3     1939   Puebla               HOMBRE          SARH390323HPLNZG71
+51    302058          RAUL            PABLO           RAMIREZ         MARTINEZ   47         18    2     1975   Tabasco              HOMBRE          RAMR750218HTCZTL35
+52    302067          VANESA          ANAHI           GARCIA          FLORES     108        28    9     1914   Queretaro            MUJER           GAFV140928MQTRLN21
+53    302084          CARMEN          ISABEL          FERNANDEZ       AGUILAR    82         27    3     1940   Morelos              MUJER           FEAC400327MMSRGR01
+54    302107          LAURA           SARA            HERNANDEZ       SALAZAR    50         25    3     1972   Nayarit              MUJER           HESL720325MNTRZR25
+55    302164          SERGIO          RAUL            HERNANDEZ       RIVERA     98         22    3     1924   Queretaro            HOMBRE          HERS240322HQTNVG80
+56    302171          CARMEN          ISABEL          RIVERA          VARGAS     36         15    2     1986   Nayarit              MUJER           RIVC860215MNTXGM09
+57    302197          DIEGO           FRANCISCO       VAZQUEZ         HERNANDEZ  55         7     6     1967   Guanajuato           HOMBRE          VAHD670607HGTZRG16
+58    302255          CARMEN          VANESA          JIMENEZ         GOMEZ      97         2     12    1926   Jalisco              MUJER           JIGC261202MJCMMR31
+59    302303          RICARDO         EMILIO          ALVAREZ         SANCHEZ    82         18    8     1940   Puebla               HOMBRE          AASR400818HPLLNC04
+60    302342          ANDREA          ALICIA          GARCIA          RAMIREZ    114        26    6     1908   Chiapas              MUJER           GARA080626MCSCMN48
+61    302349          RICARDO         RAUL            VAZQUEZ         SUAREZ     23         5     7     1999   Hidalgo              HOMBRE          VASR990705HHGZZC47
+62    302358          JUAN            FERNANDO        BLANCO          MARTINEZ   107        2     8     1915   Guanajuato           HOMBRE          BAMJ150802HGTLRN44
+63    302401          CARLOS          MIGUEL          ORTIZ           GOMEZ      84         1     8     1938   Morelos              HOMBRE          OIGC380801HMSRMR43
+64    302417          ANDREA          VANESA          RUBIO           SUAREZ     16         22    1     2006   Zacatecas            MUJER           RUSA060122MZSBZNA6
+65    302478          DIANA           LAURA           RUBIO           FLORES     34         27    8     1988   Extranjero           MUJER           RUFD880827MNEBLN16
+66    302682          CARLOS          JOSE            CRUZ            MEDINA     86         18    2     1936   Extranjero           HOMBRE          CUMC360218HNERDR46
+67    302773          ISABEL          VANESA          VARGAS          MORALES    99         23    4     1923   Zacatecas            MUJER           VAMI230423MZSRRS75
+68    302861          VANESA          ELISA           BLANCO          MARTINEZ   41         27    7     1981   Chiapas              MUJER           BAMV810727MCSLRN22
+69    302908          FERNANDO        ADAN            MEDINA          RUBIO      23         12    9     1999   Michoacan            HOMBRE          MERF990912HMNDBN66
+70    302932          ANDRES          RICARDO         REYES           REYES      85         21    7     1937   Puebla               HOMBRE          RERA370721HPLYYN45
+71    302960          CLAUDIA         DIANA           LOPEZ           JIMENEZ    89         28    11    1934   Extranjero           MUJER           LOJC341128MNEPMD92
+72    303024          CAROLINA        VANESA          REYES           IGLESIAS   104        20    2     1918   Queretaro            MUJER           REIC180220MQTYGL65
+73    303058          DIANA           ELISA           PEREZ           MORENO     51         11    9     1971   San Luis Potosi      MUJER           PEMD710911MSPRRN09
+74    303180          ISABEL          ANAHI           FLORES          ALVAREZ    116        22    9     1906   Sonora               MUJER           FOAI060922MSRLLS46
+75    303226          FRANCISCO       FRANCISCO       MEDINA          MORALES    -1         8     3     2023   Nayarit              HOMBRE          MEMF230308HNTDRRC0
+76    303349          LUIS            LUIS            MOLINA          HERRERA    46         5     3     1976   San Luis Potosi      HOMBRE          MOHL760305HSPNRS42
+77    303350          SOFIA           SOFIA           FLORES          IGLESIAS   108        18    5     1914   San Luis Potosi      MUJER           FOIS140518MSPLGX60
+78    303460          FERNANDO        ANDRES          REYES           MENDOZA    68         17    10    1954   Nayarit              HOMBRE          REMF541017HNTYNN43
+79    303475          DIANA           VANESA          ORTIZ           SALAZAR    86         18    1     1936   Baja California      MUJER           OISD360118MBCRLN73
+80    303501          HUGO            ALEJANDRO       MEDINA          GARCIA     18         6     11    2005   Campeche             HOMBRE          MEGH051106HCCDRXA6
+81    303505          ELISA           JULIA           ALVAREZ         VARGAS     122        28    2     1900   Morelos              MUJER           AAVE000228MMSLRL39
+82    303582          CAROLINA        MARIA           DOMINGUEZ       MORENO     71         14    8     1951   Estado de Mexico     MUJER           DOMC510814MMCNRR73
+83    303590          SARA            ELENA           DIAZ            GARCIA     29         6     11    1994   Estado de Mexico     MUJER           DIGS941106MMCZRR22
+84    303629          SERGIO          HUGO            ALVAREZ         CRUZ       95         20    2     1927   Colima               HOMBRE          AACS270220HCMLRR39
+85    303719          ELISA           ANDREA          ORTIZ           RAMOS      3          5     8     2019   Morelos              MUJER           OIRE190805MMSTMLC4
+86    303722          SARA            DIANA           RAMIREZ         REYES      57         10    3     1965   Campeche             MUJER           RARS650310MCCMYX11
+87    303845          SOFIA           CARMEN          MORENO          MEDINA     76         4     12    1947   Ciudad de Mexico     MUJER           MOMS471204MDFRDF69
+88    303886          JULIA           ELISA           PEREZ           RAMOS      82         23    8     1940   Nayarit              MUJER           PERJ400823MNTZML04
+89    303905          EMILIO          CARLOS          VAZQUEZ         PEREZ      46         27    5     1976   Colima               HOMBRE          VAPE760527HCMZRM54
+90    303969          LAURA           ANA             SOSA            MORENO     121        2     6     1901   Campeche             MUJER           SOML010602MCCXRR91
+91    304023          ALEJANDRO       JOSE            AGUILAR         PAZ        14         28    6     2008   Chihuahua            HOMBRE          AUPA080628HCHGZLA9
+92    304047          JULIA           ANA             FERNANDEZ       GUERRERO   7          3     12    2016   Estado de Mexico     MUJER           FEGJ161203MMCRRLC3
+93    304141          MARIA           MONICA          LOPEZ           RIVERA     7          4     11    2016   Ciudad de Mexico     MUJER           LORM161104MDFPVMC6
+94    304261          ALICIA          ROSA            RAMIREZ         RUIZ       108        5     5     1914   Tabasco              MUJER           RARA140505MTCMZL95
+95    304272          MONICA          MARIA           RIVERA          TORRES     75         10    8     1947   Extranjero           MUJER           RITM470810MNEVSN53
+96    304311          OSCAR           SERGIO          PAZ             MENDOZA    30         3     7     1992   San Luis Potosi      HOMBRE          PAMO920703HSPZNS17
+97    304324          LAURA           VANESA          BLANCO          CRUZ       51         17    1     1971   Michoacan            MUJER           BACL710117MMNNRR97
+98    304329          ANAHI           ALICIA          NUNEZ           ALVAREZ    66         1     2     1956   Coahuila             MUJER           NUAA560201MCLZLH96
+99    304363          LUIS            SERGIO          GUERRERO        BLANCO     34         21    4     1988   Veracruz             HOMBRE          GUBL880421HVZRNS09
+100   304400          CARMEN          ISABEL          LOPEZ           GOMEZ      100        24    10    1922   Morelos              MUJER           LOGC221024MMSPMR87
+101   304420          DIANA           ELENA           MORENO          MENDOZA    3          16    4     2019   Chiapas              MUJER           MOMD190416MCSRNNC4
+102   304504          ANDRES          ANDRES          MENDOZA         GUERRERO   89         28    10    1933   Chihuahua            HOMBRE          MEGA331028HCHNRN96
+103   304527          FERNANDO        OSCAR           RIVERA          SOTO       115        24    10    1907   Baja California Sur  HOMBRE          RISF071024HBSVTN55
+104   304533          ROSA            ISABEL          SOSA            LOPEZ      18         15    2     2004   Ciudad de Mexico     MUJER           SOLR040215MDFXPXA7
+105   304572          ANDREA          ISABEL          VAZQUEZ         ORTIZ      41         17    5     1981   Baja California      MUJER           VAOA810517MBCZRN40
+106   304580          ELISA           DIANA           SOSA            GONZALEZ   36         4     2     1986   Tlaxcala             MUJER           SOGE860204MTLXNL43
+107   304811          ALEJANDRO       EMILIO          ALVAREZ         ROMERO     15         11    9     2007   Baja California Sur  HOMBRE          AARA070911HBSLMLA0
+108   304833          JAVIER          PABLO           MEDINA          BLANCO     43         6     9     1979   Chihuahua            HOMBRE          MEBJ790906HCHDLV90
+109   305017          DIANA           ANA             RIVERA          CRUZ       62         4     4     1960   Zacatecas            MUJER           RICD600404MZSVZN48
+110   305091          CARMEN          ISABEL          SOTO            HERRERA    4          15    5     2018   Baja California Sur  MUJER           SOHC180515MBSTRRC9
+111   305132          EMILIO          FERNANDO        NUNEZ           BLANCO     79         13    3     1943   Campeche             HOMBRE          NUBE430313HCCZLM88
+112   305151          PEDRO           ALEJANDRO       HERRERA         SALAZAR    91         11    4     1931   San Luis Potosi      HOMBRE          HESP310411HSPRLD01
+113   305288          CARLOS          JAVIER          HERNANDEZ       ORTIZ      87         19    8     1935   Jalisco              HOMBRE          HEOC350819HJCRRR01
+114   305297          ADAN            ADAN            MENDOZA         SOSA       86         17    8     1936   Chihuahua            HOMBRE          MESA360817HCHNXD71
+115   305335          JULIA           ANDREA          GUERRERO        CASTRO     116        1     4     1906   Campeche             MUJER           GUCJ060401MCCRSL94
+116   305450          ALICIA          SOFIA           SOSA            ALVAREZ    48         13    10    1974   Tamaulipas           MUJER           SOAA741013MTSXLL90
+117   305478          SOFIA           ANAHI           NUNEZ           MARTINEZ   62         1     5     1960   Tabasco              MUJER           NUMS600501MTCZRF09
+118   305485          DIANA           CAROLINA        SUAREZ          REYES      60         18    6     1962   Sonora               MUJER           SURD620618MSRZYN20
+119   305586          PABLO           OSCAR           MORENO          SALAZAR    7          27    9     2015   Estado de Mexico     HOMBRE          MOSP150927HMCRLBC4
+120   305631          RICARDO         RICARDO         LOPEZ           RODRIGUEZ  51         23    12    1972   Colima               HOMBRE          LORR721223HCMPDC03
+121   305659          ANA             VANESA          SUAREZ          GUERRERO   113        8     6     1909   Coahuila             MUJER           SUGA090608MCLRRN51
+122   305740          SERGIO          RAUL            RUIZ            GUERRERO   40         2     12    1983   Estado de Mexico     HOMBRE          RUGS831202HMCZXX82
+123   305871          CLAUDIA         MARIA           CRUZ            SOSA       0          11    8     2022   Hidalgo              MUJER           CUSC220811MHGRXLC3
+124   306118          ALEJANDRO       ALEJANDRO       RUBIO           NUNEZ      51         28    2     1971   Oaxaca               HOMBRE          RUNA710228HOCBZL52
+125   306120          JULIA           CAROLINA        MENDOZA         GOMEZ      16         5     2     2006   Puebla               MUJER           MEGJ060205MPLNZLA7
+126   306176          OSCAR           SERGIO          MORALES         RUIZ       78         25    6     1944   Queretaro            HOMBRE          MORO440625HQTLZS28
+127   306260          SERGIO          PEDRO           SUAREZ          RUIZ       9          9     1     2013   Queretaro            HOMBRE          SURS130109HQTZZGC9
+128   306307          LAURA           MONICA          ORTIZ           PEREZ      111        7     4     1911   Colima               MUJER           OIPL110407MCMRRR89
+129   306382          HUGO            JAVIER          ARIAS           RAMIREZ    115        15    3     1907   Chiapas              HOMBRE          AIRH070315HCSSMG01
+130   306403          MARIA           ELENA           MORENO          MORENO     64         27    11    1959   Puebla               MUJER           MOME591127MPLRRL23
+131   306411          JAVIER          JUAN            GARCIA          GOMEZ      119        16    9     1903   Baja California      HOMBRE          GAGJ030916HBCRMV89
+132   306420          ALICIA          SARA            SALAZAR         RUIZ       122        3     10    1900   Extranjero           MUJER           SARA001003MNELZL80
+133   306445          PEDRO           EMILIO          SOTO            IGLESIAS   98         24    8     1924   Sinaloa              HOMBRE          SOIP240824HSLTGD17
+134   306461          ANDRES          OSCAR           ROMERO          SUAREZ     46         28    8     1976   Campeche             HOMBRE          ROSA760828HCCMZN84
+135   306471          ISABEL          ANA             GARCIA          CASTRO     35         11    1     1987   Jalisco              MUJER           GACI870111MJCRSS12
+136   306565          MARIA           VANESA          DELGADO         CASTRO     106        21    9     1916   Sinaloa              MUJER           DECV160921MSLLSV52
+137   306683          LUIS            DIEGO           RIVERA          RODRIGUEZ  30         5     9     1992   Colima               HOMBRE          RIRL920905HCMVDS27
+138   306692          CARLOS          CARLOS          GUERRERO        VARGAS     13         27    3     2009   Nuevo Leon           HOMBRE          GUVC090327HNLRRRA2
+139   306694          RAUL            RICARDO         SOSA            GUTIERREZ  10         18    9     2012   Baja California      HOMBRE          SOGR120918HBCXTLC4
+140   306732          MONICA          SOFIA           GUTIERREZ       BLANCO     96         6     12    1927   Nayarit              MUJER           GUBM271206MNTTLN58
+141   306740          MIGUEL          JUAN            HERNANDEZ       MOLINA     36         13    11    1987   Oaxaca               HOMBRE          HEMM871113HOCRLG14
+142   306792          ANA             CAROLINA        BLANCO          RUBIO      35         23    7     1987   Baja California Sur  MUJER           BARA870723MBSLXN03
+143   306944          EMILIO          JOSE            SOSA            MORENO     104        3     10    1918   Baja California Sur  HOMBRE          SOME181003HBSXRL30
+144   307019          ELISA           CLAUDIA         BLANCO          RUIZ       49         11    2     1973   Sinaloa              MUJER           BARE730211MSLLZL06
+145   307084          OSCAR           RAUL            SOSA            SALAZAR    84         9     8     1938   Ciudad de Mexico     HOMBRE          SOSO380809HDFXLC70
+146   307183          JUAN            HUGO            PAZ             GONZALEZ   6          21    1     2016   Coahuila             HOMBRE          PAGJ160121HCLZNNC3
+147   307233          DIEGO           PABLO           VAZQUEZ         GUERRERO   85         24    7     1937   Tabasco              HOMBRE          VAGD370724HTCZRX33
+148   307255          MONICA          ANA             LOPEZ           ALVAREZ    22         13    7     2000   Zacatecas            MUJER           LOAM000713MZSPVNA3
+149   307292          JAVIER          LUIS            TORRES          ALVAREZ    55         19    11    1968   Extranjero           HOMBRE          TOAJ681119HNERLV43
+150   307318          ALEJANDRO       ANDRES          RUBIO           GOMEZ      27         6     9     1995   Guanajuato           HOMBRE          RUGA950906HGTBML53
+151   307327          DIANA           CLAUDIA         DELGADO         RODRIGUEZ  37         3     6     1985   Morelos              MUJER           DERD850603MMSLGN01
+152   307331          SOFIA           ELENA           ALVAREZ         SALAZAR    123        16    12    1900   Zacatecas            MUJER           AASS001216MZSLLF58
+153   307341          MARIA           MONICA          CASTRO          FLORES     61         21    10    1961   Tamaulipas           MUJER           CAFM611021MTSSLM95
+154   307465          HUGO            JOSE            ALVAREZ         RIVERA     48         22    7     1974   Baja California Sur  HOMBRE          AARH740722HBSLVG27
+155   307484          PABLO           EMILIO          GARCIA          SANCHEZ    87         2     11    1936   Morelos              HOMBRE          GASP361102HMSRNB94
+156   307484          CARMEN          LAURA           VAZQUEZ         RAMIREZ    102        18    3     1920   Aguascalientes       MUJER           VARC200318MASZMM81
+157   307503          PEDRO           LUIS            ROMERO          JIMENEZ    0          15    3     2022   Extranjero           HOMBRE          ROJP220315HNEMMDC3
+158   307513          JUAN            DIEGO           SUAREZ          JIMENEZ    62         4     4     1960   Campeche             HOMBRE          SUJJ600404HCCRMN62
+159   307581          JUAN            PEDRO           CASTRO          HERRERA    76         17    11    1947   Sonora               HOMBRE          CAHJ471117HSRSRN09
+160   307582          SOFIA           ANAHI           GOMEZ           CRUZ       42         15    11    1981   Guanajuato           MUJER           GOCS811115MGTMRF76
+161   307672          FERNANDO        JUAN            RODRIGUEZ       ARIAS      74         5     7     1948   Jalisco              HOMBRE          ROAF480705HJCDSN61
+162   307675          SARA            CAROLINA        GARCIA          DELGADO    114        18    11    1909   Jalisco              MUJER           GADS091118MJCRLR03
+163   307701          PAULA           CLAUDIA         RAMOS           SALAZAR    35         8     1     1987   Tabasco              MUJER           RASP870108MTCMLL13
+164   307705          ANDREA          SARA            PAZ             ALVAREZ    83         13    7     1939   Coahuila             MUJER           PAAA390713MCLZLN84
+165   307705          LUIS            JAVIER          ARIAS           MORALES    3          28    3     2019   Coahuila             HOMBRE          AIML190328HCLRRSC4
+166   307713          ANDRES          LUIS            HERRERA         MORENO     118        2     10    1904   Queretaro            HOMBRE          HEMA041002HQTRRN71
+167   307732          SERGIO          RAUL            ARIAS           MARTINEZ   106        21    11    1917   Michoacan            HOMBRE          AIMS171121HMNRRR33
+168   307752          RAUL            ADAN            MORALES         GARCIA     100        6     11    1923   Baja California Sur  HOMBRE          MOGR231106HBSLCL47
+169   307849          ISABEL          ELISA           RIVERA          SOTO       36         23    6     1986   Quintana Roo         MUJER           RISI860623MQRVTB00
+170   307856          ELISA           SOFIA           PEREZ           GUERRERO   52         2     8     1970   Jalisco              MUJER           PEGE700802MJCRRL56
+171   307860          ANDRES          HUGO            PAZ             HERRERA    112        17    5     1910   Baja California Sur  HOMBRE          PAHA100517HBSZRN30
+172   307876          SARA            PAULA           PAZ             RAMOS      83         19    1     1939   Sinaloa              MUJER           PARS390119MSLZMX78
+173   307894          ROSA            ELISA           VARGAS          DIAZ       82         28    6     1940   Sinaloa              MUJER           VADR400628MSLGZS03
+174   308004          ANDRES          ADAN            SOSA            JIMENEZ    90         24    12    1933   Zacatecas            HOMBRE          SOJA331224HZSXMN39
+175   308024          OSCAR           OSCAR           JIMENEZ         MEDINA     36         26    6     1986   Campeche             HOMBRE          JIMO860626HCCNDS14
+176   308029          MARIA           PAULA           DIAZ            VAZQUEZ    115        8     3     1907   Baja California Sur  MUJER           DIVP070308MBSZZP14
+177   308071          ALICIA          CAROLINA        ROMERO          MORALES    14         7     1     2008   San Luis Potosi      MUJER           ROMA080107MSPXLLA0
+178   308205          ALICIA          CAROLINA        JIMENEZ         ARIAS      23         8     8     1999   Baja California      MUJER           JIAA990808MBCMRL37
+179   308244          HUGO            CARLOS          MENDOZA         ARIAS      115        22    5     1907   Chihuahua            HOMBRE          MEAH070522HCHNRG25
+180   308295          MONICA          ELENA           RAMIREZ         MEDINA     2          10    9     2020   Zacatecas            MUJER           RAMM200910MZSZDNC6
+181   308364          JULIA           ELENA           ORTIZ           SUAREZ     96         14    5     1926   Colima               MUJER           OISJ260514MCMRRL49
+182   308366          DIEGO           JAVIER          SALAZAR         SANCHEZ    59         23    4     1963   Nayarit              HOMBRE          SASD630423HNTLNG42
+183   308438          DIEGO           HUGO            GOMEZ           ORTIZ      119        4     12    1904   Tabasco              HOMBRE          GOOD041204HTCMRX78
+184   308471          SERGIO          ADAN            RODRIGUEZ       MORALES    27         4     3     1995   Guanajuato           HOMBRE          ROMS950304HGTDLG06
+185   308518          LUIS            SERGIO          IGLESIAS        BLANCO     62         10    12    1961   Guerrero             HOMBRE          IEBL611210HGRGNS64
+186   308521          RAUL            PABLO           HERNANDEZ       SALAZAR    108        9     2     1914   Aguascalientes       HOMBRE          HESR140209HASNLL84
+187   308584          HUGO            RICARDO         HERRERA         CASTRO     20         21    6     2002   Nuevo Leon           HOMBRE          HECH020621HNLRSGA5
+188   308669          ROSA            ELENA           MORENO          RAMOS      66         9     10    1956   Tamaulipas           MUJER           MORR561009MTSNSS67
+189   308794          ANDRES          ANDRES          IGLESIAS        PEREZ      49         7     7     1973   Colima               HOMBRE          IEPA730707HCMGRN51
+190   308796          ALICIA          ANA             GUERRERO        RUBIO      22         7     2     2000   Queretaro            MUJER           GURA000207MQTXBLA4
+191   308831          ANDREA          CAROLINA        RAMOS           RODRIGUEZ  57         13    10    1965   Queretaro            MUJER           RARA651013MQTMDN75
+192   308912          ANAHI           ALICIA          SOSA            PEREZ      93         14    10    1929   Chihuahua            MUJER           SOPA291014MCHXRN98
+193   308951          ANDRES          FRANCISCO       MARTINEZ        RIVERA     97         14    11    1926   Puebla               HOMBRE          MARA261114HPLTVN69
+194   308975          PAULA           MARIA           DOMINGUEZ       AGUILAR    101        28    5     1921   Aguascalientes       MUJER           DOAP210528MASMGL35
+195   308979          LUIS            PEDRO           DELGADO         SOTO       102        9     1     1920   Tabasco              HOMBRE          DESL200109HTCGTX50
+196   309020          DIEGO           SERGIO          ROMERO          MOLINA     8          28    3     2014   Tlaxcala             HOMBRE          ROMD140328HTLXLGC6
+197   309118          CARMEN          VANESA          GONZALEZ        DIAZ       86         4     2     1936   Extranjero           MUJER           GODC360204MNENZR51
+198   309139          SOFIA           MARIA           ALVAREZ         MEDINA     -1         27    3     2023   Yucatan,             MUJER           AAMS230327MYNLDFC2
+199   309181          JULIA           SOFIA           HERRERA         ROMERO     77         22    12    1946   Nuevo Leon           MUJER           HERJ461222MNLXML66
+200   309232          ALEJANDRO       JOSE            SUAREZ          SOSA       107        27    10    1915   Campeche             HOMBRE          SUSA151027HCCRXL85
+201   309294          FRANCISCO       ALEJANDRO       RUIZ            VAZQUEZ    98         19    4     1924   Coahuila             HOMBRE          RUVF240419HCLZZN89
+202   309400          ELENA           DIANA           MORALES         GUTIERREZ  18         2     6     2004   Campeche             MUJER           MOGE040602MCCRTLA4
+203   309594          FRANCISCO       FRANCISCO       HERRERA         IGLESIAS   15         13    7     2007   Veracruz             HOMBRE          HEIF070713HVZRGRA9
+204   309680          MARIA           ANDREA          MEDINA          SANCHEZ    70         18    5     1952   Ciudad de Mexico     MUJER           MESA520518MDFDNN74
+205   309698          ELISA           ALICIA          VARGAS          NUNEZ      9          26    8     2013   Baja California      MUJER           VANE130826MBCRZLC4
+206   309703          ADAN            EMILIO          TORRES          ORTIZ      39         6     11    1984   Morelos              HOMBRE          TOOA841106HMSRRD80
+207   309704          RAUL            ALEJANDRO       BLANCO          MEDINA     115        20    12    1908   Queretaro            HOMBRE          BAMR081220HQTLDL80
+208   309718          ANAHI           ANA             GUERRERO        VARGAS     49         12    11    1974   Chihuahua            MUJER           GUVA741112MCHRRN51
+209   309724          ALEJANDRO       HUGO            RUIZ            SANCHEZ    98         14    2     1924   Veracruz             HOMBRE          RUSA240214HVZZNL92
+210   309748          DIANA           ANA             CRUZ            RODRIGUEZ  10         24    1     2012   Estado de Mexico     MUJER           CURD120124MMCZGNC8
+211   309760          ANDREA          ELISA           MENDOZA         GOMEZ      3          24    7     2019   Coahuila             MUJER           MEGA190724MCLNZNC9
+212   309855          ANAHI           ELISA           PAZ             IGLESIAS   108        12    10    1914   Yucatan,             MUJER           PAIA141012MYNZGN57
+213   309866          ANAHI           PAULA           DELGADO         DELGADO    105        26    9     1917   Tamaulipas           MUJER           DEDA170926MTSLLN21
+214   309910          RAUL            ANDRES          BLANCO          MORENO     36         23    6     1986   Tlaxcala             HOMBRE          BAMR860623HTLLNL98
+215   309956          FRANCISCO       EMILIO          ALVAREZ         RUIZ       86         27    10    1936   Yucatan,             HOMBRE          AARF361027HYNLZN11
+216   309994          ELENA           ANAHI           ARIAS           GOMEZ      67         24    9     1955   Guanajuato           MUJER           AIGE550924MGTRML55
+217   310020          DIEGO           LUIS            JIMENEZ         DOMINGUEZ  66         23    5     1956   Baja California Sur  HOMBRE          JIDD560523HBSMMG35
+218   310086          CAROLINA        ANAHI           FERNANDEZ       RUIZ       120        14    10    1902   Chihuahua            MUJER           FERC021014MCHNZL22
+219   310089          RICARDO         SERGIO          IGLESIAS        MARTINEZ   43         27    5     1979   Oaxaca               HOMBRE          IEMR790527HOCGTC17
+220   310094          ALICIA          ANDREA          MEDINA          CRUZ       15         28    12    2008   Coahuila             MUJER           MECA081228MCLDRLA5
+221   310137          JAVIER          FRANCISCO       MOLINA          DOMINGUEZ  47         12    4     1975   Sonora               HOMBRE          MODJ750412HSRLNV39
+222   310160          JUAN            SERGIO          GONZALEZ        SANCHEZ    30         16    12    1993   Yucatan,             HOMBRE          GOSJ931216HYNNNN47
+223   310182          ANDREA          LAURA           CASTRO          DELGADO    45         4     1     1977   Nayarit              MUJER           CADA770104MNTSLN92
+224   310200          HUGO            EMILIO          DOMINGUEZ       MEDINA     114        4     8     1908   Coahuila             HOMBRE          DOMH080804HCLNNG88
+225   310221          MIGUEL          FERNANDO        GOMEZ           RIVERA     94         7     6     1928   Baja California      HOMBRE          GORM280607HBCZVL19
+226   310267          MIGUEL          OSCAR           RODRIGUEZ       LOPEZ      31         11    8     1991   Yucatan,             HOMBRE          ROLM910811HYNDPG94
+227   310318          LAURA           ELISA           VARGAS          VAZQUEZ    106        1     10    1916   Veracruz             MUJER           VAVL161001MVZRZR38
+228   310318          RAUL            RICARDO         IGLESIAS        ROMERO     24         20    7     1998   Chiapas              HOMBRE          IERR980720HCSGML77
+229   310346          JUAN            JUAN            BLANCO          TORRES     36         1     12    1987   Durango              HOMBRE          BATJ871201HDGLRN26
+230   310359          ALEJANDRO       RICARDO         SANCHEZ         TORRES     42         16    2     1980   Campeche             HOMBRE          SATA800216HCCNRL12
+231   310380          ALICIA          ALICIA          MOLINA          ALVAREZ    109        5     9     1913   Tamaulipas           MUJER           MOAA130905MTSLLL46
+232   310382          ALICIA          ROSA            MENDOZA         MOLINA     70         14    1     1952   Coahuila             MUJER           MEMA520114MCLNLL06
+233   310382          MIGUEL          JUAN            ALVAREZ         TORRES     52         2     6     1970   Baja California Sur  HOMBRE          AATM700602HBSLRG19
+234   310434          CARMEN          ELISA           SOSA            MORENO     89         21    12    1934   Puebla               MUJER           SOMC341221MPLXRR57
+235   310501          DIANA           DIANA           RAMOS           MORALES    2          9     2     2020   Coahuila             MUJER           RAMD200209MCLSLNC6
+236   310510          ANAHI           CLAUDIA         LOPEZ           DIAZ       95         11    3     1927   Tamaulipas           MUJER           LODA270311MTSPZN61
+237   310528          MIGUEL          EMILIO          ALVAREZ         RAMOS      109        11    10    1913   Yucatan,             HOMBRE          AARM131011HYNLSG95
+238   310543          VANESA          ANA             VAZQUEZ         AGUILAR    40         3     4     1982   San Luis Potosi      MUJER           VAAV820403MSPZGN30
+239   310561          DIEGO           JAVIER          CASTRO          RAMOS      84         19    2     1938   Tlaxcala             HOMBRE          CARD380219HTLSMG48
+240   310580          JAVIER          EMILIO          FLORES          JIMENEZ    103        7     6     1919   Durango              HOMBRE          FOJJ190607HDGLMV22
+241   310710          PEDRO           HUGO            DELGADO         CRUZ       101        5     2     1921   Guerrero             HOMBRE          DECP210205HGRLRR86
+242   310763          SOFIA           LAURA           MORENO          RODRIGUEZ  114        21    7     1908   Baja California      MUJER           MORS080721MBCNDF84
+243   310770          ADAN            ANDRES          GOMEZ           MORENO     70         19    3     1952   Ciudad de Mexico     HOMBRE          GOMA520319HDFZRD77
+244   310810          JUAN            EMILIO          MORALES         LOPEZ      107        17    5     1915   Puebla               HOMBRE          MOLJ150517HPLRPN77
+245   310857          JULIA           ISABEL          MEDINA          BLANCO     27         11    12    1996   Oaxaca               MUJER           MEBJ961211MOCDLL40
+246   310938          MIGUEL          ANDRES          RAMOS           ALVAREZ    91         15    3     1931   Tamaulipas           HOMBRE          RAAM310315HTSSLG32
+247   310948          FERNANDO        CARLOS          MENDOZA         FLORES     52         22    8     1970   Baja California Sur  HOMBRE          MEFF700822HBSNLR24
+248   311012          FERNANDO        ADAN            RIVERA          RIVERA     6          18    8     2016   Quintana Roo         HOMBRE          RIRF160818HQRVVNC1
+249   311031          ALEJANDRO       FERNANDO        SANCHEZ         RIVERA     7          3     12    2016   San Luis Potosi      HOMBRE          SARA161203HSPNVLC5
+250   311044          CARLOS          CARLOS          SUAREZ          SOSA       68         5     3     1954   Hidalgo              HOMBRE          SUSC540305HHGRXR76
+251   311047          MONICA          PAULA           MEDINA          CRUZ       78         13    11    1945   Nuevo Leon           MUJER           MECM451113MNLDRN61
+252   311138          CLAUDIA         ELISA           GUERRERO        SALAZAR    9          10    8     2013   Puebla               MUJER           GUSC130810MPLRLLC8
+253   311190          ROSA            SARA            VARGAS          GUTIERREZ  44         2     3     1978   Extranjero           MUJER           VAGR780302MNESTS12
+254   311204          PABLO           MIGUEL          RIVERA          VAZQUEZ    19         12    7     2003   Durango              HOMBRE          RIVP030712HDGXZBA6
+255   311236          SERGIO          HUGO            RAMOS           PAZ        112        27    8     1910   Colima               HOMBRE          RAPS100827HCMMZG90
+256   311289          FERNANDO        OSCAR           RAMIREZ         CRUZ       66         24    5     1956   Durango              HOMBRE          RACF560524HDGMZN21
+257   311348          SERGIO          JOSE            GOMEZ           JIMENEZ    67         13    1     1955   Ciudad de Mexico     HOMBRE          GOJS550113HDFMMR96
+258   311349          MIGUEL          ANDRES          CRUZ            SOSA       52         22    10    1970   Campeche             HOMBRE          CUSM701022HCCRXG52
+259   311352          PAULA           ANDREA          RAMOS           HERRERA    6          13    6     2016   Tamaulipas           MUJER           RAHP160613MTSMXLC3
+260   311380          HUGO            PEDRO           GARCIA          VARGAS     16         22    10    2006   Ciudad de Mexico     HOMBRE          GAVH061022HDFRRXA7
+261   311413          SERGIO          LUIS            PAZ             SOTO       32         20    7     1990   Nuevo Leon           HOMBRE          PASS900720HNLZTR99
+262   311414          VANESA          LAURA           ARIAS           SOSA       103        15    9     1919   Extranjero           MUJER           AISV190915MNERXN58
+263   311443          PEDRO           JAVIER          RODRIGUEZ       JIMENEZ    83         1     5     1939   Ciudad de Mexico     HOMBRE          ROJP390501HDFDMD91
+264   311463          RAUL            HUGO            HERRERA         SOSA       37         8     3     1985   Baja California Sur  HOMBRE          HESR850308HBSXXL87
+265   311500          DIEGO           FRANCISCO       VARGAS          SOSA       72         9     3     1950   Campeche             HOMBRE          VASD500309HCCRXG20
+266   311511          PABLO           JAVIER          DELGADO         RAMOS      115        18    6     1907   Veracruz             HOMBRE          DERP070618HVZLMB67
+267   311546          ANA             VANESA          MENDOZA         SOTO       42         10    7     1980   Puebla               MUJER           MESA800710MPLNTN44
+268   311564          ROSA            CARMEN          CASTRO          MORENO     60         28    3     1962   Oaxaca               MUJER           CAMR620328MOCSNS14
+269   311597          CLAUDIA         VANESA          SALAZAR         RUBIO      77         21    5     1945   Durango              MUJER           SARC450521MDGLBL69
+270   311622          FRANCISCO       MIGUEL          GUERRERO        VAZQUEZ    46         5     11    1977   Tlaxcala             HOMBRE          GUVF771105HTLRZR88
+271   311655          CLAUDIA         JULIA           TORRES          RAMOS      89         7     9     1933   Sonora               MUJER           TORC330907MSRSML42
+272   311706          CAROLINA        SOFIA           MEDINA          VAZQUEZ    18         19    9     2004   Nayarit              MUJER           MEVC040919MNTDZRA7
+273   311714          PAULA           SARA            DELGADO         BLANCO     36         27    10    1986   Veracruz             MUJER           DEBP861027MVZLLL70
+274   311737          OSCAR           RAUL            NUNEZ           DELGADO    65         17    10    1957   Veracruz             HOMBRE          NUDO571017HVZZLS79
+275   311746          FRANCISCO       LUIS            ROMERO          VAZQUEZ    120        1     12    1903   Zacatecas            HOMBRE          ROVF031201HZSMZN13
+276   311834          ELISA           CLAUDIA         MORENO          GONZALEZ   99         27    4     1923   Zacatecas            MUJER           MOGE230427MZSRNL87
+277   311838          ROSA            JULIA           JIMENEZ         TORRES     29         13    5     1993   Aguascalientes       MUJER           JITR930513MASMSS74
+278   311886          FERNANDO        SERGIO          TORRES          MORENO     65         16    5     1957   Veracruz             HOMBRE          TOMF570516HVZRRR05
+279   311904          ANDREA          ELENA           REYES           TORRES     74         20    3     1948   Colima               MUJER           RETA480320MCMYSN12
+280   311921          MONICA          ALICIA          REYES           SOSA       71         8     7     1951   Veracruz             MUJER           RESM510708MVZYXN34
+281   311949          ANDREA          ANDREA          SOSA            PAZ        84         26    2     1938   Nuevo Leon           MUJER           SOPA380226MNLXZN35
+282   311956          CAROLINA        VANESA          RAMOS           MARTINEZ   16         10    1     2006   Guerrero             MUJER           RAMC060110MGRSTLA9
+283   312068          ROSA            SOFIA           VARGAS          NUNEZ      62         21    8     1960   Colima               MUJER           VANR600821MCMGZS26
+284   312259          MONICA          JULIA           IGLESIAS        VARGAS     17         7     3     2005   Guerrero             MUJER           IEVM050307MGRGRNA3
+285   312326          FERNANDO        LUIS            RAMOS           PAZ        38         1     4     1984   Baja California      HOMBRE          RAPF840401HBCMZN03
+286   312341          MARIA           ELISA           REYES           VAZQUEZ    51         12    11    1972   Coahuila             MUJER           REVE721112MCLYZL23
+287   312374          ISABEL          ANA             SOSA            FERNANDEZ  12         7     4     2010   Sinaloa              MUJER           SOFI100407MSLXRBA6
+288   312376          ALEJANDRO       LUIS            VAZQUEZ         AGUILAR    114        19    3     1908   Ciudad de Mexico     HOMBRE          VAAA080319HDFZGL78
+289   312435          VANESA          ALICIA          RODRIGUEZ       RAMIREZ    67         20    1     1955   Estado de Mexico     MUJER           RORV550120MMCDMN35
+290   312446          MIGUEL          OSCAR           RUBIO           HERNANDEZ  25         2     2     1997   Aguascalientes       HOMBRE          RUHM970202HASBNG08
+291   312486          FRANCISCO       JAVIER          SUAREZ          GARCIA     109        12    8     1913   Chihuahua            HOMBRE          SUGF130812HCHRRR00
+292   312490          ALEJANDRO       PEDRO           HERNANDEZ       AGUILAR    33         16    3     1989   San Luis Potosi      HOMBRE          HEAA890316HSPRGL17
+293   312640          CARMEN          CARMEN          MENDOZA         GUERRERO   21         10    2     2001   Tlaxcala             MUJER           MEGC010210MTLNRRA7
+294   312654          VANESA          ALICIA          SOSA            AGUILAR    27         14    3     1995   Nayarit              MUJER           SOAV950314MNTXGN28
+295   312673          JAVIER          DIEGO           AGUILAR         MENDOZA    64         3     12    1959   Colima               HOMBRE          AUMJ591203HCMGNV10
+296   312673          EMILIO          PABLO           DIAZ            GARCIA     111        6     10    1911   Puebla               HOMBRE          DIGE111006HPLZRM77
+297   312705          LAURA           SOFIA           MORENO          GUERRERO   79         20    2     1943   Zacatecas            MUJER           MOGL430220MZSRRR18
+298   312719          DIEGO           JAVIER          BLANCO          RUBIO      92         14    6     1930   Hidalgo              HOMBRE          BARD300614HHGLXG66
+299   312727          SOFIA           ELISA           SOTO            ALVAREZ    11         26    4     2011   Hidalgo              MUJER           SOAS110426MHGTLFC8
+300   312775          ALEJANDRO       LUIS            RODRIGUEZ       SALAZAR    71         26    2     1951   Puebla               HOMBRE          ROSA510226HPLDLL68
+301   312799          ANAHI           VANESA          MOLINA          BLANCO     52         17    3     1970   Zacatecas            MUJER           MOBA700317MZSLLN33
+302   312918          MIGUEL          JAVIER          SANCHEZ         DIAZ       71         26    9     1951   Baja California Sur  HOMBRE          SADM510926HBSNZG75
+303   312958          DIEGO           PABLO           DOMINGUEZ       RUIZ       93         28    11    1930   Chihuahua            HOMBRE          DORD301128HCHMZG73
+304   313028          ANA             ISABEL          FLORES          FERNANDEZ  71         24    8     1951   Hidalgo              MUJER           FOFA510824MHGLRN75
+305   313053          DIEGO           JUAN            REYES           IGLESIAS   12         13    5     2010   Guerrero             HOMBRE          REID100513HGRYGGA0
+306   313153          ALEJANDRO       DIEGO           RUIZ            DELGADO    53         23    2     1969   Morelos              HOMBRE          RUDA690223HMSZLL37
+307   313172          FRANCISCO       PEDRO           HERNANDEZ       RUBIO      116        19    9     1906   Tlaxcala             HOMBRE          HERF060919HTLNBN87
+308   313186          DIANA           MARIA           SALAZAR         ALVAREZ    96         26    5     1926   Coahuila             MUJER           SAAD260526MCLLLN40
+309   313213          SARA            ELISA           DELGADO         CASTRO     24         12    7     1998   Campeche             MUJER           DECS980712MCCLTR43
+310   313255          FRANCISCO       RAUL            AGUILAR         SANCHEZ    13         13    5     2009   Sonora               HOMBRE          AUSF090513HSRGNRA9
+311   313330          DIANA           JULIA           ROMERO          FLORES     53         14    8     1969   Ciudad de Mexico     MUJER           ROFD690814MDFMLN81
+312   313341          ANDRES          RICARDO         GUERRERO        TORRES     24         4     4     1998   Nuevo Leon           HOMBRE          GUTA980404HNLRRN80
+313   313356          PAULA           ROSA            SOTO            SANCHEZ    29         25    4     1993   Tlaxcala             MUJER           SOSP930425MTLTNL31
+314   313375          MONICA          SARA            ORTIZ           ARIAS      43         4     8     1979   Guanajuato           MUJER           OIAM790804MGTRRN73
+315   313392          ALEJANDRO       FERNANDO        DOMINGUEZ       ARIAS      1          7     8     2021   Yucatan,             HOMBRE          DOAA210807HYNMRLC5
+316   313443          HUGO            ANDRES          ALVAREZ         SOTO       66         26    6     1956   Nuevo Leon           HOMBRE          AASH560626HNLLTG59
+317   313446          ELISA           MARIA           DOMINGUEZ       RAMOS      112        21    8     1910   Hidalgo              MUJER           DORE100821MHGMML17
+318   313475          FERNANDO        ALEJANDRO       SALAZAR         MENDOZA    80         22    11    1943   Baja California      HOMBRE          SAMF431122HBCLNR18
+319   313555          JUAN            DIEGO           ROMERO          PEREZ      80         10    3     1942   Coahuila             HOMBRE          ROPJ420310HCLMZN00
+320   313594          ANDREA          CARMEN          ROMERO          RAMIREZ    78         7     6     1944   Zacatecas            MUJER           RORA440607MZSMMN48
+321   313605          CLAUDIA         VANESA          HERNANDEZ       GONZALEZ   89         22    12    1934   Guerrero             MUJER           HEGC341222MGRRNL71
+322   313615          ADAN            OSCAR           RAMIREZ         GONZALEZ   1          23    3     2021   San Luis Potosi      HOMBRE          RAGA210323HSPMNDC7
+323   313626          CLAUDIA         ANAHI           ORTIZ           MOLINA     93         9     6     1929   Michoacan            MUJER           OIMC290609MMNRLL64
+324   313645          PAULA           ANDREA          ALVAREZ         LOPEZ      13         11    7     2009   Baja California Sur  MUJER           AALP090711MBSVZXA3
+325   313648          DIEGO           CARLOS          ALVAREZ         CASTRO     68         21    12    1955   Michoacan            HOMBRE          AACD551221HMNLSG06
+326   313806          RICARDO         DIEGO           GONZALEZ        ALVAREZ    4          1     3     2018   Hidalgo              HOMBRE          GOAR180301HHGNLCC1
+327   313824          MARIA           MONICA          ALVAREZ         HERNANDEZ  104        14    5     1918   Tlaxcala             MUJER           AAHM180514MTLLRM31
+328   313828          CLAUDIA         SARA            MEDINA          TORRES     17         27    4     2005   Extranjero           MUJER           METC050427MNEDRLA3
+329   313866          CARLOS          FERNANDO        FERNANDEZ       SUAREZ     121        5     1     1901   Coahuila             HOMBRE          FESC010105HCLRRR09
+330   313869          RICARDO         JUAN            VARGAS          MORENO     75         18    9     1947   Jalisco              HOMBRE          VAMR470918HJCGNC13
+331   313933          OSCAR           PABLO           SOTO            VAZQUEZ    70         15    8     1952   Sinaloa              HOMBRE          SOVO520815HSLTZC23
+332   314056          LAURA           ANA             ARIAS           CASTRO     120        13    12    1903   Quintana Roo         MUJER           AICL031213MQRRSR39
+333   314064          ANAHI           PAULA           GOMEZ           HERNANDEZ  8          20    7     2014   Yucatan,             MUJER           GOHA140720MYNMRNC8
+334   314109          JUAN            RAUL            MARTINEZ        RIVERA     78         4     12    1945   Tabasco              HOMBRE          MARJ451204HTCTVN01
+335   314148          PAULA           SOFIA           BLANCO          REYES      20         10    3     2002   Sonora               MUJER           BARP020310MSRLYLA5
+336   314194          SOFIA           SARA            RAMIREZ         ORTIZ      22         4     9     2000   Sonora               MUJER           RAOS000904MSRMTFA1
+337   314222          SERGIO          RAUL            HERRERA         TORRES     61         2     12    1962   Veracruz             HOMBRE          HETS621202HVZRRR48
+338   314275          SARA            DIANA           NUNEZ           RUIZ       118        17    12    1905   Queretaro            MUJER           NURS051217MQTZZX12
+339   314280          LUIS            SERGIO          REYES           SANCHEZ    20         13    9     2002   Chihuahua            HOMBRE          RESL020913HCHYNXA3
+340   314307          EMILIO          MIGUEL          SANCHEZ         MENDOZA    72         21    3     1950   Oaxaca               HOMBRE          SAME500321HOCNNL57
+341   314317          JULIA           MARIA           DELGADO         RAMOS      11         15    1     2011   Aguascalientes       MUJER           DERJ110115MASLMLC9
+342   314340          MONICA          ELENA           LOPEZ           GONZALEZ   70         12    10    1952   Quintana Roo         MUJER           LOGM521012MQRPNN18
+343   314342          PAULA           SARA            MARTINEZ        DOMINGUEZ  12         26    3     2010   Tamaulipas           MUJER           MADP100326MTSRNLA7
+344   314353          SERGIO          HUGO            DELGADO         JIMENEZ    0          15    11    2023   Ciudad de Mexico     HOMBRE          DEJS231115HDFLMRC1
+345   314379          HUGO            PEDRO           ALVAREZ         SANCHEZ    44         25    3     1978   Nuevo Leon           HOMBRE          AASH780325HNLLNG48
+346   314394          PEDRO           ANDRES          RODRIGUEZ       ALVAREZ    78         27    11    1945   Chiapas              HOMBRE          ROAP451127HCSDLD02
+347   314400          RAUL            JAVIER          GUERRERO        GUERRERO   47         21    9     1975   Puebla               HOMBRE          GUGR750921HPLXXL64
+348   314492          JUAN            LUIS            GUERRERO        AGUILAR    80         22    2     1942   Sonora               HOMBRE          GUAJ420222HSRRLN17
+349   314575          SERGIO          HUGO            MENDOZA         MORALES    37         25    5     1985   Puebla               HOMBRE          MEMS850525HPLNRR65
+350   314665          PABLO           OSCAR           SANCHEZ         CASTRO     10         12    9     2012   Baja California Sur  HOMBRE          SACP120912HBSNTBC6
+351   314734          ADAN            JAVIER          MORALES         MEDINA     5          9     9     2017   Puebla               HOMBRE          MOMA170909HPLRDDC2
+352   314807          JAVIER          SERGIO          SOTO            MOLINA     54         11    6     1968   Nayarit              HOMBRE          SOMJ680611HNTTLV76
+353   314850          ANA             ELENA           MORENO          FLORES     95         26    3     1927   San Luis Potosi      MUJER           MOFA270326MSPRLN81
+354   314924          RICARDO         OSCAR           SANCHEZ         SALAZAR    87         5     12    1936   Guanajuato           HOMBRE          SASR361205HGTNLC57
+355   314939          VANESA          ANAHI           DELGADO         FLORES     16         2     8     2006   Tamaulipas           MUJER           DEFV060802MTSLLNA0
+356   314966          ELISA           JULIA           NUNEZ           FERNANDEZ  17         24    11    2006   Tlaxcala             MUJER           NUFE061124MTLZRLA0
+357   315013          LUIS            ADAN            LOPEZ           HERRERA    55         27    2     1967   Baja California Sur  HOMBRE          LOHL670227HBSPRS72
+358   315024          CARMEN          CARMEN          RUBIO           PAZ        119        6     2     1903   Nayarit              MUJER           RUPC030206MNTBZM36
+359   315056          JUAN            JAVIER          RUIZ            HERRERA    80         27    12    1943   Sinaloa              HOMBRE          RUHJ431227HSLZXN90
+360   315063          EMILIO          CARLOS          RUBIO           VARGAS     110        2     6     1912   Zacatecas            HOMBRE          RUVE120602HZSBGM19
+361   315107          SARA            ALICIA          ARIAS           GUTIERREZ  74         2     10    1948   Durango              MUJER           AIGS481002MDGRTR82
+362   315146          VANESA          MARIA           MORALES         DELGADO    23         19    8     1999   Tabasco              MUJER           MODV990819MTCRLN94
+363   315162          ADAN            PABLO           GONZALEZ        SOSA       43         7     7     1979   Baja California Sur  HOMBRE          GOSA790707HBSNXD06
+364   315226          VANESA          ANA             SALAZAR         HERRERA    53         21    7     1969   Nayarit              MUJER           SAHV690721MNTLRN55
+365   315228          MARIA           CAROLINA        MORALES         RUIZ       110        9     12    1913   Coahuila             MUJER           MORC131209MCLLZC28
+366   315311          RAUL            MIGUEL          ORTIZ           PEREZ      104        21    9     1918   Coahuila             HOMBRE          OIPR180921HCLTZL73
+367   315311          ALEJANDRO       EMILIO          RUIZ            DIAZ       72         18    11    1951   Baja California      HOMBRE          RUDA511118HBCZZL70
+368   315332          ELISA           LAURA           VAZQUEZ         AGUILAR    88         14    1     1934   Zacatecas            MUJER           VAAE340114MZSZGL45
+369   315344          ADAN            DIEGO           GUTIERREZ       RUBIO      64         22    1     1958   Michoacan            HOMBRE          GURA580122HMNTBD32
+370   315398          ISABEL          CAROLINA        RAMIREZ         ARIAS      118        10    2     1904   Chiapas              MUJER           RAAI040210MCSMSS16
+371   315416          JOSE            RAUL            DELGADO         ROMERO     96         16    5     1926   Chiapas              HOMBRE          DERR260516HCSLMR28
+372   315443          FERNANDO        DIEGO           RAMOS           MOLINA     44         2     6     1978   Ciudad de Mexico     HOMBRE          RAMF780602HDFSLN05
+373   315454          ISABEL          ANDREA          REYES           HERNANDEZ  65         27    12    1958   Chiapas              MUJER           REHI581227MCSYNS32
+374   315465          PAULA           MARIA           CASTRO          SOTO       23         1     7     1999   Tabasco              MUJER           CASP990701MTCTTL08
+375   315666          RICARDO         OSCAR           RUIZ            PAZ        109        24    7     1913   Colima               HOMBRE          RUPR130724HCMZZC69
+376   315704          CAROLINA        ANDREA          CASTRO          RUIZ       18         3     4     2004   Yucatan,             MUJER           CARC040403MYNSZLA7
+377   315708          SOFIA           ROSA            GUERRERO        IGLESIAS   68         3     7     1954   Durango              MUJER           GUIS540703MDGRLF53
+378   315758          RICARDO         ADAN            RIVERA          ALVAREZ    16         11    11    2007   Chiapas              HOMBRE          RIAR071111HCSVLCA7
+379   315837          FRANCISCO       MIGUEL          JIMENEZ         FERNANDEZ  27         25    1     1995   Tlaxcala             HOMBRE          JIFF950125HTLMRR99
+380   315840          ANDREA          PAULA           DIAZ            DIAZ       67         10    4     1955   Sonora               MUJER           DIDA550410MSRZZN40
+381   315918          DIEGO           PEDRO           JIMENEZ         ALVAREZ    73         13    6     1949   Sonora               HOMBRE          JIAD490613HSRMLG80
+382   315934          ANAHI           ISABEL          SOSA            FERNANDEZ  123        10    12    1900   Campeche             MUJER           SOFA001210MCCXRN30
+383   315950          LUIS            CARLOS          VAZQUEZ         ORTIZ      96         22    6     1926   Chihuahua            HOMBRE          VAOL260622HCHZRS94
+384   316000          ELISA           CLAUDIA         LOPEZ           RUBIO      47         8     5     1975   Chihuahua            MUJER           LORE750508MCHPBS41
+385   316107          SARA            SARA            ROMERO          GUERRERO   4          25    5     2018   Tlaxcala             MUJER           ROGS180525MTLMXXC6
+386   316112          ROSA            JULIA           TORRES          DIAZ       81         9     6     1941   Michoacan            MUJER           TODR410609MMNSZS17
+387   316176          SOFIA           MONICA          MEDINA          RODRIGUEZ  14         26    1     2008   Extranjero           MUJER           MERS080126MNEDDFA6
+388   316193          EMILIO          JOSE            HERRERA         GUTIERREZ  82         23    12    1941   Estado de Mexico     HOMBRE          HEGE411223HMCRTM81
+389   316196          PABLO           ADAN            LOPEZ           PEREZ      49         11    2     1973   Nuevo Leon           HOMBRE          LOPP730211HNLZRB34
+390   316203          VANESA          ISABEL          BLANCO          CRUZ       66         16    4     1956   Tamaulipas           MUJER           BACV560416MTSLRN11
+391   316235          PABLO           SERGIO          GOMEZ           RIVERA     57         20    12    1966   Guerrero             HOMBRE          GORP661220HGRMVB92
+392   316245          EMILIO          OSCAR           GONZALEZ        DELGADO    48         19    12    1975   Tamaulipas           HOMBRE          GODE751219HTSNLM45
+393   316255          ANDREA          ISABEL          GUERRERO        MARTINEZ   23         27    1     1999   Baja California Sur  MUJER           GUMA990127MBSRRN19
+394   316312          ALICIA          VANESA          SOSA            RAMIREZ    77         24    1     1945   Tabasco              MUJER           SORA450124MTCXML93
+395   316348          FERNANDO        CARLOS          MARTINEZ        CRUZ       -1         5     5     2023   Queretaro            HOMBRE          MACF230505HQTRRRC3
+396   316380          PABLO           HUGO            ALVAREZ         SUAREZ     105        10    10    1917   Oaxaca               HOMBRE          AASP171010HOCLRB51
+397   316400          ELISA           MARIA           RODRIGUEZ       ORTIZ      102        17    1     1920   Puebla               MUJER           ROOE200117MPLDTL26
+398   316453          VANESA          PAULA           DELGADO         FLORES     102        28    6     1920   Tlaxcala             MUJER           DEFV200628MTLLLN98
+399   316581          FRANCISCO       JAVIER          FERNANDEZ       AGUILAR    121        26    8     1901   Oaxaca               HOMBRE          FEAF010826HOCRGR93
+400   316599          LAURA           CLAUDIA         MENDOZA         ARIAS      67         1     6     1955   Estado de Mexico     MUJER           MEAL550601MMCNRR12
+401   316635          SOFIA           MARIA           BLANCO          ORTIZ      72         9     4     1950   Puebla               MUJER           BAOS500409MPLLRF42
+402   316645          JOSE            SERGIO          RAMIREZ         GUTIERREZ  118        28    6     1904   Nuevo Leon           HOMBRE          RAGS040628HNLMTS38
+403   316659          FRANCISCO       ANDRES          GARCIA          DELGADO    71         18    5     1951   Ciudad de Mexico     HOMBRE          GADF510518HDFRLR63
+404   316773          LAURA           ELISA           MENDOZA         JIMENEZ    8          10    11    2015   Coahuila             MUJER           MEJL151110MCLNNRC8
+405   316785          MIGUEL          JAVIER          MOLINA          SOSA       10         25    3     2012   Jalisco              HOMBRE          MOSM120325HJCLXGC1
+406   316879          ANDRES          MIGUEL          GUERRERO        VARGAS     69         24    3     1953   Queretaro            HOMBRE          GUVA530324HQTRRN49
+407   316948          OSCAR           EMILIO          SUAREZ          PAZ        103        16    11    1920   Nuevo Leon           HOMBRE          SUPO201116HNLRZC51
+408   317058          ADAN            JUAN            GUERRERO        HERRERA    28         26    11    1995   Guanajuato           HOMBRE          GUHA951126HGTRRD26
+409   317090          MARIA           MARIA           IGLESIAS        LOPEZ      26         8     2     1996   Morelos              MUJER           IELM960208MMSGPM82
+410   317096          DIEGO           LUIS            RAMOS           RIVERA     114        10    7     1908   Durango              HOMBRE          RARD080710HDGMVG27
+411   317097          ISABEL          ANAHI           MORENO          HERRERA    109        12    12    1914   Nuevo Leon           MUJER           MOHI141212MNLRRS95
+412   317208          CAROLINA        ALICIA          PAZ             ORTIZ      22         14    9     2000   Guerrero             MUJER           PAOC000914MGRZRRA3
+413   317252          ANDRES          RICARDO         RODRIGUEZ       SALAZAR    35         16    2     1987   Guerrero             HOMBRE          ROSA870216HGRDLN87
+414   317252          FERNANDO        MIGUEL          SANCHEZ         MORENO     57         23    12    1966   Nuevo Leon           HOMBRE          SAMF661223HNLNRR33
+415   317268          ISABEL          ROSA            GOMEZ           PAZ        48         11    1     1974   Quintana Roo         MUJER           GOPI740111MQRMZS22
+416   317297          CLAUDIA         JULIA           CRUZ            ROMERO     67         9     3     1955   Tabasco              MUJER           CURC550309MTCZML74
+417   317323          PEDRO           SERGIO          SOTO            JIMENEZ    64         7     4     1958   Veracruz             HOMBRE          SOJP580407HVZTMD71
+418   317380          ANDREA          ELISA           JIMENEZ         RODRIGUEZ  51         16    9     1971   Coahuila             MUJER           JIRA710916MCLMDN18
+419   317385          VANESA          CAROLINA        SOTO            GUERRERO   39         12    11    1984   Hidalgo              MUJER           SOGV841112MHGTRN27
+420   317462          SOFIA           PAULA           ROMERO          SANCHEZ    112        20    2     1910   Morelos              MUJER           ROSS100220MMSMNF31
+421   317502          HUGO            HUGO            MOLINA          GONZALEZ   98         6     7     1924   Campeche             HOMBRE          MOGH240706HCCLNX16
+422   317529          RICARDO         FERNANDO        SALAZAR         VARGAS     44         21    11    1979   Coahuila             HOMBRE          SAVR791121HCLLGC68
+423   317565          EMILIO          DIEGO           DIAZ            HERNANDEZ  21         18    9     2001   San Luis Potosi      HOMBRE          DIHE010918HSPZRMA3
+424   317605          ANAHI           ALICIA          GUTIERREZ       GOMEZ      15         9     3     2007   Guanajuato           MUJER           GUGA070309MGTTMNA0
+425   317639          JOSE            CARLOS          ALVAREZ         TORRES     55         7     5     1967   Quintana Roo         HOMBRE          AATC670507HQRLRC65
+426   317718          PABLO           ANDRES          ORTIZ           AGUILAR    -1         15    6     2023   Jalisco              HOMBRE          OIAP230615HJCRGBC8
+427   317726          DIEGO           PEDRO           CRUZ            HERNANDEZ  104        6     3     1918   Queretaro            HOMBRE          CUHD180306HQTRRG07
+428   317754          JAVIER          JOSE            RIVERA          VARGAS     17         5     10    2005   Tabasco              HOMBRE          RIVJ051005HTCXGXA4
+429   317782          CLAUDIA         MARIA           GARCIA          RUIZ       37         27    10    1985   Tabasco              MUJER           GARC851027MTCXZL13
+430   317795          DIEGO           MIGUEL          RUBIO           GUERRERO   88         3     12    1935   Chihuahua            HOMBRE          RUGD351203HCHBXX65
+431   317873          OSCAR           DIEGO           BLANCO          SOSA       34         11    10    1988   Nayarit              HOMBRE          BASO881011HNTLXC84
+432   317929          SARA            ANDREA          MENDOZA         MOLINA     64         2     5     1958   Yucatan,             MUJER           MEMS580502MYNNLR59
+433   317931          CARMEN          ELISA           SOSA            FLORES     42         28    11    1981   Tabasco              MUJER           SOFC811128MTCXLR35
+434   318047          ADAN            RAUL            MOLINA          NUNEZ      91         17    4     1931   Tlaxcala             HOMBRE          MONA310417HTLLZD35
+435   318103          SARA            DIANA           CRUZ            VARGAS     63         4     2     1959   Oaxaca               MUJER           CUVS590204MOCRRR12
+436   318188          SERGIO          HUGO            AGUILAR         SOSA       39         6     11    1984   Chiapas              HOMBRE          AUSS841106HCSGXR34
+437   318191          ANA             PAULA           FERNANDEZ       REYES      17         18    4     2005   Extranjero           MUJER           FERA050418MNENYNA3
+438   318217          JUAN            RICARDO         CRUZ            SUAREZ     84         26    5     1938   Chiapas              HOMBRE          CUSJ380526HCSRRN34
+439   318251          PEDRO           FERNANDO        GARCIA          MORALES    19         18    5     2003   Baja California Sur  HOMBRE          GAMP030518HBSRRDA3
+440   318269          MARIA           ISABEL          RAMIREZ         DELGADO    94         4     4     1928   Jalisco              MUJER           RADI280404MJCMLS73
+441   318300          SARA            ROSA            SOTO            RAMOS      53         20    3     1969   Colima               MUJER           SORS690320MCMTMX35
+442   318301          PABLO           OSCAR           SOSA            TORRES     75         27    12    1948   Guerrero             HOMBRE          SOTP481227HGRXRB01
+443   318328          ANA             JULIA           PAZ             RUIZ       95         18    2     1927   Zacatecas            MUJER           PARA270218MZSZZN74
+444   318365          ANA             CARMEN          SOSA            BLANCO     45         7     6     1977   Chiapas              MUJER           SOBA770607MCSXLN55
+445   318426          DIEGO           FRANCISCO       JIMENEZ         MOLINA     24         9     12    1999   Ciudad de Mexico     HOMBRE          JIMD991209HDFNLG61
+446   318473          MARIA           ELENA           HERRERA         GUTIERREZ  41         3     10    1981   Nuevo Leon           MUJER           HEGE811003MNLRTL83
+447   318506          PABLO           RAUL            MORENO          RIVERA     56         17    12    1967   Campeche             HOMBRE          MORP671217HCCNVB47
+448   318518          CARLOS          PABLO           ORTIZ           SANCHEZ    19         13    9     2003   Yucatan,             HOMBRE          OISC030913HYNRNRA5
+449   318579          ANAHI           CAROLINA        HERNANDEZ       RUIZ       112        10    3     1910   Tabasco              MUJER           HERA100310MTCNZN18
+450   318631          JULIA           ROSA            PEREZ           ALVAREZ    99         27    6     1923   Yucatan,             MUJER           PEAJ230627MYNRLL49
+451   318649          ADAN            FERNANDO        HERRERA         AGUILAR    44         2     3     1978   Oaxaca               HOMBRE          HEAA780302HOCRGD37
+452   318701          PABLO           SERGIO          BLANCO          VARGAS     99         26    5     1923   Durango              HOMBRE          BAVP230526HDGLRL88
+453   318786          ALICIA          CARMEN          SALAZAR         DELGADO    120        20    12    1903   Michoacan            MUJER           SADA031220MMNLLL88
+454   318795          DIANA           DIANA           GONZALEZ        HERRERA    86         28    5     1936   Nuevo Leon           MUJER           GOHD360528MNLNRN98
+455   318804          ANDRES          RAUL            MORALES         HERNANDEZ  25         12    3     1997   Sonora               HOMBRE          MOHA970312HSRRRN10
+456   318807          VANESA          ANAHI           PAZ             ALVAREZ    81         11    9     1941   Quintana Roo         MUJER           PAAV410911MQRZLN78
+457   318899          RAUL            ANDRES          IGLESIAS        ARIAS      4          26    2     2018   Aguascalientes       HOMBRE          IEAR180226HASGSLC6
+458   318995          SERGIO          JUAN            ROMERO          REYES      77         18    3     1945   Quintana Roo         HOMBRE          RORS450318HQRMYG74
+459   319010          JULIA           PAULA           RUIZ            SUAREZ     51         13    8     1971   Queretaro            MUJER           RUSJ710813MQTZZL48
+460   319077          SARA            ISABEL          SOSA            PAZ        43         4     11    1980   Sonora               MUJER           SOPS801104MSRXZR33
+461   319087          PABLO           FERNANDO        PAZ             HERRERA    18         5     3     2004   Chiapas              HOMBRE          PAHP040305HCSZRBA4
+462   319099          JAVIER          JOSE            GUTIERREZ       ORTIZ      88         14    10    1934   Coahuila             HOMBRE          GUOJ341014HCLTRV58
+463   319148          JULIA           CLAUDIA         REYES           RODRIGUEZ  47         25    3     1975   Oaxaca               MUJER           RERJ750325MOCYDL12
+464   319174          ELENA           SOFIA           MORALES         GONZALEZ   115        14    11    1908   Aguascalientes       MUJER           MOGE081114MASRNL77
+465   319180          JOSE            ADAN            NUNEZ           HERRERA    121        17    5     1901   Tabasco              HOMBRE          NUHA010517HTCZRD55
+466   319184          ELENA           CLAUDIA         MORALES         CRUZ       48         17    6     1974   Aguascalientes       MUJER           MOCE740617MASRRL71
+467   319191          ANAHI           LAURA           SOTO            MENDOZA    17         23    3     2005   Estado de Mexico     MUJER           SOMA050323MMCTNNA2
+468   319201          CAROLINA        VANESA          SUAREZ          SOSA       120        11    5     1902   Tabasco              MUJER           SUSC020511MTCRXR39
+469   319223          LAURA           DIANA           REYES           ALVAREZ    81         24    12    1942   Sonora               MUJER           REAL421224MSRYVX64
+470   319234          FRANCISCO       MIGUEL          MOLINA          GOMEZ      97         2     4     1925   Yucatan,             HOMBRE          MOGF250402HYNLZR68
+471   319241          CARLOS          ALEJANDRO       MORALES         REYES      47         16    11    1976   Michoacan            HOMBRE          MORC761116HMNLYL95
+472   319252          LAURA           ELISA           SOTO            SANCHEZ    122        3     2     1900   Jalisco              MUJER           SOSL000203MJCTNR46
+473   319267          PEDRO           OSCAR           ARIAS           HERRERA    105        16    3     1917   Baja California Sur  HOMBRE          AIHP170316HBSRRD74
+474   319307          SARA            ISABEL          GUERRERO        DELGADO    48         8     7     1974   Morelos              MUJER           GUDS740708MMSRLR85
+475   319307          SOFIA           ANAHI           ORTIZ           GUERRERO   20         1     9     2002   San Luis Potosi      MUJER           OIGS020901MSPRRFA3
+476   319387          ANDRES          RICARDO         GUERRERO        SANCHEZ    26         18    9     1996   Colima               HOMBRE          GUSA960918HCMRNN79
+477   319460          CARMEN          PAULA           CASTRO          HERRERA    34         17    7     1988   Campeche             MUJER           CAHC880717MCCSRR64
+478   319533          ELISA           LAURA           TORRES          ORTIZ      81         26    7     1941   Oaxaca               MUJER           TOOE410726MOCRRL28
+479   319555          VANESA          ISABEL          MENDOZA         VARGAS     60         24    4     1962   Morelos              MUJER           MEVV620424MMSNRN28
+480   319568          MONICA          ELISA           MEDINA          ROMERO     74         24    8     1948   Jalisco              MUJER           MERM480824MJCDXN38
+481   319599          ADAN            RAUL            NUNEZ           MARTINEZ   31         10    12    1992   Oaxaca               HOMBRE          NUMA921210HOCZRD79
+482   319606          RAUL            LUIS            VAZQUEZ         SOSA       90         3     5     1932   Tabasco              HOMBRE          VASR320503HTCZXL41
+483   319636          ELENA           CAROLINA        RODRIGUEZ       MEDINA     42         9     2     1980   Estado de Mexico     MUJER           ROME800209MMCDDL26
+484   319684          HUGO            HUGO            ALVAREZ         GOMEZ      34         20    1     1988   Guerrero             HOMBRE          AAGH880120HGRLMX04
+485   319694          OSCAR           SERGIO          VAZQUEZ         RAMOS      119        19    4     1903   Nayarit              HOMBRE          VARO030419HNTZMS79
+486   319716          FERNANDO        LUIS            DIAZ            MENDOZA    79         4     4     1943   Queretaro            HOMBRE          DIMF430404HQTZNR51
+487   319732          DIANA           ELISA           BLANCO          GARCIA     115        21    1     1907   Chiapas              MUJER           BAGD070121MCSLRN79
+488   319733          SOFIA           ANDREA          MOLINA          MEDINA     21         9     4     2001   Coahuila             MUJER           MOMS010409MCLLDFA8
+489   319751          HUGO            SERGIO          ROMERO          SUAREZ     48         15    10    1974   Guanajuato           HOMBRE          ROSH741015HGTMZG67
+490   319773          JUAN            FERNANDO        GUTIERREZ       BLANCO     72         17    10    1950   Aguascalientes       HOMBRE          GUBJ501017HASTLN04
+491   319793          ALICIA          ANDREA          CASTRO          SUAREZ     95         19    4     1927   Tabasco              MUJER           CASA270419MTCTRL39
+492   319954          VANESA          ANA             MOLINA          FLORES     30         26    9     1992   Ciudad de Mexico     MUJER           MOFV920926MDFLLN35
+493   319980          EMILIO          JOSE            RAMOS           PAZ        21         4     3     2001   Sonora               HOMBRE          RAPE010304HSRMZMA4
+494   319985          ANDREA          ALICIA          CASTRO          NUNEZ      73         5     3     1949   Tabasco              MUJER           CANA490305MTCSZD07
+495   320065          RAUL            PEDRO           ROMERO          JIMENEZ    7          25    2     2015   Colima               HOMBRE          ROJR150225HCMMMLC8
+496   320091          PABLO           OSCAR           JIMENEZ         LOPEZ      37         12    6     1985   Guerrero             HOMBRE          JILP850612HGRMZB53
+497   320122          CAROLINA        JULIA           SANCHEZ         RIVERA     43         9     12    1980   Baja California      MUJER           SARC801209MBCNVL36
+498   320135          PABLO           ANDRES          MARTINEZ        ARIAS      6          5     1     2016   Tlaxcala             HOMBRE          MAAP160105HTLRRBC4
+499   320198          EMILIO          FRANCISCO       BLANCO          MEDINA     55         15    7     1967   Puebla               HOMBRE          BAME670715HPLLDL96
+500   320250          PEDRO           JAVIER          ALVAREZ         RIVERA     81         10    3     1941   Michoacan            HOMBRE          AARP410310HMNLVD79
+501   320302          MARIA           ANA             REYES           DIAZ       4          18    2     2018   Puebla               MUJER           REDA180218MPLYZNC1
+502   320347          ANDRES          JOSE            CRUZ            JIMENEZ    25         8     5     1997   Tlaxcala             HOMBRE          CUJA970508HTLRMN07
+503   320349          MONICA          VANESA          JIMENEZ         ROMERO     99         11    9     1923   Zacatecas            MUJER           JIRM230911MZSNXN69
+504   320439          ALICIA          MARIA           HERRERA         RAMOS      0          26    6     2022   Guerrero             MUJER           HERA220626MGRXMLC8
+505   320464          SOFIA           SARA            RUIZ            RIVERA     31         13    8     1991   Campeche             MUJER           RURS910813MCCZVF11
+506   320476          CARLOS          FRANCISCO       HERRERA         ALVAREZ    113        19    9     1909   Zacatecas            HOMBRE          HEAC090919HZSRLR74
+507   320478          ANDREA          SOFIA           PAZ             VAZQUEZ    111        10    1     1911   Guerrero             MUJER           PAVA110110MGRZZN69
+508   320491          PAULA           DIANA           SOSA            RUBIO      75         8     5     1947   Oaxaca               MUJER           SORP470508MOCXBL80
+509   320525          MONICA          DIANA           GONZALEZ        ORTIZ      67         8     12    1956   Chihuahua            MUJER           GOOM561208MCHNRN88
+510   320549          DIANA           JULIA           ALVAREZ         JIMENEZ    120        9     6     1902   Zacatecas            MUJER           AAJD020609MZSLMN46
+511   320552          LUIS            PEDRO           RUBIO           VAZQUEZ    71         25    2     1951   Veracruz             HOMBRE          RUVL510225HVZBZS39
+512   320652          FERNANDO        ADAN            ALVAREZ         ROMERO     5          8     12    2018   Estado de Mexico     HOMBRE          AARF181208HMCLMNC7
+513   320668          SARA            CLAUDIA         REYES           MORALES    108        5     12    1915   Morelos              MUJER           REMS151205MMSYLX15
+514   320684          CARMEN          PAULA           MARTINEZ        SOTO       100        16    12    1923   Tabasco              MUJER           MASC231216MTCRTR70
+515   320792          ANDREA          CARMEN          FERNANDEZ       SALAZAR    37         18    5     1985   Baja California      MUJER           FESA850518MBCRLN37
+516   320842          CAROLINA        JULIA           SOSA            SALAZAR    38         13    4     1984   Durango              MUJER           SOSC840413MDGXLR64
+517   320875          SERGIO          PEDRO           MOLINA          MOLINA     72         6     5     1950   Colima               HOMBRE          MOMS500506HCMLLR19
+518   320971          CARLOS          ALEJANDRO       HERNANDEZ       VAZQUEZ    14         7     2     2008   Guerrero             HOMBRE          HEVC080207HGRRZRA1
+519   320995          DIANA           SOFIA           PEREZ           RIVERA     100        22    9     1922   Tabasco              MUJER           PERD220922MTCZVN50
+520   321020          CLAUDIA         ALICIA          MENDOZA         GOMEZ      64         21    2     1958   Tamaulipas           MUJER           MEGC580221MTSNZL35
+521   321068          JOSE            PEDRO           MORALES         VAZQUEZ    110        19    2     1912   Quintana Roo         HOMBRE          MOVP120219HQRRZP32
+522   321092          LUIS            DIEGO           BLANCO          MORENO     20         23    3     2002   Yucatan,             HOMBRE          BAML020323HYNNRSA0
+523   321160          CARMEN          MONICA          HERNANDEZ       RAMOS      91         7     1     1931   Ciudad de Mexico     MUJER           HERC310107MDFNMM45
+524   321245          MIGUEL          RAUL            ALVAREZ         SANCHEZ    43         25    9     1979   Tlaxcala             HOMBRE          AASM790925HTLLNG16
+525   321262          RAUL            FRANCISCO       RIVERA          RODRIGUEZ  19         5     3     2003   Nayarit              HOMBRE          RIRR030305HNTVDLA6
+526   321266          HUGO            OSCAR           MORENO          VAZQUEZ    98         11    1     1924   Estado de Mexico     HOMBRE          MOVH240111HMCRZG16
+527   321281          CLAUDIA         VANESA          GONZALEZ        MORALES    34         18    2     1988   Chiapas              MUJER           GOMC880218MCSNRL32
+528   321283          RICARDO         ALEJANDRO       REYES           PAZ        37         5     8     1985   Chihuahua            HOMBRE          REPR850805HCHYZC80
+529   321443          EMILIO          SERGIO          BLANCO          NUNEZ      26         15    9     1996   Michoacan            HOMBRE          BANE960915HMNLZM83
+530   321475          CLAUDIA         ANDREA          ARIAS           PEREZ      97         14    12    1926   Nuevo Leon           MUJER           AIPC261214MNLRRL72
+531   321502          DIEGO           FRANCISCO       ORTIZ           MORALES    102        16    9     1920   Veracruz             HOMBRE          OIMD200916HVZRRG28
+532   321511          FRANCISCO       RAUL            MEDINA          SOTO       105        27    10    1917   Yucatan,             HOMBRE          MESF171027HYNDTR42
+533   321539          CLAUDIA         ANDREA          TORRES          RIVERA     47         22    10    1975   Colima               MUJER           TORC751022MCMSVL66
+534   321573          EMILIO          JUAN            MORALES         JIMENEZ    21         3     3     2001   Colima               HOMBRE          MOJE010303HCMRNLA4
+535   321589          LAURA           SOFIA           GUERRERO        ARIAS      57         22    2     1965   Colima               MUJER           GUAL650222MCMRRR49
+536   321614          PAULA           LAURA           MORALES         GONZALEZ   13         6     7     2009   Tlaxcala             MUJER           MOGP090706MTLRNLA2
+537   321718          CAROLINA        ELISA           ORTIZ           LOPEZ      26         8     10    1996   Baja California      MUJER           OILC961008MBCRPR51
+538   321932          ALICIA          ANA             SOSA            GOMEZ      89         9     2     1933   Michoacan            MUJER           SOGA330209MMNXML64
+539   321997          PAULA           ALICIA          SANCHEZ         FERNANDEZ  81         18    2     1941   Baja California      MUJER           SAFP410218MBCNRL33
+540   322118          CARLOS          JUAN            GUTIERREZ       DIAZ       95         28    11    1928   Jalisco              HOMBRE          GUDC281128HJCTZR97
+541   322146          PEDRO           FERNANDO        ORTIZ           ARIAS      7          28    1     2015   Estado de Mexico     HOMBRE          OIAP150128HMCRRDC4
+542   322170          ALEJANDRO       JUAN            GOMEZ           ORTIZ      10         3     3     2012   Tlaxcala             HOMBRE          GOOA120303HTLMRLC9
+543   322171          JUAN            FRANCISCO       SUAREZ          RUIZ       71         19    6     1951   Zacatecas            HOMBRE          SURJ510619HZSZZN90
+544   322172          SARA            SOFIA           MARTINEZ        DOMINGUEZ  59         14    8     1963   Colima               MUJER           MADS630814MCMRNR70
+545   322211          JUAN            DIEGO           JIMENEZ         GARCIA     118        26    6     1904   Michoacan            HOMBRE          JIGJ040626HMNMRN78
+546   322256          JULIA           VANESA          PEREZ           JIMENEZ    68         18    8     1954   Veracruz             MUJER           PEJJ540818MVZRML49
+547   322258          MIGUEL          MIGUEL          ROMERO          JIMENEZ    83         22    2     1939   Michoacan            HOMBRE          ROJM390222HMNXNG60
+548   322425          EMILIO          ADAN            RUBIO           ARIAS      54         28    3     1968   Tabasco              HOMBRE          RUAE680328HTCBSM89
+549   322447          SERGIO          MIGUEL          ALVAREZ         TORRES     88         21    7     1934   San Luis Potosi      HOMBRE          AATS340721HSPLRR12
+550   322459          ALICIA          ANA             GARCIA          MEDINA     58         3     12    1965   Guerrero             MUJER           GAMA651203MGRRDL84
+551   322471          ELISA           ANA             ROMERO          ALVAREZ    13         13    9     2009   Morelos              MUJER           ROAE090913MMSMLLA6
+552   322523          ELENA           ELISA           MORALES         DOMINGUEZ  91         24    12    1932   Chiapas              MUJER           MODE321224MCSRNL67
+553   322526          PEDRO           LUIS            ROMERO          LOPEZ      81         18    7     1941   Guerrero             HOMBRE          ROLP410718HGRMZD81
+554   322571          ELENA           ANAHI           MENDOZA         FLORES     110        26    12    1913   Puebla               MUJER           MEFE131226MPLNLL88
+555   322680          PAULA           ELENA           FERNANDEZ       SANCHEZ    27         12    3     1995   Sonora               MUJER           FESP950312MSRRNL45
+556   322711          JAVIER          DIEGO           SALAZAR         PEREZ      122        9     5     1900   Aguascalientes       HOMBRE          SAPJ000509HASLRV42
+557   322720          LUIS            RICARDO         DOMINGUEZ       RAMIREZ    4          9     5     2018   Michoacan            HOMBRE          DORL180509HMNMMSC3
+558   322736          PEDRO           EMILIO          SOTO            VAZQUEZ    70         21    8     1952   Nayarit              HOMBRE          SOVP520821HNTTZD59
+559   322818          LAURA           CLAUDIA         HERRERA         MORENO     73         15    6     1949   Aguascalientes       MUJER           HEML490615MASRRR76
+560   322861          MIGUEL          HUGO            RODRIGUEZ       MARTINEZ   52         16    5     1970   Tabasco              HOMBRE          ROMM700516HTCDTG15
+561   322867          CAROLINA        ELISA           RODRIGUEZ       DIAZ       84         24    11    1939   San Luis Potosi      MUJER           RODC391124MSPGZL79
+562   322982          DIEGO           DIEGO           GUTIERREZ       IGLESIAS   50         25    7     1972   Tlaxcala             HOMBRE          GUID720725HTLTLX30
+563   323038          PABLO           LUIS            RAMIREZ         SOTO       19         13    4     2003   Sonora               HOMBRE          RASP030413HSRMTBA6
+564   323072          SERGIO          OSCAR           MENDOZA         AGUILAR    9          27    2     2013   Tabasco              HOMBRE          MXAS130227HTCNGRC5
+565   323152          LUIS            JAVIER          MORENO          LOPEZ      97         3     12    1926   Sonora               HOMBRE          MOLL261203HSRRPS66
+566   323398          ELISA           PAULA           JIMENEZ         MARTINEZ   40         2     5     1982   Veracruz             MUJER           JIME820502MVZNRL44
+567   323441          PAULA           ELENA           TORRES          RAMOS      60         21    11    1963   Extranjero           MUJER           TORP631121MNESML54
+568   323449          FERNANDO        JOSE            RUBIO           GARCIA     25         24    2     1997   Morelos              HOMBRE          RUGF970224HMSBCN04
+569   323492          EMILIO          FERNANDO        ALVAREZ         GUERRERO   38         24    10    1984   Durango              HOMBRE          AAGE841024HDGLRM23
+570   323513          ALEJANDRO       OSCAR           MEDINA          RAMIREZ    92         16    12    1931   Guanajuato           HOMBRE          MERA311216HGTDZL44
+571   323557          SARA            MARIA           RODRIGUEZ       GOMEZ      5          14    11    2018   Coahuila             MUJER           ROGS181114MCLDMXC5
+572   323677          CAROLINA        SARA            SOSA            TORRES     60         2     4     1962   San Luis Potosi      MUJER           SOTC620402MSPXRR09
+573   323683          ALEJANDRO       FRANCISCO       IGLESIAS        ORTIZ      40         8     8     1982   Chihuahua            HOMBRE          IEOA820808HCHGRL97
+574   323697          CARLOS          ANDRES          SALAZAR         GUTIERREZ  121        10    6     1901   Guanajuato           HOMBRE          SAGC010610HGTLTR35
+575   323754          FERNANDO        PEDRO           IGLESIAS        GARCIA     118        19    2     1904   Baja California Sur  HOMBRE          IEGF040219HBSLRR84
+576   323807          FRANCISCO       EMILIO          DOMINGUEZ       RODRIGUEZ  17         8     8     2005   Sinaloa              HOMBRE          DORF050808HSLMGNA5
+577   323841          ISABEL          PAULA           DIAZ            GUTIERREZ  16         7     4     2006   Queretaro            MUJER           DIGI060407MQTZTSA4
+578   323872          MARIA           SARA            RAMOS           DELGADO    39         22    7     1983   Coahuila             MUJER           RADS830722MCLMLS74
+579   323898          MARIA           ISABEL          RUIZ            PAZ        111        13    9     1911   Tlaxcala             MUJER           RUPI110913MTLZZS73
+580   323957          JAVIER          ADAN            GARCIA          SOSA       111        20    10    1911   Guerrero             HOMBRE          GASJ111020HGRRXV65
+581   323977          VANESA          ALICIA          VARGAS          HERNANDEZ  34         17    1     1988   Zacatecas            MUJER           VAHV880117MZSRRN54
+582   323980          LAURA           CAROLINA        LOPEZ           JIMENEZ    4          20    4     2018   Aguascalientes       MUJER           LOJL180420MASPMRC1
+583   324025          CLAUDIA         CARMEN          RIVERA          HERRERA    97         21    3     1925   Puebla               MUJER           RIHC250321MPLVXL85
+584   324062          OSCAR           FRANCISCO       AGUILAR         VAZQUEZ    116        19    5     1906   Tlaxcala             HOMBRE          AUVO060519HTLGZS44
+585   324120          DIEGO           ADAN            GOMEZ           DOMINGUEZ  35         11    10    1987   San Luis Potosi      HOMBRE          GODD871011HSPMMX91
+586   324273          MARIA           ANDREA          DELGADO         RUBIO      53         2     7     1969   Baja California      MUJER           DERA690702MBCLBN95
+587   324287          ROSA            ALICIA          SOTO            DOMINGUEZ  62         26    2     1960   Hidalgo              MUJER           SODR600226MHGTMX26
+588   324307          ADAN            PABLO           CRUZ            RODRIGUEZ  94         2     10    1928   Nuevo Leon           HOMBRE          CURA281002HNLZDD31
+589   324315          ANDREA          MONICA          CRUZ            PAZ        14         11    10    2008   Campeche             MUJER           CUPA081011MCCRZNA1
+590   324321          OSCAR           JAVIER          RODRIGUEZ       REYES      24         18    11    1999   Queretaro            HOMBRE          RORO991118HQTDYS90
+591   324334          EMILIO          HUGO            HERRERA         MEDINA     25         12    7     1997   Durango              HOMBRE          HEME970712HDGRDL86
+592   324416          DIEGO           FRANCISCO       SOSA            RUIZ       111        27    3     1911   Queretaro            HOMBRE          SORD110327HQTXZG58
+593   324502          ANA             CAROLINA        DELGADO         ALVAREZ    24         16    2     1998   Guerrero             MUJER           DEAA980216MGRLLN71
+594   324562          JOSE            FRANCISCO       DIAZ            GUERRERO   62         8     11    1961   Tlaxcala             HOMBRE          DIGF611108HTLZRF53
+595   324579          HUGO            SERGIO          ALVAREZ         FERNANDEZ  37         22    9     1985   Veracruz             HOMBRE          AAFH850922HVZLRG66
+596   324580          LAURA           JULIA           MORALES         ARIAS      117        20    2     1905   San Luis Potosi      MUJER           MOAL050220MSPRRR82
+597   324692          ROSA            DIANA           NUNEZ           MARTINEZ   85         16    6     1937   Tabasco              MUJER           NUMR370616MTCZTS82
+598   324700          MIGUEL          PEDRO           REYES           AGUILAR    24         15    4     1998   Baja California Sur  HOMBRE          REAM980415HBSYGG08
+599   324738          ANDREA          ISABEL          GONZALEZ        VAZQUEZ    60         13    2     1962   Queretaro            MUJER           GOVA620213MQTNZN86
+600   324790          OSCAR           ANDRES          SALAZAR         GUTIERREZ  86         28    11    1937   Michoacan            HOMBRE          SAGO371128HMNLTC74
+601   324804          ANAHI           ANA             SALAZAR         DOMINGUEZ  43         8     11    1980   Tabasco              MUJER           SADA801108MTCLMN60
+602   324829          JAVIER          OSCAR           NUNEZ           GOMEZ      59         13    11    1964   Morelos              HOMBRE          NUGJ641113HMSZMV25
+603   324843          OSCAR           OSCAR           RUBIO           GOMEZ      66         6     10    1956   Tlaxcala             HOMBRE          RUGO561006HTLBMS46
+604   324845          HUGO            MIGUEL          VAZQUEZ         CASTRO     3          9     2     2019   Campeche             HOMBRE          VACH190209HCCZSGC8
+605   324869          JULIA           ELENA           GOMEZ           RAMOS      89         11    9     1933   Tabasco              MUJER           GORJ330911MTCMML29
+606   324973          PABLO           LUIS            SOTO            TORRES     103        19    12    1920   Chihuahua            HOMBRE          SOTP201219HCHXRB72
+607   324996          DIANA           MARIA           MOLINA          MORENO     9          8     10    2013   Nuevo Leon           MUJER           MOMD131008MNLLRNC1
+608   325025          CARMEN          MONICA          SUAREZ          SALAZAR    49         3     4     1973   Estado de Mexico     MUJER           SUSC730403MMCRLR51
+609   325128          RAUL            JUAN            GONZALEZ        GOMEZ      27         1     10    1995   Sinaloa              HOMBRE          GOGR951001HSLNML96
+610   325172          HUGO            SERGIO          DELGADO         SUAREZ     87         12    1     1935   Baja California      HOMBRE          DESH350112HBCLRG80
+611   325187          DIEGO           ADAN            NUNEZ           FERNANDEZ  82         4     1     1940   San Luis Potosi      HOMBRE          NUFD400104HSPZRG81
+612   325231          SARA            ANAHI           HERRERA         DOMINGUEZ  108        18    9     1914   Michoacan            MUJER           HEDS140918MMNRMR89
+613   325276          DIANA           CARMEN          RIVERA          GUTIERREZ  75         17    12    1948   Extranjero           MUJER           RIGD481217MNEVTN99
+614   325289          PABLO           RICARDO         RODRIGUEZ       SOSA       110        14    3     1912   Estado de Mexico     HOMBRE          ROSP120314HMCDXB68
+615   325295          OSCAR           JAVIER          RODRIGUEZ       IGLESIAS   84         13    5     1938   Guanajuato           HOMBRE          ROIO380513HGTDGS73
+616   325327          ELENA           CAROLINA        RAMOS           SANCHEZ    85         18    9     1937   Oaxaca               MUJER           RASE370918MOCMNL74
+617   325346          MIGUEL          PABLO           RODRIGUEZ       PEREZ      28         27    11    1995   Baja California      HOMBRE          ROPM951127HBCDZG31
+618   325355          RAUL            MIGUEL          GONZALEZ        MORENO     90         3     10    1932   Campeche             HOMBRE          GOMR321003HCCNNL77
+619   325365          LAURA           ANDREA          VARGAS          DELGADO    1          1     6     2021   Queretaro            MUJER           VADL210601MQTRGRC9
+620   325376          ISABEL          ELENA           IGLESIAS        DELGADO    3          12    12    2020   Veracruz             MUJER           IEDI201212MVZGLSC1
+621   325439          JOSE            ANDRES          MARTINEZ        HERRERA    4          5     11    2019   San Luis Potosi      HOMBRE          MAHA191105HSPRRNC9
+622   325488          SARA            ELENA           AGUILAR         SOTO       101        12    7     1921   Durango              MUJER           AUSS210712MDGGTR46
+623   325506          ANA             JULIA           MENDOZA         JIMENEZ    36         8     9     1986   Veracruz             MUJER           MEJA860908MVZNNN80
+624   325523          OSCAR           ANDRES          SOTO            GARCIA     24         10    1     1998   Tlaxcala             HOMBRE          SOGO980110HTLTRC57
+625   325530          JULIA           CARMEN          AGUILAR         ARIAS      7          3     11    2016   Estado de Mexico     MUJER           AUAJ161103MMCGRLC2
+626   325550          ALEJANDRO       JOSE            ARIAS           RAMIREZ    113        5     6     1909   Aguascalientes       HOMBRE          AIRA090605HASSML71
+627   325569          ANA             SARA            ROMERO          NUNEZ      21         26    9     2001   Ciudad de Mexico     MUJER           RONA010926MDFMZXA0
+628   325652          ANDREA          ANDREA          PEREZ           SALAZAR    36         26    12    1987   Zacatecas            MUJER           PESA871226MZSRLN94
+629   325662          RAUL            PABLO           ALVAREZ         MORALES    20         5     4     2002   Extranjero           HOMBRE          AAMR020405HNELLLA7
+630   325710          CLAUDIA         SARA            HERRERA         MOLINA     40         16    8     1982   Ciudad de Mexico     MUJER           HEMC820816MDFRLL49
+631   325718          ELENA           SARA            SANCHEZ         SANCHEZ    59         9     5     1963   Baja California      MUJER           SASE630509MBCNNL04
+632   325824          ALEJANDRO       OSCAR           JIMENEZ         FLORES     71         7     10    1951   Colima               HOMBRE          JIFA511007HCMMLL44
+633   325833          SERGIO          HUGO            SOSA            SOSA       62         8     8     1960   Ciudad de Mexico     HOMBRE          SOSS600808HDFXXR71
+634   325876          SARA            MONICA          CRUZ            HERNANDEZ  64         22    6     1958   Colima               MUJER           CUHS580622MCMRRR47
+635   325946          ISABEL          MARIA           MEDINA          RAMOS      60         23    8     1962   Estado de Mexico     MUJER           MERI620823MMCDSS07
+636   325959          ANA             DIANA           ORTIZ           LOPEZ      7          6     9     2015   Baja California      MUJER           OILA150906MBCRPNC7
+637   326178          RAUL            FRANCISCO       VAZQUEZ         SANCHEZ    87         17    12    1936   Morelos              HOMBRE          VASR361217HMSZNL79
+638   326201          MONICA          DIANA           RUIZ            JIMENEZ    100        28    12    1923   Extranjero           MUJER           RUJM231228MNEZNN11
+639   326239          CLAUDIA         MARIA           LOPEZ           ORTIZ      76         21    6     1946   Sonora               MUJER           LOOC460621MSRPRD46
+640   326266          ELENA           CLAUDIA         AGUILAR         REYES      28         26    5     1994   Estado de Mexico     MUJER           AURE940526MMCGYL95
+641   326284          ALEJANDRO       FRANCISCO       FLORES          REYES      75         22    11    1948   Michoacan            HOMBRE          FORA481122HMNLYL52
+642   326392          PEDRO           MIGUEL          NUNEZ           ALVAREZ    1          20    9     2021   Veracruz             HOMBRE          NUAP210920HVZZLDC0
+643   326393          MONICA          LAURA           SALAZAR         NUNEZ      49         12    8     1973   Durango              MUJER           SANM730812MDGLZC04
+644   326407          ELENA           JULIA           JIMENEZ         GOMEZ      118        9     8     1904   Nuevo Leon           MUJER           JIGE040809MNLMML87
+645   326486          ELENA           ISABEL          GOMEZ           GUERRERO   24         8     8     1998   Jalisco              MUJER           GOGE980808MJCMRL13
+646   326503          JOSE            PABLO           GOMEZ           MENDOZA    119        27    3     1903   Sinaloa              HOMBRE          GOMP030327HSLZNP40
+647   326555          ANDRES          LUIS            SUAREZ          RIVERA     54         28    7     1968   Queretaro            HOMBRE          SURA680728HQTZVN21
+648   326571          ELENA           ISABEL          ALVAREZ         FERNANDEZ  33         10    4     1989   Estado de Mexico     MUJER           AAFE890410MMCLRL16
+649   326622          RAUL            DIEGO           REYES           GUERRERO   38         18    8     1984   Tabasco              HOMBRE          REGR840818HTCYXL75
+650   326628          ADAN            RICARDO         FLORES          CRUZ       118        12    3     1904   San Luis Potosi      HOMBRE          FOCA040312HSPLRD76
+651   326742          FERNANDO        HUGO            MORENO          AGUILAR    62         27    8     1960   Durango              HOMBRE          MOAF600827HDGRGR15
+652   326787          DIANA           PAULA           PEREZ           BLANCO     91         2     6     1931   Oaxaca               MUJER           PEBD310602MOCRLN43
+653   326818          MONICA          ISABEL          HERRERA         BLANCO     41         28    11    1982   Sinaloa              MUJER           HEBM821128MSLRLN15
+654   326859          JUAN            PABLO           HERRERA         FLORES     10         4     6     2012   Guanajuato           HOMBRE          HEFJ120604HGTRLNC5
+655   326875          JUAN            PABLO           MOLINA          FERNANDEZ  65         19    11    1958   Oaxaca               HOMBRE          MOFJ581119HOCLRN74
+656   326949          MARIA           ELENA           RUBIO           RODRIGUEZ  119        1     11    1904   Colima               MUJER           RURE041101MCMBDL87
+657   327007          FRANCISCO       MIGUEL          VAZQUEZ         ALVAREZ    97         25    9     1925   Durango              HOMBRE          VAAF250925HDGZLR04
+658   327023          ELISA           ANDREA          DIAZ            IGLESIAS   12         4     9     2010   Yucatan,             MUJER           DIIE100904MYNZGLA6
+659   327034          PEDRO           ANDRES          MENDOZA         IGLESIAS   114        24    6     1908   Coahuila             HOMBRE          MEIP080624HCLNGD73
+660   327037          OSCAR           RAUL            SUAREZ          MEDINA     86         13    11    1937   Tabasco              HOMBRE          SUMO371113HTCRDC93
+661   327052          JOSE            JOSE            ARIAS           RAMOS      39         14    11    1984   Hidalgo              HOMBRE          AIRJ841114HHGSMJ97
+662   327064          PEDRO           DIEGO           CRUZ            VAZQUEZ    51         4     11    1972   Veracruz             HOMBRE          CUVP721104HVZRZD87
+663   327073          MIGUEL          OSCAR           SUAREZ          RODRIGUEZ  39         14    8     1983   Quintana Roo         HOMBRE          SURM830814HQRZDG06
+664   327133          FERNANDO        PEDRO           BLANCO          VAZQUEZ    100        25    1     1922   Extranjero           HOMBRE          BAVF220125HNELZR49
+665   327137          LAURA           JULIA           DIAZ            MEDINA     12         15    1     2010   Chihuahua            MUJER           DIML100115MCHZNRA8
+666   327160          FERNANDO        PABLO           TORRES          MEDINA     40         4     11    1983   San Luis Potosi      HOMBRE          TOMF831104HSPRDR02
+667   327163          ANA             JULIA           MENDOZA         MEDINA     34         16    12    1989   Hidalgo              MUJER           MEMA891216MHGNDN58
+668   327170          JUAN            LUIS            AGUILAR         NUNEZ      113        21    11    1910   Sinaloa              HOMBRE          AUNJ101121HSLGZX54
+669   327177          ISABEL          SOFIA           ROMERO          RUIZ       22         18    11    2001   Colima               MUJER           RORI011118MCMMZSA3
+670   327292          SARA            MONICA          CRUZ            SALAZAR    3          3     2     2019   Zacatecas            MUJER           CUSS190203MZSRLRC2
+671   327301          CAROLINA        ELISA           RUIZ            MOLINA     71         25    7     1951   Sinaloa              MUJER           RUMC510725MSLZLL24
+672   327353          MIGUEL          EMILIO          ROMERO          ALVAREZ    94         22    10    1928   Hidalgo              HOMBRE          ROAM281022HHGXLG79
+673   327362          PEDRO           PEDRO           MENDOZA         DIAZ       4          10    4     2018   Coahuila             HOMBRE          MEDP180410HCLNZRC2
+674   327372          ANDREA          SARA            VARGAS          BLANCO     21         27    7     2001   Puebla               MUJER           VABA010727MPLRLNA5
+675   327401          SOFIA           ANAHI           PEREZ           ALVAREZ    114        23    5     1908   Baja California      MUJER           PEAS080523MBCRLF69
+676   327521          FERNANDO        ANDRES          GUERRERO        IGLESIAS   92         3     6     1930   Guanajuato           HOMBRE          GUIF300603HGTRLR94
+677   327545          LUIS            ADAN            GUERRERO        ARIAS      34         5     2     1988   Yucatan,             HOMBRE          GUAL880205HYNRRS23
+678   327579          HUGO            HUGO            PEREZ           HERNANDEZ  9          24    3     2013   Veracruz             HOMBRE          PEHH130324HVZRRGC9
+679   327613          EMILIO          LUIS            VAZQUEZ         RIVERA     108        20    5     1914   Aguascalientes       HOMBRE          VARE140520HASZXM68
+680   327623          JOSE            PEDRO           MOLINA          BLANCO     120        11    2     1902   Guerrero             HOMBRE          MOBP020211HGRLLP70
+681   327673          RICARDO         RAUL            SANCHEZ         ROMERO     52         10    7     1970   Ciudad de Mexico     HOMBRE          SARR700710HDFNMC40
+682   327749          DIANA           ANAHI           RODRIGUEZ       MORENO     57         22    9     1965   Tlaxcala             MUJER           ROMD650922MTLGNN15
+683   327765          LAURA           ISABEL          GOMEZ           SALAZAR    29         24    3     1993   Michoacan            MUJER           GOSL930324MMNMZR16
+684   327873          MIGUEL          MIGUEL          MEDINA          LOPEZ      66         23    11    1957   Campeche             HOMBRE          MELM571123HCCDPG32
+685   327937          SERGIO          JOSE            ALVAREZ         REYES      29         14    5     1993   Aguascalientes       HOMBRE          AARS930514HASLYG69
+686   327969          JUAN            JUAN            HERRERA         MEDINA     47         16    2     1975   Chihuahua            HOMBRE          HEMJ750216HCHRDN42
+687   328069          EMILIO          MIGUEL          IGLESIAS        PEREZ      80         5     7     1942   Queretaro            HOMBRE          IEPE420705HQTGRM69
+688   328084          DIANA           SOFIA           SALAZAR         VARGAS     87         6     4     1935   Extranjero           MUJER           SAVD350406MNELRN46
+689   328107          JULIA           ALICIA          ARIAS           VARGAS     94         22    6     1928   Michoacan            MUJER           AIVJ280622MMNRRL98
+690   328136          ISABEL          JULIA           PAZ             NUNEZ      5          1     8     2017   Aguascalientes       MUJER           PANI170801MASZZSC0
+691   328313          SERGIO          PEDRO           CRUZ            MORALES    71         1     2     1951   Quintana Roo         HOMBRE          CUMS510201HQRRRR88
+692   328447          FRANCISCO       CARLOS          FLORES          FERNANDEZ  25         7     5     1997   Ciudad de Mexico     HOMBRE          FOFF970507HDFLRR65
+693   328494          ALICIA          ANAHI           MENDOZA         MARTINEZ   52         8     11    1971   Guanajuato           MUJER           MEMA711108MGTNRL79
+694   328578          ELENA           ANDREA          HERRERA         PAZ        24         13    1     1998   Zacatecas            MUJER           HEPE980113MZSRZL11
+695   328590          VANESA          DIANA           RUIZ            MARTINEZ   77         24    8     1945   Coahuila             MUJER           RUMV450824MCLZTN61
+696   328665          JUAN            EMILIO          SUAREZ          PEREZ      37         16    10    1985   Michoacan            HOMBRE          SUPJ851016HMNRRN85
+697   328699          PEDRO           EMILIO          REYES           ARIAS      118        14    4     1904   Sonora               HOMBRE          REAP040414HSRYSD29
+698   328708          CLAUDIA         ELENA           HERRERA         BLANCO     120        5     5     1902   Yucatan,             MUJER           HEBC020505MYNRLL53
+699   328725          SARA            ELENA           SOSA            DIAZ       42         13    5     1980   Tamaulipas           MUJER           SODS800513MTSXZR15
+700   328771          CLAUDIA         CLAUDIA         RIVERA          VARGAS     20         21    1     2002   Sinaloa              MUJER           RIVC020121MSLXGLA1
+701   328824          ANDREA          ELENA           DIAZ            MORALES    21         22    2     2001   Jalisco              MUJER           DIMA010222MJCZRNA2
+702   328863          JULIA           DIANA           CRUZ            GARCIA     40         16    3     1982   Sinaloa              MUJER           CUGJ820316MSLRRL29
+703   328871          ALEJANDRO       OSCAR           MORENO          GARCIA     5          11    2     2017   Jalisco              HOMBRE          MOGA170211HJCRRLC5
+704   328916          ELENA           ISABEL          RAMOS           CASTRO     82         22    5     1940   Campeche             MUJER           RACE400522MCCMSL45
+705   328958          JUAN            RAUL            FLORES          RODRIGUEZ  46         14    11    1977   Guerrero             HOMBRE          FORJ771114HGRLDN81
+706   328971          JOSE            JAVIER          SOSA            VARGAS     27         4     6     1995   Zacatecas            HOMBRE          SOVJ950604HZSXRJ60
+707   328975          MONICA          MONICA          DOMINGUEZ       ALVAREZ    15         17    9     2007   Tlaxcala             MUJER           DOAM070917MTLNLNA0
+708   329069          ALEJANDRO       JUAN            PEREZ           VARGAS     91         24    5     1931   Jalisco              HOMBRE          PEVA310524HJCRRL10
+709   329088          CARLOS          JAVIER          TORRES          LOPEZ      4          26    12    2019   Sinaloa              HOMBRE          TOLC191226HSLRPRC1
+710   329106          ISABEL          ELENA           MORENO          REYES      108        16    5     1914   Guanajuato           MUJER           MORI140516MGTNYS76
+711   329169          SOFIA           ROSA            MOLINA          SOSA       18         23    12    2005   Nuevo Leon           MUJER           MOSS051223MNLLXFA3
+712   329192          FRANCISCO       MIGUEL          ORTIZ           RUBIO      71         16    10    1951   Queretaro            HOMBRE          OIRF511016HQTTBN68
+713   329233          HUGO            DIEGO           MORALES         RIVERA     112        28    1     1910   Guanajuato           HOMBRE          MORH100128HGTLVG79
+714   329293          PAULA           CARMEN          NUNEZ           GUERRERO   34         24    12    1989   Aguascalientes       MUJER           NUGP891224MASZRL63
+715   329328          EMILIO          DIEGO           TORRES          MORENO     5          13    12    2018   Coahuila             HOMBRE          TOME181213HCLRRLC5
+716   329341          DIEGO           ADAN            RAMOS           DELGADO    13         19    11    2010   Campeche             HOMBRE          RADD101119HCCMLGA3
+717   329370          EMILIO          LUIS            MORALES         MORALES    63         10    6     1959   Sonora               HOMBRE          MOME590610HSRRRL85
+718   329423          PABLO           RICARDO         LOPEZ           GUTIERREZ  104        6     5     1918   Extranjero           HOMBRE          LOGP180506HNEZTB35
+719   329430          VANESA          CARMEN          DOMINGUEZ       REYES      89         15    11    1934   Guerrero             MUJER           DORV341115MGRMYN14
+720   329482          CLAUDIA         SOFIA           ROMERO          IGLESIAS   63         25    8     1959   Chiapas              MUJER           ROIC590825MCSMGL25
+721   329485          PEDRO           PEDRO           GONZALEZ        HERRERA    47         21    1     1975   San Luis Potosi      HOMBRE          GOHP750121HSPNRD76
+722   329591          DIANA           ELENA           VARGAS          GONZALEZ   84         19    4     1938   Estado de Mexico     MUJER           VAGD380419MMCRNN86
+723   329603          MARIA           MARIA           JIMENEZ         DOMINGUEZ  42         24    7     1980   Morelos              MUJER           JIDM800724MMSNNM85
+724   329608          CARLOS          FRANCISCO       NUNEZ           FERNANDEZ  80         21    10    1942   Sonora               HOMBRE          NUFC421021HSRZRR72
+725   329620          SARA            CAROLINA        MORALES         REYES      77         5     4     1945   Guerrero             MUJER           MORS450405MGRLYX24
+726   329656          CARLOS          EMILIO          RAMIREZ         PEREZ      58         25    7     1964   Tabasco              HOMBRE          RAPC640725HTCMZL76
+727   329694          JOSE            JOSE            MOLINA          MENDOZA    0          12    2     2022   Colima               HOMBRE          MOMJ220212HCMLNJC6
+728   329699          ROSA            PAULA           REYES           AGUILAR    33         2     10    1989   Sinaloa              MUJER           REAR891002MSLYGS99
+729   329753          SARA            VANESA          GUTIERREZ       CRUZ       107        22    9     1915   Guerrero             MUJER           GUCS150922MGRTRR17
+730   329761          ANA             VANESA          MENDOZA         CASTRO     29         9     12    1994   Guerrero             MUJER           MECA941209MGRNSN93
+731   329774          OSCAR           OSCAR           VAZQUEZ         GONZALEZ   111        11    9     1911   Chiapas              HOMBRE          VXGO110911HCSZNS55
+732   329854          SOFIA           CAROLINA        REYES           SOSA       67         10    8     1955   Extranjero           MUJER           RESS550810MNEYXF98
+733   329917          CARMEN          CLAUDIA         RIVERA          CASTRO     70         28    7     1952   Jalisco              MUJER           RICC520728MJCVSM04
+734   329949          MONICA          MARIA           SANCHEZ         ROMERO     14         4     9     2008   Jalisco              MUJER           SARM080904MJCNXNA1
+735   330040          DIEGO           HUGO            REYES           FERNANDEZ  112        20    4     1910   Quintana Roo         HOMBRE          REFD100420HQRYNG67
+736   330093          MONICA          ROSA            ALVAREZ         FERNANDEZ  86         28    4     1936   Tlaxcala             MUJER           AAFM360428MTLLRN83
+737   330111          EMILIO          RICARDO         VAZQUEZ         MENDOZA    91         3     9     1931   Aguascalientes       HOMBRE          VAME310903HASZNL85
+738   330134          LAURA           CARMEN          RODRIGUEZ       AGUILAR    116        17    9     1906   Oaxaca               MUJER           ROAL060917MOCDGX30
+739   330178          HUGO            ALEJANDRO       MORALES         MORALES    111        27    1     1911   Durango              HOMBRE          MOMH110127HDGRRG50
+740   330229          SOFIA           MARIA           HERRERA         PAZ        28         12    2     1994   Yucatan,             MUJER           HEPS940212MYNRZF47
+741   330243          JOSE            FRANCISCO       RODRIGUEZ       RAMIREZ    78         10    6     1944   Yucatan,             HOMBRE          RORF440610HYNDMF94
+742   330285          MARIA           DIANA           MEDINA          MORALES    70         10    5     1952   Guanajuato           MUJER           MEMD520510MGTNRD52
+743   330297          ELISA           SOFIA           GOMEZ           GARCIA     47         11    10    1975   Nayarit              MUJER           GOGE751011MNTMRL82
+744   330322          RAUL            HUGO            ARIAS           FLORES     78         10    5     1944   Colima               HOMBRE          AIFR440510HCMSLL32
+745   330369          MONICA          SARA            CRUZ            SOSA       41         17    12    1982   Ciudad de Mexico     MUJER           CUSM821217MDFRXN74
+746   330411          LUIS            FRANCISCO       VARGAS          MEDINA     95         25    3     1927   Hidalgo              HOMBRE          VAML270325HHGRDS33
+747   330432          CLAUDIA         SOFIA           ARIAS           RIVERA     91         15    4     1931   Sonora               MUJER           AIRC310415MSRSVL29
+748   330467          MIGUEL          PABLO           NUNEZ           RUIZ       10         24    4     2012   Tlaxcala             HOMBRE          NURM120424HTLZZGC5
+749   330504          CARLOS          OSCAR           MEDINA          MARTINEZ   63         4     7     1959   Guanajuato           HOMBRE          MEMC590704HGTDRR90
+750   330611          OSCAR           RICARDO         FERNANDEZ       MEDINA     35         26    3     1987   Nayarit              HOMBRE          FEMO870326HNTRDS47
+751   330651          ANAHI           CAROLINA        VAZQUEZ         MEDINA     65         18    8     1957   Coahuila             MUJER           VAMA570818MCLZDN44
+752   330659          CARLOS          SERGIO          ALVAREZ         VARGAS     75         20    7     1947   Zacatecas            HOMBRE          AAVC470720HZSLRR21
+753   330664          JAVIER          EMILIO          ROMERO          RODRIGUEZ  91         28    3     1931   Michoacan            HOMBRE          RORJ310328HMNMDV92
+754   330744          DIEGO           JUAN            HERRERA         LOPEZ      84         17    1     1938   Morelos              HOMBRE          HELD380117HMSRPG44
+755   330845          MARIA           CAROLINA        MORENO          TORRES     88         5     8     1934   Tlaxcala             MUJER           MOTC340805MTLRRC02
+756   330861          CLAUDIA         CARMEN          TORRES          RODRIGUEZ  25         15    9     1997   Oaxaca               MUJER           TORC970915MOCSDL77
+757   330866          LAURA           ANAHI           MARTINEZ        GONZALEZ   8          6     12    2015   Tlaxcala             MUJER           MAGL151206MTLRNRC3
+758   330878          MARIA           SOFIA           VAZQUEZ         ALVAREZ    42         18    1     1980   Puebla               MUJER           VAAS800118MPLZLS05
+759   330895          JOSE            ANDRES          CRUZ            GONZALEZ   0          1     11    2023   Chiapas              HOMBRE          CUGA231101HCSRNNC5
+760   330921          PEDRO           JOSE            RUIZ            LOPEZ      35         23    7     1987   Sinaloa              HOMBRE          RULP870723HSLZZD50
+761   330927          EMILIO          JOSE            REYES           LOPEZ      105        3     12    1918   Campeche             HOMBRE          RELE181203HCCYPM51
+762   330953          CARMEN          CARMEN          GOMEZ           RODRIGUEZ  39         6     5     1983   Chihuahua            MUJER           GORC830506MCHMDM35
+763   330996          ALEJANDRO       ADAN            ORTIZ           RAMIREZ    62         10    4     1960   Sinaloa              HOMBRE          OIRA600410HSLTML55
+764   331002          PABLO           ADAN            MOLINA          RODRIGUEZ  71         12    8     1951   Colima               HOMBRE          MORP510812HCMLDB10
+765   331063          CARLOS          FRANCISCO       RAMIREZ         RIVERA     107        6     1     1915   Nuevo Leon           HOMBRE          RARC150106HNLMVL19
+766   331076          JAVIER          LUIS            GOMEZ           FLORES     26         15    1     1996   Hidalgo              HOMBRE          GOFJ960115HHGMLV72
+767   331174          MARIA           ELENA           MEDINA          RODRIGUEZ  7          18    8     2015   Baja California      MUJER           MERE150818MBCDDLC8
+768   331246          HUGO            JOSE            ARIAS           ALVAREZ    121        5     4     1901   Puebla               HOMBRE          AIAH010405HPLRLG28
+769   331284          ANAHI           SARA            MORENO          VAZQUEZ    84         4     2     1938   Coahuila             MUJER           MOVA380204MCLRZN17
+770   331348          ADAN            PABLO           ORTIZ           SUAREZ     70         26    3     1952   Aguascalientes       HOMBRE          OISA520326HASRRD03
+771   331364          JULIA           DIANA           HERRERA         ALVAREZ    49         10    12    1974   Michoacan            MUJER           HEAJ741210MMNRLL29
+772   331393          ANAHI           ANAHI           RODRIGUEZ       MARTINEZ   121        22    7     1901   Aguascalientes       MUJER           ROMA010722MASDTN42
+773   331485          CARMEN          ELISA           RUBIO           NUNEZ      48         10    6     1974   Oaxaca               MUJER           RUNC740610MOCBZM35
+774   331532          FERNANDO        JAVIER          ORTIZ           HERNANDEZ  35         10    6     1987   Queretaro            HOMBRE          OIHF870610HQTRRR79
+775   331533          JULIA           DIANA           HERNANDEZ       DOMINGUEZ  42         26    6     1980   Baja California Sur  MUJER           HEDJ800626MBSRML71
+776   331546          ANAHI           CLAUDIA         RAMOS           NUNEZ      88         8     9     1934   Guanajuato           MUJER           RANA340908MGTMZH09
+777   331593          PABLO           LUIS            MORALES         SOTO       48         6     3     1974   Queretaro            HOMBRE          MOSP740306HQTRTB72
+778   331734          SERGIO          JAVIER          REYES           MORENO     55         16    10    1967   Tabasco              HOMBRE          REMS671016HTCYNG94
+779   331779          SOFIA           JULIA           ALVAREZ         DELGADO    120        15    6     1902   San Luis Potosi      MUJER           AADS020615MSPLLF11
+780   331807          ALEJANDRO       DIEGO           VAZQUEZ         SOTO       41         20    5     1981   Morelos              HOMBRE          VASA810520HMSZTL15
+781   331843          JUAN            EMILIO          RIVERA          PEREZ      91         15    1     1931   Nuevo Leon           HOMBRE          RIPJ310115HNLVZN33
+782   331853          ALEJANDRO       ADAN            JIMENEZ         CASTRO     16         7     9     2006   Zacatecas            HOMBRE          JICA060907HZSMSLA2
+783   331893          ELENA           JULIA           PEREZ           RIVERA     75         10    2     1947   Colima               MUJER           PERE470210MCMZVL27
+784   331918          JUAN            JUAN            CASTRO          HERRERA    17         3     3     2005   Extranjero           HOMBRE          CAHJ050303HNESRNA5
+785   332021          CARLOS          JOSE            JIMENEZ         PEREZ      51         25    3     1971   Baja California      HOMBRE          JIPC710325HBCMRR61
+786   332036          ELENA           PAULA           VAZQUEZ         TORRES     6          13    12    2017   San Luis Potosi      MUJER           VATE171213MSPZRLC6
+787   332055          ROSA            ALICIA          MORALES         SALAZAR    109        27    11    1914   Puebla               MUJER           MOSR141127MPLLLX24
+788   332076          ANAHI           ELENA           HERNANDEZ       DIAZ       2          5     7     2020   Tabasco              MUJER           HEDA200705MTCRZNC7
+789   332158          CLAUDIA         ALICIA          IGLESIAS        NUNEZ      75         28    9     1947   Nayarit              MUJER           IENC470928MNTGZL89
+790   332186          LAURA           JULIA           SANCHEZ         GUERRERO   14         2     1     2008   Jalisco              MUJER           SAGL080102MJCNRRA2
+791   332189          SERGIO          DIEGO           RUIZ            MOLINA     94         3     1     1928   Morelos              HOMBRE          RUMS280103HMSZLG22
+792   332303          LUIS            OSCAR           RAMIREZ         VAZQUEZ    15         5     7     2007   Jalisco              HOMBRE          RAVL070705HJCMZSA9
+793   332314          EMILIO          PEDRO           PAZ             SALAZAR    76         9     12    1947   Extranjero           HOMBRE          PASE471209HNEZLM07
+794   332326          CLAUDIA         SOFIA           SOTO            TORRES     32         1     1     1990   Colima               MUJER           SOTC900101MCMXRL77
+795   332374          PABLO           EMILIO          RUIZ            BLANCO     63         27    5     1959   Quintana Roo         HOMBRE          RUBP590527HQRZLL29
+796   332382          DIANA           ELENA           ARIAS           MARTINEZ   105        17    8     1917   Jalisco              MUJER           AIMD170817MJCRRN82
+797   332438          ANDRES          ANDRES          DELGADO         DELGADO    78         11    11    1945   Morelos              HOMBRE          DEDA451111HMSLLN54
+798   332565          HUGO            RAUL            PEREZ           ORTIZ      120        10    11    1903   Sinaloa              HOMBRE          PEOH031110HSLRRG92
+799   332583          ANDREA          ANA             ORTIZ           DIAZ       109        9     3     1913   Colima               MUJER           OIDA130309MCMRZN51
