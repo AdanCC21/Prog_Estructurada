@@ -92,7 +92,6 @@ void menu ()
 
 void opci()
 {
-    
     int i,j,op,op2,pu,ord,el,qs;
     int num,bus,lef,rig;
     ord=0;
@@ -135,7 +134,6 @@ void opci()
                                         ord=1;
                                     }
                                 }
-                                
                             }
                             else
                             {
@@ -305,7 +303,6 @@ void opci()
 }
 
 //      ------Funciones------       //
-
 void basic (data alu[],int p)
 {
     int v;
@@ -549,7 +546,7 @@ void AutoAlumn (data alu[],int p)
 
         gencurp(alu,p,alu[p].dalum.n2,alu[p].dalum.ap1,alu[p].dalum.ap2,tempN,tempN2,tempAp,tempApm,alu[p].dbirth.day,alu[p].dbirth.month,alu[p].dbirth.year,alu[p].dalum.gen,alu[p].dalum.zone);
 }
-
+//  ------ Elimanacion ------- //
 int eliminacion (data dat[],int pu)
 {
     int i,pe;
@@ -563,7 +560,7 @@ int eliminacion (data dat[],int pu)
     pu--;
     return pu;
 }
-
+//  ------  Busqueads ------- //
 int buscsec(data alumno[], int p, int num)
 {
     int i;
@@ -600,7 +597,7 @@ int buscbin(data alumno[], int lef, int rig, int num)
     }
     return -1;
 }
-
+//  ------  Ordenar ------- //
 void ordenarB (data alumno[], int n)
 {
     int i,j;
@@ -762,7 +759,7 @@ void txt (data dat[], int p)
     }
     fclose(text);
 }
-
+//  ------  Listas ------- //
 int edad (int year, int month, int day)
 {
     int y1,m1=11,d1=1;
