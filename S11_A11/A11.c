@@ -250,10 +250,11 @@ void opci()
                 break;
             case 5:
             //      -------------------Imprimir--------------------         //
+            // Condicion de los 50 en 50
                 if(pu>0)
                 {
-                    printf("NUM\tMATRICULA\tNOMBRE\t\t2DO_NOMBRE\t\tAP_PAT\t\tAP_MAT\t\tDIA-MES-ANIO\tEDAD\tGENERO\tLUGAR DE NACIMIENTO\tCURP\n");
-                    for(i=0;i<10;i++)
+                    printf("%-5s %-15s %-15s %-15s %-15s %-10s %-10s %-20s %-20s %-15s %-18s\n","No.","Matricula","NOMBRE","NOMBRE 2","AP_PAT","AP_MAT","EDAD","DIA MES ANIO","ZONA","GENERO","CURP");
+                    for(i=0;i<pu;i++)
                     {
                         print_tabla(registro,i);
                     }
@@ -479,8 +480,6 @@ void AutoAlumn (data alu[],int p)
 
         alu[p].dalum.gen=c;
         
-        //-------------------HAY QUE VALIDAR QUE LA EDAD Y LA FECHA DE NACIMIENTO CONCUERDEN, O SACAR LA EDAD CON UNICAMENTE LA FECHA DE NACIMIENTO---------------//
-
         y=rand()%(2023-1900+1)+1900;
         alu[p].dbirth.year=y;
 
@@ -673,38 +672,19 @@ void print_tabla (data dat[], int p) //ACOMODAR NADAMAS
     char cad[33][100]={"Aguascalientes","Baja California","Baja California Sur","Campeche", "Chiapas", "Chihuahua","Coahuila", "Colima","Durango","Guanajuato","Guerrero","Hidalgo",
     "Jalisco","Estado de Mexico","Michoacan","Morelos","Nayarit","Nuevo Leon","Oaxaca","Puebla","Queretaro","Quintana Roo","San Luis Potosi","Sinaloa","Sonora","Tabasco","Tamaulipas",
     "Tlaxcala","Veracruz","Yucatan,","Zacatecas","Ciudad de Mexico","Extranjero"};
-
-    printf("%d\t",p+1);
-
-    printf("%d\t\t",dat[p].dalum.mat);
-    printf("%s\t\t",dat[p].dalum.name);
-    if(dat[p].dalum.n2==2)
-    {
-        printf("NE\t\t\t");
-    }
-    else
-    {
-        printf("%s\t\t",dat[p].dalum.name2);
-    }
-    printf("%s\t\t",dat[p].dalum.app);
-    printf("%s\t\t",dat[p].dalum.apm);
-
-    printf("%d-%d-%d\t",dat[p].dbirth.day,dat[p].dbirth.month,dat[p].dbirth.year);
-
-    printf("%d\t",dat[p].dbirth.age);
-
+    char temp[100];
+    char tempg[10];
+    strcpy(temp,cad[dat[p].dalum.zone]);
     if(dat[p].dalum.gen==1)
     {
-        printf("HOMBRE\t");
+        strcpy(tempg,"HOMBRE");
     }
     else
     {
-        printf("MUJER\t");
+        strcpy(tempg,"MUJER");
+
     }
-
-    printf("%s\t\t",cad[dat[p].dalum.zone-1]);
-
-    printf("%s\n",dat[p].dalum.curp);
+    printf("%-5d %-15d %-15s %-15s %-15s %-10s %-10d %-5d %-5d %-6d %-20s %-15s %-18s\n",p+1,dat[p].dalum.mat,dat[p].dalum.name,dat[p].dalum.name2,dat[p].dalum.app,dat[p].dalum.apm,dat[p].dbirth.age,dat[p].dbirth.day,dat[p].dbirth.month,dat[p].dbirth.year,temp,tempg,dat[p].dalum.curp);
 
 }
 
