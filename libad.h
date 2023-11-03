@@ -79,6 +79,8 @@ int validCh(char cadena[])
 {
     
     int i=0;
+    unsigned char caract;
+
     if (cadena[0] == ' ')
     {
         printf("Tu texto no puede iniciar con un espacio\n");
@@ -92,6 +94,8 @@ int validCh(char cadena[])
 
     while (cadena[i] != '\0')
     {
+        caract=(unsigned char)cadena[i];
+
         if ((cadena[i] >= 'A' && cadena[i] <= 'Z'))
         {
             //No hace nada
@@ -99,31 +103,32 @@ int validCh(char cadena[])
         else
         {
             
-            if(cadena[i]>='a')
-            {
-                if(cadena[i]<='z')
-                {
-                    cadena[i]-=32;
-                }
-            }
-
-            if(cadena[i] == -92) //ñ
-            {
-                cadena[i] = -91; //Ñ
-            }
-
-            if (cadena[i] == ' ')
-            {
-                if (cadena[i + 1] == ' ')
-                {
-                    printf("Espacios dobles no estan permitidos\n");
-                    return 1;
-                }
+            if(cadena[i]>='a' && cadena[i]<='z')
+            {    
+                cadena[i]-=32;   
             }
             else
             {
-                printf("Simbolos no permitidos\n");
-                return 1;
+                if(caract == 164 || caract == 165 ) //ñ
+                {
+                    cadena[i] = 165; //Ñ
+                }
+                else
+                {
+                    if (cadena[i] == ' ')
+                    {
+                        if (cadena[i + 1] == ' ')
+                        {
+                            printf("Espacios dobles no estan permitidos\n");
+                            return 1;
+                        }
+                    }
+                    else
+                    {
+                        printf("Simbolos no permitidos\n");
+                        return 1;
+                    }
+                }
             }
         }
         i++;
@@ -635,7 +640,6 @@ void CU_Auto_Gen (char curp[], int names2, int ap2, int ap1, char name[],char na
     //      --------------------     Penultima letra/Siglo   ----------------------       //
     char Scad[1];
     c=0;
-    srand(time(NULL));
 
     if(year<2000)
     {
