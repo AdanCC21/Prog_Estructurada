@@ -34,8 +34,7 @@ void doc_eli_txt ();
 void AutoAlumn (data alu[],int p);
 
 //  ------ Elimanacion ------- //
-int eliminacion (data dat[],int pu, int pe);
-int eliminacion_bin (data dat[],int pu,int pe);
+int eliminacion (data dat[],int pu, int pe,int band);
 
 //  ------  Busqueadas ------- //
 int buscsec(data alumno[], int p, int num);
@@ -130,7 +129,7 @@ void opci()
                 }
                 break;
             case 3:
-            //      --------------------ELIMINAR CHECA LA ELIMINACION BINARIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1231231413412--------------------         //
+            //      --------------------ELIMINAR--------------------         //
                 
                 if(pu>0)
                 {
@@ -138,10 +137,9 @@ void opci()
                     el=valid2("Fuera de rango",1,2);
                     if(el==1)
                     {
-                        pu=eliminacion(registro,pu,elim);
+                        pu=eliminacion(registro,pu,elim,ord);
                         ord=1;
                         elim++;
-                        
                         system("PAUSE");
                     }
                 }
@@ -217,10 +215,9 @@ void opci()
                         quicksort(registro,0,pu-1);
                         printf("Ordenada\n");
                     }
-
+                    ord=0;
                 }
                 system("PAUSE");
-                ord=1;
             }
             else
             {
@@ -317,13 +314,20 @@ void AutoAlumn (data alu[],int p)
         alu[p].mat=mat;
 }
 //  ------ Elimanacion ------- //
-int eliminacion (data dat[],int pu, int pe)
+int eliminacion (data dat[],int pu, int pe,int band)
 {
     int i,pes,po;
     printf("Ingrese la matricula que desea eliminar\n");
     pes=valid2("Fuera de rango (300000 - 399999)",300000,399999);
 
-    po=buscsec(dat,pu,pes);
+    if(band==1)
+    {
+        po=buscsec(dat,pu,pes);
+    }
+    else
+    {
+        po=buscbin(dat,0,pu-1,pes);
+    }
 
     if(po!=-1)
     {
@@ -341,28 +345,6 @@ int eliminacion (data dat[],int pu, int pe)
     return pu;
 }
 
-int eliminacion_bin (data dat[],int pu,int pe)
-{
-    int i,pes,po;
-    printf("Ingrese la matricula que desea eliminar\n");
-    pes=valid2("Fuera de rango (300000 - 399999)",300000,399999);
-
-    po=buscbin(dat,0,pu,pes);
-    eli_txt(dat,po,pe);
-    if(po!=-1)
-    {
-        for(i=po;i<pu;i++)
-        {
-            dat[i]=dat[i+1];
-        }
-        pu--;
-    }
-    else
-    {
-        printf("Matricula no encontrada\n");
-    }
-    return pu;
-}
 //  ------  Busqueads ------- //
 int buscsec(data reg[], int p, int num)
 {
@@ -382,7 +364,6 @@ int buscbin(data reg[], int lef, int rig, int num)
     int med;
     while (lef <= rig)
     {
-        printf("ENTRO\n");
         med = lef + (rig - lef) / 2;
         
         if (reg[med].mat == num)
@@ -614,4 +595,5 @@ void doc_eli_txt ()
     fclose(doc);
     getch();
 }
+
 
