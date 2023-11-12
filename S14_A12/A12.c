@@ -289,7 +289,7 @@ void opci()
             case 9:
                 if(elim>0)
                 {
-                    printf("Archivos eliminados");
+                    printf("Archivos eliminados\n");
                     doc_eli_txt();
                 }
                 else
