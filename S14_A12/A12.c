@@ -29,6 +29,7 @@ void opci();
 void carg_txt (data alu[], int *p);
 void eli_txt (data reg[], int p,int pe);
 void doc_eli_txt ();
+void counterRegisters();
 
 //  ------ Auto Generacion ------- //
 void AutoAlumn (data alu[],int p);
@@ -60,6 +61,12 @@ int main()
 }
 
 //        ------Menu------          //
+
+//  FALTA VALIDAR   QUE EL USUARIO PUEDA INGRESAR ESPACIOS EN EL ARCHIVO DE TEXTO------------------------------------------------------------------------------------------------
+//  FALTA VALIDAR   QUE EL USUARIO PUEDA INGRESAR ESPACIOS EN EL ARCHIVO DE TEXTO------------------------------------------------------------------------------------------------
+//  FALTA VALIDAR   QUE EL USUARIO PUEDA INGRESAR ESPACIOS EN EL ARCHIVO DE TEXTO------------------------------------------------------------------------------------------------
+//  FALTA VALIDAR   QUE EL USUARIO PUEDA INGRESAR ESPACIOS EN EL ARCHIVO DE TEXTO------------------------------------------------------------------------------------------------
+
 
 void menu ()
 {
@@ -170,7 +177,7 @@ void opci()
                         else
                         {
                             printf("La matricula se encuentra en la posicion %d \n", bus+1);
-                            print(registro,bus);
+                            printb(registro,bus);
                         }
                     }
                     else
@@ -186,7 +193,7 @@ void opci()
                         else
                         {
                             printf("La matricula se encuentra en la posicion %d \n", bus+1);
-                            print(registro,bus);
+                            printb(registro,bus);
                         }
                     }
                 }
@@ -258,6 +265,8 @@ void opci()
                 system("PAUSE");
                 break;
             case 8:
+                counterRegisters();
+                system("PAUSE");
                 break;
             case 9:
                 if(elim>0)
@@ -454,6 +463,27 @@ void print (data reg[], int p)
     printf("\t%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s %-10d\n", p+1, ".-" , reg[p].mat , reg[p].name , reg[p].app , reg[p].apm , reg[p].age , cad , reg[p].status);
 }
 
+void printb (data reg[],int p)
+{
+    char cad[7];
+    if(reg[p].gen==1)
+    {
+        strcpy(cad,"HOMBRE");
+    }
+    else
+    {
+        strcpy(cad,"MUJER");
+    }
+    printf("Matricula : %d\n",reg[p].mat);
+    printf("Nombre : %s\n",reg[p].name);
+    printf("Apellido Paterno : %s\n",reg[p].app);
+    printf("Apellido Materno : %s\n",reg[p].apm);
+    printf("Edad : %d\n",reg[p].age);
+    printf("Genero : %s\n",cad);
+    printf("Edad : %d\n",reg[p].status);
+
+}
+
 //  ------  Archivos   ------- //
 
 void carg_txt (data alu[], int *p)
@@ -596,4 +626,24 @@ void doc_eli_txt ()
     getch();
 }
 
+void counterRegisters()
+{
+    int count;
+    char fileName[50];
+    char cmd[50];
+    printf("Ingrese el nombre del archivo\n");
+    gets(fileName);
+    
+    system("gcc.exe Rcontador.c -o Rcontador");
+    sprintf(cmd,"Rcontador.exe %s", fileName);
+    count = system(cmd);
 
+    if(count != -1)
+    {
+        printf("El archivo %s contiene %d registros\n", fileName, count);
+    }
+    else 
+    {
+        printf("El archivo no fue encontrado\n");
+    }
+}
