@@ -28,9 +28,6 @@ int num_alea_sr (int vect[], int n, int ri, int rf);
 //Imprimir vect/arreglo
 void impr_vect (int vect[],int n);
 
-//Longitud ed un arreglo
-int longitudDeIn (int msj[]);
-
 //  Generacion de curp y sus validaciones
 void CU_Auto_Gen (char curp[], int names2, int ap2, int ap1, char name[],char name2[], char app[], char apm[], int day, int month, int  year, int gen, int estado);
 //  Validaciones
@@ -188,15 +185,6 @@ int num_alea_sr (int vect[], int n, int ri, int rf)
         //de no ser el caso la busqueda lanzara un -1 y por lo tanto saldra del ciclo do while
     }
     return 0;
-}
-
-//Longitud de arreglo
-int longitudDeIn (int arreglo[])
-{
-    //Lanzara los espacios ocupados o mas bn la longitud de un arreglo tipo int 
-    int lon;
-    lon = sizeof(arreglo)/sizeof(arreglo[0]);
-    return lon;
 }
 
 //Imprimir un vector o arreglo

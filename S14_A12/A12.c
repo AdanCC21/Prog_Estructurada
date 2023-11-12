@@ -15,6 +15,7 @@ typedef struct alumno
     char apm[30];
 
     int gen;
+    char genc;
     int age;
     int status;
     int mat;
@@ -24,12 +25,16 @@ typedef struct alumno
 
 void menu ();
 void opci();
+//      ------  Archivos  ------      //
+void carg_txt (data alu[], int *p);
+void eli_txt (data reg[], int p,int pe);
+
 //  ------ Auto Generacion ------- //
 void AutoAlumn (data alu[],int p);
 
 //  ------ Elimanacion ------- //
-int eliminacion (data dat[],int pu);
-int eliminacion_bin (data dat[],int pu);
+int eliminacion (data dat[],int pu, int pe);
+int eliminacion_bin (data dat[],int pu,int pe);
 
 //  ------  Busqueadas ------- //
 int buscsec(data alumno[], int p, int num);
@@ -82,10 +87,11 @@ void opci()
     {
         system("CLS");
         menu();
-        op=valid2("Fuera de rango",0,6);
+        op=valid2("Fuera de rango",0,9);
         switch(op)
         {
             case 1:
+                carg_txt(registro,&pu);
                 break;
             case 2:
             //      --------------------AGREGAR--------------------         //
@@ -121,16 +127,19 @@ void opci()
                 }
                 break;
             case 3:
-            //      --------------------ELIMINAR--------------------         //
+            //      --------------------ELIMINAR CHECA LA ELIMINACION BINARIAAAAAAAAAAAAAAAAAAAAAAAAAAAA--------------------         //
+                int elim;
+                elim=0;
                 if(pu>0)
                 {
                     printf("Seguro que quiere eliminar un registro?\n1.-Si, Eliminar\t2.-No, Salir\n");
                     el=valid2("Fuera de rango",1,2);
                     if(el==1)
                     {
-                        pu=eliminacion(registro,pu);
-                        printf("Hecho\n");
+                        pu=eliminacion(registro,pu,elim);
                         ord=1;
+                        elim++;
+                        
                         system("PAUSE");
                     }
                 }
@@ -222,7 +231,7 @@ void opci()
                 if(pu>0)
                 {
                     int k=40;
-                    printf("%-5s %-10s %-15s %-15s %-15s %-15s %-10s %-10s %-10s\n","No","Matricula","Nombre","S-Nombre","Ap Pat","Ap Mat","Edad","Gen","Status");                    
+                    printf("%-5s %-10s %-15s %-15s %-15s %-10s %-10s %-10s\n","\tNo","Matricula","Nombre","Ap Pat","Ap Mat","Edad","Gen","Status");                    
                     for(i=0;i<pu;i++)
                     {
                         if(i<k)
@@ -232,7 +241,7 @@ void opci()
                         else
                         {
                             k=k+40;
-                            system("PAUSE");
+                            getch();
                         }
                     }
                     printf("Listo\n");
@@ -245,7 +254,7 @@ void opci()
                 break;
             case 7:
             //      --------------------Archivo De Texto--------------------         //
-                //txt(registro,pu);
+                txt(registro,pu);
                 printf("Archivo de texto creado\n");
                 system("PAUSE");
                 break;
@@ -297,13 +306,15 @@ void AutoAlumn (data alu[],int p)
         alu[p].mat=mat;
 }
 //  ------ Elimanacion ------- //
-int eliminacion (data dat[],int pu)
+int eliminacion (data dat[],int pu, int pe)
 {
-    int i,pe,po;
-    printf("Ingrese la matricula que desea eliminar");
-    pe=valid2("Fuera de rango (300000 - 399999)",300000,399999);
+    int i,pes,po;
+    printf("Ingrese la matricula que desea eliminar\n");
+    pes=valid2("Fuera de rango (300000 - 399999)",300000,399999);
 
-    po=buscsec(dat,pu,pe);
+    po=buscsec(dat,pu,pes);
+    eli_txt(dat,po,pe);
+
     if(po!=-1)
     {
         for(i=po;i<pu;i++)
@@ -319,13 +330,14 @@ int eliminacion (data dat[],int pu)
     return pu;
 }
 
-int eliminacion_bin (data dat[],int pu)
+int eliminacion_bin (data dat[],int pu,int pe)
 {
-    int i,pe,po;
-    printf("Ingrese la matricula que desea eliminar");
-    pe=valid2("Fuera de rango (300000 - 399999)",300000,399999);
+    int i,pes,po;
+    printf("Ingrese la matricula que desea eliminar\n");
+    pes=valid2("Fuera de rango (300000 - 399999)",300000,399999);
 
-    po=buscbin(dat,0,pu,pe);
+    po=buscbin(dat,0,pu,pes);
+    eli_txt(dat,po,pe);
     if(po!=-1)
     {
         for(i=po;i<pu;i++)
@@ -447,39 +459,129 @@ void print (data reg[], int p)
     {
         strcpy(cad,"MUJER");
     }
-    printf("%-5d %-10d %-15s %-15s %-15s %-15s %-10d %-10s %-10d\n", p+1 , reg[p].mat , reg[p].name , reg[p].name , reg[p].app , reg[p].apm , reg[p].age , cad , reg[p].status);
+    printf("\t%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s %-10d\n", p+1, ".-" , reg[p].mat , reg[p].name , reg[p].app , reg[p].apm , reg[p].age , cad , reg[p].status);
 }
-/*
-void txt (data dat[], int p)
+
+//  ------  Archivos   ------- //
+
+void carg_txt (data alu[], int *p)
 {
-    FILE *text = fopen ("C:\\Users\\PC\\Documents\\CHAMBA\\Prog_Estructurada\\S11_A11\\registro.txt","w");
-
-    char cad[33][100]={"Aguascalientes","Baja California","Baja California Sur","Campeche", "Chiapas", "Chihuahua","Coahuila", "Colima","Durango","Guanajuato","Guerrero","Hidalgo",
-    "Jalisco","Estado de Mexico","Michoacan","Morelos","Nayarit","Nuevo Leon","Oaxaca","Puebla","Queretaro","Quintana Roo","San Luis Potosi","Sinaloa","Sonora","Tabasco","Tamaulipas",
-    "Tlaxcala","Veracruz","Yucatan,","Zacatecas","Ciudad de Mexico","Extranjero"};
-    char temp[100];
-    char tempg[10];
-
-    fprintf(text, "%-5s %-15s %-15s %-15s %-15s %-10s %-10s %-20s %-20s %-15s %-18s\n","No.","Matricula","NOMBRE","NOMBRE 2","AP_PAT","AP_MAT","EDAD","DIA MES ANIO","ZONA","GENERO","CURP");
-    for(int i=0;i<p;i++)
+    int v;
+    char name[20];
+    printf("Ingrese el nombre del documento\n");
+    do
     {
-        strcpy(temp,cad[dat[i].dalum.zone - 1]);
-        if(dat[i].dalum.gen==1)
+        gets(name);
+        v=validCh(name);
+    }
+    while (v==1);
+    strcat(name, ".txt");
+    
+    FILE *doc = fopen (name,"r");
+    if(doc)
+    {
+        data reg;
+        char cad[7];
+        int i;
+        while(!feof(doc))
         {
-            strcpy(tempg,"HOMBRE");
+            if(((*p)+1) <= P)
+            {
+                reg.status=1;
+                fscanf(doc,"%d.- %d %s %s %s %d %s", &i , &reg.mat , reg.name , reg.app , reg.apm , &reg.age , cad);
+                if(strcmp(cad,"HOMBRE")==0)
+                {
+                    reg.gen=1;
+                }
+                else
+                {
+                    if(strcmp(cad,"MASCULINO")==0)
+                    {
+                        reg.gen=1;
+                    }
+                    else
+                    {
+                        if(strcmp(cad,"MUJER")==0)
+                        {
+                            reg.gen=2;
+                        }
+                        else
+                        {
+                            if(strcmp(cad,"FEMENINO")==0)
+                            {
+                                reg.gen=2;
+                            }
+                        }
+                    }
+                }
+                alu[(*p)++]=reg;
+            }
+            else
+            {
+                printf("Registro lleno\n");
+            }
+        }   
+        
+        printf("Registros cargado\n");
+        system("PAUSE");
+    }
+    else
+    {
+        printf("Error 404\nNo se encontro el archivo o no existe\n");
+        system("PAUSE");
+    }
+    fclose(doc);
+}
+
+void txt (data reg[], int p)
+{
+    int v;
+    char name[20];
+    printf("Ingrese el nombre del documento nuevo\n(Si el archivo de texto ya existe este se reescribira)\n");
+    do
+    {
+        gets(name);
+        v=validCh(name);
+    }
+    while (v==1);
+    strcat(name, ".txt");
+    
+    FILE *doc = fopen (name,"w");
+    char cad[7];
+    int i;
+    
+    for(i=0;i<p;i++)
+    {
+        if(reg[p].gen==1)
+        {
+            strcpy(cad,"HOMBRE");
         }
         else
         {
-            strcpy(tempg,"MUJER");
-
+            strcpy(cad,"MUJER");
         }
-        fprintf(text,"%-5d %-15d %-15s %-15s %-15s %-10s %-10d %-5d %-5d %-8d %-20s %-15s",i+1,dat[i].dalum.mat,dat[i].dalum.name,dat[i].dalum.name2,dat[i].dalum.app,dat[i].dalum.apm,dat[i].dbirth.age,dat[i].dbirth.day,dat[i].dbirth.month,dat[i].dbirth.year,temp,tempg);
-        for(int k=0;k<18;k++)
-        {
-            fprintf(text,"%c",dat[i].dalum.curp[k]);
-        }
-        fprintf(text,"\n");    
+        fprintf(doc,"%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s %-10d\n", i+1 , ".-" , reg[i].mat , reg[i].name , reg[i].app , reg[i].apm , reg[i].age , cad , reg[i].status);
     }
-        fclose(text);
+    
+    fclose(doc);
 }
-*/
+
+void eli_txt (data reg[], int p,int pe)
+{   
+    FILE *doc = fopen ("eliminados.txt","w");
+    char cad[7];
+    int i;
+    i=p;
+
+    if(reg[p].gen==1)
+    {
+        strcpy(cad,"HOMBRE");
+    }
+    else
+    {
+        strcpy(cad,"MUJER");
+    }
+    fprintf(doc,"%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s %-10d\n", pe+1 , ".-" , reg[i].mat , reg[i].name , reg[i].app , reg[i].apm , reg[i].age , cad , reg[i].status);
+    
+    fclose(doc);
+}
