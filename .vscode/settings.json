@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "empanadas.h": "c",
-        "time.h": "c"
+        "time.h": "c",
+        "stdlib.h": "c"
     }
 }
