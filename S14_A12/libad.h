@@ -76,7 +76,6 @@ int validCh(char cadena[])
 {
     
     int i=0;
-    unsigned char caract;
 
     if (cadena[0] == ' ')
     {
@@ -91,41 +90,25 @@ int validCh(char cadena[])
 
     while (cadena[i] != '\0')
     {
-        caract=(unsigned char)cadena[i];
 
-        if ((cadena[i] >= 'A' && cadena[i] <= 'Z'))
+        if ( (cadena[i] >= 'A' && cadena[i] <= 'Z') ||(cadena[i] >= 'a' && cadena[i] <= 'z') )
         {
             //No hace nada
         }
         else
-        {
-            
-            if(cadena[i]>='a' && cadena[i]<='z')
-            {    
-                cadena[i]-=32;   
+        {   
+            if (cadena[i] == ' ')
+            {
+                if (cadena[i + 1] == ' ')
+                {
+                    printf("Espacios dobles no estan permitidos\n");
+                    return 1;
+                }
             }
             else
             {
-                if(caract == 164 || caract == 165 ) //ñ
-                {
-                    cadena[i] = 165; //Ñ
-                }
-                else
-                {
-                    if (cadena[i] == ' ')
-                    {
-                        if (cadena[i + 1] == ' ')
-                        {
-                            printf("Espacios dobles no estan permitidos\n");
-                            return 1;
-                        }
-                    }
-                    else
-                    {
-                        printf("Simbolos no permitidos\n");
-                        return 1;
-                    }
-                }
+                printf("Simbolos no permitidos\n");
+                return 1;
             }
         }
         i++;

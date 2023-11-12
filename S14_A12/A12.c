@@ -50,6 +50,7 @@ void quicksort(data students[], int low, int high);
 
 //  ------  Print   ------- //
 void print(data dat[], int p);
+void printb (data reg[],int p);
 void txt (data dat[], int p);
 
 //        Main          //
@@ -61,12 +62,6 @@ int main()
 }
 
 //        ------Menu------          //
-
-//  FALTA VALIDAR   QUE EL USUARIO PUEDA INGRESAR ESPACIOS EN EL ARCHIVO DE TEXTO------------------------------------------------------------------------------------------------
-//  FALTA VALIDAR   QUE EL USUARIO PUEDA INGRESAR ESPACIOS EN EL ARCHIVO DE TEXTO------------------------------------------------------------------------------------------------
-//  FALTA VALIDAR   QUE EL USUARIO PUEDA INGRESAR ESPACIOS EN EL ARCHIVO DE TEXTO------------------------------------------------------------------------------------------------
-//  FALTA VALIDAR   QUE EL USUARIO PUEDA INGRESAR ESPACIOS EN EL ARCHIVO DE TEXTO------------------------------------------------------------------------------------------------
-
 
 void menu ()
 {
@@ -85,7 +80,7 @@ void menu ()
 
 void opci()
 {
-    int i,j,op,pu,ord,el;
+    int i,j,op,pu,ord;
     int num,bus;
     int elim;
     elim=0;
@@ -140,15 +135,12 @@ void opci()
                 
                 if(pu>0)
                 {
-                    printf("Seguro que quiere eliminar un registro?\n1.-Si, Eliminar\t2.-No, Salir\n");
-                    el=valid2("Fuera de rango",1,2);
-                    if(el==1)
-                    {
+                    
                         pu=eliminacion(registro,pu,elim,ord);
                         ord=1;
                         elim++;
                         system("PAUSE");
-                    }
+                    
                 }
                 else
                 {
@@ -260,8 +252,15 @@ void opci()
                 break;
             case 7:
             //      --------------------Archivo De Texto--------------------         //
-                txt(registro,pu);
-                printf("Archivo de texto creado\n");
+                if(pu>0)
+                {
+                    txt(registro,pu);
+                    printf("Archivo de texto creado\n");
+                }
+                else
+                {
+                    printf("Registros vacios\n");
+                }
                 system("PAUSE");
                 break;
             case 8:
@@ -325,7 +324,7 @@ void AutoAlumn (data alu[],int p)
 //  ------ Elimanacion ------- //
 int eliminacion (data dat[],int pu, int pe,int band)
 {
-    int i,pes,po;
+    int i,pes,po,op;
     printf("Ingrese la matricula que desea eliminar\n");
     pes=valid2("Fuera de rango (300000 - 399999)",300000,399999);
 
@@ -340,12 +339,18 @@ int eliminacion (data dat[],int pu, int pe,int band)
 
     if(po!=-1)
     {
-        eli_txt(dat,po,pe);
-        for(i=po;i<pu;i++)
+        printb(dat,po);
+        printf("Este es tu registro, deseas borrarlo?\n1.-Si,Eliminar 2.-No,Conservar");
+        op = valid2("fuera de rango",1,2);
+        if(op==1)
         {
-            dat[i]=dat[i+1];
+            eli_txt(dat,po,pe);
+            for(i=po;i<pu;i++)
+            {
+                dat[i]=dat[i+1];
+            }
+            pu--;
         }
-        pu--;
     }
     else
     {
@@ -559,7 +564,7 @@ void txt (data reg[], int p)
 {
     int v;
     char name[20];
-    printf("Ingrese el nombre del documento nuevo\n(Si el archivo de texto ya existe este se reescribira)\n");
+    printf("Ingrese el nombre del documento nuevo, solo se permiten letras sin numeros\n(Si el archivo de texto ya existe este se reescribira)\n");
     do
     {
         gets(name);
