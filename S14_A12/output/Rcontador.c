@@ -20,8 +20,7 @@ int main(int args, char *arg[])
     {
         do
         {
-            fscanf(fa, "%d.- %d %s %s %s %d %s",
-                       &tempNum, &tempNum2, firstName, lastName1, lastName2, &age, gender);
+            fscanf(fa, "%d.- %d %s %s %s %d %s",&tempNum, &tempNum2, firstName, lastName1, lastName2, &age, gender);
             position++;
         } while (!feof(fa));
         fclose(fa);

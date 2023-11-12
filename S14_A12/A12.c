@@ -606,7 +606,7 @@ void txt (data reg[], int p)
         {
             strcpy(cad,"MUJER");
         }
-        fprintf(doc,"%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s %-10d\n", i+1 , ".-" , reg[i].mat , reg[i].name , reg[i].app , reg[i].apm , reg[i].age , cad , reg[i].status);
+        fprintf(doc,"%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s\n", i+1 , ".-" , reg[i].mat , reg[i].name , reg[i].app , reg[i].apm , reg[i].age , cad);
     }
     
     fclose(doc);
@@ -625,7 +625,7 @@ void eli_txt (data reg[], int p,int pe)
     {
         strcpy(cad,"MUJER");
     }
-    fprintf(doc,"%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s %-10d\n", pe+1 , ".-" , reg[p].mat , reg[p].name , reg[p].app , reg[p].apm , reg[p].age , cad , reg[p].status);
+    fprintf(doc,"%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s\n", pe+1 , ".-" , reg[p].mat , reg[p].name , reg[p].app , reg[p].apm , reg[p].age , cad);
     
     fclose(doc);
 }
