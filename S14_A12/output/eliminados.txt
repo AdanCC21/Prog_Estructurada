@@ -1,1 +1,2 @@
-1.-   301523     JULIA           ORTIZ           RUBIO           25         MUJER      0         
+1.-   300214     MONICA          ALVAREZ         RIVERA          28         MUJER      1         
+2.-   317654     PABLO           DELGADO         SANCHEZ         19         HOMBRE     1         

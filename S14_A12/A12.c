@@ -28,6 +28,7 @@ void opci();
 //      ------  Archivos  ------      //
 void carg_txt (data alu[], int *p);
 void eli_txt (data reg[], int p,int pe);
+void doc_eli_txt ();
 
 //  ------ Auto Generacion ------- //
 void AutoAlumn (data alu[],int p);
@@ -80,6 +81,8 @@ void opci()
 {
     int i,j,op,pu,ord,el;
     int num,bus;
+    int elim;
+    elim=0;
     ord=0;
     pu=0;
     data registro[P];
@@ -127,9 +130,8 @@ void opci()
                 }
                 break;
             case 3:
-            //      --------------------ELIMINAR CHECA LA ELIMINACION BINARIAAAAAAAAAAAAAAAAAAAAAAAAAAAA--------------------         //
-                int elim;
-                elim=0;
+            //      --------------------ELIMINAR CHECA LA ELIMINACION BINARIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1231231413412--------------------         //
+                
                 if(pu>0)
                 {
                     printf("Seguro que quiere eliminar un registro?\n1.-Si, Eliminar\t2.-No, Salir\n");
@@ -261,6 +263,16 @@ void opci()
             case 8:
                 break;
             case 9:
+                if(elim>0)
+                {
+                    printf("Archivos eliminados");
+                    doc_eli_txt();
+                }
+                else
+                {
+                    printf("Archivo vacio\n");
+                    getch();
+                }
                 break;
             case 0:
             //      --------------------    SALIR   --------------------         //
@@ -281,7 +293,7 @@ void opci()
 
 void AutoAlumn (data alu[],int p)
 {
-    int c,z,mat;
+    int c,mat;
     c=rand()%(2-1+1)+1;
     char name[30],ap[30],apm[30];
     
@@ -299,8 +311,7 @@ void AutoAlumn (data alu[],int p)
 
         alu[p].age=rand()%(30-17+1)+17;
 
-        z=rand()%(1-0+1)+0;
-        alu[p].status=z;
+        alu[p].status=1;
 
         mat=rand() % (399999-300000+1)+300000;
         alu[p].mat=mat;
@@ -313,10 +324,10 @@ int eliminacion (data dat[],int pu, int pe)
     pes=valid2("Fuera de rango (300000 - 399999)",300000,399999);
 
     po=buscsec(dat,pu,pes);
-    eli_txt(dat,po,pe);
 
     if(po!=-1)
     {
+        eli_txt(dat,po,pe);
         for(i=po;i<pu;i++)
         {
             dat[i]=dat[i+1];
@@ -568,10 +579,8 @@ void txt (data reg[], int p)
 
 void eli_txt (data reg[], int p,int pe)
 {   
-    FILE *doc = fopen ("eliminados.txt","w");
+    FILE *doc = fopen ("eliminados.txt","a");
     char cad[7];
-    int i;
-    i=p;
 
     if(reg[p].gen==1)
     {
@@ -581,7 +590,28 @@ void eli_txt (data reg[], int p,int pe)
     {
         strcpy(cad,"MUJER");
     }
-    fprintf(doc,"%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s %-10d\n", pe+1 , ".-" , reg[i].mat , reg[i].name , reg[i].app , reg[i].apm , reg[i].age , cad , reg[i].status);
+    fprintf(doc,"%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s %-10d\n", pe+1 , ".-" , reg[p].mat , reg[p].name , reg[p].app , reg[p].apm , reg[p].age , cad , reg[p].status);
     
     fclose(doc);
 }
+
+void doc_eli_txt ()
+{   
+    FILE *doc = fopen ("eliminados.txt","r");
+    char linea[100];
+
+    if (doc) 
+    {
+        while (fgets(linea, sizeof(linea), doc) != NULL) 
+        {
+            printf("%s", linea);
+        }
+    } 
+    else 
+    {
+        printf("Error al abrir el archivo.\n");
+    }
+    fclose(doc);
+    getch();
+}
+
