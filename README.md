@@ -1,6 +1,6 @@
-#Programacion Estructurada
-##UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
-##Ingenieria en software y tecnologias emergentes ISYT
+# Programacion Estructurada
+## UNIVERSIDAD AUTONOMA DE BAJA CALIFORNIA
+## Ingenieria en software y tecnologias emergentes ISYT
 
 Gonzalez Ceseña Adan
 
