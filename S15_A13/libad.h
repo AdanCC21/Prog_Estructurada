@@ -20,7 +20,7 @@ int valid2 (char msg[],int ri, int rf);
 int validCh(char cadena[]);
 
 //Minusculas a mayusculas
-void minus (char cad[])
+void minus (char cad[]);
 
 //Generacion de numero aleatorio sin repetir
 int num_alea_sr (int vect[], int n, int ri, int rf);
