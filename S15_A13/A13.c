@@ -51,6 +51,7 @@ typedef struct alumno
     int age;
 
     int pos;
+    char posc;
     int mat;
 }data;
 
@@ -63,6 +64,10 @@ void carg_txt (data alu[], int *p);
 void eli_txt (data reg[], int p,int pe);
 void doc_eli_txt ();
 void counterRegisters();
+
+//      ------  Actv11  ------      //
+void edit (data alup[],int p);
+void ver_txt ();
 
 //  ------ Auto Generacion ------- //
 void AutoAlumn (data alu[],int p);
@@ -87,7 +92,8 @@ void printb (data reg[],int p);
 void txt (data dat[], int p);
 
 // ------ Lista ----//
-void position (char cad[]);
+void position (char cad[],data dat[],int p);
+void gen (char cad[], data dat[],int p);
 
 //        Main          //
 int main()
@@ -103,16 +109,16 @@ void menu ()
 {
     printf("\tMENU\n");
     printf("1-Agregar 100 registors\n");
-    printf("2.-Editar registro\n"); //////////////////////////
+    printf("2.-Editar registro\n");
     printf("3-Eliminar registro\n");
     printf("4-Buscar\n");
     printf("5-Ordenar\n");
     printf("6-Mostrar Todo\n");
     printf("7-Generar Archivo\n");
-    printf("8-Ver archivo\n"); ///////////////////////////////
+    printf("8-Ver archivo\n");
     printf("9-Crear archiv Binario\n"); //////////////////////////
-    printf("10.-Cargar arch binario\n");
-    printf("Mostrar eliminados\n");
+    printf("10.-Cargar arch binario\n"); //////////////////////////
+    printf("11.-Mostrar eliminados\n"); //////////////////////////
     printf("0-Salir\n");
 }
 
@@ -134,6 +140,7 @@ void opci()
         {
             case 1:
             //      --------------------AGREGAR--------------------         //
+            {
                 system("CLS");
                 if(pu<P)
                 {
@@ -165,22 +172,63 @@ void opci()
                     system("PAUSE");
                 }
                 break;
+            }
             case 2:
             //      -----------------   EDITAR  --------------------         //
-                printf("Que registro desea editar (posicion)\n");
-            
+            {
+                if(pu==0)
+                {
+                    printf("lista vacia\n");
+                }
+                else
+                {
+                    if(ord==1)
+                    {
+                        printf("Metodo de secuencial\n");
+                        printf("Que registro desea editar (matricula)\n");
+                        num=valid("Ingrese la matricula",300000,399999);
+                        bus=buscsec(registro,pu,num);
+
+                        if(bus==-1)
+                        {
+                            printf("No se encontro la matricula\n");
+                        }
+                        else
+                        {
+                            printf("La matricula se encuentra en la posicion %d \n", bus+1);
+                            edit(registro,bus);
+                        }
+                    }
+                    else
+                    {
+                        printf("Busqueda binaria\n");
+                        printf("Que registro desea editar (posicion)\n");
+                        num=valid("Ingrese la matricula",300000,399999);
+                        bus=buscbin(registro,0, pu-1, num);
+
+                        if(bus==-1)
+                        {
+                            printf("No se encontro la matricula\n");
+                        }
+                        else
+                        {
+                            printf("La matricula se encuentra en la posicion %d \n", bus+1);
+                            edit(registro,bus);
+                        }
+                    }
+                }
+                system("PAUSE");
                 break;
+            }
             case 3:
             //      --------------------ELIMINAR--------------------         //
-                
+            {
                 if(pu>0)
                 {
-                    
-                        pu=eliminacion(registro,pu,elim,ord);
-                        ord=1;
-                        elim++;
-                        system("PAUSE");
-                    
+                    pu=eliminacion(registro,pu,elim,ord);
+                    ord=1;
+                    elim++;
+                    system("PAUSE");
                 }
                 else
                 {
@@ -188,8 +236,10 @@ void opci()
                     system("PAUSE");
                 }
                 break;
+            }
             case 4:
             //      --------------------BUSCAR--------------------         //
+            {
                 if(pu==0)
                 {
                     printf("lista vacia\n");
@@ -231,45 +281,49 @@ void opci()
                 }
                 system("PAUSE");
                 break;
+            }
             case 5:
             //      --------------------ORDENAR--------------------         //
-            if(pu>0)
             {
-                if(ord==0)
+                if(pu>0)
                 {
-                    printf("Ya esta ordenado\n");
-                    
-                }
-                else
-                {
-                    if(pu<50)
+                    if(ord==0)
                     {
-                        printf("Metodo de burbuja\n");
-                        ordenarB(registro,pu);
-                        printf("Ordenada\n");
+                        printf("Ya esta ordenado\n");
+                        
                     }
                     else
                     {
-                        printf("Quicksort\n");
-                        quicksort(registro,0,pu-1);
-                        printf("Ordenada\n");
+                        if(pu<50)
+                        {
+                            printf("Metodo de burbuja\n");
+                            ordenarB(registro,pu);
+                            printf("Ordenada\n");
+                        }
+                        else
+                        {
+                            printf("Quicksort\n");
+                            quicksort(registro,0,pu-1);
+                            printf("Ordenada\n");
+                        }
+                        ord=0;
                     }
-                    ord=0;
+                    system("PAUSE");
                 }
-                system("PAUSE");
-            }
-            else
-            {
-                printf("Cadena vacia\n");
-                system("PAUSE");
-            }
+                else
+                {
+                    printf("Cadena vacia\n");
+                    system("PAUSE");
+                }
                 break;
+            }
             case 6:
             //      -------------------Imprimir--------------------         //
+            {
                 if(pu>0)
                 {
                     int k=40;
-                    printf("%-5s %-10s %-15s %-15s %-15s %-10s %-10s %-10s\n","\tNo","Matricula","Nombre","Ap Pat","Ap Mat","Edad","Gen","Status");                    
+                    printf("%-5s %-10s %-15s %-15s %-15s %-10s %-10s %-10s\n"," No","Matricula","Nombre","Ap Pat","Ap Mat","Edad","Gen","Status");                    
                     for(i=0;i<pu;i++)
                     {
                         if(i<k)
@@ -290,8 +344,10 @@ void opci()
                 }
                 system("PAUSE");
                 break;
+            }
             case 7:
             //      --------------------Archivo De Texto--------------------         //
+            {
                 if(pu>0)
                 {
                     txt(registro,pu);
@@ -303,11 +359,19 @@ void opci()
                 }
                 system("PAUSE");
                 break;
+            }
             case 8:
-                counterRegisters();
+            {
+                ver_txt();
                 system("PAUSE");
                 break;
+            }
             case 9:
+            {
+
+                break;
+            }
+            case 11:
                 if(elim>0)
                 {
                     printf("Archivos eliminados\n");
@@ -334,42 +398,94 @@ void opci()
     printf("Buen dia\n");
 }
 
-//      ------Funciones------       //
+//      -------------------Funciones-----------------       //
 
-void position (char cad[])
+//      --------Lista--------       //
+void position (char cad[], data dat[],int p)
 {
-    int c;
-    c=rand()%(5-1+1)+5;
-    char posit[10][30] = {"Principiante","Ejecutivo","Jefe"};
-    strcpy(cad,posit[c]);
+    
+    char posit[10][30] = {"Empleado","Ejecutivo","Secretario"};
+    strcpy(cad,posit[dat[p].pos-1]);
 }
 
+void gen (char cad[], data dat[],int p)
+{
+    char posit[10][30] = {"HOMBRE","MUJER"};
+    strcpy(cad,posit[dat[p].gen-1]);
+}
+
+//  -------------------------Agregar------------------------- //
 void AutoAlumn (data alu[],int p)
 {
     int c,mat;
     c=rand()%(2-1+1)+1;
     char name[30],ap[30],apm[30];
     
+    li_nombres(name,c);
+    strcpy(alu[p].name,name);
 
-        li_nombres(name,c);
-        strcpy(alu[p].name,name);
+    li_apellidos(ap);
+    strcpy(alu[p].app,ap);
 
-        li_apellidos(ap);
-        strcpy(alu[p].app,ap);
+    li_apellidos(apm);
+    strcpy(alu[p].apm,apm);
 
-        li_apellidos(apm);
-        strcpy(alu[p].apm,apm);
+    alu[p].gen=c;
 
-        alu[p].gen=c;
+    alu[p].age=rand()%(30-17+1)+17;
 
-        alu[p].age=rand()%(30-17+1)+17;
+    alu[p].pos=rand()%(3-1+1)+1;
 
-        alu[p].status=1;
-
-        mat=rand() % (399999-300000+1)+300000;
-        alu[p].mat=mat;
+    mat=rand() % (399999-300000+1)+300000;
+    alu[p].mat=mat;
 }
-//  ------ Elimanacion ------- //
+
+void edit (data dat[],int p)
+{
+    int v;
+    char temp[50];
+    do
+    {
+        printf("Ingrese su nombre\n");
+        gets(temp);
+        v=validCh(temp);
+    }
+    while(v==1);
+    strcpy(dat[p].name,temp);
+
+    do
+    {
+        printf("Ingrese su Apellido Paterno\n");
+        gets(temp);
+        v=validCh(temp);
+    }
+    while(v==1);
+    strcpy(dat[p].app,temp);
+
+    do
+    {
+        printf("Ingrese su Apellido Materno\n");
+        gets(temp);
+        v=validCh(temp);
+    }
+    while(v==1);
+    strcpy(dat[p].apm,temp);
+
+    printf("Ingrese su puesto\n1.-Empleado 2.-Ejecutivo 3.-Secretario\n");
+    dat[p].pos=valid2("Fuera de rango",1,3);
+
+
+    printf("Ingrese su edad\n");
+    dat[p].age=valid2("error, intente de nuevo",17,80);
+
+    printf("Ingrese su genero\n1.-Hombre 2.-Mujer\n");
+    dat[p].gen=valid2("Fuera de rango",1,2);
+
+    printf("Ingrese su matricula\n");
+    dat[p].mat=valid2("Fuera de rango",300000,399999);
+}
+
+//  -----------------------Eliminacion----------------------- //
 int eliminacion (data dat[],int pu, int pe,int band)
 {
     int i,pes,po,op;
@@ -407,7 +523,7 @@ int eliminacion (data dat[],int pu, int pe,int band)
     return pu;
 }
 
-//  ------  Busqueads ------- //
+//  -----------------------Busqueda----------------------- //
 int buscsec(data reg[], int p, int num)
 {
     int i;
@@ -445,7 +561,7 @@ int buscbin(data reg[], int lef, int rig, int num)
     return -1;
 }
 
-//  ------  Ordenar ------- //
+//  -----------------------Ordenar----------------------- //
 void ordenarB (data reg[], int n)
 {
     int i,j;
@@ -464,7 +580,8 @@ void ordenarB (data reg[], int n)
     }
 }
 
-//  ------Quicksort------- //
+//  -------Quicksort-------- //
+
 void swap(data students[], int i, int j)
 {
     data temp = students[i];
@@ -501,43 +618,64 @@ void quicksort(data students[], int low, int high)
     }
 }
 
-//  ------  Print   ------- //
+//  ------------------------ //
+
+//  -----------------------Prints----------------------- //
+
 void print (data reg[], int p)
 {
     char cad[7];
-    if(reg[p].gen==1)
-    {
-        strcpy(cad,"HOMBRE");
-    }
-    else
-    {
-        strcpy(cad,"MUJER");
-    }
-    printf("\t%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s %-10d\n", p+1, ".-" , reg[p].mat , reg[p].name , reg[p].app , reg[p].apm , reg[p].age , cad , reg[p].status);
+    char cadp[30];
+    
+    gen(cad,reg,p);
+    position(cadp,reg, p);
+    
+    printf("%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s %-10s\n", p+1, ".-" , reg[p].mat , reg[p].name , reg[p].app , reg[p].apm , reg[p].age , cad , cadp);
 }
 
 void printb (data reg[],int p)
 {
     char cad[7];
-    if(reg[p].gen==1)
-    {
-        strcpy(cad,"HOMBRE");
-    }
-    else
-    {
-        strcpy(cad,"MUJER");
-    }
+    char cadp[30];
+    gen(cad,reg,p);
+    position(cadp,reg,p);
+
     printf("Matricula : %d\n",reg[p].mat);
     printf("Nombre : %s\n",reg[p].name);
     printf("Apellido Paterno : %s\n",reg[p].app);
     printf("Apellido Materno : %s\n",reg[p].apm);
     printf("Edad : %d\n",reg[p].age);
     printf("Genero : %s\n",cad);
-    printf("Edad : %d\n",reg[p].status);
-
+    printf("Posicion : %s\n",cadp);
 }
 
-//  ------  Archivos   ------- //
+//  -----------------------Archivo----------------------- //
+
+void ver_txt ()
+{
+    int v;
+    char dname[20];
+    printf("Ingrese el nombre del documento\n");
+    do
+    {
+        gets(dname);
+        v=validCh(dname);
+    }
+    while (v==1);
+    strcat(dname, ".txt");
+
+    char cad;
+    
+    FILE *doc = fopen (dname,"r");
+    if(doc)
+    {
+        while ((cad = fgetc(doc)) != EOF) 
+        {
+            putchar(cad);
+        }
+    }
+    fclose(doc);
+}
 
 void carg_txt (data alu[], int *p)
 {
@@ -562,7 +700,6 @@ void carg_txt (data alu[], int *p)
         {
             if(((*p)+1) <= P)
             {
-                reg.status=1;
                 fscanf(doc,"%d.- %d %s %s %s %d %s", &i , &reg.mat , reg.name , reg.app , reg.apm , &reg.age , cad);
                 if(strcmp(cad,"HOMBRE")==0)
                 {
@@ -658,7 +795,6 @@ void eli_txt (data reg[], int p,int pe)
     
     fclose(doc);
 }
-
 void doc_eli_txt ()
 {   
     FILE *doc = fopen ("eliminados.txt","r");
@@ -679,28 +815,71 @@ void doc_eli_txt ()
     getch();
 }
 
-void counterRegisters()
+void arch_bin (data alu[], int *p)
 {
-    int count;
-    char fileName[50];
-    char cmd[50];
-    printf("Ingrese el nombre del archivo\n");
-    gets(fileName);
+    int v;
+    char name[20];
+    printf("Ingrese el nombre del documento\n");
+    do
+    {
+        gets(name);
+        v=validCh(name);
+    }
+    while (v==1);
+    strcat(name, ".txt");
     
-    system("gcc.exe Rcontador.c -o Rcontador");
-    sprintf(cmd,"Rcontador.exe %s", fileName);
-    count = system(cmd);
-
-    if(count != -1)
+    FILE *doc = fopen (name,"r");
+    if(doc)
     {
-        printf("El archivo %s contiene %d registros\n", fileName, count);
+        data reg;
+        char cad[7];
+        int i;
+        while(!feof(doc))
+        {
+            if(((*p)+1) <= P)
+            {
+                fscanf(doc,"%d.- %d %s %s %s %d %s", &i , &reg.mat , reg.name , reg.app , reg.apm , &reg.age , cad);
+                if(strcmp(cad,"HOMBRE")==0)
+                {
+                    reg.gen=1;
+                }
+                else
+                {
+                    if(strcmp(cad,"MASCULINO")==0)
+                    {
+                        reg.gen=1;
+                    }
+                    else
+                    {
+                        if(strcmp(cad,"MUJER")==0)
+                        {
+                            reg.gen=2;
+                        }
+                        else
+                        {
+                            if(strcmp(cad,"FEMENINO")==0)
+                            {
+                                reg.gen=2;
+                            }
+                        }
+                    }
+                }
+                alu[(*p)++]=reg;
+            }
+            else
+            {
+                printf("Registro lleno\n");
+            }
+        }   
+        
+        printf("Registros cargado\n");
+        system("PAUSE");
     }
-    else 
+    else
     {
-        printf("El archivo no fue encontrado\n");
+        printf("Error 404\nNo se encontro el archivo o no existe\n");
+        system("PAUSE");
     }
+    fclose(doc);
 }
-
-
-
 

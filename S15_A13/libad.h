@@ -1,6 +1,6 @@
 /*  
     Gonzalez Cesena Adan
-    Version 14/11/2023
+    Version 17/11/2023
 */
 
 #include <stdio.h>
@@ -79,6 +79,7 @@ int validCh(char cadena[])
 {
     
     int i=0;
+    unsigned char caract;
 
     if (cadena[0] == ' ')
     {
@@ -93,25 +94,33 @@ int validCh(char cadena[])
 
     while (cadena[i] != '\0')
     {
+        caract=(unsigned char)cadena[i];
 
         if ( (cadena[i] >= 'A' && cadena[i] <= 'Z') ||(cadena[i] >= 'a' && cadena[i] <= 'z') )
         {
             //No hace nada
         }
         else
-        {   
-            if (cadena[i] == ' ')
+        {
+            if(caract == 164 || caract == 165 ) //ñ
             {
-                if (cadena[i + 1] == ' ')
-                {
-                    printf("Espacios dobles no estan permitidos\n");
-                    return 1;
-                }
+                //No hace nada
             }
             else
             {
-                printf("Simbolos no permitidos\n");
-                return 1;
+                if (cadena[i] == ' ')
+                {
+                    if (cadena[i + 1] == ' ')
+                    {
+                        printf("Espacios dobles no estan permitidos\n");
+                        return 1;
+                    }
+                }
+                else
+                {
+                    printf("Simbolos no permitidos\n");
+                    return 1;
+                }
             }
         }
         i++;
