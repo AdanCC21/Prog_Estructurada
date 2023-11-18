@@ -60,17 +60,18 @@ typedef struct alumno
 void menu ();
 void opci();
 //      ------  Archivos  ------      //
-void carg_txt (data alu[], int *p);
 void eli_txt (data reg[], int p,int pe);
 void doc_eli_txt ();
-void counterRegisters();
 
-//      ------  Actv11  ------      //
-void edit (data alup[],int p);
+void arch_bin (data reg[], int p);
+void carg_bin (data alu[],int *p);
+
 void ver_txt ();
+void txt (data dat[], int p);
 
 //  ------ Auto Generacion ------- //
 void AutoAlumn (data alu[],int p);
+void edit (data alup[],int p);
 
 //  ------ Elimanacion ------- //
 int eliminacion (data dat[],int pu, int pe,int band);
@@ -89,7 +90,6 @@ void quicksort(data students[], int low, int high);
 //  ------  Print   ------- //
 void print(data dat[], int p);
 void printb (data reg[],int p);
-void txt (data dat[], int p);
 
 // ------ Lista ----//
 void position (char cad[],data dat[],int p);
@@ -109,16 +109,16 @@ void menu ()
 {
     printf("\tMENU\n");
     printf("1-Agregar 100 registors\n");
-    printf("2.-Editar registro\n");
+    printf("2-Editar registro\n");
     printf("3-Eliminar registro\n");
     printf("4-Buscar\n");
     printf("5-Ordenar\n");
     printf("6-Mostrar Todo\n");
     printf("7-Generar Archivo\n");
     printf("8-Ver archivo\n");
-    printf("9-Crear archiv Binario\n"); //////////////////////////
-    printf("10.-Cargar arch binario\n"); //////////////////////////
-    printf("11.-Mostrar eliminados\n"); //////////////////////////
+    printf("9-Crear archiv Binario\n"); 
+    printf("10-Cargar arch binario\n"); 
+    printf("11-Mostrar eliminados\n"); 
     printf("0-Salir\n");
 }
 
@@ -135,7 +135,7 @@ void opci()
     {
         system("CLS");
         menu();
-        op=valid2("Fuera de rango",0,9);
+        op=valid2("Fuera de rango",0,11);
         switch(op)
         {
             case 1:
@@ -145,9 +145,9 @@ void opci()
                 if(pu<P)
                 {
                     j=P-pu;
-                    if(j>10)
+                    if(j>100)
                     {                   
-                        for(i=0;i<10;i++)
+                        for(i=0;i<100;i++)
                         {
                             AutoAlumn(registro,pu);
                             pu++;
@@ -361,14 +361,31 @@ void opci()
                 break;
             }
             case 8:
+            //      -----------------Ver Archivo De Texto-------------------         //
             {
                 ver_txt();
                 system("PAUSE");
                 break;
             }
             case 9:
+            //      -----------------Crear Archivo Binario------------------         //
             {
-
+                if(pu>0)
+                {
+                    arch_bin(registro,pu);
+                    printf("Archivo binario creado\n");
+                }
+                else
+                {
+                    printf("Registros vacios\n");
+                }
+                system("PAUSE");
+                break;
+            }
+            case 10:
+            //      -----------------Cargar Archivo Binario------------------         //
+            {
+                carg_bin(registro,&pu);
                 break;
             }
             case 11:
@@ -677,73 +694,6 @@ void ver_txt ()
     fclose(doc);
 }
 
-void carg_txt (data alu[], int *p)
-{
-    int v;
-    char name[20];
-    printf("Ingrese el nombre del documento\n");
-    do
-    {
-        gets(name);
-        v=validCh(name);
-    }
-    while (v==1);
-    strcat(name, ".txt");
-    
-    FILE *doc = fopen (name,"r");
-    if(doc)
-    {
-        data reg;
-        char cad[7];
-        int i;
-        while(!feof(doc))
-        {
-            if(((*p)+1) <= P)
-            {
-                fscanf(doc,"%d.- %d %s %s %s %d %s", &i , &reg.mat , reg.name , reg.app , reg.apm , &reg.age , cad);
-                if(strcmp(cad,"HOMBRE")==0)
-                {
-                    reg.gen=1;
-                }
-                else
-                {
-                    if(strcmp(cad,"MASCULINO")==0)
-                    {
-                        reg.gen=1;
-                    }
-                    else
-                    {
-                        if(strcmp(cad,"MUJER")==0)
-                        {
-                            reg.gen=2;
-                        }
-                        else
-                        {
-                            if(strcmp(cad,"FEMENINO")==0)
-                            {
-                                reg.gen=2;
-                            }
-                        }
-                    }
-                }
-                alu[(*p)++]=reg;
-            }
-            else
-            {
-                printf("Registro lleno\n");
-            }
-        }   
-        
-        printf("Registros cargado\n");
-        system("PAUSE");
-    }
-    else
-    {
-        printf("Error 404\nNo se encontro el archivo o no existe\n");
-        system("PAUSE");
-    }
-    fclose(doc);
-}
 
 void txt (data reg[], int p)
 {
@@ -815,7 +765,47 @@ void doc_eli_txt ()
     getch();
 }
 
-void arch_bin (data alu[], int *p)
+void arch_bin (data reg[], int p)
+{
+    int v;
+    char name[20];
+    printf("Ingrese el nombre del documento nuevo, solo se permiten letras sin numeros\n(Si el archivo de texto ya existe este se reescribira)\n");
+    do
+    {
+        gets(name);
+        v=validCh(name);
+    }
+    while (v==1);
+    strcat(name, ".dll");
+    
+    FILE *doc = fopen (name,"wb");
+    int i;
+    
+    for (i = 0; i < p; i++) 
+    {
+        fwrite(&i, sizeof(int), 1, doc);
+        
+        fwrite(".-", sizeof(char), 4, doc); 
+        fwrite(&reg[i].mat, sizeof(int), 1, doc);
+        fwrite(reg[i].name, sizeof(char), 15, doc); 
+        fwrite(reg[i].app, sizeof(char), 15, doc); 
+        fwrite(reg[i].apm, sizeof(char), 15, doc); 
+        fwrite(&reg[i].age, sizeof(int), 1, doc); 
+        
+        if (reg[i].gen == 1) 
+        {
+            fwrite("HOMBRE", sizeof(char), 7, doc);
+        } 
+        else 
+        {
+            fwrite("MUJER", sizeof(char), 6, doc);
+        }
+    }
+    
+    fclose(doc);
+}
+
+void carg_bin (data alu[],int *p)
 {
     int v;
     char name[20];
@@ -826,9 +816,9 @@ void arch_bin (data alu[], int *p)
         v=validCh(name);
     }
     while (v==1);
-    strcat(name, ".txt");
+    strcat(name, ".dll");
     
-    FILE *doc = fopen (name,"r");
+    FILE *doc = fopen (name,"rb");
     if(doc)
     {
         data reg;
@@ -838,31 +828,22 @@ void arch_bin (data alu[], int *p)
         {
             if(((*p)+1) <= P)
             {
-                fscanf(doc,"%d.- %d %s %s %s %d %s", &i , &reg.mat , reg.name , reg.app , reg.apm , &reg.age , cad);
-                if(strcmp(cad,"HOMBRE")==0)
+
+                fread(i, sizeof(int), 1, doc);
+                fread(".-", sizeof(char), 4, doc); 
+                fread(reg[i].mat, sizeof(int), 1, doc);
+                fread(reg[i].name, sizeof(char), 15, doc); 
+                fread(reg[i].app, sizeof(char), 15, doc); 
+                fread(reg[i].apm, sizeof(char), 15, doc); 
+                fread(reg[i].age, sizeof(int), 1, doc); 
+                
+                if (reg[i].gen == 1) 
                 {
-                    reg.gen=1;
-                }
-                else
+                    fwrite("HOMBRE", sizeof(char), 7, doc);
+                } 
+                else 
                 {
-                    if(strcmp(cad,"MASCULINO")==0)
-                    {
-                        reg.gen=1;
-                    }
-                    else
-                    {
-                        if(strcmp(cad,"MUJER")==0)
-                        {
-                            reg.gen=2;
-                        }
-                        else
-                        {
-                            if(strcmp(cad,"FEMENINO")==0)
-                            {
-                                reg.gen=2;
-                            }
-                        }
-                    }
+                    fwrite("MUJER", sizeof(char), 6, doc);
                 }
                 alu[(*p)++]=reg;
             }
@@ -882,4 +863,3 @@ void arch_bin (data alu[], int *p)
     }
     fclose(doc);
 }
-
