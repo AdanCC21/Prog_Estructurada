@@ -47,11 +47,9 @@ typedef struct alumno
     char apm[30];
 
     int gen;
-    char genc;
     int age;
 
     int pos;
-    char posc;
     int mat;
 }data;
 
@@ -741,7 +739,7 @@ void eli_txt (data reg[], int p,int pe)
     {
         strcpy(cad,"MUJER");
     }
-    fprintf(doc,"%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s\n", pe+1 , ".-" , reg[p].mat , reg[p].name , reg[p].app , reg[p].apm , reg[p].age , cad);
+    fprintf(doc,"%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s\n", pe , ".-" , reg[p].mat , reg[p].name , reg[p].app , reg[p].apm , reg[p].age , cad);
     
     fclose(doc);
 }
@@ -768,6 +766,7 @@ void doc_eli_txt ()
 void arch_bin (data reg[], int p)
 {
     int v;
+    data temp;
     char name[20];
     printf("Ingrese el nombre del documento nuevo, solo se permiten letras sin numeros\n(Si el archivo de texto ya existe este se reescribira)\n");
     do
@@ -783,23 +782,8 @@ void arch_bin (data reg[], int p)
     
     for (i = 0; i < p; i++) 
     {
-        fwrite(&i, sizeof(int), 1, doc);
-        
-        fwrite(".-", sizeof(char), 4, doc); 
-        fwrite(&reg[i].mat, sizeof(int), 1, doc);
-        fwrite(reg[i].name, sizeof(char), 15, doc); 
-        fwrite(reg[i].app, sizeof(char), 15, doc); 
-        fwrite(reg[i].apm, sizeof(char), 15, doc); 
-        fwrite(&reg[i].age, sizeof(int), 1, doc); 
-        
-        if (reg[i].gen == 1) 
-        {
-            fwrite("HOMBRE", sizeof(char), 7, doc);
-        } 
-        else 
-        {
-            fwrite("MUJER", sizeof(char), 6, doc);
-        }
+         temp=reg[i];
+         fwrite(&temp,sizeof(data),1,doc);
     }
     
     fclose(doc);
@@ -809,6 +793,7 @@ void carg_bin (data alu[],int *p)
 {
     int v;
     char name[20];
+
     printf("Ingrese el nombre del documento\n");
     do
     {
@@ -819,40 +804,17 @@ void carg_bin (data alu[],int *p)
     strcat(name, ".dll");
     
     FILE *doc = fopen (name,"rb");
+
     if(doc)
     {
         data reg;
-        char cad[7];
-        int i;
-        while(!feof(doc))
+        while(fread(&reg,sizeof(data), 1 ,doc))
         {
             if(((*p)+1) <= P)
             {
-
-                fread(i, sizeof(int), 1, doc);
-                fread(".-", sizeof(char), 4, doc); 
-                fread(reg[i].mat, sizeof(int), 1, doc);
-                fread(reg[i].name, sizeof(char), 15, doc); 
-                fread(reg[i].app, sizeof(char), 15, doc); 
-                fread(reg[i].apm, sizeof(char), 15, doc); 
-                fread(reg[i].age, sizeof(int), 1, doc); 
-                
-                if (reg[i].gen == 1) 
-                {
-                    fwrite("HOMBRE", sizeof(char), 7, doc);
-                } 
-                else 
-                {
-                    fwrite("MUJER", sizeof(char), 6, doc);
-                }
                 alu[(*p)++]=reg;
             }
-            else
-            {
-                printf("Registro lleno\n");
-            }
-        }   
-        
+        }
         printf("Registros cargado\n");
         system("PAUSE");
     }
