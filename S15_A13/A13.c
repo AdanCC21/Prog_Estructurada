@@ -195,6 +195,7 @@ void opci()
                         {
                             printf("La matricula se encuentra en la posicion %d \n", bus+1);
                             edit(registro,bus);
+                            ord=1;
                         }
                     }
                     else
@@ -212,6 +213,7 @@ void opci()
                         {
                             printf("La matricula se encuentra en la posicion %d \n", bus+1);
                             edit(registro,bus);
+                            ord=1;
                         }
                     }
                 }
@@ -384,6 +386,7 @@ void opci()
             //      -----------------Cargar Archivo Binario------------------         //
             {
                 carg_bin(registro,&pu);
+                ord=1;
                 break;
             }
             case 11:
