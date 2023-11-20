@@ -48,6 +48,7 @@ typedef struct alumno
 
     int gen;
     int age;
+    int stat;
 
     int pos;
     int mat;
@@ -323,7 +324,7 @@ void opci()
                 if(pu>0)
                 {
                     int k=40;
-                    printf("%-5s %-10s %-15s %-15s %-15s %-10s %-10s %-10s\n"," No","Matricula","Nombre","Ap Pat","Ap Mat","Edad","Gen","Status");                    
+                    printf("%-5s %-10s %-15s %-15s %-15s %-10s %-10s %-10s\n"," No","Matricula","Nombre","Ap Pat","Ap Mat","Edad","Gen","Estado");                    
                     for(i=0;i<pu;i++)
                     {
                         if(i<k)
@@ -456,6 +457,8 @@ void AutoAlumn (data alu[],int p)
 
     mat=rand() % (399999-300000+1)+300000;
     alu[p].mat=mat;
+
+    alu[p].stat=1;
 }
 
 void edit (data dat[],int p)
@@ -499,6 +502,9 @@ void edit (data dat[],int p)
     printf("Ingrese su genero\n1.-Hombre 2.-Mujer\n");
     dat[p].gen=valid2("Fuera de rango",1,2);
 
+    printf("Cual es su estado\n1.-Activo 2.-Inactivo\n");
+    dat[p].stat = valid2("Fuera de rango",1,2);
+
     printf("Ingrese su matricula\n");
     dat[p].mat=valid2("Fuera de rango",300000,399999);
 }
@@ -506,7 +512,7 @@ void edit (data dat[],int p)
 //  -----------------------Eliminacion----------------------- //
 int eliminacion (data dat[],int pu, int pe,int band)
 {
-    int i,pes,po,op;
+    int pes,po,op;
     printf("Ingrese la matricula que desea eliminar\n");
     pes=valid2("Fuera de rango (300000 - 399999)",300000,399999);
 
@@ -527,11 +533,7 @@ int eliminacion (data dat[],int pu, int pe,int band)
         if(op==1)
         {
             eli_txt(dat,po,pe);
-            for(i=po;i<pu;i++)
-            {
-                dat[i]=dat[i+1];
-            }
-            pu--;
+            dat[po].stat=0;
         }
     }
     else
@@ -647,8 +649,11 @@ void print (data reg[], int p)
     
     gen(cad,reg,p);
     position(cadp,reg, p);
-    
-    printf("%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s %-10s\n", p+1, ".-" , reg[p].mat , reg[p].name , reg[p].app , reg[p].apm , reg[p].age , cad , cadp);
+
+    if(reg[p].stat==1)
+    {
+        printf("%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s %-10s\n", p+1, ".-" , reg[p].mat , reg[p].name , reg[p].app , reg[p].apm , reg[p].age , cad , cadp);
+    }
 }
 
 void printb (data reg[],int p)
@@ -665,6 +670,7 @@ void printb (data reg[],int p)
     printf("Edad : %d\n",reg[p].age);
     printf("Genero : %s\n",cad);
     printf("Posicion : %s\n",cadp);
+    printf("Estado : %d\n",reg[p].stat);
 }
 
 //  -----------------------Archivo----------------------- //
@@ -723,7 +729,7 @@ void txt (data reg[], int p)
         {
             strcpy(cad,"MUJER");
         }
-        fprintf(doc,"%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s\n", i+1 , ".-" , reg[i].mat , reg[i].name , reg[i].app , reg[i].apm , reg[i].age , cad);
+        fprintf(doc,"%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s %-10d\n", i+1 , ".-" , reg[i].mat , reg[i].name , reg[i].app , reg[i].apm , reg[i].age , cad, reg[i].stat);
     }
     
     fclose(doc);
@@ -742,7 +748,7 @@ void eli_txt (data reg[], int p,int pe)
     {
         strcpy(cad,"MUJER");
     }
-    fprintf(doc,"%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s\n", pe+1 , ".-" , reg[p].mat , reg[p].name , reg[p].app , reg[p].apm , reg[p].age , cad);
+    fprintf(doc,"%d%-4s %-10d %-15s %-15s %-15s %-10d %-10s %-10d\n", pe+1 , ".-" , reg[p].mat , reg[p].name , reg[p].app , reg[p].apm , reg[p].age , cad, reg[p].stat);
     
     fclose(doc);
 }
