@@ -40,3 +40,29 @@ void li_apellidos (char cad[])
     "MEDINA", "GUERRERO", "SOTO", "SALAZAR", "ARIAS", "PAZ", "SOSA", "HERRERA"};
     strcpy(cad,ap[c-1]);
 }
+
+void li_generos (char cad[])
+{
+    int c;
+    c=rand() % (2-1+1)+1;
+    char generos[2][15] = {"HOMBRE","MUJER"};
+    strcpy(cad,generos[c]);
+}
+
+void li_puestos (char cad[])
+{
+    int c;
+    char puest [5][30] = {"EMPLEADO","SECRETARIO","AUXILIAR","LIMPIEZA","SEGURIDAD"};
+    c = rand() % (5 - 1 + 1)+1;
+    strcpy(cad,puest[c]);
+}
+
+int li_state_num(char cad[])
+{
+    int prefijo;
+    char estados [33][100]={"Aguascalientes","Baja California","Baja California Sur","Campeche", "Chiapas", "Chihuahua","Coahuila", "Colima","Durango","Guanajuato","Guerrero","Hidalgo",
+    "Jalisco","Estado de Mexico","Michoacan","Morelos","Nayarit","Nuevo Leon","Oaxaca","Puebla","Queretaro","Quintana Roo","San Luis Potosi","Sinaloa","Sonora","Tabasco","Tamaulipas",
+    "Tlaxcala","Veracruz","Yucatan,","Zacatecas","Ciudad de Mexico","Extranjero"};
+
+    return prefijo;
+}
