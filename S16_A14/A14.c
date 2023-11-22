@@ -76,31 +76,7 @@ void opci()
     } while (opci != 0);
 }
 
-void AutoGen(data alu[], int p)
+void new (data reg , int p)
 {
-    int c, mat;
-    c = rand() % (2 - 1 + 1) + 1;
-    char name[30], ap[30], apm[30], gen[15], puest[30];
-
-    li_nombres(name, c);
-    strcpy(alu[p].name, name);
-
-    li_apellidos(ap);
-    strcpy(alu[p].app, ap);
-
-    li_apellidos(apm);
-    strcpy(alu[p].apm, apm);
-
-    li_generos(gen);
-    strcpy(alu[p].gen, gen);
-
-    alu[p].age = rand() % (50 - 17 + 1) + 17;
-
-    li_puestos(puest);
-    strcpy(alu[p].JobP, puest);
-
-    mat = rand() % (399999 - 300000 + 1) + 300000;
-    alu[p].enrollement = mat;
-
-    alu[p].status = 1;
+    
 }
