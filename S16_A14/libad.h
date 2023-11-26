@@ -14,8 +14,6 @@
 //Validacion de numeros
 int valid (char msg[],int ri, int rf);
 
-int valid2 (char msg[],int ri, int rf);
-
 //Validacion de caracteres
 int validCh(char cadena[]);
 
@@ -41,22 +39,8 @@ void CUantisonantes (char curp[]);
 //      ------Funciones------       //
 
 //  Validacion de numeros
-int valid (char msg[],int ri, int rf)
-{
-    char cad[50];
-    int n;
-    do
-    {
-        printf("%s\n",msg);
-        fflush(stdin);
-        fgets(cad, sizeof(cad),stdin);
-        n=atoi(cad);
-    }
-    while(n>rf || n<ri);
-    return n;
-}
 
-int valid2 (char msg[],int ri, int rf)
+int valid (char msg[],int ri, int rf)
 {
     char cad[50];
     int n;

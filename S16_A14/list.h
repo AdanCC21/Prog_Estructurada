@@ -57,12 +57,33 @@ void li_puestos (char cad[])
     strcpy(cad,puest[c]);
 }
 
+void li_estados (char cad[])
+{
+    int i,c;
+    char estados [33][100]={"Aguascalientes","Baja California","Baja California Sur","Campeche", "Chiapas", "Chihuahua","Coahuila", "Colima","Durango","Guanajuato","Guerrero","Hidalgo",
+    "Jalisco","Estado de Mexico","Michoacan","Morelos","Nayarit","Nuevo Leon","Oaxaca","Puebla","Queretaro","Quintana Roo","San Luis Potosi","Sinaloa","Sonora","Tabasco","Tamaulipas",
+    "Tlaxcala","Veracruz","Yucatan,","Zacatecas","Ciudad de Mexico","Extranjero"};
+    c=rand() % (33-1+1)+1;
+    strcpy(cad,estados[c]);
+}
+
+/*
 int li_state_num(char cad[])
 {
-    int prefijo;
+    int prefijo,i;
     char estados [33][100]={"Aguascalientes","Baja California","Baja California Sur","Campeche", "Chiapas", "Chihuahua","Coahuila", "Colima","Durango","Guanajuato","Guerrero","Hidalgo",
     "Jalisco","Estado de Mexico","Michoacan","Morelos","Nayarit","Nuevo Leon","Oaxaca","Puebla","Queretaro","Quintana Roo","San Luis Potosi","Sinaloa","Sonora","Tabasco","Tamaulipas",
     "Tlaxcala","Veracruz","Yucatan,","Zacatecas","Ciudad de Mexico","Extranjero"};
 
+    for(i=0;i<33;i++)
+    {
+        if(strcpm(cad,estados[i]==0))
+        {
+            
+        }
+    }
+
     return prefijo;
 }
+
+*/

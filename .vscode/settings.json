@@ -2,6 +2,7 @@
     "files.associations": {
         "empanadas.h": "c",
         "time.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "stdio.h": "c"
     }
 }
