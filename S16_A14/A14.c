@@ -44,6 +44,10 @@ void opci();
 
 void new (data reg[] , int p);
 
+//--Busqueda--//
+int Tbus_sec (data vect [],int n,int num);
+int Tbuscbin(data reg[], int lef, int rig, int num);
+
 //---Archivos---//
 void crear_bin (data reg[],int p);
 void carg_bin (data reg[], int *p);
@@ -75,6 +79,7 @@ void menu()
 void opci()
 {
     int opci, p = 0;
+    int band_ord = FALSE;
     data reg[P];
     do
     {
@@ -115,8 +120,7 @@ void opci()
     } while (opci != 0);
 }
 
-void new (data reg[] , int p)
-{
+void new (data reg[] , int p){
     int c,i,temp;
     c=rand()%(2-1+1)+1;
     char temp[30];
@@ -169,15 +173,23 @@ void new (data reg[] , int p)
     crear_bin(reg, p);
 }
 
-void del (data reg[], int p)
+void del (data reg[], int p, int Band_ord)
 {
     int i,num,pos;
     printf("Que numero de empleado desea eliminar?\n");
     num=valid("FUERA DE RANGo",100000,399999);
-    pos = Tbus_sec(reg,p,num);
+    if(Band_ord==TRUE)
+    {
+        pos = Tbuscbin(reg,0,p-1,num);
+    }
+    else
+    {
+        pos = Tbus_sec(reg,p,num);
+    }
+    
     if(pos != -1)
     {
-        
+
     }
     else
     {
@@ -186,7 +198,8 @@ void del (data reg[], int p)
     }
 }
 
-//------Busqueda------//
+//--------------------------Busquedas--------------------------//
+
 int Tbus_sec (data vect [],int n,int num)
 {
     int i;
@@ -199,6 +212,32 @@ int Tbus_sec (data vect [],int n,int num)
     }
     return -1; 
 }
+
+int Tbuscbin(data reg[], int lef, int rig, int num) 
+{
+    int med;
+    while (lef <= rig)
+    {
+        med = lef + (rig - lef) / 2;
+        
+        if (reg[med].key.llave == num)
+        {
+            return med;
+        }
+
+        if (reg[med].key.llave < num)
+        {
+            lef = med + 1;
+        }
+        else
+        {
+            rig = med - 1;
+        }
+    }
+    return -1;
+}
+
+//--------------------------Archivos--------------------------//
 
 void crear_bin (data reg[],int p)
 {

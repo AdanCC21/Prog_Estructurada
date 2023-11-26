@@ -26,10 +26,41 @@ int num_alea_sr (int vect[], int n, int ri, int rf);
 //Busqueda secuencial de la posicion de un numero dentro de un arreglo
 int bus_sec (int vect [],int n,int num);
 
+/*  BUSQUEDA BINARIA
+    REQUIERE QUE EL VECTOR ESTE ORDENADO
+    Mandamos los agrumentos de la siguiente manera
+    vector[], lef = 0, right = p-1(tama;o del arreglo - 1), num(Numero que buscamos)
+    Parte de la mitad y compara de menor y mayor el numero que le enviemos
+*/
+int buscbin(int vect[], int lef, int rig, int num);
+
 //Imprimir vect/arreglo
 void impr_vect (int vect[],int n);
 
 //  Generacion de curp y sus validaciones
+/*Datos
+        
+    cadena de la curp donde se retornara la cadena llena
+
+    Verificacion de datos
+    1=Si, 2=No
+    names2 = Tiene 2 nombres?
+    ap2= tiene 2 apellidos?
+    ap1= tiene 1 apellido?
+
+    Datos
+    name = Nombre
+    name2 = Segundo nombre
+    app = Apellido paterno
+    apm = Apellido materno
+
+    day = dia de nacimiento
+    month = mes de nacimiento
+    year = anio de nacimiento
+
+    gen = genero (1.-Hombre, 2.-Mujer)
+    estado = lugar de nacimiento (Se presentara en el programa original una lista de estados y tomara el indice del estado, indice del 1 al 33)
+*/
 void CU_Auto_Gen (char curp[], int names2, int ap2, int ap1, char name[],char name2[], char app[], char apm[], int day, int month, int  year, int gen, int estado);
 //  Validaciones
 void CUvalidAc (char cad[]);
@@ -39,7 +70,6 @@ void CUantisonantes (char curp[]);
 //      ------Funciones------       //
 
 //  Validacion de numeros
-
 int valid (char msg[],int ri, int rf)
 {
     char cad[50];
@@ -144,6 +174,31 @@ int bus_sec (int vect [],int n,int num)
     }
     return -1; 
     //de lo contrario lanzara un -1, que este esta fuera del rango de cualquier arreglo/cadena evitando lanzar una posicion erronea
+}
+
+//  Busqueda Binaria en un arreglo ordenado //
+int buscbin(int vect[], int lef, int rig, int num)
+{
+    int med;
+    while (lef <= rig)
+    {
+        med = lef + (rig - lef) / 2;
+        
+        if (vect[med] == num)
+        {
+            return med;
+        }
+
+        if (vect[med].mat < num)
+        {
+            lef = med + 1;
+        }
+        else
+        {
+            rig = med - 1;
+        }
+    }
+    return -1;
 }
 
 //  Generaicon de numeros aleatorios sin repetir
