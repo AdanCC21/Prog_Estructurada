@@ -15,10 +15,15 @@
 
 typedef int Tkey;
 
+typedef struct indice
+{
+    int indice;
+    Tkey llave;
+}indi;
+
 typedef struct datos
 {
     int status;
-    Tkey enrollement;
 
     char name[30];
     char app[50];
@@ -30,13 +35,19 @@ typedef struct datos
     
     int age;
     Tkey phone;
+    indi key;
 } data;
 
 //----------------------Prototipos-------------------------//
 void menu();
 void opci();
 
-void new (data reg[], int p);
+void new (data reg[] , int p);
+
+//---Archivos---//
+void crear_bin (data reg[],int p);
+void carg_bin (data reg[], int *p);
+void crear_txt (data reg[],int p);
 
 //-------------------------Main----------------------------//
 int main()
@@ -63,7 +74,8 @@ void menu()
 
 void opci()
 {
-    int opci;
+    int opci, p = 0;
+    data reg[P];
     do
     {
         menu();
@@ -72,6 +84,28 @@ void opci()
         {
             case 1:
             {
+                if(p<P)
+                {
+                    new(reg,p);
+                    printf("Listo\n");
+                }
+                else
+                {
+                    printf("Registros llenos\n");
+                }
+                getch();
+            }
+            case 2:
+            {
+                if(p>0)
+                {
+
+                }
+                else
+                {
+                    printf("Registro vacio\n");
+                    getch();
+                }
             }
             case 0:
             {
@@ -83,10 +117,12 @@ void opci()
 
 void new (data reg[] , int p)
 {
-    int c;
+    int c,i,temp;
     c=rand()%(2-1+1)+1;
     char temp[30];
     
+    reg[p].key.indice = p;
+
     li_nombres(temp,c);
     strcpy(reg[p].name,temp);
 
@@ -107,12 +143,61 @@ void new (data reg[] , int p)
 
     reg[p].age = rand()%(30-17+1)+17;
 
-    reg[p].phone = rand() % (1000000 - 3999999 + 1) + 3999999;
+    temp = rand() % (1000000 - 3999999 + 1) + 3999999;
+    for(i=0;i<p;i++)
+    {
+        if(reg[i].phone==temp)
+        {
+            temp = rand() % (1000000 - 3999999 + 1) + 3999999;
+            i=0;
+        }
+    }
+    reg[i].phone=temp;
 
-    reg[p].enrollement = rand() % (399999-300000+1)+300000;;
+    temp = rand() % (399999-100000+1)+100000;
+    for(i=0;i<p;i++)
+    {
+        if(reg[i].key.llave==temp)
+        {
+            temp = rand() % (399999-100000+1)+100000;
+            i=0;
+        }
+    }
+    reg[p].key.llave=temp;
 
     reg[p].status=1;
     crear_bin(reg, p);
+}
+
+void del (data reg[], int p)
+{
+    int i,num,pos;
+    printf("Que numero de empleado desea eliminar?\n");
+    num=valid("FUERA DE RANGo",100000,399999);
+    pos = Tbus_sec(reg,p,num);
+    if(pos != -1)
+    {
+        
+    }
+    else
+    {
+        printf("Empleado no encontrado\n");
+        getch();
+    }
+}
+
+//------Busqueda------//
+int Tbus_sec (data vect [],int n,int num)
+{
+    int i;
+    for(i=0;i<n;i++)
+    {
+        if(vect[i].key.llave==num)
+        {
+            return i;
+        }
+    }
+    return -1; 
 }
 
 void crear_bin (data reg[],int p)
@@ -121,11 +206,20 @@ void crear_bin (data reg[],int p)
 
     int i; data temp;
     FILE *doc = fopen("base.dll","ab");
-    for(i = 0;i < p ;i++)
+    if(doc == NULL)
     {
-        temp=reg[p];
-        fwrite(&temp,sizeof(data),1,doc);
+        printf("ERROR 404, Archivo no encontrado\n");
+        getch();
     }
+    else
+    {
+        for(i = 0;i < p ;i++)
+        {
+            temp=reg[p];
+            fwrite(&temp,sizeof(data),1,doc);
+        }
+    }
+
     fclose(doc);
 }
 
