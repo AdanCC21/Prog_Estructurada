@@ -50,8 +50,9 @@ int Tbus_sec (indi vect [],int n,int num);
 int Tbuscbin(indi reg[], int lef, int rig, int num);
 
 //---Archivos---//
-void crear_bin (data reg[],int p);
-void carg_bin (data reg[], indi indice [],int *p);
+void carg_reg (data reg[], indi indice [],int *p);
+
+void crear_bin (int p, indi indice[],int ordenada);
 void crear_txt (data reg[],int p);
 
 int cont_reg(char name[]);
@@ -82,18 +83,16 @@ void menu()
 
 void opci()
 {
-    int opci,elim,bus, bpos, p = 0, P;
+    int opci,elim,bus, bpos, p=0, P;
     int band_ord = FALSE;
 
     P = cont_reg("datos");
     P *=1.25;
     
     data reg[P];
-    indi indice[P];
-    //carg_bin(reg,indice,&p);
-
-    system("PAUSE");
-
+    indi indice[P]; // Guardarlo en un archivo binario
+    
+    carg_reg(reg,indice,&p);
     do
     {
         system("CLS");
@@ -198,7 +197,9 @@ void new (data reg[] , int p, indi indice[])
     char temp[30];
     int c,i,tempN;
     c=rand()%(2-1+1)+1;
-
+    
+    reg[p].status=1;
+    
     li_nombres(temp,c);
     strcpy(reg[p].name,temp);
 
@@ -241,12 +242,12 @@ void new (data reg[] , int p, indi indice[])
     }
     reg[p].enrollment=tempN;
 
-    reg[p].status=1;
-
     indice[p].indice=p;
     indice[p].llave = reg[p].enrollment;
 
-    crear_bin(reg,p);
+    crear_index(p); //Cargara datos al indice
+    carg_dat(reg,p); //agregara la nueva persona al datos.dat
+    
 }
 
 void del (data reg[], int p, indi indice[], int *Band_ord) //Modificar para archivo binario
@@ -318,6 +319,94 @@ int Tbuscbin(indi reg[], int lef, int rig, int num)
     return -1;
 }
 
+void bus_abinario(int pos)
+{
+    int i;
+    FILE *doc = fopen("datos.dat","rb");
+
+    fclose(doc);
+}
+
+//--------------------------Ordenar--------------------------//
+
+void ord_index(indi indice,int p)
+{
+    if(p<3000)
+    {
+        //Metodo de ordenamiento binario
+    }
+    else
+    {
+        if(p<10000)
+        {
+            //Metodo quizsort
+        }
+        else
+        {
+            //Otro metodo de ordenamiento
+        }
+    }
+}
+
+void ordenarB (indi reg[], int n)
+{
+    int i,j;
+    indi temp;
+    for(j=0;j<n;j++)
+    {
+        for(i=j+1;i<n;i++)
+        {
+            if(reg[j].llave > reg[i].llave)
+            {
+                temp=reg[i];
+                reg[i]=reg[j];
+                reg[j]=temp;
+            }
+        }
+    }
+}
+
+//  -------Quicksort-------- //
+
+void swap(indi students[], int i, int j)
+{
+    indi temp = students[i];
+    students[i] = students[j];
+    students[j] = temp;
+}
+
+int partition(indi students[], int low, int high)
+{
+    indi pivot;
+    pivot.llave = students[high].llave;
+    int i = low - 1;
+
+    for (int j = low; j <= high - 1; j++)
+    {
+        if (students[j].llave <= pivot.llave)
+        {
+            i++;
+            swap(students, i, j);
+        }
+    }
+    swap(students, i + 1, high);
+    return i + 1;
+}
+
+void quicksort(indi students[], int low, int high)
+{
+    if (low < high)
+    {
+        int pi = partition(students, low, high);
+
+        quicksort(students, low, pi - 1);
+        quicksort(students, pi + 1, high);
+    }
+}
+
+//  ------------------------ //
+
+
 //--------------------------Iprimir--------------------------//
 void prin (data reg[], int p, indi indice[])
 {
@@ -325,39 +414,15 @@ void prin (data reg[], int p, indi indice[])
     printf("%-2s %-15s %-15s %-15s %-15s %-15s %-10s %-10s %-10s\n","Pos.","No.Empleado","Nombre","Ap. PAT","Ap. MAT","Job","Genero","Estado","No.Celular");
     for (i=0;i<p;i++)
     {
-        if(reg[i].status==1)
-        {
-            printf("%-5d %-15d %-15s %-15s %-15s %-15s %-10s %-10s %-10d\n",indice[i].indice, indice[i].llave, reg[i].name,reg[i].app,reg[i].apm,reg[i].job,reg[i].gen,reg[i].state, reg[i].phone);
-        }
+        // printf("%-5d %-15d %-15s %-15s %-15s %-15s %-10s %-10s %-10d\n",indice[i].indice, indice[i].llave, reg[i].name,reg[i].app,reg[i].apm,reg[i].job,reg[i].gen,reg[i].state, reg[i].phone);
+        printf("%d %d\n",indice[i].indice,indice[i].llave);
+        
     }
     system("PAUSE");
 }
 //--------------------------Archivos--------------------------//
 
-void crear_bin (data reg[],int p)
-{
-    //-----------Archivo Base--------------
-
-    int i; data temp;
-    FILE *doc = fopen("base.dll","ab");
-    if(doc == NULL)
-    {
-        printf("ERROR 404, Archivo no encontrado\n");
-        getch();
-    }
-    else
-    {
-        for(i = 0;i < p ;i++)
-        {
-            temp=reg[i];
-            fwrite(&temp,sizeof(data),1,doc);
-        }
-    }
-
-    fclose(doc);
-}
-
-void carg_bin (data reg[], indi indice [], int *p)
+void carg_reg (data reg[], indi indice [], int *p)
 {
     int i = 0;
     data temp;
@@ -370,8 +435,7 @@ void carg_bin (data reg[], indi indice [], int *p)
         {
             if(temp.status==1)
             {
-                reg[i]=temp;
-                indice[i].llave=reg[i].enrollment;
+                indice[i].llave=temp.enrollment;
                 indice[i].indice=i;
                 i++;
                 (*p)++;
@@ -379,6 +443,37 @@ void carg_bin (data reg[], indi indice [], int *p)
         }
         fclose(doc);
     }
+}
+
+void crear_index (int p)
+{
+    int i; 
+    indi temp;
+    FILE *doc = fopen("index.dat","wb");
+
+    if(doc == NULL)
+    {
+        printf("ERROR 404, Archivo no encontrado\n");
+        getch();
+    }
+    else
+    {
+        for(i = 0;i < p ;i++)
+        {
+            fwrite(&temp,sizeof(indi),1,doc);
+        }
+    }
+    fclose(doc);
+}
+
+void carg_dat (data reg[], int p)
+{
+    FILE *doc = fopen("datos.dat","ab");
+    if(doc)
+    {
+        fwrite(&reg[p],sizeof(data),1,doc);
+    }
+    fclose(doc);
 }
 
 int cont_reg(char name[])
@@ -392,3 +487,5 @@ int cont_reg(char name[])
 
     return c;
 }
+
+
