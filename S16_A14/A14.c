@@ -51,11 +51,11 @@ int Tbuscbin(indi reg[], int lef, int rig, int num);
 
 //---Archivos---//
 void carg_reg (data reg[], indi indice [],int *p);
-
-void crear_bin (int p, indi indice[],int ordenada);
-void crear_txt (data reg[],int p);
+void crear_index (int p);
+void carg_dat (data reg[], int p);
 
 int cont_reg(char name[]);
+
 
 //-------------------------Main----------------------------//
 int main()
