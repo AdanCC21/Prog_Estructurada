@@ -189,7 +189,7 @@ int buscbin(int vect[], int lef, int rig, int num)
             return med;
         }
 
-        if (vect[med].mat < num)
+        if (vect[med] < num)
         {
             lef = med + 1;
         }

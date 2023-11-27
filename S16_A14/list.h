@@ -46,25 +46,25 @@ void li_generos (char cad[])
     int c;
     c=rand() % (2-1+1)+1;
     char generos[2][15] = {"HOMBRE","MUJER"};
-    strcpy(cad,generos[c]);
+    strcpy(cad,generos[c-1]);
 }
 
 void li_puestos (char cad[])
 {
     int c;
-    char puest [5][30] = {"EMPLEADO","SECRETARIO","AUXILIAR","LIMPIEZA","SEGURIDAD"};
+    char puest [5][30] = {"EMPLEADO","SECRETARIO/A","AUXILIAR","LIMPIEZA","SEGURIDAD"};
     c = rand() % (5 - 1 + 1)+1;
-    strcpy(cad,puest[c]);
+    strcpy(cad,puest[c-1]);
 }
 
 void li_estados (char cad[])
 {
-    int i,c;
+    int c;
     char estados [33][100]={"Aguascalientes","Baja California","Baja California Sur","Campeche", "Chiapas", "Chihuahua","Coahuila", "Colima","Durango","Guanajuato","Guerrero","Hidalgo",
     "Jalisco","Estado de Mexico","Michoacan","Morelos","Nayarit","Nuevo Leon","Oaxaca","Puebla","Queretaro","Quintana Roo","San Luis Potosi","Sinaloa","Sonora","Tabasco","Tamaulipas",
     "Tlaxcala","Veracruz","Yucatan,","Zacatecas","Ciudad de Mexico","Extranjero"};
     c=rand() % (33-1+1)+1;
-    strcpy(cad,estados[c]);
+    strcpy(cad,estados[c-1]);
 }
 
 /*
