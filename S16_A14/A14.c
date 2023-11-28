@@ -550,7 +550,6 @@ void mergeSort(indi arr[], int l, int r)
 }
 
 //--------------------------Iprimir--------------------------//
-
 void prin_only (data reg)
 {
     if(reg.status==1)
@@ -609,7 +608,6 @@ void prin_ord(indi indice[],int p)
     fclose(fa);
 }
 //--------------------------Archivos--------------------------//
-
 void carg_index (indi indice [], int *p)
 {
     int i = 0;
