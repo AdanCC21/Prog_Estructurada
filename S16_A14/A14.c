@@ -39,21 +39,40 @@ typedef struct datos
 //----------------------Prototipos-------------------------//
 void menu();
 void opci();
+//--Base--//
+void new (data reg , int p,indi indice[]);
+void del (int p, indi indice[], int *Band_ord);
 
-void new (data reg[] , int p,indi indice[]);
-void del (data reg[], int p, indi indice[], int *Band_ord);
-
-void prin (data reg[], int p, indi indice[]);
+//--Imprimir--//
+void prin (int p, indi indice[]);
+void prin_only (data reg);
+void prin_org();
+void prin_ord(indi indice[],int p);
 
 //--Busqueda--//
 int Tbus_sec (indi vect [],int n,int num);
 int Tbuscbin(indi reg[], int lef, int rig, int num);
 
-//---Archivos---//
-void carg_reg (data reg[], indi indice [],int *p);
-void crear_index (int p);
-void carg_dat (data reg[], int p);
+//--Ordenamiento--//
+void ord_index(indi indice[],int p,int band_preo,int band_ord);
+//Burbuja
+void ordenarB (indi reg[], int n);
+//Quick
+void quicksort(indi students[], int low, int high);
+int partition(indi students[], int low, int high);
+void swap(indi students[], int i, int j);
+//Marge
+void merge(indi arr[], int l, int m, int r);
+void mergeSort(indi arr[], int l, int r);
+//----
 
+//---Archivos---//
+void carg_index (indi indice [],int *p);
+void crear_index (int p);
+void carg_dat (data reg);
+
+void most_dat (indi indice[], int p);
+void do_txt (indi indice[],int p,int band_ord);
 int cont_reg(char name[]);
 
 
@@ -84,15 +103,15 @@ void menu()
 void opci()
 {
     int opci,elim,bus, bpos, p=0, P;
-    int band_ord = FALSE;
+    int band_ord = FALSE, band_preo = 0,cont= 0;
 
     P = cont_reg("datos");
     P *=1.25;
     
-    data reg[P];
+    data reg;
     indi indice[P]; // Guardarlo en un archivo binario
     
-    carg_reg(reg,indice,&p);
+    carg_index(indice,&p);
     do
     {
         system("CLS");
@@ -105,7 +124,19 @@ void opci()
                 if(p<P)
                 {
                     new(reg, p, indice);
+                    if(band_ord==TRUE)
+                    {
+                        cont=0;
+                    }
                     p++;
+                    band_ord=FALSE;
+                    band_preo=1;
+                    cont++;
+
+                    if(cont>5)
+                    {
+                        band_preo=0;
+                    }
                     printf("Listo\n");
                 }
                 else
@@ -123,7 +154,7 @@ void opci()
                     elim = valid("FUERA DE RANGO",1,2);
                     if(elim==1)
                     {
-                        del(reg,p,indice, &band_ord);
+                        del(p,indice, &band_ord);
                     }
                     else
                     {
@@ -138,7 +169,7 @@ void opci()
                 }
                 break;
             }
-            case 3: //Modificar para archivo binario //Modificar para archivo binario //Modificar para archivo binario //Modificar para archivo binario
+            case 3:
             {
                 if(p<0)
                 {
@@ -147,14 +178,14 @@ void opci()
                 else
                 {
                     printf("Ingrese el No.Empleado que desea buscar\n");
-                    bus=valid("FUERA DE RANGO",100000,399999);
+                    bus=valid("FUERA DE RANGO",300000,399999);
 
                     if(band_ord == TRUE)
                     {
                         bpos = Tbuscbin(indice,0,p-1,bus);
                         if(bpos!=-1)
                         {
-                            printf("Su empleado se encuentra en la posicion : %d\n",bpos);
+                            most_dat(indice,bpos);
                         }
                         else
                         {
@@ -166,7 +197,7 @@ void opci()
                         bpos = Tbus_sec(indice,p,bus);
                         if(bpos!=-1)
                         {
-                            printf("Su empleado se encuentra en la posicion : %d\n",bpos);
+                            most_dat(indice,bpos);
                         }
                         else
                         {
@@ -177,9 +208,50 @@ void opci()
                 }
                 break;
             }
+            case 4:
+            {
+                if(band_ord == FALSE || band_preo == 1)
+                {
+                    ord_index(indice,p,band_preo,band_ord);
+                    band_ord=TRUE;
+                }
+                else
+                {
+                    printf("Registros ya ordenados\n");
+                    getch();
+                }
+                break;
+            }
+            case 5:
+            {
+                printf("Archivo original\n");
+                prin_org();
+                break;
+            }
+            case 6:
+            {
+                if(band_ord==TRUE)
+                {
+                    printf("Archivo ordenado\n");
+                    prin_ord(indice,p);
+                }
+                else
+                {
+                    printf("Archivo no ordenado\nPorfavor ordenelo");
+                    getch();
+                }
+                break;
+            }
+            case 7:
+            {
+                do_txt(indice,p,band_ord);
+                break;   
+            }
+            case 8:
+            
             case 9:
             {
-                prin(reg,p,indice);
+                prin(p,indice);
                 break;
             }
             case 0:
@@ -192,70 +264,61 @@ void opci()
     } while (opci != 0);
 }
 
-void new (data reg[] , int p, indi indice[])
+void new (data reg , int p, indi indice[])
 {
     char temp[30];
     int c,i,tempN;
     c=rand()%(2-1+1)+1;
     
-    reg[p].status=1;
+    reg.status=1;
     
     li_nombres(temp,c);
-    strcpy(reg[p].name,temp);
+    strcpy(reg.name,temp);
 
     li_apellidos(temp);
-    strcpy(reg[p].app,temp);
+    strcpy(reg.app,temp);
 
     li_apellidos(temp);
-    strcpy(reg[p].apm,temp);
+    strcpy(reg.apm,temp);
 
     li_generos(temp);
-    strcpy(reg[p].gen,temp);
+    strcpy(reg.gen,temp);
 
     li_puestos(temp);
-    strcpy(reg[p].job,temp);
+    strcpy(reg.job,temp);
 
     li_estados(temp);
-    strcpy(reg[p].state, temp);
+    strcpy(reg.state, temp);
 
-    reg[p].age = rand()%(30-17+1)+17;
-
-    tempN = rand() % (1000000 - 3999999 + 1) + 3999999;
-    for(i=0;i<p;i++)
-    {
-        if(reg[i].phone==tempN)
-        {
-            tempN = rand() % (1000000 - 3999999 + 1) + 3999999;
-            i=0;
-        }
-    }
-    reg[i].phone=tempN;
+    reg.age = rand()%(30-17+1)+17;
+ 
+    reg.phone = rand() % (1000000 - 3999999 + 1) + 3999999;
 
     tempN = rand() % (399999-300000+1)+300000;
     for(i=0;i<p;i++)
     {
-        if(reg[i].enrollment==tempN)
+        if(indice[i].llave==tempN)
         {
             tempN = rand() % (399999-300000+1)+300000;
             i=0;
         }
     }
-    reg[p].enrollment=tempN;
+    reg.enrollment = tempN;
 
-    indice[p].indice=p;
-    indice[p].llave = reg[p].enrollment;
+    indice[p].indice = p;
+    indice[p].llave = reg.enrollment;
 
     crear_index(p); //Cargara datos al indice
-    carg_dat(reg,p); //agregara la nueva persona al datos.dat
-    
+    carg_dat(reg); //agregara la nueva persona al datos.dat
 }
 
-void del (data reg[], int p, indi indice[], int *Band_ord) //Modificar para archivo binario
+void del (int p, indi indice[], int *Band_ord) //Hay algo que corregir
 {
-    int num,pos;
-    
+    int num,pos,opci;
+    data reg;
+
     printf("Que numero de empleado desea eliminar?\n");
-    num=valid("FUERA DE RANGo",100000,399999); //----------------Modificar al data del profe -----------------------//
+    num=valid("FUERA DE RANGO",300000,399999);
     
     if(*Band_ord==TRUE)
     {
@@ -268,10 +331,35 @@ void del (data reg[], int p, indi indice[], int *Band_ord) //Modificar para arch
     
     if(pos != -1)
     {
-        reg[pos].status=0;
-        *Band_ord=FALSE;
-        printf("Listo\n");
-        getch();
+        FILE *doc = fopen("datos.dat", "rb+");
+        if(doc)
+        {
+            system("CLS");
+            fseek(doc, indice[pos].indice * sizeof(data), SEEK_SET);
+            fread(&reg, sizeof(data), 1, doc);
+            prin_only(reg);
+
+            printf("Este es su registro, Seguro que desea elimnarlo?\n1.-Si, Eliminar\t2.-No, Conservar\n");
+            opci = valid("FUERA DE RANGO",1,2);
+
+            if(opci== 1)
+            {
+                reg.status = 0;
+                fseek(doc, indice[pos].indice * sizeof(data), SEEK_SET);
+                fwrite(&reg, sizeof(data), 1, doc);
+
+                *Band_ord=FALSE;
+                prin_only(reg);
+                printf("Listo\n");
+                getch();
+            }
+            else
+            {
+                printf("Registro NO eliminado\n");
+                getch();
+            }
+        }
+        fclose(doc);
     }
     else
     {
@@ -319,31 +407,28 @@ int Tbuscbin(indi reg[], int lef, int rig, int num)
     return -1;
 }
 
-void bus_abinario(int pos)
-{
-    int i;
-    FILE *doc = fopen("datos.dat","rb");
-
-    fclose(doc);
-}
-
 //--------------------------Ordenar--------------------------//
-
-void ord_index(indi indice,int p)
+void ord_index(indi indice[],int p,int band_preo,int band_ord)
 {
-    if(p<3000)
+    if(band_preo == 1)
     {
-        //Metodo de ordenamiento binario
+        ordenarB(indice,p);
+        printf("Ordenado, metodo : burbuja\n");
+        getch();
     }
     else
     {
-        if(p<10000)
+        if(band_ord==FALSE)
         {
-            //Metodo quizsort
+            quicksort(indice,0,p-1);
+            printf("Ordenado, metodo : QuickSort\n");
+            getch();
         }
         else
         {
-            //Otro metodo de ordenamiento
+            mergeSort(indice,0,p-1);
+            printf("Ordenado, metodo : MargeSort\n");
+            getch();
         }
     }
 }
@@ -367,7 +452,6 @@ void ordenarB (indi reg[], int n)
 }
 
 //  -------Quicksort-------- //
-
 void swap(indi students[], int i, int j)
 {
     indi temp = students[i];
@@ -404,25 +488,139 @@ void quicksort(indi students[], int low, int high)
     }
 }
 
-//  ------------------------ //
+//  ----------MARGE-------------- //
+void merge(indi arr[], int l, int m, int r) 
+{
+    int i, j, k;
+    int n1 = m - l + 1;
+    int n2 = r - m;
 
+    // Crear arreglos temporales
+    int L[n1], R[n2];
+
+    // Copiar datos a los arreglos temporales L[] y R[]
+    for (i = 0; i < n1; i++)
+        L[i] = arr[l + i].llave;
+    for (j = 0; j < n2; j++)
+        R[j] = arr[m + 1 + j].llave;
+
+    // Fusionar los arreglos temporales de vuelta en arr[l..r]
+    i = 0; // Índice inicial del primer subarreglo
+    j = 0; // Índice inicial del segundo subarreglo
+    k = l; // Índice inicial del arreglo fusionado
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k].llave = L[i];
+            i++;
+        } else {
+            arr[k].llave = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    // Copiar los elementos restantes de L[], si hay alguno
+    while (i < n1) {
+        arr[k].llave = L[i];
+        i++;
+        k++;
+    }
+
+    // Copiar los elementos restantes de R[], si hay alguno
+    while (j < n2) {
+        arr[k].llave = R[j];
+        j++;
+        k++;
+    }
+}
+
+// Función recursiva que implementa el algoritmo Merge Sort
+void mergeSort(indi arr[], int l, int r) 
+{
+    if (l < r) {
+        int m = l + (r - l) / 2; // Encuentra el punto medio
+
+        // Ordena la primera y la segunda mitad
+        mergeSort(arr, l, m);
+        mergeSort(arr, m + 1, r);
+
+        // Fusiona las mitades ordenadas
+        merge(arr, l, m, r);
+    }
+}
 
 //--------------------------Iprimir--------------------------//
-void prin (data reg[], int p, indi indice[])
+
+void prin (int p, indi indice[])
 {
     int i;
-    printf("%-2s %-15s %-15s %-15s %-15s %-15s %-10s %-10s %-10s\n","Pos.","No.Empleado","Nombre","Ap. PAT","Ap. MAT","Job","Genero","Estado","No.Celular");
     for (i=0;i<p;i++)
     {
-        // printf("%-5d %-15d %-15s %-15s %-15s %-15s %-10s %-10s %-10d\n",indice[i].indice, indice[i].llave, reg[i].name,reg[i].app,reg[i].apm,reg[i].job,reg[i].gen,reg[i].state, reg[i].phone);
         printf("%d %d\n",indice[i].indice,indice[i].llave);
-        
     }
     system("PAUSE");
 }
+
+void prin_only (data reg)
+{
+    if(reg.status==1)
+    {
+        printf("%-15d %-15s %-15s %-15s %-15s %-10s %-10s %-10d %-10d\n",reg.enrollment, reg.name,reg.app,reg.apm,reg.job,reg.gen,reg.state, reg.phone, reg.status);
+    }
+    else
+    {
+        printf("Su empleado esta dado de baja\n");
+    }
+}
+
+void prin_org()
+{
+    data reg;
+    int i;
+    FILE *doc = fopen("datos.dat","rb");
+    printf("%-5s %-15s %-15s %-15s %-15s %-15s %-10s %-10s %-10s %-10s\n","No.","No.Empleado","Nombre","Ap. PAT","Ap. MAT","Job","Genero","Estado","No.Celular","Status");
+    while(fread(&reg,sizeof(data), 1 ,doc))
+    {
+        if(reg.status==1)
+        {
+            printf("%-5d %-15d %-15s %-15s %-15s %-15s %-10s %-10s %-10d %-10d\n",i,reg.enrollment, reg.name,reg.app,reg.apm,reg.job,reg.gen,reg.state, reg.phone, reg.status);
+            i++;
+        }
+        else
+        {
+            printf("Su empleado esta dado de baja\n");
+        }
+    }
+    getch();
+}
+
+void prin_ord(indi indice[],int p)
+{
+    data reg;
+    int j;
+    FILE *fa;
+    printf("%-5s %-15s %-15s %-15s %-15s %-15s %-10s %-10s %-10s %-10s\n","No.","No.Empleado","Nombre","Ap. PAT","Ap. MAT","Job","Genero","Estado","No.Celular","Status");
+    fa = fopen("datos.dat", "rb");
+    if (fa)
+    {
+        for(j=0;j < p;j++)
+        {
+            rewind(fa);
+            fseek(fa, indice[j].indice * sizeof(data), SEEK_SET);
+            fread(&reg, sizeof(data), 1, fa);
+            printf("%-5d %-15d %-15s %-15s %-15s %-15s %-10s %-10s %-10d %-10d\n",j,reg.enrollment, reg.name,reg.app,reg.apm,reg.job,reg.gen,reg.state, reg.phone, reg.status);
+        }
+    }
+    else
+    {
+        printf("Error al abrir archivo\n");
+    }
+    getch();
+    fclose(fa);
+}
 //--------------------------Archivos--------------------------//
 
-void carg_reg (data reg[], indi indice [], int *p)
+void carg_index (indi indice [], int *p)
 {
     int i = 0;
     data temp;
@@ -466,14 +664,90 @@ void crear_index (int p)
     fclose(doc);
 }
 
-void carg_dat (data reg[], int p)
+void carg_dat (data reg)
 {
     FILE *doc = fopen("datos.dat","ab");
     if(doc)
     {
-        fwrite(&reg[p],sizeof(data),1,doc);
+        fwrite(&reg,sizeof(data),1,doc);
     }
     fclose(doc);
+}
+
+void most_dat (indi indice[], int p)
+{
+    data reg;
+    FILE *doc = fopen("datos.dat", "rb");
+    if(doc)
+    {
+        fseek(doc, indice[p].indice * sizeof(data), SEEK_SET);
+        fread(&reg, sizeof(data), 1, doc);
+        prin_only(reg);
+    }
+    fclose(doc);
+}
+
+void do_txt (indi indice[],int p,int band_ord)
+{
+    int v,opci,i=0;
+    data reg;
+    char name[20];
+    printf("Ingrese el nombre del documento nuevo, solo se permiten letras sin numeros\n(Si el archivo de texto ya existe este se reescribira)\n");
+    do
+    {
+        gets(name);
+        v=validCh(name);
+    }
+    while (v==1);
+    strcat(name, ".txt");
+    
+    FILE *doc = fopen("datos.dat","rb");
+    FILE *tx = fopen (name,"w");
+
+    printf("Desea que este ordenado o no\n1.-Ordenado\t2.-Base\n");
+    opci = valid("FUERA DE RANGO",1,2);
+    if(opci == 1)
+    {
+        if(band_ord==TRUE)
+        {
+            int j;
+            fprintf(tx,"%-5s %-15s %-15s %-15s %-15s %-15s %-10s %-10s %-10s %-10s\n","No.","No.Empleado","Nombre","Ap. PAT","Ap. MAT","Job","Genero","Estado","No.Celular","Status");
+            for(j=0;j < p;j++)
+            {
+                rewind(doc);
+                fseek(doc, indice[j].indice * sizeof(data), SEEK_SET);
+                fread(&reg, sizeof(data), 1, doc);
+                fprintf(tx,"%-5d %-15d %-15s %-15s %-15s %-15s %-10s %-10s %-10d %-10d\n",j,reg.enrollment, reg.name,reg.app,reg.apm,reg.job,reg.gen,reg.state, reg.phone, reg.status);
+            }
+        }
+        else
+        {
+            printf("Archivo no ordenado\n");
+        }
+    }
+    else
+    {
+        fprintf(tx,"%-5s %-15s %-15s %-15s %-15s %-15s %-10s %-10s %-10s %-10s\n","No.","No.Empleado","Nombre","Ap. PAT","Ap. MAT","Job","Genero","Estado","No.Celular","Status");
+        while(fread(&reg,sizeof(data), 1 ,doc))
+        {
+            if(reg.status==1)
+            {
+                fprintf(tx,"%-5d %-15d %-15s %-15s %-15s %-15s %-10s %-10s %-10d %-10d\n",i,reg.enrollment, reg.name,reg.app,reg.apm,reg.job,reg.gen,reg.state, reg.phone, reg.status);
+                i++;
+            }
+            else
+            {
+                printf("Su empleado esta dado de baja\n");
+            }
+        }
+    }
+    printf("Listo\n");
+    getch();
+}
+
+void empa (indi indice[],int *p)
+{
+    
 }
 
 int cont_reg(char name[])
@@ -487,5 +761,3 @@ int cont_reg(char name[])
 
     return c;
 }
-
-
