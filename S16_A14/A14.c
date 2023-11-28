@@ -44,7 +44,6 @@ void new (data reg , int p,indi indice[]);
 void del (int p, indi indice[], int *Band_ord);
 
 //--Imprimir--//
-void prin (int p, indi indice[]);
 void prin_only (data reg);
 void prin_org();
 void prin_ord(indi indice[],int p);
@@ -73,6 +72,8 @@ void carg_dat (data reg);
 
 void most_dat (indi indice[], int p);
 void do_txt (indi indice[],int p,int band_ord);
+
+void empa ();
 int cont_reg(char name[]);
 
 
@@ -96,7 +97,6 @@ void menu()
     printf("6.-Imprimir Registros (Archivo Ordenado)\n");
     printf("7.-Generar Archivo De Texto\n");
     printf("8.-Empaquetar\n");
-    printf("9.-Calale\n");
     printf("0.-Salir\n");
 }
 
@@ -109,14 +109,14 @@ void opci()
     P *=1.25;
     
     data reg;
-    indi indice[P]; // Guardarlo en un archivo binario
+    indi indice[P];
     
     carg_index(indice,&p);
     do
     {
         system("CLS");
         menu();
-        opci = valid("Fuera de rango", 0, 9);
+        opci = valid("Fuera de rango", 0, 8);
         switch (opci)
         {
             case 1:
@@ -248,10 +248,10 @@ void opci()
                 break;   
             }
             case 8:
-            
-            case 9:
             {
-                prin(p,indice);
+                empa();
+                printf("Listo\n");
+                getch();
                 break;
             }
             case 0:
@@ -312,7 +312,7 @@ void new (data reg , int p, indi indice[])
     carg_dat(reg); //agregara la nueva persona al datos.dat
 }
 
-void del (int p, indi indice[], int *Band_ord) //Hay algo que corregir
+void del (int p, indi indice[], int *Band_ord)
 {
     int num,pos,opci;
     data reg;
@@ -551,16 +551,6 @@ void mergeSort(indi arr[], int l, int r)
 
 //--------------------------Iprimir--------------------------//
 
-void prin (int p, indi indice[])
-{
-    int i;
-    for (i=0;i<p;i++)
-    {
-        printf("%d %d\n",indice[i].indice,indice[i].llave);
-    }
-    system("PAUSE");
-}
-
 void prin_only (data reg)
 {
     if(reg.status==1)
@@ -745,9 +735,26 @@ void do_txt (indi indice[],int p,int band_ord)
     getch();
 }
 
-void empa (indi indice[],int *p)
+void empa ()
 {
-    
+    FILE *doc = fopen("datos.dat","rb");;
+    FILE *fa = fopen("datos.bak","wb");
+
+    data reg;
+
+    if(doc)
+    {
+        while(fread(&reg,sizeof(data), 1 ,doc))
+        {
+            if(reg.status==1)
+            {
+                fwrite(&reg,sizeof(data),1,fa);
+            }
+        }
+    }
+
+    fclose(doc);
+    fclose(fa);
 }
 
 int cont_reg(char name[])
